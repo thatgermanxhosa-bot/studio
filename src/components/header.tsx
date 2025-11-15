@@ -51,7 +51,7 @@ export default function Header() {
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="inline-block">
           <Image
-            src="/logo-white.png"
+            src="/logo.svg"
             alt="Pichulik Studios Logo"
             width={170}
             height={42}

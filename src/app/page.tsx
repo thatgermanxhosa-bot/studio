@@ -46,7 +46,7 @@ export default function Home() {
         <header className="w-full p-8 text-center md:text-left">
             <Link href="/" className="inline-block">
                 <Image
-                  src="/logo-white.png"
+                  src="/logo.svg"
                   alt="Pichulik Studios Logo"
                   width={243}
                   height={60}
