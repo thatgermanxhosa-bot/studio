@@ -7,7 +7,6 @@ import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { TikTokIcon } from '@/components/social-icons';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import Header from '@/components/header';
 
 export default function Home() {
   const router = useRouter();
@@ -37,15 +36,19 @@ export default function Home() {
         playsInline
         className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover z-0"
       >
-        <source src="/Pichulik-Studios-Webpage.mp4" type="video/map4" />
+        <source src="/Pichulik-Studios-Webpage.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="absolute inset-0 bg-black/70 z-10"></div>
       
-      <div className={`absolute inset-0 z-20 transition-opacity duration-1000 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
-        <Header />
+      <div className={`absolute inset-0 z-20 flex flex-col transition-opacity duration-1000 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
+        <header className="w-full p-8 text-center md:text-left">
+            <Link href="/" className="text-xl font-bold tracking-wider text-white">
+                PICHULIK STUDIOS
+            </Link>
+        </header>
 
-        <main className="flex flex-col items-center justify-center h-full text-center text-white px-6">
+        <main className="flex flex-col items-center justify-center flex-grow text-center text-white px-6">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-black uppercase tracking-wide">
               Make Stories That <i>Move</i>
@@ -61,7 +64,7 @@ export default function Home() {
           </div>
         </main>
 
-        <footer className="absolute bottom-8 left-0 w-full text-center text-gray-400">
+        <footer className="w-full p-8 text-center text-gray-400">
           <div className="flex justify-center gap-6 mb-4">
             <Link href="#" className="text-white hover:text-gray-300"><Facebook /></Link>
             <Link href="#" className="text-white hover:text-gray-300"><Instagram /></Link>
