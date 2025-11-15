@@ -10,39 +10,39 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-const baseNavLinks = [
+const navLinksData = [
   { href: "/", label: "HOME" },
+  { href: "/about", label: "ABOUT" },
   { href: "/our-work", label: "OUR WORK" },
-  { href: "/services", label: "SERVICES" },
   { href: "/clients", label: "CLIENTS" },
   { href: "/bookings", label: "BOOKINGS" },
   { href: "/quotation", label: "QUOTATION" },
   { href: "/contact", label: "CONTACT" },
 ];
 
-const allNavLinks = [
-  { href: "/", label: "HOME" },
-  { href: "/for-business", label: "FOR BUSINESS" },
-  { href: "/for-personal", label: "FOR PERSONAL" },
-  ...baseNavLinks.slice(1)
-];
 
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  let navLinks = allNavLinks;
+  const isLandingPage = pathname === '/';
 
-  if (pathname === "/for-business") {
-    navLinks = allNavLinks.filter(link => link.href !== "/for-personal");
-  } else if (pathname === "/for-personal") {
-    navLinks = allNavLinks.filter(link => link.href !== "/for-business");
-  } else if (pathname !== "/") {
-     navLinks = allNavLinks;
-  } else {
-    // on homepage, we might want a different set of links if it is a landing page
-    // for now, show all
-     navLinks = allNavLinks;
+  if (isLandingPage) {
+    return null; // Don't render header on the landing page
+  }
+
+  const navLinks = [
+    { href: "/", label: "HOME" },
+    { href: "/for-business", label: "FOR BUSINESS" },
+    { href: "/for-personal", label: "FOR PERSONAL" },
+    ...navLinksData.slice(1)
+  ];
+  
+  let displayedLinks = navLinks;
+  if (pathname.startsWith("/for-business")) {
+    displayedLinks = navLinks.filter(link => link.href !== "/for-personal");
+  } else if (pathname.startsWith("/for-personal")) {
+    displayedLinks = navLinks.filter(link => link.href !== "/for-business");
   }
 
 
@@ -53,7 +53,7 @@ export default function Header() {
           PICHULIK STUDIOS
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-bold">
-          {navLinks.map(({ href, label }) => (
+          {displayedLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
@@ -76,7 +76,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col space-y-6 pt-10">
-                {navLinks.map(({ href, label }) => (
+                {displayedLinks.map(({ href, label }) => (
                   <Link
                     key={href}
                     href={href}

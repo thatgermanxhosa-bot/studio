@@ -1,109 +1,118 @@
 
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Camera, CheckCircle2, Scissors, Video } from "lucide-react";
+import { Video, Camera, Scissors, Award, Users, FastForward } from "lucide-react";
 
 const services = [
   {
     icon: <Video className="size-8 text-primary" />,
-    title: "Videography",
-    description: "From corporate films to dynamic social content, we produce high-definition video that captures your story.",
+    title: "Video Production",
+    description: "Professional video content that tells your brand story and engages your audience.",
   },
   {
     icon: <Camera className="size-8 text-primary" />,
     title: "Photography",
-    description: "Product, lifestyle, and editorial photography that builds your brand's visual identity with striking imagery.",
+    description: "High-quality photography for products, events, and corporate needs.",
   },
   {
     icon: <Scissors className="size-8 text-primary" />,
     title: "Post-Production",
-    description: "Expert editing, color grading, and sound design to transform raw footage into a polished, final product.",
+    description: "Expert editing and post-production services to polish your content.",
+  },
+  {
+    icon: <Award className="size-8 text-primary" />,
+    title: "Graphics & Animation",
+    description: "Eye-catching graphics and animations for digital and print media.",
   },
 ];
 
-const partnershipPerks = [
-  { text: "Bespoke Strategies: Every project is unique. We develop tailored creative solutions that align perfectly with your goals." },
-  { text: "Uncompromising Quality: We combine high-end equipment with a meticulous attention to detail at every stage of production." },
-  { text: "Collaborative Process: We work *with* you, maintaining clear communication to ensure your vision is brought to life seamlessly." },
+const whyPartnerItems = [
+    {
+        icon: <Users className="size-8 mb-2 text-primary" />,
+        title: "B2B Focused",
+        description: "Specialized in creating content that drives business results"
+    },
+    {
+        icon: <Award className="size-8 mb-2 text-primary" />,
+        title: "Proven Experience",
+        description: "5+ years of delivering high-quality visual solutions"
+    },
+    {
+        icon: <FastForward className="size-8 mb-2 text-primary" />,
+        title: "Fast Turnaround",
+        description: "Efficient workflows to meet your project deadlines"
+    }
 ];
 
 export default function ForBusinessPage() {
-  const teamImage = PlaceHolderImages.find(p => p.id === 'team-in-action');
-
   return (
     <>
-      <section className="bg-card py-20 text-center">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-black uppercase">For Business</h1>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            We partner with brands to create compelling visual narratives that drive engagement and deliver results.
-          </p>
-        </div>
-      </section>
+      <main className="flex-grow">
+        <section className="py-10 md:py-20 bg-background text-foreground">
+            <div className="container mx-auto px-6">
+                <div className="grid lg:grid-cols-3 gap-16 items-start">
+                
+                    <div className="lg:col-span-2">
+                        <div className="mb-12">
+                            <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">We are a boutique video studio, delivering specialized creative for businesses.</h1>
+                            <p className="text-muted-foreground text-lg">
+                                As a dedicated team, we craft high-impact visual stories tailored to your unique goals. From compelling brand films for our B2B partners to capturing personal milestones for private clients, we provide a bespoke service from concept to final cut.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-4 border-b border-border">What We Do Best</h2>
+                            <div className="grid md:grid-cols-2 gap-6">
+                                {services.map((service) => (
+                                    <Card key={service.title} className="bg-card border-border/60 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
+                                        <CardHeader>
+                                            <CardTitle className="flex items-center gap-4">
+                                                {service.icon}
+                                                <span className="text-xl">{service.title}</span>
+                                            </CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <p className="text-muted-foreground">{service.description}</p>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="lg:sticky top-28">
+                        <Card className="bg-card border-border/60">
+                            <CardHeader>
+                                <CardTitle className="text-2xl">Why Partner With Us?</CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-6">
+                                {whyPartnerItems.map((item) => (
+                                    <div key={item.title}>
+                                        <h3 className="font-bold text-lg flex items-center gap-3">
+                                            {item.icon} {item.title}
+                                        </h3>
+                                        <p className="text-muted-foreground mt-1">{item.description}</p>
+                                    </div>
+                                ))}
+                            </CardContent>
+                        </Card>
+                    </div>
+                
+                </div>
 
-      <section className="py-20">
-        <div className="container">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Core Services</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <Card key={service.title} className="text-center border-border/60 hover:border-primary/80 transition-colors hover:bg-accent/20">
-                <CardHeader>
-                  <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">{service.icon}</div>
-                  <CardTitle className="text-2xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{service.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-card">
-        <div className="container grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Partner With Us?</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Choosing a creative partner is a decision about trust, vision, and execution. We don't just create content; we build relationships and deliver results.
-            </p>
-            <ul className="space-y-6">
-              {partnershipPerks.map((perk, index) => (
-                <li key={index} className="flex items-start gap-4">
-                  <CheckCircle2 className="size-6 text-primary mt-1 shrink-0" />
-                  <span className="text-muted-foreground">{perk.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          {teamImage && (
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
-              <Image 
-                src={teamImage.imageUrl} 
-                alt={teamImage.description} 
-                fill 
-                className="object-cover"
-                data-ai-hint={teamImage.imageHint}
-              />
+                <div className="mt-20 text-center bg-card p-8 md:p-12 rounded-lg">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Elevate Your Brand?</h2>
+                    <p className="max-w-2xl mx-auto text-muted-foreground text-lg mb-8">
+                        Let's discuss your video and photography needs. Get a personalised quote today.
+                    </p>
+                    <Button asChild size="lg" className="uppercase font-bold tracking-widest px-8">
+                        <Link href="/quotation">Get a Quote</Link>
+                    </Button>
+                </div>
             </div>
-          )}
-        </div>
-      </section>
-
-      <section className="py-24 text-center">
-        <div className="container">
-          <h2 className="text-3xl md:text-4xl font-bold">Ready to Elevate Your Brand?</h2>
-          <p className="mt-4 max-w-xl mx-auto text-lg text-muted-foreground mb-8">
-            Let's discuss your next project and how we can help you make stories that move.
-          </p>
-          <Button asChild size="lg" className="uppercase font-bold tracking-widest px-8">
-            <Link href="/quotation">Get a Quote</Link>
-          </Button>
-        </div>
-      </section>
+        </section>
+      </main>
     </>
   );
 }
