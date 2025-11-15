@@ -11,22 +11,7 @@ import Image from 'next/image';
 
 export default function Home() {
   const router = useRouter();
-  const [showContent, setShowContent] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-        router.push('/about');
-    }, 5000); 
-
-    const contentTimer = setTimeout(() => {
-        setShowContent(true);
-    }, 500);
-
-    return () => {
-        clearTimeout(timer);
-        clearTimeout(contentTimer);
-    };
-  }, [router]);
+  const [showContent, setShowContent] = useState(true);
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
