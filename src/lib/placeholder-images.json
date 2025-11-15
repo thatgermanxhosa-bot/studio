@@ -1,3 +1,70 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "team-in-action",
+      "description": "Our team in action",
+      "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwd29ya2luZ3xlbnwwfHx8fDE3NjMxNDk0MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team working"
+    },
+    {
+      "id": "project-1",
+      "description": "Project Title 1",
+      "imageUrl": "https://images.unsplash.com/photo-1595882669314-919b3d51f2c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmYXNoaW9uJTIwc2hvb3R8ZW58MHx8fHwxNzYzMjM5ODc1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fashion shoot"
+    },
+    {
+      "id": "project-2",
+      "description": "Project Title 2",
+      "imageUrl": "https://images.unsplash.com/photo-1552879948-16c32e175ae5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9kdWN0JTIwcGhvdG9ncmFwaHl8ZW58MHx8fHwxNzYzMTc3ODQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "product photography"
+    },
+    {
+      "id": "project-3",
+      "description": "Project Title 3",
+      "imageUrl": "https://images.unsplash.com/photo-1548061220-b04df30a2b6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb3Jwb3JhdGUlMjB2aWRlb3xlbnwwfHx8fDE3NjMyMjk1MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "corporate video"
+    },
+    {
+      "id": "project-4",
+      "description": "Project Title 4",
+      "imageUrl": "https://images.unsplash.com/photo-1632670535523-161b063d84e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkb2N1bWVudGFyeSUyMGZpbG18ZW58MHx8fHwxNzYzMjA3OTY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "documentary film"
+    },
+    {
+      "id": "project-5",
+      "description": "Project Title 5",
+      "imageUrl": "https://images.unsplash.com/photo-1758947651495-24e194e47c3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZXZlbnQlMjBjb3ZlcmFnZXxlbnwwfHx8fDE3NjMyNDg4NDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "event coverage"
+    },
+    {
+      "id": "project-6",
+      "description": "Project Title 6",
+      "imageUrl": "https://images.unsplash.com/photo-1624031993438-ff5daf2ea2b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsaWZlc3R5bGUlMjBwaG90b2dyYXBoeXxlbnwwfHx8fDE3NjMyNDg4NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lifestyle photography"
+    },
+    {
+      "id": "videography-showcase",
+      "description": "Videography Showcase",
+      "imageUrl": "https://images.unsplash.com/photo-1593704212686-6d52058fb516?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjYW1lcmElMjBsZW5zfGVufDB8fHx8MTc2MzE2MDM3NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "camera lens"
+    },
+    {
+      "id": "photography-showcase",
+      "description": "Photography Showcase",
+      "imageUrl": "https://images.unsplash.com/photo-1601854266103-c1dd42130633?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx2aW50YWdlJTIwY2FtZXJhfGVufDB8fHx8MTc2MzE4NzQzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vintage camera"
+    },
+    {
+      "id": "post-production-showcase",
+      "description": "Post-Production Showcase",
+      "imageUrl": "https://images.unsplash.com/photo-1695218716405-5b813000e994?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlZGl0aW5nJTIwc29mdHdhcmV8ZW58MHx8fHwxNzYzMjQ4ODQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "editing software"
+    },
+    {
+      "id": "styling-showcase",
+      "description": "Styling Showcase",
+      "imageUrl": "https://images.unsplash.com/photo-1557777586-f6682739fcf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmYXNoaW9uJTIwc3R5bGluZ3xlbnwwfHx8fDE3NjMyNDg4NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fashion styling"
+    }
+  ]
 }
