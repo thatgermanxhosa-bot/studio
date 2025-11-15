@@ -55,7 +55,6 @@ export default function Header() {
             alt="Pichulik Studios Logo"
             width={170}
             height={42}
-            className="filter invert"
           />
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-bold">
