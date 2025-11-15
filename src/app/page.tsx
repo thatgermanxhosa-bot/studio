@@ -7,6 +7,7 @@ import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { TikTokIcon } from '@/components/social-icons';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
   const router = useRouter();
@@ -43,8 +44,14 @@ export default function Home() {
       
       <div className={`absolute inset-0 z-20 flex flex-col transition-opacity duration-1000 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
         <header className="w-full p-8 text-center md:text-left">
-            <Link href="/" className="text-xl font-bold tracking-wider text-white">
-                PICHULIK STUDIOS
+            <Link href="/" className="inline-block">
+                <Image
+                  src="/logo-white.svg"
+                  alt="Pichulik Studios Logo"
+                  width={243}
+                  height={60}
+                  priority
+                />
             </Link>
         </header>
 

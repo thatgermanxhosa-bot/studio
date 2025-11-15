@@ -5,13 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navLinksData = [
-  { href: "/", label: "HOME" },
   { href: "/about", label: "ABOUT" },
   { href: "/our-work", label: "OUR WORK" },
   { href: "/clients", label: "CLIENTS" },
@@ -35,7 +35,7 @@ export default function Header() {
     { href: "/", label: "HOME" },
     { href: "/for-business", label: "FOR BUSINESS" },
     { href: "/for-personal", label: "FOR PERSONAL" },
-    ...navLinksData.slice(1)
+    ...navLinksData
   ];
   
   let displayedLinks = navLinks;
@@ -48,9 +48,15 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="text-lg font-bold tracking-wider">
-          PICHULIK STUDIOS
+      <div className="container flex h-20 items-center justify-between">
+        <Link href="/" className="inline-block">
+          <Image
+            src="/logo-white.svg"
+            alt="Pichulik Studios Logo"
+            width={170}
+            height={42}
+            className="filter invert-0 dark:invert"
+          />
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-bold">
           {displayedLinks.map(({ href, label }) => (
