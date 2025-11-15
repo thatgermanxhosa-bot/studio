@@ -51,11 +51,11 @@ export default function Header() {
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="inline-block">
           <Image
-            src="/logo-white.svg"
+            src="/logo-white.png"
             alt="Pichulik Studios Logo"
             width={170}
             height={42}
-            className="filter invert-0 dark:invert"
+            className="filter invert"
           />
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-bold">
