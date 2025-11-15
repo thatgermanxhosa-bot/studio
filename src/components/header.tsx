@@ -49,13 +49,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-black">
       <div className="container flex h-20 items-center justify-between">
-        <Link href="/" className="inline-block">
-          <Image
-            src="/logo.png"
-            alt="Pichulik Studios Logo"
-            width={170}
-            height={42}
-          />
+        <Link href="/" className="text-xl font-bold text-white tracking-widest">
+          PICHULIK STUDIOS
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-bold">
           {displayedLinks.map(({ href, label }) => (
@@ -63,8 +58,8 @@ export default function Header() {
               key={href}
               href={href}
               className={cn(
-                "transition-colors hover:text-foreground/80",
-                pathname === href ? "text-foreground" : "text-foreground/60"
+                "transition-colors hover:text-white/80",
+                pathname === href ? "text-white" : "text-white/60"
               )}
             >
               {label}
@@ -74,7 +69,7 @@ export default function Header() {
         <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="text-white hover:text-white/80 hover:bg-transparent">
                 <Menu className="size-6" />
                 <span className="sr-only">Open menu</span>
               </Button>

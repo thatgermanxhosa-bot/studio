@@ -10,7 +10,7 @@ export default function MainLayout({
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
-      <main className="flex-grow">{children}</main>
+      <main className="flex-grow bg-black text-white">{children}</main>
       <Footer />
     </div>
   );

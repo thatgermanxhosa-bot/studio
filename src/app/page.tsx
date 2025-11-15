@@ -44,14 +44,8 @@ export default function Home() {
       
       <div className={`absolute inset-0 z-20 flex flex-col transition-opacity duration-1000 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
         <header className="w-full p-8 text-center md:text-left">
-            <Link href="/" className="inline-block">
-                <Image
-                  src="/logo.png"
-                  alt="Pichulik Studios Logo"
-                  width={243}
-                  height={60}
-                  priority
-                />
+            <Link href="/" className="text-2xl font-bold text-white tracking-widest">
+                PICHULIK STUDIOS
             </Link>
         </header>
 
