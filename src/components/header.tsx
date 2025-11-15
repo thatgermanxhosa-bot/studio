@@ -10,10 +10,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-const navLinks = [
+const baseNavLinks = [
   { href: "/", label: "HOME" },
-  { href: "/for-business", label: "FOR BUSINESS" },
-  { href: "/for-personal", label: "FOR PERSONAL" },
   { href: "/our-work", label: "OUR WORK" },
   { href: "/services", label: "SERVICES" },
   { href: "/clients", label: "CLIENTS" },
@@ -22,9 +20,31 @@ const navLinks = [
   { href: "/contact", label: "CONTACT" },
 ];
 
+const allNavLinks = [
+  { href: "/", label: "HOME" },
+  { href: "/for-business", label: "FOR BUSINESS" },
+  { href: "/for-personal", label: "FOR PERSONAL" },
+  ...baseNavLinks.slice(1)
+];
+
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  let navLinks = allNavLinks;
+
+  if (pathname === "/for-business") {
+    navLinks = allNavLinks.filter(link => link.href !== "/for-personal");
+  } else if (pathname === "/for-personal") {
+    navLinks = allNavLinks.filter(link => link.href !== "/for-business");
+  } else if (pathname !== "/") {
+     navLinks = allNavLinks;
+  } else {
+    // on homepage, we might want a different set of links if it is a landing page
+    // for now, show all
+     navLinks = allNavLinks;
+  }
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
