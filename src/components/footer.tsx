@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border/40 bg-black/80 text-muted-foreground">
       <div className="container py-8 text-center">
-        <p>&copy; {new Date().getFullYear()} PICHULIK STUDIOS. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Pichulik Studios. All rights reserved.</p>
         <div className="mt-4 flex justify-center gap-4">
           <Link href="https://facebook.com/pichulikstudios" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
             <Image src="/FB%20Logo.png" alt="Facebook" width={20} height={20} />
