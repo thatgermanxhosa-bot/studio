@@ -23,13 +23,13 @@ export default function Home() {
       <div className="absolute inset-0 bg-black/70 z-10"></div>
       
       <div className="absolute inset-0 z-20 flex flex-col transition-opacity duration-1000 opacity-100">
-        <header className="w-full p-8 text-center md:text-left">
+        <header className="w-full p-4 text-center md:text-left">
           <Link href="/" className="inline-block">
             <Image 
               src="/2.png" 
               alt="Pichulik Studios Logo" 
-              width={300} 
-              height={60}
+              width={450} 
+              height={90}
               className="h-auto"
               priority
             />

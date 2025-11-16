@@ -54,13 +54,13 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-black">
-      <div className="container flex h-20 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold text-white tracking-widest">
           <Image 
             src="/2.png" 
             alt="Pichulik Studios Logo" 
-            width={300} 
-            height={60}
+            width={450} 
+            height={90}
             className="h-auto"
           />
         </Link>
