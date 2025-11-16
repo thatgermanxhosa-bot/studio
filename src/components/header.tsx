@@ -59,8 +59,8 @@ export default function Header() {
           <Image 
             src="/PS%20Logo.png" 
             alt="Pichulik Studios Logo" 
-            width={450} 
-            height={90}
+            width={225} 
+            height={45}
             className="h-auto"
           />
         </Link>
