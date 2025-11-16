@@ -84,7 +84,7 @@ export default function AboutUsPage() {
                     src="/Pichulik_Studios_Banner).jpg"
                     alt="Pichulik Studios Banner"
                     fill
-                    className="object-contain opacity-40"
+                    className="object-cover opacity-40"
                     data-ai-hint="team working"
                 />
                  <div className="absolute inset-0 bg-black/50"></div>
