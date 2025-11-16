@@ -66,7 +66,9 @@ export default function Home() {
             <Link href="#" className="text-white hover:text-gray-300">
               <Image src="/TT%20Logo.png" alt="Tiktok" width={24} height={24} />
             </Link>
-            <Link href="#" className="text-white hovertext-gray-300"><Linkedin /></Link>
+            <Link href="#" className="text-white hover:text-gray-300">
+              <Image src="/LI%20Logo.png" alt="LinkedIn" width={24} height={24} />
+            </Link>
           </div>
           <p className="text-sm">&copy; {new Date().getFullYear()} Pichulik Studios. All rights reserved.</p>
         </footer>
@@ -74,5 +76,6 @@ export default function Home() {
     </div>
   );
 }
+
 
 

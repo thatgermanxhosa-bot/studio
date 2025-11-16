@@ -18,7 +18,9 @@ export default function Footer() {
           <Link href="#" className="hover:text-foreground transition-colors">
             <Image src="/TT%20Logo.png" alt="Tiktok" width={20} height={20} />
           </Link>
-          <Link href="#" className="hover:text-foreground transition-colors"><Linkedin className="size-5" /></Link>
+          <Link href="#" className="hover:text-foreground transition-colors">
+            <Image src="/LI%20Logo.png" alt="LinkedIn" width={20} height={20} />
+          </Link>
         </div>
       </div>
     </footer>
