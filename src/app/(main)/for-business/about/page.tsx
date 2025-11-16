@@ -45,6 +45,34 @@ const whyPartnerItems = [
     }
 ];
 
+const partnershipProcess = [
+  {
+    step: "01",
+    title: "Discovery",
+    description: "We begin with a deep dive into your goals, audience, and key message. This is the strategic foundation for the entire project."
+  },
+  {
+    step: "02",
+    title: "Pre-Production",
+    description: "This is the blueprint for success. We handle all the planning, from scripting and storyboarding to location scouting and scheduling."
+  },
+  {
+    step: "03",
+    title: "Production",
+    description: "Our professional crew brings the approved concept to life, capturing all the visual and audio elements with creative and technical excellence."
+  },
+  {
+    step: "04",
+    title: "Post-Production",
+    description: "This is where the story comes together. Our editors craft the narrative, complete with expert color grading, sound design, and motion graphics."
+  },
+  {
+    step: "05",
+    title: "Review & Delivery",
+    description: "We present the final cut for your approval, make any revisions, and deliver the final, high-impact assets in all the formats you need."
+  }
+];
+
 export default function AboutUsPage() {
   return (
     <>
@@ -105,6 +133,30 @@ export default function AboutUsPage() {
                         </Card>
                     </div>
                 
+                </div>
+
+                <div className="mt-20 border-t border-border pt-16">
+                  <div className="grid lg:grid-cols-3 gap-12">
+                      <div className="lg:col-span-1">
+                          <h2 className="text-3xl font-bold">Our Partnership Process</h2>
+                          <p className="mt-4 text-lg text-muted-foreground">
+                            We manage every detail, from initial strategy to final delivery, so you can focus on the results.
+                          </p>
+                      </div>
+                      <div className="lg:col-span-2">
+                          <div className="space-y-10">
+                              {partnershipProcess.map((item) => (
+                                <div key={item.step} className="flex gap-6">
+                                  <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
+                                  <div>
+                                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                                    <p className="text-muted-foreground">{item.description}</p>
+                                  </div>
+                                </div>
+                              ))}
+                          </div>
+                      </div>
+                  </div>
                 </div>
 
                 <div className="mt-20 text-center bg-card p-8 md:p-12 rounded-lg">
