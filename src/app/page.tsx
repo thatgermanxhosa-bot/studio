@@ -26,7 +26,7 @@ export default function Home() {
         <header className="w-full p-4 text-center md:text-left">
           <Link href="/" className="inline-block">
             <Image 
-              src="/2.png" 
+              src="/PS%20Logo.png" 
               alt="Pichulik Studios Logo" 
               width={450} 
               height={90}
