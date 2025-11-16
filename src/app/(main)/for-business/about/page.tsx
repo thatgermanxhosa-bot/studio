@@ -91,7 +91,7 @@ export default function AboutUsPage() {
             </div>
             <div className="container relative z-10 mx-auto px-6 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">We Translate Business Goals into Compelling Visual Stories.</h1>
-                <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto mb-8">
+                <p className="text-lg md:text-xl text-white/90 max-w-5xl mx-auto mb-8">
                     We are a boutique video studio built for one purpose: to help your business connect, engage, and grow. In today's market, "good enough" content gets ignored. We founded our studio on the belief that B2B creative shouldn't be boring. It should be strategic, beautiful, and built to achieve a goal.
                 </p>
                 <p className="text-muted-foreground text-lg max-w-5xl mx-auto text-center text-white/80">
@@ -102,30 +102,27 @@ export default function AboutUsPage() {
 
         <section className="py-10 md:py-20 bg-background text-foreground">
             <div className="container mx-auto px-6">
-                <div className="grid lg:grid-cols-3 gap-16 items-start">
-                
-                    <div className="lg:col-span-2">
-                        <div>
-                            <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-4 border-b border-border">What We Do Best</h2>
-                            <div className="grid md:grid-cols-2 gap-6">
-                                {services.map((service) => (
-                                    <Card key={service.title} className="bg-card border-border/60 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
-                                        <CardHeader>
-                                            <CardTitle className="flex items-center gap-4">
-                                                {service.icon}
-                                                <span className="text-xl">{service.title}</span>
-                                            </CardTitle>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <p className="text-muted-foreground">{service.description}</p>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
+                <div className="max-w-4xl mx-auto">
+                    <div>
+                        <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-4 border-b border-border">What We Do Best</h2>
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {services.map((service) => (
+                                <Card key={service.title} className="bg-card border-border/60 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
+                                    <CardHeader>
+                                        <CardTitle className="flex items-center gap-4">
+                                            {service.icon}
+                                            <span className="text-xl">{service.title}</span>
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <p className="text-muted-foreground">{service.description}</p>
+                                    </CardContent>
+                                </Card>
+                            ))}
                         </div>
                     </div>
-                    
-                    <div className="lg:sticky top-28">
+
+                    <div className="mt-16">
                         <Card className="bg-card border-border/60">
                             <CardHeader>
                                 <CardTitle className="text-2xl">Why Partner With Us?</CardTitle>
@@ -142,7 +139,6 @@ export default function AboutUsPage() {
                             </CardContent>
                         </Card>
                     </div>
-                
                 </div>
 
                 <div className="mt-20 border-t border-border pt-16">
