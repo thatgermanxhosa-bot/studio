@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -11,7 +10,7 @@ export default function Home() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <video
-        src="/Pichulik-Studios-Webpage.mp4"
+        src="/Pichulik%20Studios%20Webpage.mp4"
         autoPlay
         loop
         muted
@@ -42,7 +41,7 @@ export default function Home() {
               Make Stories That <i>Move</i>
             </h1>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/for-business/about" passHref>
+              <Link href="/for-business" passHref>
                 <Button size="lg" className="bg-white text-black hover:bg-transparent hover:text-white hover:border-white border-2 border-transparent transition-all duration-300 transform hover:scale-105 uppercase px-10 py-6 font-bold tracking-widest">
                   For Business
                 </Button>
