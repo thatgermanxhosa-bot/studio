@@ -55,8 +55,8 @@ export default function Home() {
           </div>
         </main>
 
-        <footer className="w-full p-8 text-center text-gray-400">
-          <div className="flex justify-center gap-6 mb-4">
+        <footer className="relative w-full p-8 text-center text-gray-400 bg-gradient-to-t from-black/50 to-transparent">
+          <div className="flex justify-center gap-4 mb-4">
             <Link href="#" className="text-white hover:text-gray-300">
               <Image src="/FB%20Logo.png" alt="Facebook" width={24} height={24} />
             </Link>
@@ -76,6 +76,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-
