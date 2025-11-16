@@ -91,20 +91,17 @@ export default function AboutUsPage() {
             </div>
             <div className="container relative z-10 mx-auto px-6 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">We Translate Business Goals into Compelling Visual Stories.</h1>
-                <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto">
+                <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto mb-8">
                     We are a boutique video studio built for one purpose: to help your business connect, engage, and grow. In today's market, "good enough" content gets ignored. We founded our studio on the belief that B2B creative shouldn't be boring. It should be strategic, beautiful, and built to achieve a goal.
+                </p>
+                <p className="text-muted-foreground text-lg max-w-5xl mx-auto text-center text-white/80">
+                    We are a dedicated, hands-on team of directors, editors, and artists. We partner with brands to provide a bespoke service, from the initial strategic brief to the final polished cut. Whether you need a powerful brand film, a clear product showcase, or engaging content for your next campaign, we are your creative partner.
                 </p>
             </div>
         </section>
 
         <section className="py-10 md:py-20 bg-background text-foreground">
             <div className="container mx-auto px-6">
-                <div className="mb-12">
-                    <p className="text-muted-foreground text-lg max-w-5xl mx-auto text-center">
-                        We are a dedicated, hands-on team of directors, editors, and artists. We partner with brands to provide a bespoke service, from the initial strategic brief to the final polished cut. Whether you need a powerful brand film, a clear product showcase, or engaging content for your next campaign, we are your creative partner.
-                    </p>
-                </div>
-
                 <div className="grid lg:grid-cols-3 gap-16 items-start">
                 
                     <div className="lg:col-span-2">
