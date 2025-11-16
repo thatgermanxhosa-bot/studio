@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Video, Camera, Scissors, Award, Users, FastForward } from "lucide-react";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const services = [
   {
@@ -76,8 +75,6 @@ const partnershipProcess = [
 ];
 
 export default function AboutUsPage() {
-  const teamImage = PlaceHolderImages.find(p => p.id === 'team-in-action');
-
   return (
     <>
       <main className="flex-grow">
@@ -90,17 +87,15 @@ export default function AboutUsPage() {
                     </p>
                 </div>
                 
-                {teamImage && (
-                    <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg mb-16">
-                        <Image
-                            src={teamImage.imageUrl}
-                            alt={teamImage.description}
-                            fill
-                            className="object-cover"
-                            data-ai-hint={teamImage.imageHint}
-                        />
-                    </div>
-                )}
+                <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg mb-16">
+                    <Image
+                        src="/Pichulik_Studios_Banner.jpg"
+                        alt="Pichulik Studios Banner"
+                        fill
+                        className="object-cover"
+                        data-ai-hint="team working"
+                    />
+                </div>
 
 
                 <div className="grid lg:grid-cols-3 gap-16 items-start">
