@@ -32,16 +32,16 @@ export default function Header() {
 
   const navLinks = [
     { href: "/", label: "HOME" },
-    { href: "/about", label: "ABOUT US" },
+    { href: "/about-us", label: "ABOUT US" },
     { href: "/for-personal", label: "FOR PERSONAL" },
     ...navLinksData
   ];
   
   let displayedLinks = navLinks;
-  if (pathname.startsWith("/about")) {
+  if (pathname.startsWith("/about-us")) {
     displayedLinks = navLinks.filter(link => link.href !== "/for-personal");
   } else if (pathname.startsWith("/for-personal")) {
-    displayedLinks = navLinks.filter(link => link.href !== "/about");
+    displayedLinks = navLinks.filter(link => link.href !== "/about-us");
   }
 
 
