@@ -57,7 +57,7 @@ export default function Header() {
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold text-white tracking-widest">
           <Image 
-            src="/logo.png" 
+            src="/2.png" 
             alt="Pichulik Studios Logo" 
             width={200} 
             height={40}

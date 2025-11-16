@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -25,7 +26,7 @@ export default function Home() {
         <header className="w-full p-8 text-center md:text-left">
           <Link href="/" className="inline-block">
             <Image 
-              src="/logo.png" 
+              src="/2.png" 
               alt="Pichulik Studios Logo" 
               width={200} 
               height={40}
