@@ -42,12 +42,16 @@ export default function Home() {
               Make Stories That <i>Move</i>
             </h1>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild size="lg" className="bg-white text-black hover:bg-transparent hover:text-white hover:border-white border-2 border-transparent transition-all duration-300 transform hover:scale-105 uppercase px-10 py-6 font-bold tracking-widest">
-                <Link href="/about-us">For Business</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="bg-transparent text-white border-white hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 uppercase px-10 py-6 font-bold tracking-widest">
-                <Link href="/for-personal">For Personal</Link>
-              </Button>
+              <Link href="/about-us" passHref>
+                <Button size="lg" className="bg-white text-black hover:bg-transparent hover:text-white hover:border-white border-2 border-transparent transition-all duration-300 transform hover:scale-105 uppercase px-10 py-6 font-bold tracking-widest">
+                  For Business
+                </Button>
+              </Link>
+              <Link href="/for-personal" passHref>
+                <Button variant="outline" size="lg" className="bg-transparent text-white border-white hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 uppercase px-10 py-6 font-bold tracking-widest">
+                  For Personal
+                </Button>
+              </Link>
             </div>
           </div>
         </main>
