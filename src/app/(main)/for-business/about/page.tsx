@@ -1,8 +1,10 @@
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Video, Camera, Scissors, Award, Users, FastForward } from "lucide-react";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const services = [
   {
@@ -74,27 +76,43 @@ const partnershipProcess = [
 ];
 
 export default function AboutUsPage() {
+  const teamImage = PlaceHolderImages.find(p => p.id === 'team-in-action');
+
   return (
     <>
       <main className="flex-grow">
         <section className="py-10 md:py-20 bg-background text-foreground">
             <div className="container mx-auto px-6">
+                <div className="mb-16 grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">We Translate Business Goals into Compelling Visual Stories.</h1>
+                        <p className="text-muted-foreground text-lg mb-4">
+                            We are a boutique video studio built for one purpose: to help your business connect, engage, and grow.
+                        </p>
+                         <p className="text-muted-foreground text-lg mb-4">
+                            In today's market, "good enough" content gets ignored. We founded our studio on the belief that B2B creative shouldn't be boring. It should be strategic, beautiful, and built to achieve a goal.
+                        </p>
+                         <p className="text-muted-foreground text-lg">
+                            We are a dedicated, hands-on team of directors, editors, and artists. We partner with brands to provide a bespoke service, from the initial strategic brief to the final polished cut. Whether you need a powerful brand film, a clear product showcase, or engaging content for your next campaign, we are your creative partner.
+                        </p>
+                    </div>
+                    {teamImage && (
+                        <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+                            <Image
+                                src={teamImage.imageUrl}
+                                alt={teamImage.description}
+                                fill
+                                className="object-cover"
+                                data-ai-hint={teamImage.imageHint}
+                            />
+                        </div>
+                    )}
+                </div>
+
+
                 <div className="grid lg:grid-cols-3 gap-16 items-start">
                 
                     <div className="lg:col-span-2">
-                        <div className="mb-12">
-                            <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">We Translate Business Goals into Compelling Visual Stories.</h1>
-                            <p className="text-muted-foreground text-lg mb-4">
-                                We are a boutique video studio built for one purpose: to help your business connect, engage, and grow.
-                            </p>
-                             <p className="text-muted-foreground text-lg mb-4">
-                                In today's market, "good enough" content gets ignored. We founded our studio on the belief that B2B creative shouldn't be boring. It should be strategic, beautiful, and built to achieve a goal.
-                            </p>
-                             <p className="text-muted-foreground text-lg">
-                                We are a dedicated, hands-on team of directors, editors, and artists. We partner with brands to provide a bespoke service, from the initial strategic brief to the final polished cut. Whether you need a powerful brand film, a clear product showcase, or engaging content for your next campaign, we are your creative partner.
-                            </p>
-                        </div>
-                        
                         <div>
                             <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-4 border-b border-border">What We Do Best</h2>
                             <div className="grid md:grid-cols-2 gap-6">
