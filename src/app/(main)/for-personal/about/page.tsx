@@ -45,7 +45,7 @@ const whyPartnerItems = [
     }
 ];
 
-export default function ForPersonalPage() {
+export default function AboutUsPage() {
   return (
     <>
       <main className="flex-grow">

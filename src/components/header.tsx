@@ -15,7 +15,6 @@ const defaultLinks = [
   { href: "/", label: "HOME" },
   { href: "/for-business", label: "FOR BUSINESS" },
   { href: "/for-personal", label: "FOR PERSONAL" },
-  { href: "/bookings", label: "BOOKINGS" },
 ];
 
 const forBusinessLinks = [
@@ -24,6 +23,14 @@ const forBusinessLinks = [
   { href: "/for-business/our-work", label: "OUR WORK" },
   { href: "/for-business/quotation", label: "QUOTATION" },
   { href: "/for-business/contact", label: "CONTACT" },
+];
+
+const forPersonalLinks = [
+  { href: "/", label: "HOME" },
+  { href: "/for-personal/about", label: "ABOUT" },
+  { href: "/for-personal/our-work", label: "OUR WORK" },
+  { href: "/for-personal/bookings", label: "BOOKINGS" },
+  { href: "/for-personal/contact", label: "CONTACT" },
 ];
 
 
@@ -41,8 +48,7 @@ export default function Header() {
   if (pathname.startsWith("/for-business")) {
     displayedLinks = forBusinessLinks;
   } else if (pathname.startsWith("/for-personal")) {
-    // Keep this logic for when for-personal section is built out
-    displayedLinks = defaultLinks.filter(link => link.href !== "/for-business");
+    displayedLinks = forPersonalLinks;
   }
 
 
