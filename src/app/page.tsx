@@ -37,7 +37,7 @@ export default function Home() {
 
         <main className="flex flex-col items-center justify-center flex-grow text-center text-white px-6">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-wide">
+            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-wide animate-fade-in-up">
               Make Stories That <i>Move</i>
             </h1>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
