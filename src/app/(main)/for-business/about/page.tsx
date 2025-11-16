@@ -89,7 +89,7 @@ export default function AboutUsPage() {
                 
                 <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg mb-16">
                     <Image
-                        src="/Pichulik_Studios_Banner.jpg"
+                        src="/Pichulik_Studios_Banner).jpg"
                         alt="Pichulik Studios Banner"
                         fill
                         className="object-cover"
