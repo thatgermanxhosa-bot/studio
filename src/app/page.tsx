@@ -43,7 +43,7 @@ export default function Home() {
             </h1>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg" className="bg-white text-black hover:bg-transparent hover:text-white hover:border-white border-2 border-transparent transition-all duration-300 transform hover:scale-105 uppercase px-10 py-6 font-bold tracking-widest">
-                <Link href="/for-business">For Business</Link>
+                <Link href="/about">About Us</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="bg-transparent text-white border-white hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 uppercase px-10 py-6 font-bold tracking-widest">
                 <Link href="/for-personal">For Personal</Link>

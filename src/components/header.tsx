@@ -32,24 +32,30 @@ export default function Header() {
 
   const navLinks = [
     { href: "/", label: "HOME" },
-    { href: "/for-business", label: "FOR BUSINESS" },
+    { href: "/about", label: "ABOUT US" },
     { href: "/for-personal", label: "FOR PERSONAL" },
     ...navLinksData
   ];
   
   let displayedLinks = navLinks;
-  if (pathname.startsWith("/for-business")) {
+  if (pathname.startsWith("/about")) {
     displayedLinks = navLinks.filter(link => link.href !== "/for-personal");
   } else if (pathname.startsWith("/for-personal")) {
-    displayedLinks = navLinks.filter(link => link.href !== "/for-business");
+    displayedLinks = navLinks.filter(link => link.href !== "/about");
   }
 
 
   return (
     <header className="sticky top-0 z-50 w-full bg-black">
       <div className="container flex h-20 items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-white tracking-widest">
-          PICHULIK STUDIOS
+        <Link href="/" className="flex items-center gap-2 text-xl font-bold text-white tracking-widest">
+          <Image 
+            src="/logo.png" 
+            alt="Pichulik Studios Logo" 
+            width={200} 
+            height={40}
+            className="h-auto"
+          />
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-bold">
           {displayedLinks.map(({ href, label }) => (
