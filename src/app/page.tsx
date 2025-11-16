@@ -4,7 +4,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Linkedin } from 'lucide-react';
-import { TikTokIcon } from '@/components/social-icons';
 import Image from 'next/image';
 
 export default function Home() {
@@ -64,7 +63,9 @@ export default function Home() {
             <Link href="#" className="text-white hover:text-gray-300">
               <Image src="/IG%20Logo.png" alt="Instagram" width={24} height={24} />
             </Link>
-            <Link href="#" className="text-white hover:text-gray-300"><TikTokIcon className="size-6" /></Link>
+            <Link href="#" className="text-white hover:text-gray-300">
+              <Image src="/TT%20Logo.png" alt="Tiktok" width={24} height={24} />
+            </Link>
             <Link href="#" className="text-white hovertext-gray-300"><Linkedin /></Link>
           </div>
           <p className="text-sm">&copy; {new Date().getFullYear()} Pichulik Studios. All rights reserved.</p>
@@ -73,4 +74,5 @@ export default function Home() {
     </div>
   );
 }
+
 
