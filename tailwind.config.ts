@@ -112,7 +112,27 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-up': 'fade-in-up 1s ease-out forwards',
       },
+      animationDelay: {
+        '200': '200ms',
+        '400': '400ms',
+        '600': '600ms',
+        '800': '800ms',
+        '1000': '1000ms',
+      }
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    function ({ addUtilities, theme }: { addUtilities: any, theme: any }) {
+      const newUtilities: { [key: string]: any } = {};
+      const animationDelay = theme('animationDelay');
+      Object.entries(animationDelay).forEach(([key, value]) => {
+        newUtilities[`.animation-delay-${key}`] = {
+          'animation-delay': value,
+          'animation-fill-mode': 'both'
+        };
+      });
+      addUtilities(newUtilities);
+    }
+  ],
 } satisfies Config;

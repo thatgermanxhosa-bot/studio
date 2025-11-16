@@ -40,14 +40,14 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl font-black uppercase tracking-wide animate-fade-in-up">
               Make Stories That <i>Move</i>
             </h1>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-1000">
               <Link href="/for-business" passHref>
                 <Button size="lg" className="bg-white text-black hover:bg-transparent hover:text-white hover:border-white border-2 border-transparent transition-all duration-300 transform hover:scale-105 uppercase px-10 py-6 font-bold tracking-widest">
                   For Business
                 </Button>
               </Link>
               <Link href="/for-personal" passHref>
-                <Button variant="outline" size="lg" className="bg-transparent text-white border-white hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 uppercase px-10 py-6 font-bold tracking-widest">
+                <Button variant="outline" size="lg" className="bg-transparent text-white border-white hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 uppercase px-10 py-6 font-bold tracking-widest animation-delay-200">
                   For Personal
                 </Button>
               </Link>
