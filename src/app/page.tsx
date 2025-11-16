@@ -28,8 +28,8 @@ export default function Home() {
             <Image 
               src="/2.png" 
               alt="Pichulik Studios Logo" 
-              width={200} 
-              height={40}
+              width={300} 
+              height={60}
               className="h-auto"
               priority
             />
