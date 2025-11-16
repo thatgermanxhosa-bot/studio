@@ -62,7 +62,7 @@ export default function Home() {
             <Link href="#" className="text-white hover:text-gray-300"><Facebook /></Link>
             <Link href="#" className="text-white hover:text-gray-300"><Instagram /></Link>
             <Link href="#" className="text-white hover:text-gray-300"><TikTokIcon className="size-6" /></Link>
-            <Link href="#" className="text-white hover:text-gray-300"><Linkedin /></Link>
+            <Link href="#" className="text-white hovertext-gray-300"><Linkedin /></Link>
           </div>
           <p className="text-sm">&copy; {new Date().getFullYear()} Pichulik Studios. All rights reserved.</p>
         </footer>
