@@ -9,17 +9,17 @@ export default function Footer() {
       <div className="container py-8 text-center">
         <p>&copy; {new Date().getFullYear()} PICHULIK STUDIOS. All rights reserved.</p>
         <div className="mt-4 flex justify-center gap-4">
-          <Link href="#" className="hover:text-foreground transition-colors">
+          <Link href="https://facebook.com/pichulikstudios" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
             <Image src="/FB%20Logo.png" alt="Facebook" width={20} height={20} />
           </Link>
-          <Link href="#" className="hover:text-foreground transition-colors">
+          <Link href="https://instagram.com/pichulikstudios/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
             <Image src="/IG%20Logo.png" alt="Instagram" width={20} height={20} />
           </Link>
-          <Link href="#" className="hover:text-foreground transition-colors">
+          <Link href="https://tiktok.com/@pichulikstudios" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
             <Image src="/TT%20Logo.png" alt="Tiktok" width={20} height={20} />
           </Link>
-          <Link href="#" className="hover:text-foreground transition-colors">
-            <Image src="/LI%<20Logo.png" alt="LinkedIn" width={20} height={20} />
+          <Link href="https://linkedin.com/company/pichulik-studios/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+            <Image src="/LI%20Logo.png" alt="LinkedIn" width={20} height={20} />
           </Link>
         </div>
       </div>

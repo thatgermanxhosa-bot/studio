@@ -56,16 +56,16 @@ export default function Home() {
 
         <footer className="relative w-full p-8 text-center text-gray-400 bg-gradient-to-t from-black/50 to-transparent">
           <div className="flex justify-center gap-4 mb-4">
-            <Link href="#" className="text-white hover:text-gray-300">
+            <Link href="https://facebook.com/pichulikstudios" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300">
               <Image src="/FB%20Logo.png" alt="Facebook" width={24} height={24} />
             </Link>
-            <Link href="#" className="text-white hover:text-gray-300">
+            <Link href="https://instagram.com/pichulikstudios/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300">
               <Image src="/IG%20Logo.png" alt="Instagram" width={24} height={24} />
             </Link>
-            <Link href="#" className="text-white hover:text-gray-300">
+            <Link href="https://tiktok.com/@pichulikstudios" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300">
               <Image src="/TT%20Logo.png" alt="Tiktok" width={24} height={24} />
             </Link>
-            <Link href="#" className="text-white hover:text-gray-300">
+            <Link href="https://linkedin.com/company/pichulik-studios/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300">
               <Image src="/LI%20Logo.png" alt="LinkedIn" width={24} height={24} />
             </Link>
           </div>
