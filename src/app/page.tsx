@@ -11,14 +11,13 @@ export default function Home() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <video
+        src="/Pichulik-Studios-Webpage.mp4"
         autoPlay
         loop
         muted
         playsInline
         className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover z-0"
-        key="video-background" 
       >
-        <source src="/Pichulik-Studios-Webpage.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="absolute inset-0 bg-black/70 z-10"></div>
@@ -43,7 +42,7 @@ export default function Home() {
               Make Stories That <i>Move</i>
             </h1>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/for-business" passHref>
+              <Link href="/for-business/about" passHref>
                 <Button size="lg" className="bg-white text-black hover:bg-transparent hover:text-white hover:border-white border-2 border-transparent transition-all duration-300 transform hover:scale-105 uppercase px-10 py-6 font-bold tracking-widest">
                   For Business
                 </Button>
