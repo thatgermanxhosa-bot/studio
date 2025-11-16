@@ -5,14 +5,9 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { TikTokIcon } from '@/components/social-icons';
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 export default function Home() {
-  const router = useRouter();
-  const [showContent, setShowContent] = useState(true);
-
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <video
@@ -27,11 +22,18 @@ export default function Home() {
       </video>
       <div className="absolute inset-0 bg-black/70 z-10"></div>
       
-      <div className={`absolute inset-0 z-20 flex flex-col transition-opacity duration-1000 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="absolute inset-0 z-20 flex flex-col transition-opacity duration-1000 opacity-100">
         <header className="w-full p-8 text-center md:text-left">
-            <Link href="/" className="text-2xl font-bold text-white tracking-widest">
-                PICHULIK STUDIOS
-            </Link>
+          <Link href="/" className="inline-block">
+            <Image 
+              src="/logo.png" 
+              alt="Pichulik Studios Logo" 
+              width={200} 
+              height={40}
+              className="h-auto"
+              priority
+            />
+          </Link>
         </header>
 
         <main className="flex flex-col items-center justify-center flex-grow text-center text-white px-6">
