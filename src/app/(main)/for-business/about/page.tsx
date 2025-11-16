@@ -83,31 +83,24 @@ export default function AboutUsPage() {
       <main className="flex-grow">
         <section className="py-10 md:py-20 bg-background text-foreground">
             <div className="container mx-auto px-6">
-                <div className="mb-16 grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">We Translate Business Goals into Compelling Visual Stories.</h1>
-                        <p className="text-muted-foreground text-lg mb-4">
-                            We are a boutique video studio built for one purpose: to help your business connect, engage, and grow.
-                        </p>
-                         <p className="text-muted-foreground text-lg mb-4">
-                            In today's market, "good enough" content gets ignored. We founded our studio on the belief that B2B creative shouldn't be boring. It should be strategic, beautiful, and built to achieve a goal.
-                        </p>
-                         <p className="text-muted-foreground text-lg">
-                            We are a dedicated, hands-on team of directors, editors, and artists. We partner with brands to provide a bespoke service, from the initial strategic brief to the final polished cut. Whether you need a powerful brand film, a clear product showcase, or engaging content for your next campaign, we are your creative partner.
-                        </p>
-                    </div>
-                    {teamImage && (
-                        <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
-                            <Image
-                                src={teamImage.imageUrl}
-                                alt={teamImage.description}
-                                fill
-                                className="object-cover"
-                                data-ai-hint={teamImage.imageHint}
-                            />
-                        </div>
-                    )}
+                <div className="mb-12 text-center">
+                    <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">We Translate Business Goals into Compelling Visual Stories.</h1>
+                    <p className="text-muted-foreground text-lg max-w-4xl mx-auto">
+                        We are a boutique video studio built for one purpose: to help your business connect, engage, and grow. In today's market, "good enough" content gets ignored. We founded our studio on the belief that B2B creative shouldn't be boring. It should be strategic, beautiful, and built to achieve a goal. We are a dedicated, hands-on team of directors, editors, and artists. We partner with brands to provide a bespoke service, from the initial strategic brief to the final polished cut. Whether you need a powerful brand film, a clear product showcase, or engaging content for your next campaign, we are your creative partner.
+                    </p>
                 </div>
+                
+                {teamImage && (
+                    <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg mb-16">
+                        <Image
+                            src={teamImage.imageUrl}
+                            alt={teamImage.description}
+                            fill
+                            className="object-cover"
+                            data-ai-hint={teamImage.imageHint}
+                        />
+                    </div>
+                )}
 
 
                 <div className="grid lg:grid-cols-3 gap-16 items-start">
@@ -154,26 +147,33 @@ export default function AboutUsPage() {
                 </div>
 
                 <div className="mt-20 border-t border-border pt-16">
-                  <div className="grid lg:grid-cols-3 gap-12">
-                      <div className="lg:col-span-1">
-                          <h2 className="text-3xl font-bold">Our Partnership Process</h2>
-                          <p className="mt-4 text-lg text-muted-foreground">
-                            We manage every detail, from initial strategy to final delivery, so you can focus on the results.
-                          </p>
-                      </div>
-                      <div className="lg:col-span-2">
-                          <div className="space-y-10">
-                              {partnershipProcess.map((item) => (
-                                <div key={item.step} className="flex gap-6">
-                                  <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
-                                  <div>
-                                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                                    <p className="text-muted-foreground">{item.description}</p>
-                                  </div>
-                                </div>
-                              ))}
+                  <div className="text-center mb-12">
+                      <h2 className="text-3xl font-bold">Our Partnership Process</h2>
+                      <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                        We manage every detail, from initial strategy to final delivery, so you can focus on the results.
+                      </p>
+                  </div>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {partnershipProcess.slice(0, 3).map((item) => (
+                        <div key={item.step} className="flex gap-6">
+                          <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
+                          <div>
+                            <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                            <p className="text-muted-foreground">{item.description}</p>
                           </div>
-                      </div>
+                        </div>
+                      ))}
+                  </div>
+                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 justify-center md:px-20 lg:px-40">
+                       {partnershipProcess.slice(3, 5).map((item) => (
+                        <div key={item.step} className="flex gap-6">
+                          <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
+                          <div>
+                            <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                            <p className="text-muted-foreground">{item.description}</p>
+                          </div>
+                        </div>
+                      ))}
                   </div>
                 </div>
 
