@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <video
-        src="/Studios%20Webpage_3.mp4"
+        src="/Pichulik_Studios_Webpage_3.mp4"
         autoPlay
         loop
         muted
