@@ -7,41 +7,41 @@ import { Video, Camera, Scissors, Award, Users, FastForward } from "lucide-react
 const services = [
   {
     icon: <Video className="size-8 text-primary" />,
-    title: "Video Production",
-    description: "Professional video content that tells your brand story and engages your audience.",
+    title: "Strategic Video Production",
+    description: "Professional video content that tells your brand story, engages your audience, and drives results.",
   },
   {
     icon: <Camera className="size-8 text-primary" />,
-    title: "Photography",
-    description: "High-quality photography for products, events, and corporate needs.",
+    title: "Corporate & Commercial Photography",
+    description: "High-quality photography for products, company headshots, events, and brand campaigns.",
   },
   {
     icon: <Scissors className="size-8 text-primary" />,
-    title: "Post-Production",
-    description: "Expert editing and post-production services to polish your content.",
+    title: "Full-Service Post-Production",
+    description: "Expert editing, color grading, and sound design to give your content a professional edge.",
   },
   {
     icon: <Award className="size-8 text-primary" />,
-    title: "Graphics & Animation",
-    description: "Eye-catching graphics and animations for digital and print media.",
+    title: "Motion Graphics & Animation",
+    description: "Eye-catching 2D & 3D graphics and animations to explain complex ideas and capture attention.",
   },
 ];
 
 const whyPartnerItems = [
     {
         icon: <Users className="size-8 mb-2 text-primary" />,
-        title: "B2B Focused",
-        description: "Specialized in creating content that drives business results"
+        title: "Strategic B2B Focus",
+        description: "We are business-minded. Our creative is always tied to a clear objective, whether it's building brand awareness, generating leads, or educating your audience."
     },
     {
         icon: <Award className="size-8 mb-2 text-primary" />,
-        title: "Proven Experience",
-        description: "5+ years of delivering high-quality visual solutions"
+        title: "Proven Experience & Quality",
+        description: "We bring over 5+ years of proven experience to every project. We obsess over the details and guarantee quality in every frame so you don't have to."
     },
     {
         icon: <FastForward className="size-8 mb-2 text-primary" />,
-        title: "Fast Turnaround",
-        description: "Efficient workflows to meet your project deadlines"
+        title: "A Partnership, Not a Process",
+        description: "We believe in clear communication and reliable execution. Our efficient, collaborative workflows respect your deadlines and make the creative process seamless."
     }
 ];
 
@@ -55,9 +55,15 @@ export default function AboutUsPage() {
                 
                     <div className="lg:col-span-2">
                         <div className="mb-12">
-                            <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">We are a boutique video studio, delivering specialized creative for businesses.</h1>
-                            <p className="text-muted-foreground text-lg">
-                                As a dedicated team, we craft high-impact visual stories tailored to your unique goals. From compelling brand films for our B2B partners to capturing personal milestones for private clients, we provide a bespoke service from concept to final cut.
+                            <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">We Translate Business Goals into Compelling Visual Stories.</h1>
+                            <p className="text-muted-foreground text-lg mb-4">
+                                We are a boutique video studio built for one purpose: to help your business connect, engage, and grow.
+                            </p>
+                             <p className="text-muted-foreground text-lg mb-4">
+                                In today's market, "good enough" content gets ignored. We founded our studio on the belief that B2B creative shouldn't be boring. It should be strategic, beautiful, and built to achieve a goal.
+                            </p>
+                             <p className="text-muted-foreground text-lg">
+                                We are a dedicated, hands-on team of directors, editors, and artists. We partner with brands to provide a bespoke service, from the initial strategic brief to the final polished cut. Whether you need a powerful brand film, a clear product showcase, or engaging content for your next campaign, we are your creative partner.
                             </p>
                         </div>
                         
@@ -102,9 +108,9 @@ export default function AboutUsPage() {
                 </div>
 
                 <div className="mt-20 text-center bg-card p-8 md:p-12 rounded-lg">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Create Impact?</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Elevate Your Brand's Story?</h2>
                     <p className="max-w-2xl mx-auto text-muted-foreground text-lg mb-8">
-                        Let's discuss your video and photography needs. Get a personalised quote today.
+                        Let's discuss your next project.
                     </p>
                     <Button asChild size="lg" className="uppercase font-bold tracking-widest px-8">
                         <Link href="/for-business/quotation">Get a Quote</Link>
