@@ -11,10 +11,19 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-const navLinksData = [
-  { href: "/our-work", label: "OUR WORK" },
+const defaultLinks = [
+  { href: "/", label: "HOME" },
+  { href: "/for-business", label: "FOR BUSINESS" },
+  { href: "/for-personal", label: "FOR PERSONAL" },
   { href: "/bookings", label: "BOOKINGS" },
-  { href: "/contact", label: "CONTACT" },
+];
+
+const forBusinessLinks = [
+  { href: "/", label: "HOME" },
+  { href: "/for-business/about", label: "ABOUT" },
+  { href: "/for-business/our-work", label: "OUR WORK" },
+  { href: "/for-business/quotation", label: "QUOTATION" },
+  { href: "/for-business/contact", label: "CONTACT" },
 ];
 
 
@@ -28,18 +37,12 @@ export default function Header() {
     return null; // Don't render header on the landing page
   }
 
-  const navLinks = [
-    { href: "/", label: "HOME" },
-    { href: "/for-business", label: "FOR BUSINESS" },
-    { href: "/for-personal", label: "FOR PERSONAL" },
-    ...navLinksData
-  ];
-  
-  let displayedLinks = navLinks;
+  let displayedLinks = defaultLinks;
   if (pathname.startsWith("/for-business")) {
-    displayedLinks = navLinks.filter(link => link.href !== "/for-personal");
+    displayedLinks = forBusinessLinks;
   } else if (pathname.startsWith("/for-personal")) {
-    displayedLinks = navLinks.filter(link => link.href !== "/for-business");
+    // Keep this logic for when for-personal section is built out
+    displayedLinks = defaultLinks.filter(link => link.href !== "/for-business");
   }
 
 

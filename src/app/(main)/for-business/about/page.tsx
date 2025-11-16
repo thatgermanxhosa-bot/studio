@@ -55,7 +55,7 @@ export default function AboutUsPage() {
                 
                     <div className="lg:col-span-2">
                         <div className="mb-12">
-                            <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">We are a boutique video studio, delivering specialized creative for businesses and individuals.</h1>
+                            <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">We are a boutique video studio, delivering specialized creative for businesses.</h1>
                             <p className="text-muted-foreground text-lg">
                                 As a dedicated team, we craft high-impact visual stories tailored to your unique goals. From compelling brand films for our B2B partners to capturing personal milestones for private clients, we provide a bespoke service from concept to final cut.
                             </p>
@@ -101,6 +101,15 @@ export default function AboutUsPage() {
                 
                 </div>
 
+                <div className="mt-20 text-center bg-card p-8 md:p-12 rounded-lg">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Create Impact?</h2>
+                    <p className="max-w-2xl mx-auto text-muted-foreground text-lg mb-8">
+                        Let's discuss your video and photography needs. Get a personalised quote today.
+                    </p>
+                    <Button asChild size="lg" className="uppercase font-bold tracking-widest px-8">
+                        <Link href="/for-business/quotation">Get a Quote</Link>
+                    </Button>
+                </div>
             </div>
         </section>
       </main>
