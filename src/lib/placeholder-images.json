@@ -32,7 +32,7 @@
     },
     {
       "id": "project-5",
-      "description": "Project Title 5",
+      "description": "K9H Pre Race",
       "imageUrl": "https://images.unsplash.com/photo-1758947651495-24e194e47c3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZXZlbnQlMjBjb3ZlcmFnZXxlbnwwfHx8fDE3NjMyNDg4NDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "event coverage"
     },
@@ -51,7 +51,7 @@
     {
       "id": "photography-showcase",
       "description": "Photography Showcase",
-      "imageUrl": "https://images.unsplash.com/photo-1601854266103-c1dd42130633?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx2aW50YWdlJTIwY2FtZXJhfGVufDB8fHx8MTc2MzE4NzQzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1601854266103-c1dd42130633?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx2aW50YWdlJTIwY2FtZXJhfGVufDB8fHx8MTc2MzE4NzQzMHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "vintage camera"
     },
     {
