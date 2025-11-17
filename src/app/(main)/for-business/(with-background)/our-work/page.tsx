@@ -184,7 +184,7 @@ export default function OurWorkPage() {
                     <video
                       ref={videoRef4}
                       src="/Sanlam Vietnam Cutdown Clean D2 (1).mp4"
-                      poster={image.imageUrl}
+                      poster="/Sanlam Vietnam Cutdown Clean D2 (1).00_00_08_04.Still001.png"
                       className="w-full h-full object-cover"
                       playsInline
                       controls={showControls4}
