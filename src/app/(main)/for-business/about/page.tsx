@@ -111,7 +111,7 @@ export default function AboutUsPage() {
       </div>
 
       <main className="relative z-10 flex-grow text-white">
-        <section className="h-screen flex flex-col justify-end pb-32">
+        <section className="pt-32 pb-16">
             <div className="container mx-auto px-6 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight animate-fade-in-up">We Translate Business Goals into Compelling Visual Stories.</h1>
                 <p className="text-lg md:text-xl text-white/90 max-w-5xl mx-auto mb-8 animate-fade-in-up animation-delay-200">
@@ -123,7 +123,7 @@ export default function AboutUsPage() {
             </div>
         </section>
 
-        <section className={cn("py-10 md:py-16 opacity-0", hasScrolled && "animate-fade-in-up")}>
+        <section className={cn("py-10 md:py-16", hasScrolled && "animate-fade-in-up")}>
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto">
                     <div className="mb-12">
