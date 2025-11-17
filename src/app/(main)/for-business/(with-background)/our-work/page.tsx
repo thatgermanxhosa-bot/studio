@@ -128,7 +128,7 @@ export default function OurWorkPage() {
                     <video
                       ref={videoRef6}
                       src="/Union Street Development HR.mp4"
-                      poster=".png"
+                      poster="/Unionstreet.png"
                       className="w-full h-full object-cover"
                       playsInline
                       controls={showControls6}
