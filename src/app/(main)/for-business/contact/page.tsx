@@ -4,7 +4,7 @@ import { ContactForm } from "./contact-form";
 
 const contactDetails = [
   { icon: <Mail className="size-6 text-primary" />, title: "Email", value: "info@pichulikstudios.co.za" },
-  { icon: <Phone className="size-6 text-primary" />, title: "Phone", value: "+27 21 123 4567" },
+  { icon: <Phone className="size-6 text-primary" />, title: "Phone", value: "+27 71 525 2337" },
   { icon: <MapPin className="size-6 text-primary" />, title: "Studio", value: "123 Loop Street, Cape Town, 8001" },
 ];
 
