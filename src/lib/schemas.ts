@@ -1,3 +1,4 @@
+
 import { z } from "zod";
 
 export const bookingSchema = z.object({
@@ -16,6 +17,7 @@ export const quotationSchema = z.object({
   name: z.string().min(2, "Name is required."),
   email: z.string().email("Please enter a valid email address."),
   company: z.string().optional(),
+  phone: z.string().optional(),
 });
 
 export const contactSchema = z.object({

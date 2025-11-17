@@ -55,6 +55,7 @@ export function QuotationForm() {
       name: "",
       email: "",
       company: "",
+      phone: "",
     },
   });
 
@@ -215,21 +216,33 @@ export function QuotationForm() {
                                 </FormItem>
                             )}
                         />
+                         <FormField
+                            control={form.control}
+                            name="company"
+                            render={({ field }) => (
+                                <FormItem>
+                                <FormLabel>Company</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="Your Company Inc." {...field} />
+                                </FormControl>
+                                <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="phone"
+                            render={({ field }) => (
+                                <FormItem>
+                                <FormLabel>Phone Number</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="+27 12 345 6789" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                                </FormItem>
+                            )}
+                        />
                     </div>
-
-                    <FormField
-                        control={form.control}
-                        name="company"
-                        render={({ field }) => (
-                            <FormItem>
-                            <FormLabel>Company</FormLabel>
-                            <FormControl>
-                                <Input placeholder="Your Company Inc." {...field} />
-                            </FormControl>
-                            <FormMessage />
-                            </FormItem>
-                        )}
-                    />
 
                     <div className="flex justify-end">
                         <Button type="submit" disabled={isPending} className="w-full sm:w-auto uppercase font-bold tracking-widest px-8">
