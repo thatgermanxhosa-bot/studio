@@ -85,7 +85,7 @@ export default function AboutUsPage() {
               className="object-cover"
               data-ai-hint="team working"
           />
-          <div className="absolute inset-0 bg-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40"></div>
       </div>
 
       <main className="relative z-10 flex-grow text-white">
@@ -142,7 +142,7 @@ export default function AboutUsPage() {
                     </div>
                 </div>
 
-                <div className="mt-20 border-t border-border pt-16">
+                <div className="mt-20">
                   <div className="text-center mb-12">
                       <h2 className="text-3xl font-bold">Our Partnership Process</h2>
                       <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
@@ -173,7 +173,7 @@ export default function AboutUsPage() {
                   </div>
                 </div>
 
-                <div className="mt-20 text-center bg-black/50 p-8 md:p-12 rounded-lg border border-white/20">
+                <div className="mt-20 text-center bg-transparent p-8 md:p-12 rounded-lg">
                     <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Elevate Your Brand's Story?</h2>
                     <p className="max-w-2xl mx-auto text-white/80 text-lg mb-8">
                         Let's discuss your next project.
