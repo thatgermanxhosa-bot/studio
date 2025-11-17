@@ -43,6 +43,12 @@ import { cn } from "@/lib/utils";
 
 const services = [
     { 
+        id: "creative-consultation", 
+        title: "Creative Strategy & Consultation",
+        description: "Expert guidance to develop your content strategy and creative direction.",
+        examples: ["Concept development", "Campaign strategy", "Brand identity", "Storyboarding"]
+    },
+    { 
         id: "video-production", 
         title: "Strategic Video Production",
         description: "Professional video content that tells your brand story, engages your audience, and drives results.",
@@ -65,12 +71,6 @@ const services = [
         title: "Motion Graphics & Animation",
         description: "Eye-catching 2D & 3D graphics and animations to explain complex ideas and capture attention.",
         examples: ["Motion graphics", "Logo animation", "Infographics", "Social media graphics"]
-    },
-    { 
-        id: "creative-consultation", 
-        title: "Creative Strategy & Consultation",
-        description: "Expert guidance to develop your content strategy and creative direction.",
-        examples: ["Concept development", "Campaign strategy", "Brand identity", "Storyboarding"]
     },
 ]
 
@@ -372,3 +372,5 @@ export function QuotationForm() {
     </Card>
   );
 }
+
+    
