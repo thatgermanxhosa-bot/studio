@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Video, Camera, Scissors, Award, Users, FastForward } from "lucide-react";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const services = [
   {
@@ -104,7 +103,7 @@ export default function AboutUsPage() {
             </div>
         </section>
 
-        <section className="py-10 md:py-20">
+        <section className="py-10 md:py-20 animate-fade-in-up">
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto">
                     <div>
