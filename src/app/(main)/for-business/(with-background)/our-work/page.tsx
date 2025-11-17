@@ -27,6 +27,9 @@ export default function OurWorkPage() {
   const videoRef3 = useRef<HTMLVideoElement>(null);
   const [showControls3, setShowControls3] = useState(false);
 
+  const videoRef5 = useRef<HTMLVideoElement>(null);
+  const [showControls5, setShowControls5] = useState(false);
+
   const videoRef6 = useRef<HTMLVideoElement>(null);
   const [showControls6, setShowControls6] = useState(false);
 
@@ -48,6 +51,13 @@ export default function OurWorkPage() {
     if (videoRef3.current) {
       videoRef3.current.play();
       setShowControls3(true);
+    }
+  };
+
+  const handlePlayVideo5 = () => {
+    if (videoRef5.current) {
+      videoRef5.current.play();
+      setShowControls5(true);
     }
   };
 
@@ -153,6 +163,31 @@ export default function OurWorkPage() {
                     <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                       <h3 className="text-xl font-bold text-white">{image.description}</h3>
                       <p className="text-sm text-white/80">Imatium Studios</p>
+                    </div>
+                  </div>
+                )
+              }
+              
+              if (project.id === 'project-5') {
+                return (
+                  <div key={project.id} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={!showControls5 ? handlePlayVideo5 : undefined}>
+                    <video
+                      ref={videoRef5}
+                      src="/Perede K9H Pre Race Video.mp4"
+                      poster={image.imageUrl}
+                      className="w-full h-full object-cover"
+                      playsInline
+                      controls={showControls5}
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                     {!showControls5 && (
+                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <PlayCircle className="size-16 text-white" />
+                      </div>
+                     )}
+                    <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                      <h3 className="text-xl font-bold text-white">{image.description}</h3>
                     </div>
                   </div>
                 )
