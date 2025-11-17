@@ -41,7 +41,7 @@ export default function OurWorkPage() {
                     <video
                       src="/Reyashoma.mp4"
                       controls
-                      poster={image.imageUrl}
+                      poster="/Reyashoma X Pichulik Studios.00_00_18_57.Still001.png"
                       className="w-full h-full object-cover"
                     >
                       Your browser does not support the video tag.
