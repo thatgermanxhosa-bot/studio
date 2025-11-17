@@ -75,35 +75,19 @@ const partnershipProcess = [
   }
 ];
 
-const collageImages = [
-  { id: "collage-1", hint: "building construction" },
-  { id: "collage-2", hint: "man suit" },
-  { id: "collage-3", hint: "classic car" },
-  { id: "collage-4", hint: "man glasses" }
-];
 
 export default function AboutUsPage() {
-  const getImage = (id: string) => PlaceHolderImages.find(p => p.id === id);
 
   return (
     <div className="relative min-h-screen">
-      <div className="fixed inset-0 z-0 flex">
-        {collageImages.map((img, index) => {
-          const imageData = getImage(img.id);
-          return (
-            <div key={img.id} className="relative w-1/4 h-full">
-              {imageData && (
-                <Image
-                  src={imageData.imageUrl}
-                  alt={imageData.description}
-                  fill
-                  className="object-cover"
-                  data-ai-hint={img.hint}
-                />
-              )}
-            </div>
-          );
-        })}
+      <div className="fixed inset-0 z-0">
+          <Image
+              src="/Pichulik_Studios_Banner.jpg"
+              alt="Pichulik Studios Banner"
+              fill
+              className="object-cover"
+              priority
+          />
         <div className="absolute inset-0 bg-black/80"></div>
       </div>
 
