@@ -138,7 +138,7 @@ export default function OurWorkPage() {
                     <video
                       ref={videoRef3}
                       src="/Italian Rugby Day Highlights Video.mp4"
-                      poster={image.imageUrl}
+                      poster="/Italian Rugby Day Highlights Video.00_00_27_19.Still001.png"
                       className="w-full h-full object-cover"
                       playsInline
                       controls={showControls3}
