@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Video, Camera, Scissors, Award, Users, FastForward } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import Header from "@/components/header";
 
 const services = [
   {
@@ -99,6 +100,7 @@ export default function AboutUsPage() {
 
   return (
     <div className="relative min-h-screen">
+       <Header />
       <div className="fixed inset-0 z-0">
           <Image
               src="/Pichulik_Studios_Banner%29.jpg"
@@ -111,7 +113,7 @@ export default function AboutUsPage() {
       </div>
 
       <main className="relative z-10 flex-grow text-white">
-        <section className="pt-32 pb-16">
+        <section className="pt-20 pb-16">
             <div className="container mx-auto px-6 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight animate-fade-in-up">We Translate Business Goals into Compelling Visual Stories.</h1>
                 <p className="text-lg md:text-xl text-white/90 max-w-5xl mx-auto mb-8 animate-fade-in-up animation-delay-200">
@@ -164,7 +166,7 @@ export default function AboutUsPage() {
                     </div>
                 </div>
 
-                <div className="mt-16">
+                <div className="mt-12">
                   <div className="text-center mb-12">
                       <h2 className="text-3xl font-bold">Our Partnership Process</h2>
                       <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
@@ -182,9 +184,9 @@ export default function AboutUsPage() {
                         </div>
                       ))}
                   </div>
-                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 justify-center md:px-20 lg:px-40">
+                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 justify-center">
                        {partnershipProcess.slice(3, 5).map((item) => (
-                        <div key={item.step} className="flex gap-6">
+                        <div key={item.step} className="flex gap-6 lg:col-span-1">
                           <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
                           <div>
                             <h3 className="text-xl font-bold mb-2">{item.title}</h3>
