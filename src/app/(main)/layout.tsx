@@ -9,8 +9,7 @@ export default function MainLayout({
 }) {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
-      <Header />
-      <main className="flex-grow">{children}</main>
+      {children}
       <Footer />
     </div>
   );

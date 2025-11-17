@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Video, Camera, Scissors, Award, Users, FastForward } from "lucide-react";
+import Header from "@/components/header";
 
 const services = [
   {
@@ -78,8 +79,9 @@ export default function AboutUsPage() {
   return (
     <>
       <main className="flex-grow">
-        <section className="relative bg-black text-white h-screen flex items-center justify-center">
-            <div className="absolute inset-0">
+        <section className="relative bg-black text-white h-screen flex flex-col">
+            <Header />
+            <div className="absolute inset-0 z-0">
                 <Image
                     src="/Pichulik_Studios_Banner).jpg"
                     alt="Pichulik Studios Banner"
@@ -89,7 +91,7 @@ export default function AboutUsPage() {
                 />
                  <div className="absolute inset-0 bg-black/50"></div>
             </div>
-            <div className="container relative z-10 mx-auto px-6 text-center">
+            <div className="container relative z-10 mx-auto px-6 text-center flex-grow flex flex-col justify-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">We Translate Business Goals into Compelling Visual Stories.</h1>
                 <p className="text-lg md:text-xl text-white/90 max-w-5xl mx-auto mb-8">
                     We are a boutique video studio built for one purpose: to help your business connect, engage, and grow. In today's market, "good enough" content gets ignored. We founded our studio on the belief that B2B creative shouldn't be boring. It should be strategic, beautiful, and built to achieve a goal.
