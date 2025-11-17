@@ -12,12 +12,15 @@ export default function ForBusinessWithBackgroundLayout({
   const pathname = usePathname();
   const isAboutPage = pathname.endsWith('/about');
   const isContactPage = pathname.endsWith('/contact');
+  const isOurWorkPage = pathname.endsWith('/our-work');
 
   let backgroundImage = "/ps_quotation_background.png";
   if (isAboutPage) {
     backgroundImage = "/ps_about_background.png";
   } else if (isContactPage) {
     backgroundImage = "/ps_contact_background.png";
+  } else if (isOurWorkPage) {
+    backgroundImage = "/ps_our work_background.png";
   }
 
   return (

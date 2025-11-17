@@ -14,14 +14,14 @@ const projects = [
 
 export default function OurWorkPage() {
   return (
-    <>
-      <section className="bg-card pt-32 pb-20 text-center">
+    <div className="relative z-10">
+      <section className="bg-transparent text-center pt-40 pb-20">
         <div className="container max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-black uppercase animate-fade-in-up">Stories We've Built. Goals We've Met.</h1>
-          <p className="mt-4 text-lg text-muted-foreground animate-fade-in-up animation-delay-200">
+          <p className="mt-4 text-lg text-white/80 animate-fade-in-up animation-delay-200">
             We believe that great creative is only successful if it achieves a goal. This isn't a vast archive—it's a curated showcase of our favorite recent projects.
           </p>
-          <p className="mt-4 text-muted-foreground animate-fade-in-up animation-delay-400">
+          <p className="mt-4 text-white/80 animate-fade-in-up animation-delay-400">
             These are prime examples of brand stories told, business goals met, and partnerships we're proud of. See for yourself how we craft compelling visual stories.
           </p>
         </div>
@@ -54,6 +54,6 @@ export default function OurWorkPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
