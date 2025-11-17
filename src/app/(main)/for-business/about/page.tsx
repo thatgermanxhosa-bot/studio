@@ -107,7 +107,7 @@ export default function AboutUsPage() {
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto">
                     <div className="mb-16">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-4 border-b border-border">What We Do Best</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-4">What We Do Best</h2>
                         <div className="grid md:grid-cols-2 gap-6">
                             {services.map((service) => (
                                 <Card key={service.title} className="bg-black/50 border-white/20 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
