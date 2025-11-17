@@ -15,7 +15,7 @@ export default function QuotationPage() {
         </div>
       </section>
 
-      <section className="pb-20 pt-10">
+      <section className="pb-20 pt-10 animate-fade-in-up animation-delay-400">
         <div className="container mx-auto px-6">
             <div className="max-w-5xl mx-auto">
                 <QuotationForm />

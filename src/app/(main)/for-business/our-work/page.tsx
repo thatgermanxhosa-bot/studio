@@ -15,16 +15,16 @@ const projects = [
 export default function OurWorkPage() {
   return (
     <>
-      <section className="bg-card py-20 text-center">
+      <section className="bg-card py-20 text-center animate-fade-in-up">
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-black uppercase">Our Work</h1>
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-20 animate-fade-in-up animation-delay-200">
         <div className="container">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => {
+            {projects.map((project, index) => {
               const image = PlaceHolderImages.find((p) => p.id === project.id);
               if (!image) return null;
               return (

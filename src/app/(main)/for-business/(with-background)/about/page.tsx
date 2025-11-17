@@ -80,23 +80,6 @@ const partnershipProcess = [
 
 
 export default function AboutUsPage() {
-  const [hasScrolled, setHasScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!hasScrolled) {
-        setHasScrolled(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { once: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [hasScrolled]);
-
-
   return (
     <div className="relative z-10 flex-grow text-white">
         <section className="py-16 md:py-24 pt-40 md:pt-48">
@@ -111,16 +94,16 @@ export default function AboutUsPage() {
             </div>
         </section>
 
-        <section className={cn("py-10 md:py-16", hasScrolled && "animate-fade-in-up")}>
+        <section className="py-10 md:py-16">
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto space-y-12">
-                    <Card className="bg-black/75 border-white/20 p-6 md:p-8">
+                    <Card className="bg-black/75 border-white/20 p-6 md:p-8 animate-fade-in-up animation-delay-600">
                         <CardHeader>
                           <CardTitle className="text-2xl md:text-3xl font-bold">What We Do Best</CardTitle>
                         </CardHeader>
                         <CardContent>
                           <div className="grid md:grid-cols-2 gap-6">
-                              {services.map((service) => (
+                              {services.map((service, index) => (
                                   <Card key={service.title} className="bg-black/75 border-white/20 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
                                       <CardHeader>
                                           <CardTitle className="flex items-center gap-4">
@@ -137,12 +120,12 @@ export default function AboutUsPage() {
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-black/75 border-white/20 p-6 md:p-8">
+                    <Card className="bg-black/75 border-white/20 p-6 md:p-8 animate-fade-in-up animation-delay-800">
                         <CardHeader>
                             <CardTitle className="text-2xl md:text-3xl font-bold">Why Partner With Us?</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-6">
-                            {whyPartnerItems.map((item) => (
+                            {whyPartnerItems.map((item, index) => (
                                 <div key={item.title}>
                                     <h3 className="font-bold text-lg flex items-center gap-3">
                                         {item.icon} {item.title}
@@ -153,7 +136,7 @@ export default function AboutUsPage() {
                         </CardContent>
                     </Card>
                     
-                    <Card className="bg-black/75 border-white/20 p-6 md:p-8">
+                    <Card className="bg-black/75 border-white/20 p-6 md:p-8 animate-fade-in-up animation-delay-1000">
                       <CardHeader className="text-center mb-8">
                           <CardTitle className="text-3xl font-bold">Our Partnership Workflow</CardTitle>
                           <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
@@ -162,7 +145,7 @@ export default function AboutUsPage() {
                       </CardHeader>
                       <CardContent>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-                            {partnershipProcess.slice(0, 3).map((item) => (
+                            {partnershipProcess.slice(0, 3).map((item, index) => (
                               <div key={item.step} className="flex gap-6">
                                 <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
                                 <div>
@@ -173,7 +156,7 @@ export default function AboutUsPage() {
                             ))}
                         </div>
                         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-start md:justify-center md:max-w-3xl mx-auto">
-                            {partnershipProcess.slice(3).map((item) => (
+                            {partnershipProcess.slice(3).map((item, index) => (
                               <div key={item.step} className="flex gap-6">
                                 <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
                                 <div>
@@ -187,7 +170,7 @@ export default function AboutUsPage() {
                     </Card>
                 </div>
 
-                <div className="mt-16 text-center p-8 md:p-12">
+                <div className="mt-16 text-center p-8 md:p-12 animate-fade-in-up">
                     <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Elevate Your Brand's Story?</h2>
                     <p className="max-w-2xl mx-auto text-white/80 text-lg mb-8">
                         Let's discuss your next project.
