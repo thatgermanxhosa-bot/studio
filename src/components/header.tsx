@@ -39,8 +39,9 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isLandingPage = pathname === '/';
+  const isForBusinessAboutPage = pathname === '/for-business/about';
 
-  if (isLandingPage) {
+  if (isLandingPage || isForBusinessAboutPage) {
     return null; // Don't render header on the landing page
   }
 
@@ -61,7 +62,7 @@ export default function Header() {
             alt="Pichulik Studios Logo" 
             width={225} 
             height={45}
-            className="h-auto"
+            className="h-auto w-auto"
           />
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-bold">

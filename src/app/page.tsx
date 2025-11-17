@@ -28,7 +28,7 @@ export default function Home() {
               alt="Pichulik Studios Logo" 
               width={225} 
               height={45}
-              className="h-auto"
+              className="h-auto w-auto"
               priority
             />
           </Link>
