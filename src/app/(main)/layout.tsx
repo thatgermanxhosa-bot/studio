@@ -10,7 +10,7 @@ export default function MainLayout({
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
-      <div className="relative z-10 flex-1">{children}</div>
+      <main className="flex-1">{children}</main>
       <Footer />
     </div>
   );

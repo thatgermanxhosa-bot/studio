@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
@@ -37,6 +37,8 @@ const forPersonalLinks = [
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const isLandingPage = pathname === '/';
   const isForBusiness = pathname.startsWith("/for-business");
@@ -47,9 +49,39 @@ export default function Header() {
   } else if (pathname.startsWith("/for-personal")) {
     displayedLinks = forPersonalLinks;
   }
+  
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (typeof window !== 'undefined') {
+        if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down hide the navbar
+          setVisible(false);
+        } else { // if scroll up show the navbar
+          setVisible(true);
+        }
+        setLastScrollY(window.scrollY);
+      }
+    };
+
+    const handleMouseMove = (event: MouseEvent) => {
+        if (event.clientY < 60) {
+            setVisible(true);
+        }
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar);
+      window.addEventListener('mousemove', handleMouseMove);
+
+      return () => {
+        window.removeEventListener('scroll', controlNavbar);
+        window.removeEventListener('mousemove', handleMouseMove);
+      };
+    }
+  }, [lastScrollY]);
 
   const headerClasses = cn(
-    "sticky top-0 z-50 w-full pt-8 pb-4 bg-gradient-to-b from-black/70 to-transparent"
+    "fixed top-0 z-50 w-full pt-8 pb-4 bg-gradient-to-b from-black/70 to-transparent transition-transform duration-300 ease-in-out",
+    visible ? "translate-y-0" : "-translate-y-full"
   );
 
   if (isLandingPage) {
