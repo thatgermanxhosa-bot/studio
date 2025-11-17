@@ -70,7 +70,7 @@ export default function OurWorkPage() {
                      )}
                     <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                       <h3 className="text-xl font-bold text-white">{image.description}</h3>
-                      <p className="text-sm text-white/80">Client: Reyashoma Roadmarkings & Signage</p>
+                      <p className="text-sm text-white/80">Reyashoma Roadmarkings & Signage</p>
                     </div>
                   </div>
                 )
