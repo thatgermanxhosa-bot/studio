@@ -129,27 +129,31 @@ export default function AboutUsPage() {
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto space-y-12">
                     <Card className="bg-black/50 border-white/20 p-6 md:p-8">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-4">What We Do Best</h2>
-                        <div className="grid md:grid-cols-2 gap-6">
-                            {services.map((service) => (
-                                <Card key={service.title} className="bg-black/50 border-white/20 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
-                                    <CardHeader>
-                                        <CardTitle className="flex items-center gap-4">
-                                            {service.icon}
-                                            <span className="text-xl">{service.title}</span>
-                                        </CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <p className="text-white/80">{service.description}</p>
-                                    </CardContent>
-                                </Card>
-                            ))}
-                        </div>
+                        <CardHeader>
+                          <CardTitle className="text-2xl md:text-3xl font-bold">What We Do Best</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="grid md:grid-cols-2 gap-6">
+                              {services.map((service) => (
+                                  <Card key={service.title} className="bg-black/50 border-white/20 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
+                                      <CardHeader>
+                                          <CardTitle className="flex items-center gap-4">
+                                              {service.icon}
+                                              <span className="text-xl">{service.title}</span>
+                                          </CardTitle>
+                                      </CardHeader>
+                                      <CardContent>
+                                          <p className="text-white/80">{service.description}</p>
+                                      </CardContent>
+                                  </Card>
+                              ))}
+                          </div>
+                        </CardContent>
                     </Card>
 
-                    <Card className="bg-black/50 border-white/20">
+                    <Card className="bg-black/50 border-white/20 p-6 md:p-8">
                         <CardHeader>
-                            <CardTitle className="text-2xl">Why Partner With Us?</CardTitle>
+                            <CardTitle className="text-2xl md:text-3xl font-bold">Why Partner With Us?</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-6">
                             {whyPartnerItems.map((item) => (
@@ -164,27 +168,29 @@ export default function AboutUsPage() {
                     </Card>
                     
                     <Card className="bg-black/50 border-white/20 p-6 md:p-8">
-                      <div className="text-center mb-12">
-                          <h2 className="text-3xl font-bold">Our Partnership Process</h2>
+                      <CardHeader className="text-center mb-8">
+                          <CardTitle className="text-3xl font-bold">Our Partnership Process</CardTitle>
                           <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
                             We manage every detail, from initial strategy to final delivery, so you can focus on the results.
                           </p>
-                      </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start justify-center">
-                          {partnershipProcess.map((item) => (
-                            <div key={item.step} className="flex gap-6">
-                              <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
-                              <div>
-                                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                                <p className="text-white/80">{item.description}</p>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start justify-center">
+                            {partnershipProcess.map((item) => (
+                              <div key={item.step} className="flex gap-6">
+                                <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
+                                <div>
+                                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                                  <p className="text-white/80">{item.description}</p>
+                                </div>
                               </div>
-                            </div>
-                          ))}
-                      </div>
+                            ))}
+                        </div>
+                      </CardContent>
                     </Card>
                 </div>
 
-                <div className="mt-16 text-center bg-black/50 p-8 md:p-12 rounded-lg">
+                <Card className="mt-16 text-center bg-black/50 border-white/20 p-8 md:p-12">
                     <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Elevate Your Brand's Story?</h2>
                     <p className="max-w-2xl mx-auto text-white/80 text-lg mb-8">
                         Let's discuss your next project.
@@ -192,7 +198,7 @@ export default function AboutUsPage() {
                     <Button asChild size="lg" className="uppercase font-bold tracking-widest px-8">
                         <Link href="/for-business/quotation">Get a Quote</Link>
                     </Button>
-                </div>
+                </Card>
             </div>
         </section>
       </main>
