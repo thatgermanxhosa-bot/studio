@@ -15,7 +15,7 @@ const projects = [
 export default function OurWorkPage() {
   return (
     <>
-      <section className="bg-card py-20 text-center">
+      <section className="bg-card pt-32 pb-20 text-center">
         <div className="container max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-black uppercase animate-fade-in-up">Stories We've Built. Goals We've Met.</h1>
           <p className="mt-4 text-lg text-muted-foreground animate-fade-in-up animation-delay-200">
