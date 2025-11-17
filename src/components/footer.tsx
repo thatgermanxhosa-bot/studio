@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-black/50 text-muted-foreground relative z-10">
+    <footer className="border-t border-border/40 text-muted-foreground relative z-10">
       <div className="container py-8 text-center">
         <p>&copy; {new Date().getFullYear()} Pichulik Studios. All rights reserved.</p>
         <div className="mt-4 flex justify-center gap-4">
