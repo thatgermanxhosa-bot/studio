@@ -8,7 +8,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Video, Camera, Scissors, Award, Users, FastForward } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import Header from "@/components/header";
 
 const services = [
   {
@@ -100,7 +99,6 @@ export default function AboutUsPage() {
 
   return (
     <div className="relative min-h-screen">
-      <Header />
       <div className="fixed inset-0 z-0">
           <Image
               src="/Pichulik_Studios_Banner%29.jpg"
@@ -109,7 +107,7 @@ export default function AboutUsPage() {
               className="object-cover"
               priority
           />
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/75"></div>
       </div>
       
       <main className="relative z-10 flex-grow text-white">
@@ -128,14 +126,14 @@ export default function AboutUsPage() {
         <section className={cn("py-10 md:py-16", hasScrolled && "animate-fade-in-up")}>
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto space-y-12">
-                    <Card className="bg-black/50 border-white/20 p-6 md:p-8">
+                    <Card className="bg-black/75 border-white/20 p-6 md:p-8">
                         <CardHeader>
                           <CardTitle className="text-2xl md:text-3xl font-bold">What We Do Best</CardTitle>
                         </CardHeader>
                         <CardContent>
                           <div className="grid md:grid-cols-2 gap-6">
                               {services.map((service) => (
-                                  <Card key={service.title} className="bg-black/50 border-white/20 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
+                                  <Card key={service.title} className="bg-black/75 border-white/20 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
                                       <CardHeader>
                                           <CardTitle className="flex items-center gap-4">
                                               {service.icon}
@@ -151,7 +149,7 @@ export default function AboutUsPage() {
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-black/50 border-white/20 p-6 md:p-8">
+                    <Card className="bg-black/75 border-white/20 p-6 md:p-8">
                         <CardHeader>
                             <CardTitle className="text-2xl md:text-3xl font-bold">Why Partner With Us?</CardTitle>
                         </CardHeader>
@@ -167,7 +165,7 @@ export default function AboutUsPage() {
                         </CardContent>
                     </Card>
                     
-                    <Card className="bg-black/50 border-white/20 p-6 md:p-8">
+                    <Card className="bg-black/75 border-white/20 p-6 md:p-8">
                       <CardHeader className="text-center mb-8">
                           <CardTitle className="text-3xl font-bold">Our Partnership Process</CardTitle>
                           <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
@@ -190,7 +188,7 @@ export default function AboutUsPage() {
                     </Card>
                 </div>
 
-                <Card className="mt-16 text-center bg-black/50 border-white/20 p-8 md:p-12">
+                <Card className="mt-16 text-center bg-black/75 border-white/20 p-8 md:p-12">
                     <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Elevate Your Brand's Story?</h2>
                     <p className="max-w-2xl mx-auto text-white/80 text-lg mb-8">
                         Let's discuss your next project.
