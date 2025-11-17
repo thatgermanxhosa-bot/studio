@@ -173,9 +173,12 @@ export default function AboutUsPage() {
                           </p>
                       </CardHeader>
                       <CardContent>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start justify-center">
-                            {partnershipProcess.map((item) => (
-                              <div key={item.step} className="flex gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-start">
+                            {partnershipProcess.map((item, index) => (
+                              <div key={item.step} className={cn("flex gap-6", {
+                                "lg:col-span-2": index < 3,
+                                "lg:col-span-3": index >= 3,
+                              })}>
                                 <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
                                 <div>
                                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
