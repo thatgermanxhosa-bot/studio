@@ -57,14 +57,38 @@
     {
       "id": "post-production-showcase",
       "description": "Post-Production Showcase",
-      "imageUrl": "https://images.unsplash.com/photo-1695218716405-5b813000e994?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlZGl0aW5nJTIwc29mdHdhcmV8ZW58MHx8fHwxNzYzMjQ4ODQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1695218716405-5b813000e994?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlZGl0aW5nJTIwc29mdHdhcmV8ZW58MHx8fHwxNzYzMjQ4ODQ1fDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "editing software"
     },
     {
       "id": "styling-showcase",
       "description": "Styling Showcase",
-      "imageUrl": "https://images.unsplash.com/photo-1557777586-f6682739fcf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmYXNoaW9uJTIwc3R5bGluZ3xlbnwwfHx8fDE3NjMyNDg4NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1557777586-f6682739fcf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmYXNoaW9uJTIwc3R5bGluZ3xlbnwwfHx8fDE3NjMyNDg4NDZ8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "fashion styling"
+    },
+    {
+      "id": "collage-1",
+      "description": "Building under construction",
+      "imageUrl": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "building construction"
+    },
+    {
+      "id": "collage-2",
+      "description": "Man in a suit",
+      "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop",
+      "imageHint": "man suit"
+    },
+    {
+      "id": "collage-3",
+      "description": "Classic car",
+      "imageUrl": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "classic car"
+    },
+    {
+      "id": "collage-4",
+      "description": "Man with glasses",
+      "imageUrl": "https://images.unsplash.com/photo-1531123414780-f74242c2b052?q=80&w=1887&auto=format&fit=crop",
+      "imageHint": "man glasses"
     }
   ]
 }
