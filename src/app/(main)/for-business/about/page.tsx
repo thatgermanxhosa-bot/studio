@@ -167,7 +167,7 @@ export default function AboutUsPage() {
                     
                     <Card className="bg-black/75 border-white/20 p-6 md:p-8">
                       <CardHeader className="text-center mb-8">
-                          <CardTitle className="text-3xl font-bold">Our Partnership Process</CardTitle>
+                          <CardTitle className="text-3xl font-bold">Our Partnership Workflow</CardTitle>
                           <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
                             We manage every detail, from initial strategy to final delivery, so you can focus on the results.
                           </p>
