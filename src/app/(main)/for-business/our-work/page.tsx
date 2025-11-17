@@ -15,13 +15,19 @@ const projects = [
 export default function OurWorkPage() {
   return (
     <>
-      <section className="bg-card py-20 text-center animate-fade-in-up">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-black uppercase">Our Work</h1>
+      <section className="bg-card py-20 text-center">
+        <div className="container max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-black uppercase animate-fade-in-up">Stories We've Built. Goals We've Met.</h1>
+          <p className="mt-4 text-lg text-muted-foreground animate-fade-in-up animation-delay-200">
+            We believe that great creative is only successful if it achieves a goal. This isn't a vast archive—it's a curated showcase of our favorite recent projects.
+          </p>
+          <p className="mt-4 text-muted-foreground animate-fade-in-up animation-delay-400">
+            These are prime examples of brand stories told, business goals met, and partnerships we're proud of. See for yourself how we craft compelling visual stories.
+          </p>
         </div>
       </section>
 
-      <section className="py-20 animate-fade-in-up animation-delay-200">
+      <section className="py-20 animate-fade-in-up animation-delay-600">
         <div className="container">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => {
