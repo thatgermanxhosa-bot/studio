@@ -19,7 +19,7 @@ export default function MainLayout({
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
       <main className={cn("flex-1", !hasBusinessBackground && 'pt-16')}>{children}</main>
-      <Footer />
+      {!pathname.startsWith('/(locked)') && <Footer />}
     </div>
   );
 }
