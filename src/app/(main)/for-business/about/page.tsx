@@ -106,7 +106,7 @@ export default function AboutUsPage() {
         <section className="py-10 md:py-20 animate-fade-in-up">
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto">
-                    <div>
+                    <div className="mb-16">
                         <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-4 border-b border-border">What We Do Best</h2>
                         <div className="grid md:grid-cols-2 gap-6">
                             {services.map((service) => (
