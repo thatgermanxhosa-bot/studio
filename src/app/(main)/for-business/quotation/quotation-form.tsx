@@ -23,7 +23,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
 
 const services = [
@@ -75,13 +75,15 @@ export function QuotationForm() {
 
   if (isSuccess) {
     return (
-      <Card className="w-full bg-black/75 border-white/20">
+      <Card className="w-full bg-black/75 border-white/20 text-center">
         <CardHeader>
-          <CardTitle className="text-center text-3xl">Thank You!</CardTitle>
+          <CardTitle className="text-3xl">Thank You!</CardTitle>
+          <CardDescription className="text-white/80 pt-2">Your quote request has been received.</CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="text-center text-white/80">
-            Your quote request has been received. Our team will review the details and get back to you shortly.
+          <h3 className="font-bold text-lg">Quick Response</h3>
+          <p className="text-white/80 mt-2">
+            We'll review your request and get back to you within 24 hours with a customised quote and availability.
           </p>
         </CardContent>
       </Card>
