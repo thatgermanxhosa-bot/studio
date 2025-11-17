@@ -13,16 +13,19 @@ export default function ContactPage() {
     <>
       <section className="bg-card py-20 text-center">
         <div className="container">
-          <h1 className="text-4xl md:text-5xl font-black uppercase">Contact Us</h1>
+          <h1 className="text-4xl md:text-5xl font-black">Not Sure Where to Start?</h1>
         </div>
       </section>
 
       <section className="py-20">
         <div className="container grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold">Let's Work Together</h2>
+            <h2 className="text-3xl font-bold">That's what we're here for.</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Have a project in mind? We'd love to hear about it. Reach out to us via the form or through our contact details below.
+              Whether you have a detailed brief or just a general goal, we'd love to chat.
+            </p>
+             <p className="mt-4 text-lg text-muted-foreground">
+              Let's talk through your ideas and help you map out the best creative path forward. Reach out via the form or our details below.
             </p>
             <div className="mt-8 space-y-6">
               {contactDetails.map((item) => (
