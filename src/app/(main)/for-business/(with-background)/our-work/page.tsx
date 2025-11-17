@@ -174,7 +174,7 @@ export default function OurWorkPage() {
                     <video
                       ref={videoRef5}
                       src="/Perede K9H Pre Race Video.mp4"
-                      poster={image.imageUrl}
+                      poster="/Perede K9H Pre Race Video.00_00_38_41.Still001.png"
                       className="w-full h-full object-cover"
                       playsInline
                       controls={showControls5}
