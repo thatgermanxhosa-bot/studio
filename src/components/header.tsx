@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -62,16 +63,18 @@ export default function Header() {
   return (
     <header className={headerClasses}>
       <div className="container flex h-14 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 text-xl font-bold text-white tracking-widest">
-          <Image 
-            src="/PS%20Logo.png" 
-            alt="Pichulik Studios Logo" 
-            width={225} 
-            height={45}
-            className="w-auto h-auto"
-          />
-        </Link>
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-bold">
+        {!isForBusinessAboutPage && (
+          <Link href="/" className="flex items-center gap-2 text-xl font-bold text-white tracking-widest">
+            <Image 
+              src="/PS%20Logo.png" 
+              alt="Pichulik Studios Logo" 
+              width={225} 
+              height={45}
+              className="w-auto h-auto"
+            />
+          </Link>
+        )}
+        <nav className={cn("hidden md:flex items-center space-x-6 text-sm font-bold", isForBusinessAboutPage && "w-full justify-center")}>
           {displayedLinks.map(({ href, label }) => (
             <Link
               key={href}
