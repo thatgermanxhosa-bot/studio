@@ -99,19 +99,8 @@ export default function AboutUsPage() {
 
 
   return (
-    <div className="relative min-h-screen">
-      <div className="fixed inset-0 z-0">
-          <Image
-              src="/ps_about_background.png"
-              alt="Pichulik Studios About background"
-              fill
-              className="object-cover"
-              priority
-          />
-          <div className="absolute inset-0 bg-black/75"></div>
-      </div>
-      <main className="relative z-10 flex-grow text-white">
-        <section className="pt-32 pb-16">
+    <div className="relative z-10 flex-grow text-white">
+        <section className="pb-16">
             <div className="container mx-auto px-6 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight animate-fade-in-up">We Translate Business Goals into Compelling Visual Stories.</h1>
                 <p className="text-lg md:text-xl text-white/90 max-w-5xl mx-auto mb-8 animate-fade-in-up animation-delay-200">
@@ -210,7 +199,6 @@ export default function AboutUsPage() {
                 </div>
             </div>
         </section>
-      </main>
     </div>
   );
 }

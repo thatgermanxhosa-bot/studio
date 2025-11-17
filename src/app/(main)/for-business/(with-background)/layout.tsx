@@ -12,15 +12,16 @@ export default function ForBusinessWithBackgroundLayout({
   const pathname = usePathname();
   const isAboutPage = pathname.endsWith('/about');
 
+  let backgroundImage = "/ps_quotation_background.png";
   if (isAboutPage) {
-    return <>{children}</>;
+    backgroundImage = "/ps_about_background.png";
   }
 
   return (
     <div className="relative min-h-screen">
         <div className="fixed inset-0 z-0">
             <Image
-                src="/ps_quotation_background.png"
+                src={backgroundImage}
                 alt="Pichulik Studios Banner"
                 fill
                 className="object-cover"
@@ -29,7 +30,7 @@ export default function ForBusinessWithBackgroundLayout({
             <div className="absolute inset-0 bg-black/75"></div>
         </div>
         <div className="relative z-20 flex flex-col min-h-screen text-white">
-            {children}
+             <main className="flex-1 pt-32">{children}</main>
         </div>
     </div>
   );
