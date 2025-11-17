@@ -50,6 +50,7 @@ export default function Header() {
   
   const headerClasses = cn(
     "w-full pt-8 pb-4 bg-gradient-to-b from-black/70 to-transparent transition-transform duration-300 ease-in-out",
+    isForBusiness && "pt-0 pb-0"
   );
 
   if (isLandingPage) {
