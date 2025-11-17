@@ -18,9 +18,15 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -52,13 +58,21 @@ const services = [
         description: "Eye-catching graphics and animations for digital and print media.",
         examples: ["Motion graphics", "Logo animation", "Infographics", "Social media graphics"]
     },
+    { 
+        id: "creative-consultation", 
+        title: "Creative Strategy & Consultation",
+        description: "Expert guidance to develop your content strategy and creative direction.",
+        examples: ["Concept development", "Campaign strategy", "Brand identity", "Storyboarding"]
+    },
 ]
 
 const budgetRanges = [
     { id: "<5k", label: "< R5,000" },
     { id: "5k-15k", label: "R5,000 - R15,000" },
     { id: "15k-30k", label: "R15,000 - R30,000" },
-    { id: "30k+", label: "R30,000+" },
+    { id: "30k-50k", label: "R30,000 - R50,000" },
+    { id: "50k-100k", label: "R50,000 - R100,000" },
+    { id: "100k+", label: "R100,000+" },
 ]
 
 export function QuotationForm() {
@@ -119,7 +133,7 @@ export function QuotationForm() {
                     <FormField
                         control={form.control}
                         name="services"
-                        render={({ field }) => (
+                        render={() => (
                             <FormItem>
                                 <div className="mb-4">
                                     <FormLabel className="text-base">What's the primary focus? (Check all that apply)</FormLabel>
@@ -147,10 +161,11 @@ export function QuotationForm() {
                                                         )
                                                     }}
                                                     className="sr-only"
+                                                    id={item.id}
                                                 />
                                             </FormControl>
                                             <FormLabel htmlFor={item.id} className={cn(
-                                                "block w-full p-4 rounded-lg border-2 cursor-pointer transition-all",
+                                                "block w-full h-full p-4 rounded-lg border-2 cursor-pointer transition-all",
                                                 isSelected 
                                                 ? "border-primary bg-primary/10" 
                                                 : "border-white/20 hover:border-white/50"
@@ -197,33 +212,32 @@ export function QuotationForm() {
                             </FormItem>
                         )}
                     />
+                    
+                    <div className="grid sm:grid-cols-2 gap-6">
+                        <FormField
+                            control={form.control}
+                            name="budget"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Estimated Project Budget</FormLabel>
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormControl>
+                                        <SelectTrigger>
+                                        <SelectValue placeholder="Select a budget range..." />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                        {budgetRanges.map((range) => (
+                                            <SelectItem key={range.id} value={range.id}>{range.label}</SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                    </Select>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
 
-                    <FormField
-                        control={form.control}
-                        name="budget"
-                        render={({ field }) => (
-                            <FormItem className="space-y-3">
-                                <FormLabel>Estimated Project Budget</FormLabel>
-                                <FormControl>
-                                    <RadioGroup
-                                    onValueChange={field.onChange}
-                                    defaultValue={field.value}
-                                    className="grid grid-cols-2 sm:grid-cols-4 gap-4"
-                                    >
-                                    {budgetRanges.map((range) => (
-                                        <FormItem key={range.id} className="flex items-center space-x-3 space-y-0">
-                                            <FormControl>
-                                                <RadioGroupItem value={range.id} />
-                                            </FormControl>
-                                            <FormLabel className="font-normal">{range.label}</FormLabel>
-                                        </FormItem>
-                                    ))}
-                                    </RadioGroup>
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
 
                     <div className="grid sm:grid-cols-2 gap-6">
                         <FormField
@@ -292,3 +306,5 @@ export function QuotationForm() {
     </Card>
   );
 }
+
+    
