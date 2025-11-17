@@ -12,25 +12,25 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const defaultLinks = [
-  { href: "/", label: "HOME" },
-  { href: "/for-business", label: "FOR BUSINESS" },
-  { href: "/for-personal", label: "FOR PERSONAL" },
+  { href: "/", label: "Home" },
+  { href: "/for-business", label: "For Business" },
+  { href: "/for-personal", label: "For Personal" },
 ];
 
 const forBusinessLinks = [
-  { href: "/", label: "HOME" },
-  { href: "/for-business/about", label: "ABOUT" },
-  { href: "/for-business/our-work", label: "OUR WORK" },
-  { href: "/for-business/quotation", label: "QUOTATION" },
-  { href: "/for-business/contact", label: "CONTACT" },
+  { href: "/", label: "Home" },
+  { href: "/for-business/about", label: "About" },
+  { href: "/for-business/our-work", label: "Our Work" },
+  { href: "/for-business/quotation", label: "Quotation" },
+  { href: "/for-business/contact", label: "Contact" },
 ];
 
 const forPersonalLinks = [
-  { href: "/", label: "HOME" },
-  { href: "/for-personal/about", label: "ABOUT" },
-  { href: "/for-personal/our-work", label: "OUR WORK" },
-  { href: "/for-personal/bookings", label: "BOOKINGS" },
-  { href: "/for-personal/contact", label: "CONTACT" },
+  { href: "/", label: "Home" },
+  { href: "/for-personal/about", label: "About" },
+  { href: "/for-personal/our-work", label: "Our Work" },
+  { href: "/for-personal/bookings", label: "Bookings" },
+  { href: "/for-personal/contact", label: "Contact" },
 ];
 
 
