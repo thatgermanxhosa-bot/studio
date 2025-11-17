@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import { cn } from "@/lib/utils";
@@ -21,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background font-body antialiased", montserrat.variable)}>
         {children}
         <Toaster />
