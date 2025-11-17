@@ -5,9 +5,9 @@ import { QuotationForm } from "./quotation-form";
 export default function QuotationPage() {
   return (
     <div className="relative z-10">
-      <section className="bg-transparent py-16 md:py-24 text-center">
+      <section className="bg-transparent py-16 md:py-24 text-center pt-32 md:pt-48">
         <div className="container">
-          <h1 className="text-4xl md:text-5xl font-black uppercase">Ready to Elevate Your Brand's Story?</h1>
+          <h1 className="text-4xl md:text-5xl font-black">Ready to elevate your brand's story?</h1>
            <p className="mt-4 text-lg max-w-2xl mx-auto text-white/80">
             Let's start the partnership. Tell us about your project and business goals, and we'll get back to you with a tailored proposal.
           </p>
