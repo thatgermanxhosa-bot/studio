@@ -33,7 +33,7 @@ export default function ForBusinessWithBackgroundLayout({
                 className="object-cover"
                 priority
             />
-            <div className="absolute inset-0 bg-black/75"></div>
+            <div className="absolute inset-0 bg-black/60"></div>
         </div>
         <div className="relative z-20 flex flex-col min-h-screen text-white">
              <main className="flex-1">{children}</main>
