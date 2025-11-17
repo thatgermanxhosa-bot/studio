@@ -13,7 +13,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const defaultLinks = [
     { href: "/", label: "Home" },
-    { href: "/for-business", label: "For business" },
+    { href: "/for-business/about", label: "For business" },
     { href: "/for-personal/about", label: "For personal" },
 ];
 
