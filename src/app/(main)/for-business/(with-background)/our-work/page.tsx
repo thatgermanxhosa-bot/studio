@@ -1,8 +1,12 @@
 
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
+import { PlayCircle } from "lucide-react";
+import { useRef } from "react";
 
 const projects = [
   { id: "project-1", category: "Videography" },
@@ -14,6 +18,15 @@ const projects = [
 ];
 
 export default function OurWorkPage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlayVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  };
+
+
   return (
     <div className="relative z-10">
       <section className="bg-transparent text-center pt-32 pb-20">
@@ -37,15 +50,23 @@ export default function OurWorkPage() {
 
               if (project.id === 'project-2') {
                 return (
-                  <div key={project.id} className="relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75">
+                  <div key={project.id} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={handlePlayVideo}>
                     <video
+                      ref={videoRef}
                       src="/Reyashoma.mp4"
-                      controls
                       poster="/Reyashoma X Pichulik Studios.00_00_18_57.Still001.png"
                       className="w-full h-full object-cover"
+                      playsInline
+                      controls
                     >
                       Your browser does not support the video tag.
                     </video>
+                     <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <PlayCircle className="size-16 text-white" />
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                      <h3 className="text-xl font-bold text-white">{image.description}</h3>
+                    </div>
                   </div>
                 )
               }
@@ -59,10 +80,11 @@ export default function OurWorkPage() {
                     className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                     data-ai-hint={image.imageHint}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 p-6">
-                    <h3 className="text-2xl font-bold text-white transform-gpu transition-transform duration-300 group-hover:-translate-y-2">{image.description}</h3>
-                    <p className="text-white/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100">{project.category}</p>
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <PlayCircle className="size-16 text-white" />
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 className="text-xl font-bold text-white">{image.description}</h3>
                   </div>
                 </Link>
               );
