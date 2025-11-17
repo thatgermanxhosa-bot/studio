@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -5,6 +6,8 @@ import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
 import { Check } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+
+const CheckboxIndicator = CheckboxPrimitive.Indicator;
 
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
@@ -26,5 +29,8 @@ const Checkbox = React.forwardRef<
   </CheckboxPrimitive.Root>
 ))
 Checkbox.displayName = CheckboxPrimitive.Root.displayName
+Checkbox.Indicator = CheckboxIndicator;
 
 export { Checkbox }
+
+    

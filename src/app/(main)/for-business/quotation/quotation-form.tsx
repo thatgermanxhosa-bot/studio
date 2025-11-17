@@ -30,7 +30,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Loader2, CheckCircle2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const services = [
@@ -220,17 +220,23 @@ export function QuotationForm() {
                                                 />
                                             </FormControl>
                                             <FormLabel htmlFor={item.id} className={cn(
-                                                "block w-full h-full p-4 rounded-lg border-2 cursor-pointer transition-all",
+                                                "block w-full h-full p-4 rounded-lg border-2 cursor-pointer transition-all relative",
                                                 isSelected 
                                                 ? "border-primary bg-primary/10" 
                                                 : "border-white/20 hover:border-white/50"
                                             )}>
-                                                <div className="flex items-center justify-between mb-3">
-                                                    <h4 className="font-bold text-lg">{item.title}</h4>
-                                                    <CheckCircle2 className={cn(
-                                                        "size-6 transition-all",
-                                                        isSelected ? "text-primary scale-100" : "text-white/30 scale-0"
-                                                    )} />
+                                                <div className="flex items-start justify-between mb-3">
+                                                    <h4 className="font-bold text-lg pr-8">{item.title}</h4>
+                                                    <div className={cn(
+                                                        "flex items-center justify-center size-5 rounded-sm border border-primary shrink-0 mt-1",
+                                                        isSelected ? "bg-primary" : "bg-transparent"
+                                                    )}>
+                                                        <Checkbox.Indicator asChild>
+                                                          <svg className="size-4 fill-current text-primary-foreground" viewBox="0 0 16 16">
+                                                              <path d="M12.207 4.793a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L6.5 9.086l4.293-4.293a1 1 0 0 1 1.414 0z"/>
+                                                          </svg>
+                                                        </Checkbox.Indicator>
+                                                    </div>
                                                 </div>
                                                 <p className="text-sm text-white/70 mb-4">{item.description}</p>
                                                 <ul className="space-y-1 text-sm text-white/60">
@@ -305,3 +311,5 @@ export function QuotationForm() {
     </Card>
   );
 }
+
+    
