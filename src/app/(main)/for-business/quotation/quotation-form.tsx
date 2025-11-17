@@ -75,12 +75,12 @@ export function QuotationForm() {
 
   if (isSuccess) {
     return (
-      <Card className="w-full">
+      <Card className="w-full bg-black/75 border-white/20">
         <CardHeader>
           <CardTitle className="text-center text-3xl">Thank You!</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-center text-muted-foreground">
+          <p className="text-center text-white/80">
             Your quote request has been received. Our team will review the details and get back to you shortly.
           </p>
         </CardContent>
@@ -89,14 +89,8 @@ export function QuotationForm() {
   }
 
   return (
-    <Card>
-        <CardHeader>
-            <CardTitle className="text-center text-2xl">Request a Quote</CardTitle>
-            <p className="text-center text-muted-foreground pt-2">
-                Tell us about your project, and we'll provide a tailored quote.
-            </p>
-        </CardHeader>
-        <CardContent>
+    <Card className="bg-black/75 border-white/20">
+        <CardContent className="p-8">
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                     <FormField
