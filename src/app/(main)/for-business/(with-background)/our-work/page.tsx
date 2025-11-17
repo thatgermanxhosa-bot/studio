@@ -18,13 +18,23 @@ const projects = [
 ];
 
 export default function OurWorkPage() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [showControls, setShowControls] = useState(false);
+  const videoRef1 = useRef<HTMLVideoElement>(null);
+  const [showControls1, setShowControls1] = useState(false);
+  
+  const videoRef2 = useRef<HTMLVideoElement>(null);
+  const [showControls2, setShowControls2] = useState(false);
 
-  const handlePlayVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-      setShowControls(true);
+  const handlePlayVideo1 = () => {
+    if (videoRef1.current) {
+      videoRef1.current.play();
+      setShowControls1(true);
+    }
+  };
+  
+  const handlePlayVideo2 = () => {
+    if (videoRef2.current) {
+      videoRef2.current.play();
+      setShowControls2(true);
     }
   };
 
@@ -50,20 +60,45 @@ export default function OurWorkPage() {
               const image = PlaceHolderImages.find((p) => p.id === project.id);
               if (!image) return null;
 
+              if (project.id === 'project-1') {
+                return (
+                  <div key={project.id} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={!showControls1 ? handlePlayVideo1 : undefined}>
+                    <video
+                      ref={videoRef1}
+                      src="/IA_NED ReNew_2.mp4"
+                      poster={image.imageUrl}
+                      className="w-full h-full object-cover"
+                      playsInline
+                      controls={showControls1}
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                     {!showControls1 && (
+                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <PlayCircle className="size-16 text-white" />
+                      </div>
+                     )}
+                    <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                      <h3 className="text-xl font-bold text-white">{image.description}</h3>
+                    </div>
+                  </div>
+                )
+              }
+
               if (project.id === 'project-2') {
                 return (
-                  <div key={project.id} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={!showControls ? handlePlayVideo : undefined}>
+                  <div key={project.id} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={!showControls2 ? handlePlayVideo2 : undefined}>
                     <video
-                      ref={videoRef}
+                      ref={videoRef2}
                       src="/Reyashoma.mp4"
                       poster="/Reyashoma X Pichulik Studios.00_00_18_57.Still001.png"
                       className="w-full h-full object-cover"
                       playsInline
-                      controls={showControls}
+                      controls={showControls2}
                     >
                       Your browser does not support the video tag.
                     </video>
-                     {!showControls && (
+                     {!showControls2 && (
                       <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <PlayCircle className="size-16 text-white" />
                       </div>
