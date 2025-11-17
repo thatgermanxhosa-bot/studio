@@ -2,12 +2,20 @@
 'use client';
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function ForBusinessWithBackgroundLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const isAboutPage = pathname.endsWith('/about');
+
+  if (isAboutPage) {
+    return <>{children}</>;
+  }
+
   return (
     <div className="relative min-h-screen">
         <div className="fixed inset-0 z-0">
