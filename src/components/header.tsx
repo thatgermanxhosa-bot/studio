@@ -60,6 +60,19 @@ export default function Header() {
   return (
     <header className={headerClasses}>
       <div className="container flex h-14 flex-col items-center justify-center">
+        <div className="hidden md:flex justify-center mb-4">
+          <Link href="/">
+            <Image
+              src="/PS%20Logo.png"
+              alt="Pichulik Studios Logo"
+              width={225}
+              height={45}
+              className="h-auto w-auto"
+              priority
+            />
+          </Link>
+        </div>
+
         <nav className={cn("hidden md:flex items-center justify-center space-x-6 text-sm font-bold w-full")}>
           {displayedLinks.map(({ href, label }) => (
             <Link
@@ -74,19 +87,6 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        
-        <div className="hidden md:flex justify-center mt-4">
-          <Link href="/">
-            <Image
-              src="/PS%20Logo.png"
-              alt="Pichulik Studios Logo"
-              width={225}
-              height={45}
-              className="h-auto w-auto"
-              priority
-            />
-          </Link>
-        </div>
 
         <div className="md:hidden absolute left-4 top-1/2 -translate-y-1/2">
             <Link href="/" className="inline-block">
