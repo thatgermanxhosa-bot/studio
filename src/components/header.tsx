@@ -39,7 +39,6 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isLandingPage = pathname === '/';
-  const isForBusinessAboutPage = pathname === '/for-business/about';
 
   let displayedLinks = defaultLinks;
   if (pathname.startsWith("/for-business")) {
@@ -49,10 +48,7 @@ export default function Header() {
   }
 
   const headerClasses = cn(
-    "sticky top-0 z-50 w-full py-2",
-    {
-      "bg-gradient-to-b from-black/70 to-transparent": !isLandingPage,
-    }
+    "sticky top-0 z-50 w-full py-2 bg-gradient-to-b from-black/70 to-transparent"
   );
 
   if (isLandingPage) {
@@ -62,17 +58,8 @@ export default function Header() {
 
   return (
     <header className={headerClasses}>
-      <div className="container flex h-14 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 text-xl font-bold text-white tracking-widest">
-          <Image 
-            src="/PS%20Logo.png" 
-            alt="Pichulik Studios Logo" 
-            width={225} 
-            height={45}
-            className="h-auto w-auto"
-          />
-        </Link>
-        <nav className={cn("hidden md:flex items-center space-x-6 text-sm font-bold", isForBusinessAboutPage && "w-full justify-center")}>
+      <div className="container flex h-14 items-center justify-center">
+        <nav className={cn("hidden md:flex items-center space-x-6 text-sm font-bold")}>
           {displayedLinks.map(({ href, label }) => (
             <Link
               key={href}
@@ -86,7 +73,7 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        <div className="md:hidden">
+        <div className="md:hidden absolute right-4">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="text-white hover:text-white/80 hover:bg-transparent">
