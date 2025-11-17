@@ -11,7 +11,7 @@ const contactDetails = [
 export default function ContactPage() {
   return (
     <>
-      <section className="py-20">
+      <section className="py-20 pt-40">
         <div className="container grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
             <h1 className="text-4xl md:text-5xl font-black mb-4">Not Sure Where to Start?</h1>
