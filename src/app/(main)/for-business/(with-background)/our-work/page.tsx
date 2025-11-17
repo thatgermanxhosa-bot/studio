@@ -16,7 +16,7 @@ const projects = [
 export default function OurWorkPage() {
   return (
     <div className="relative z-10">
-      <section className="bg-transparent text-center pt-40 pb-20">
+      <section className="bg-transparent text-center pt-32 pb-20">
         <div className="container max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-black uppercase animate-fade-in-up">Stories We've Built. Goals We've Met.</h1>
           <p className="mt-4 text-lg text-white/80 animate-fade-in-up animation-delay-200">
@@ -41,6 +41,7 @@ export default function OurWorkPage() {
                     <video
                       src="/Reyashoma.mp4"
                       controls
+                      poster={image.imageUrl}
                       className="w-full h-full object-cover"
                     >
                       Your browser does not support the video tag.
