@@ -41,10 +41,6 @@ export default function Header() {
   const isLandingPage = pathname === '/';
   const isForBusinessAboutPage = pathname === '/for-business/about';
 
-  if (isLandingPage || isForBusinessAboutPage) {
-    return null; // Don't render header on the landing page
-  }
-
   let displayedLinks = defaultLinks;
   if (pathname.startsWith("/for-business")) {
     displayedLinks = forBusinessLinks;
@@ -52,9 +48,20 @@ export default function Header() {
     displayedLinks = forPersonalLinks;
   }
 
+  const headerClasses = cn(
+    "sticky top-0 z-50 w-full py-2",
+    {
+      "bg-gradient-to-b from-black/70 to-transparent": !isLandingPage,
+    }
+  );
+
+  if (isLandingPage) {
+    return null; // Don't render header on the landing page
+  }
+
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-gradient-to-b from-black/70 to-transparent py-2">
+    <header className={headerClasses}>
       <div className="container flex h-14 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold text-white tracking-widest">
           <Image 
@@ -62,7 +69,7 @@ export default function Header() {
             alt="Pichulik Studios Logo" 
             width={225} 
             height={45}
-            className="h-auto w-auto"
+            className="w-auto h-auto"
           />
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-bold">

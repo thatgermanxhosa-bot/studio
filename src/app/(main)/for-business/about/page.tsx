@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Video, Camera, Scissors, Award, Users, FastForward } from "lucide-react";
+import Header from "@/components/header";
 
 const services = [
   {
@@ -79,6 +80,7 @@ export default function AboutUsPage() {
 
   return (
     <div className="relative min-h-screen">
+      <Header />
       <div className="fixed inset-0 z-0">
           <Image
               src="/Pichulik_Studios_Banner.jpg"
