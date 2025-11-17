@@ -78,7 +78,7 @@ export default function AboutUsPage() {
   return (
     <>
       <main className="flex-grow">
-        <section className="relative bg-black text-white py-20 md:py-32">
+        <section className="relative bg-black text-white h-screen flex items-center justify-center">
             <div className="absolute inset-0">
                 <Image
                     src="/Pichulik_Studios_Banner).jpg"
@@ -102,7 +102,7 @@ export default function AboutUsPage() {
 
         <section className="py-10 md:py-20 bg-background text-foreground">
             <div className="container mx-auto px-6">
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-5xl mx-auto">
                     <div>
                         <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-4 border-b border-border">What We Do Best</h2>
                         <div className="grid md:grid-cols-2 gap-6">
