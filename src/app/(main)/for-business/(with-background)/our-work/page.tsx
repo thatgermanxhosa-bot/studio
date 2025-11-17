@@ -6,7 +6,7 @@ import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { PlayCircle } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const projects = [
   { id: "project-1", category: "Videography" },
@@ -19,10 +19,12 @@ const projects = [
 
 export default function OurWorkPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [showControls, setShowControls] = useState(false);
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
       videoRef.current.play();
+      setShowControls(true);
     }
   };
 
@@ -50,20 +52,22 @@ export default function OurWorkPage() {
 
               if (project.id === 'project-2') {
                 return (
-                  <div key={project.id} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={handlePlayVideo}>
+                  <div key={project.id} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={!showControls ? handlePlayVideo : undefined}>
                     <video
                       ref={videoRef}
                       src="/Reyashoma.mp4"
                       poster="/Reyashoma X Pichulik Studios.00_00_18_57.Still001.png"
                       className="w-full h-full object-cover"
                       playsInline
-                      controls
+                      controls={showControls}
                     >
                       Your browser does not support the video tag.
                     </video>
-                     <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <PlayCircle className="size-16 text-white" />
-                    </div>
+                     {!showControls && (
+                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <PlayCircle className="size-16 text-white" />
+                      </div>
+                     )}
                     <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                       <h3 className="text-xl font-bold text-white">{image.description}</h3>
                     </div>
