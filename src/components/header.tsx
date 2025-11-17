@@ -49,8 +49,7 @@ export default function Header() {
   }
 
   const headerClasses = cn(
-    "sticky top-0 z-50 w-full py-4",
-    !isLandingPage && "bg-gradient-to-b from-black/70 to-transparent"
+    "sticky top-0 z-50 w-full pt-8 pb-4 bg-gradient-to-b from-black/70 to-transparent"
   );
 
   if (isLandingPage) {
@@ -59,8 +58,8 @@ export default function Header() {
 
   return (
     <header className={headerClasses}>
-      <div className="container flex h-14 flex-col items-center justify-center">
-        <div className="hidden md:flex justify-center mb-4">
+      <div className="container flex flex-col items-center justify-center">
+        <div className="flex justify-center mb-4">
           <Link href="/">
             <Image
               src="/PS%20Logo.png"
