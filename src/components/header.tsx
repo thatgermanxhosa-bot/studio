@@ -50,7 +50,7 @@ export default function Header() {
 
   const headerClasses = cn(
     "sticky top-0 z-50 w-full py-4",
-    !isLandingPage && !isForBusiness && "bg-gradient-to-b from-black/70 to-transparent"
+    !isLandingPage && "bg-gradient-to-b from-black/70 to-transparent"
   );
 
   if (isLandingPage) {
@@ -74,20 +74,20 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        <div className="bg-gradient-to-b from-black/70 to-transparent -mx-8 px-8">
-            <div className="hidden md:flex justify-center mt-4">
-              <Link href="/">
-                <Image
-                  src="/PS%20Logo.png"
-                  alt="Pichulik Studios Logo"
-                  width={225}
-                  height={45}
-                  className="h-auto w-auto"
-                  priority
-                />
-              </Link>
-            </div>
+        
+        <div className="hidden md:flex justify-center mt-4">
+          <Link href="/">
+            <Image
+              src="/PS%20Logo.png"
+              alt="Pichulik Studios Logo"
+              width={225}
+              height={45}
+              className="h-auto w-auto"
+              priority
+            />
+          </Link>
         </div>
+
         <div className="md:hidden absolute left-4 top-1/2 -translate-y-1/2">
             <Link href="/" className="inline-block">
               <Image 
