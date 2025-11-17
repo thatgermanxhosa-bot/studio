@@ -5,7 +5,7 @@ import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { z } from "zod";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, Loader2 } from "lucide-react";
 import { format } from "date-fns";
 
 import { cn } from "@/lib/utils";
@@ -37,7 +37,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 export function BookingForm() {
   const [isPending, startTransition] = useTransition();
@@ -72,12 +72,12 @@ export function BookingForm() {
 
   if (isSuccess) {
     return (
-      <Card className="w-full">
+      <Card className="w-full bg-black/75 border-white/20 text-center">
         <CardHeader>
-          <CardTitle className="text-center text-3xl">Thank You!</CardTitle>
+          <CardTitle className="text-3xl">Thank You!</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-center text-muted-foreground">
+          <p className="text-white/80">
             Your booking request has been sent. We'll be in touch soon to confirm availability.
           </p>
         </CardContent>
@@ -86,14 +86,8 @@ export function BookingForm() {
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-center text-2xl">Request a Booking</CardTitle>
-        <p className="text-center text-muted-foreground pt-2">
-            Fill out the form below to request a date. We'll confirm availability via email.
-        </p>
-      </CardHeader>
-      <CardContent>
+    <Card className="bg-black/75 border-white/20">
+      <CardContent className="p-8">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
@@ -109,11 +103,10 @@ export function BookingForm() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="videography">Videography</SelectItem>
-                      <SelectItem value="photography">Photography</SelectItem>
-                      <SelectItem value="post-production">Post-Production</SelectItem>
-                      <SelectItem value="styling">Styling</SelectItem>
-                      <SelectItem value="consultation">Consultation</SelectItem>
+                      <SelectItem value="videography">Milestone Videography</SelectItem>
+                      <SelectItem value="photography">Portrait & Event Photography</SelectItem>
+                      <SelectItem value="editing">Editing & Enhancement</SelectItem>
+                      <SelectItem value="graphics">Custom Graphics</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -208,10 +201,10 @@ export function BookingForm() {
               name="notes"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Notes (Optional)</FormLabel>
+                  <FormLabel>Tell us about the occasion (Optional)</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Any additional details about your booking?"
+                      placeholder="e.g., 50th birthday party, family portrait session..."
                       {...field}
                     />
                   </FormControl>
@@ -220,7 +213,8 @@ export function BookingForm() {
               )}
             />
             <div className="flex justify-end">
-              <Button type="submit" disabled={isPending} className="w-full sm:w-auto uppercase font-bold tracking-widest px-8">
+              <Button type="submit" disabled={isPending} size="lg" className="uppercase font-bold tracking-widest px-8">
+                 {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 {isPending ? "Submitting..." : "Request Booking"}
               </Button>
             </div>

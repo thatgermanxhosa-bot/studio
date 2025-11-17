@@ -43,11 +43,12 @@ export default function Header() {
 
   const isLandingPage = pathname === '/';
   const isForBusiness = pathname.startsWith("/for-business");
+  const isForPersonal = pathname.startsWith("/for-personal");
 
   let displayedLinks = defaultLinks;
   if (isForBusiness) {
     displayedLinks = forBusinessLinks;
-  } else if (pathname.startsWith("/for-personal")) {
+  } else if (isForPersonal) {
     displayedLinks = forPersonalLinks;
   }
 
@@ -72,10 +73,12 @@ export default function Header() {
   }, [lastScrollY]);
   
   const hasBusinessBackground = isForBusiness && (pathname.includes('/about') || pathname.includes('/quotation') || pathname.includes('/contact') || pathname.includes('/our-work'));
+  const hasPersonalBackground = isForPersonal && (pathname.includes('/about') || pathname.includes('/bookings') || pathname.includes('/contact') || pathname.includes('/our-work'));
+  const useTransparentHeader = hasBusinessBackground || hasPersonalBackground;
 
   const headerClasses = cn(
     "fixed top-0 left-0 w-full z-30 transition-transform duration-300 ease-in-out",
-    hasBusinessBackground ? "pt-8 pb-4 bg-gradient-to-b from-black/70 to-transparent text-white" : "py-4 bg-background text-foreground shadow-md",
+    useTransparentHeader ? "pt-8 pb-4 bg-gradient-to-b from-black/70 to-transparent text-white" : "py-4 bg-background text-foreground shadow-md",
     isHeaderVisible ? "translate-y-0" : "-translate-y-full"
   );
 
@@ -89,7 +92,7 @@ export default function Header() {
         <div className="hidden md:flex items-center justify-between">
             <Link href="/" className="inline-block">
               <Image 
-                src={hasBusinessBackground ? "/PS%20Logo.png" : "/PS%20Logo%20Black.png"}
+                src={useTransparentHeader ? "/PS%20Logo.png" : "/PS%20Logo%20Black.png"}
                 alt="Pichulik Studios Logo" 
                 width={225} 
                 height={45}
@@ -104,7 +107,7 @@ export default function Header() {
                 href={href}
                 className={cn(
                   "transition-colors",
-                  hasBusinessBackground 
+                  useTransparentHeader 
                     ? (pathname === href ? "text-white" : "text-white/60 hover:text-white/80")
                     : (pathname === href ? "text-primary" : "text-foreground/60 hover:text-foreground/80")
                 )}
@@ -118,7 +121,7 @@ export default function Header() {
         <div className="md:hidden flex items-center justify-between w-full">
             <Link href="/" className="inline-block">
               <Image 
-                src={hasBusinessBackground ? "/PS%20Logo.png" : "/PS%20Logo%20Black.png"}
+                src={useTransparentHeader ? "/PS%20Logo.png" : "/PS%20Logo%20Black.png"}
                 alt="Pichulik Studios Logo" 
                 width={180} 
                 height={36}
@@ -128,7 +131,7 @@ export default function Header() {
             </Link>
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className={cn("hover:bg-transparent", hasBusinessBackground ? "text-white hover:text-white/80" : "text-foreground hover:text-foreground/80")}>
+              <Button variant="ghost" size="icon" className={cn("hover:bg-transparent", useTransparentHeader ? "text-white hover:text-white/80" : "text-foreground hover:text-foreground/80")}>
                 <Menu className="size-6" />
                 <span className="sr-only">Open menu</span>
               </Button>
