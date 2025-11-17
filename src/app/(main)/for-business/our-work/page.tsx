@@ -34,12 +34,12 @@ export default function OurWorkPage() {
               const image = PlaceHolderImages.find((p) => p.id === project.id);
               if (!image) return null;
               return (
-                <Link href="#" key={project.id} className="group relative block overflow-hidden rounded-lg shadow-lg">
+                <Link href="#" key={project.id} className="group relative block aspect-square overflow-hidden rounded-lg shadow-lg">
                   <Image
                     src={image.imageUrl}
                     alt={image.description}
                     width={600}
-                    height={400}
+                    height={600}
                     className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                     data-ai-hint={image.imageHint}
                   />
