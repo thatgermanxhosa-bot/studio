@@ -48,7 +48,8 @@ export default function Header() {
   }
 
   const headerClasses = cn(
-    "sticky top-0 z-50 w-full py-2 bg-gradient-to-b from-black/70 to-transparent"
+    "sticky top-0 z-50 w-full py-4",
+    !isLandingPage && "bg-gradient-to-b from-black/70 to-transparent"
   );
 
   if (isLandingPage) {
@@ -58,7 +59,7 @@ export default function Header() {
 
   return (
     <header className={headerClasses}>
-      <div className="container flex h-14 items-center justify-center">
+      <div className="container flex h-14 flex-col items-center justify-center">
         <nav className={cn("hidden md:flex items-center space-x-6 text-sm font-bold")}>
           {displayedLinks.map(({ href, label }) => (
             <Link
@@ -73,7 +74,31 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        <div className="md:hidden absolute right-4">
+        <div className="hidden md:flex justify-center mt-4">
+          <Link href="/">
+            <Image
+              src="/PS%20Logo.png"
+              alt="Pichulik Studios Logo"
+              width={225}
+              height={45}
+              className="h-auto w-auto"
+              priority
+            />
+          </Link>
+        </div>
+        <div className="md:hidden absolute left-4 top-1/2 -translate-y-1/2">
+            <Link href="/" className="inline-block">
+              <Image 
+                src="/PS%20Logo.png" 
+                alt="Pichulik Studios Logo" 
+                width={180} 
+                height={36}
+                className="h-auto w-auto"
+                priority
+              />
+            </Link>
+        </div>
+        <div className="md:hidden absolute right-4 top-1/2 -translate-y-1/2">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="text-white hover:text-white/80 hover:bg-transparent">
