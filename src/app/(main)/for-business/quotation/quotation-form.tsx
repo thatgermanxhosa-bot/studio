@@ -24,14 +24,34 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Loader2 } from "lucide-react";
+import { Loader2, CheckCircle2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const services = [
-    { id: "strategic-video-production", label: "Strategic Video Production" },
-    { id: "corporate-commercial-photography", label: "Corporate & Commercial Photography" },
-    { id: "full-service-post-production", label: "Full-Service Post-Production" },
-    { id: "motion-graphics-animation", label: "Motion Graphics & Animation" },
-    { id: "creative-strategy-consultation", label: "Creative Strategy & Consultation" },
+    { 
+        id: "video-production", 
+        title: "Video Production",
+        description: "Professional video content for marketing, training, and corporate communications.",
+        examples: ["Brand storytelling", "Product demonstrations", "Training videos", "Marketing content"]
+    },
+    { 
+        id: "professional-photography", 
+        title: "Professional Photography",
+        description: "High-quality photography services for all your business needs.",
+        examples: ["Corporate headshots", "Product photography", "Event coverage", "Architectural photography"]
+    },
+    { 
+        id: "post-production", 
+        title: "Post-Production Services",
+        description: "Expert editing and post-production to polish your visual content.",
+        examples: ["Video editing", "Color grading", "Motion graphics", "Audio mixing"]
+    },
+    { 
+        id: "graphics-animation", 
+        title: "Graphics and Animation",
+        description: "Eye-catching graphics and animations for digital and print media.",
+        examples: ["Motion graphics", "Logo animation", "Infographics", "Social media graphics"]
+    },
 ]
 
 const budgetRanges = [
@@ -99,7 +119,7 @@ export function QuotationForm() {
                     <FormField
                         control={form.control}
                         name="services"
-                        render={() => (
+                        render={({ field }) => (
                             <FormItem>
                                 <div className="mb-4">
                                     <FormLabel className="text-base">What's the primary focus? (Check all that apply)</FormLabel>
@@ -111,27 +131,43 @@ export function QuotationForm() {
                                     control={form.control}
                                     name="services"
                                     render={({ field }) => {
+                                        const isSelected = field.value?.includes(item.id);
                                         return (
-                                        <FormItem
-                                            key={item.id}
-                                            className="flex flex-row items-center space-x-3 space-y-0"
-                                        >
+                                        <FormItem key={item.id} className="w-full">
                                             <FormControl>
-                                            <Checkbox
-                                                checked={field.value?.includes(item.id)}
-                                                onCheckedChange={(checked) => {
-                                                return checked
-                                                    ? field.onChange([...(field.value || []), item.id])
-                                                    : field.onChange(
-                                                        field.value?.filter(
-                                                        (value) => value !== item.id
+                                                <Checkbox
+                                                    checked={isSelected}
+                                                    onCheckedChange={(checked) => {
+                                                    return checked
+                                                        ? field.onChange([...(field.value || []), item.id])
+                                                        : field.onChange(
+                                                            field.value?.filter(
+                                                            (value) => value !== item.id
+                                                            )
                                                         )
-                                                    )
-                                                }}
-                                            />
+                                                    }}
+                                                    className="sr-only"
+                                                />
                                             </FormControl>
-                                            <FormLabel className="font-normal">
-                                            {item.label}
+                                            <FormLabel htmlFor={item.id} className={cn(
+                                                "block w-full p-4 rounded-lg border-2 cursor-pointer transition-all",
+                                                isSelected 
+                                                ? "border-primary bg-primary/10" 
+                                                : "border-white/20 hover:border-white/50"
+                                            )}>
+                                                <div className="flex items-center justify-between mb-3">
+                                                    <h4 className="font-bold text-lg">{item.title}</h4>
+                                                    <CheckCircle2 className={cn(
+                                                        "size-6 transition-all",
+                                                        isSelected ? "text-primary scale-100" : "text-white/30 scale-0"
+                                                    )} />
+                                                </div>
+                                                <p className="text-sm text-white/70 mb-4">{item.description}</p>
+                                                <ul className="space-y-1 text-sm text-white/60">
+                                                    {item.examples.map(ex => <li key={ex} className="flex items-center gap-2">
+                                                        <span className="text-primary/50">&bull;</span> {ex}
+                                                    </li>)}
+                                                </ul>
                                             </FormLabel>
                                         </FormItem>
                                         )
