@@ -108,7 +108,7 @@ export default function AboutUsPage() {
                         <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-4 border-b border-border">What We Do Best</h2>
                         <div className="grid md:grid-cols-2 gap-6">
                             {services.map((service) => (
-                                <Card key={service.title} className="bg-transparent border-white/20 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
+                                <Card key={service.title} className="bg-black/50 border-white/20 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
                                     <CardHeader>
                                         <CardTitle className="flex items-center gap-4">
                                             {service.icon}
@@ -124,7 +124,7 @@ export default function AboutUsPage() {
                     </div>
 
                     <div className="mt-16">
-                        <Card className="bg-transparent border-white/20">
+                        <Card className="bg-black/50 border-white/20">
                             <CardHeader>
                                 <CardTitle className="text-2xl">Why Partner With Us?</CardTitle>
                             </CardHeader>
@@ -173,7 +173,7 @@ export default function AboutUsPage() {
                   </div>
                 </div>
 
-                <div className="mt-20 text-center bg-transparent p-8 md:p-12 rounded-lg">
+                <div className="mt-20 text-center bg-black/50 p-8 md:p-12 rounded-lg">
                     <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Elevate Your Brand's Story?</h2>
                     <p className="max-w-2xl mx-auto text-white/80 text-lg mb-8">
                         Let's discuss your next project.
