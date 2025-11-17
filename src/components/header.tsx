@@ -49,8 +49,8 @@ export default function Header() {
   }
   
   const headerClasses = cn(
-    "w-full pt-8 pb-4 bg-gradient-to-b from-black/70 to-transparent transition-transform duration-300 ease-in-out",
-    isForBusiness && "pt-0 pb-0"
+    "fixed top-0 left-0 w-full z-30 transition-colors duration-300 ease-in-out",
+    isForBusiness ? "pt-8 pb-4 bg-gradient-to-b from-black/70 to-transparent text-white" : "py-4 bg-background text-foreground shadow-md"
   );
 
   if (isLandingPage) {
@@ -59,39 +59,40 @@ export default function Header() {
 
   return (
     <header className={headerClasses}>
-      <div className="container flex flex-col items-center justify-center">
-        <div className="flex justify-center mb-4">
-          <Link href="/">
-            <Image
-              src="/PS%20Logo.png"
-              alt="Pichulik Studios Logo"
-              width={225}
-              height={45}
-              className="h-auto w-auto"
-              priority
-            />
-          </Link>
-        </div>
-
-        <nav className={cn("hidden md:flex items-center justify-center space-x-6 text-sm font-bold w-full")}>
-          {displayedLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={cn(
-                "transition-colors hover:text-white/80",
-                pathname === href ? "text-white" : "text-white/60"
-              )}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="md:hidden absolute left-4 top-1/2 -translate-y-1/2">
+      <div className="container mx-auto px-6 relative">
+        <div className="hidden md:flex items-center justify-between">
             <Link href="/" className="inline-block">
               <Image 
-                src="/PS%20Logo.png" 
+                src={isForBusiness ? "/PS%20Logo.png" : "/PS%20Logo%20Black.png"}
+                alt="Pichulik Studios Logo" 
+                width={225} 
+                height={45}
+                className="h-auto w-auto"
+                priority
+              />
+            </Link>
+          <nav className="flex items-center justify-center space-x-6 text-sm font-bold">
+            {displayedLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className={cn(
+                  "transition-colors",
+                  isForBusiness 
+                    ? (pathname === href ? "text-white" : "text-white/60 hover:text-white/80")
+                    : (pathname === href ? "text-primary" : "text-foreground/60 hover:text-foreground/80")
+                )}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        <div className="md:hidden flex items-center justify-between w-full">
+            <Link href="/" className="inline-block">
+              <Image 
+                src={isForBusiness ? "/PS%20Logo.png" : "/PS%20Logo%20Black.png"}
                 alt="Pichulik Studios Logo" 
                 width={180} 
                 height={36}
@@ -99,11 +100,9 @@ export default function Header() {
                 priority
               />
             </Link>
-        </div>
-        <div className="md:hidden absolute right-4 top-1/2 -translate-y-1/2">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-white hover:text-white/80 hover:bg-transparent">
+              <Button variant="ghost" size="icon" className={cn("hover:bg-transparent", isForBusiness ? "text-white hover:text-white/80" : "text-foreground hover:text-foreground/80")}>
                 <Menu className="size-6" />
                 <span className="sr-only">Open menu</span>
               </Button>
