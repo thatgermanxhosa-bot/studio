@@ -76,20 +76,21 @@ const partnershipProcess = [
 
 export default function AboutUsPage() {
   return (
-    <>
-      <main className="flex-grow">
-        <section className="relative bg-black text-white h-screen flex flex-col">
-            <div className="absolute inset-0 z-0">
-                <Image
-                    src="/Pichulik_Studios_Banner).jpg"
-                    alt="Pichulik Studios Banner"
-                    fill
-                    className="object-cover opacity-40"
-                    data-ai-hint="team working"
-                />
-                 <div className="absolute inset-0 bg-black/50"></div>
-            </div>
-            <div className="container relative z-10 mx-auto px-6 text-center flex-grow flex flex-col justify-center">
+    <div className="relative min-h-screen">
+      <div className="fixed inset-0 z-0">
+          <Image
+              src="/Pichulik_Studios_Banner).jpg"
+              alt="Pichulik Studios Banner"
+              fill
+              className="object-cover opacity-30"
+              data-ai-hint="team working"
+          />
+          <div className="absolute inset-0 bg-black/70"></div>
+      </div>
+
+      <main className="relative z-10 flex-grow text-white">
+        <section className="h-screen flex flex-col justify-center">
+            <div className="container mx-auto px-6 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">We Translate Business Goals into Compelling Visual Stories.</h1>
                 <p className="text-lg md:text-xl text-white/90 max-w-5xl mx-auto mb-8">
                     We are a boutique video studio built for one purpose: to help your business connect, engage, and grow. In today's market, "good enough" content gets ignored. We founded our studio on the belief that B2B creative shouldn't be boring. It should be strategic, beautiful, and built to achieve a goal.
@@ -100,7 +101,7 @@ export default function AboutUsPage() {
             </div>
         </section>
 
-        <section className="py-10 md:py-20 bg-background text-foreground">
+        <section className="py-10 md:py-20 text-foreground bg-background/90">
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto">
                     <div>
@@ -184,6 +185,6 @@ export default function AboutUsPage() {
             </div>
         </section>
       </main>
-    </>
+    </div>
   );
 }
