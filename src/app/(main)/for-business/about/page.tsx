@@ -1,9 +1,13 @@
 
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Video, Camera, Scissors, Award, Users, FastForward } from "lucide-react";
+import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
@@ -76,6 +80,22 @@ const partnershipProcess = [
 
 
 export default function AboutUsPage() {
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!hasScrolled) {
+        setHasScrolled(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { once: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [hasScrolled]);
+
 
   return (
     <div className="relative min-h-screen">
@@ -103,7 +123,7 @@ export default function AboutUsPage() {
             </div>
         </section>
 
-        <section className="py-10 md:py-20 animate-fade-in-up">
+        <section className={cn("py-10 md:py-20 opacity-0", hasScrolled && "animate-fade-in-up")}>
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto">
                     <div className="mb-16">
