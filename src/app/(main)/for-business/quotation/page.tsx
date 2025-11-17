@@ -6,9 +6,9 @@ export default function QuotationPage() {
     <div className="relative z-10 text-white">
       <section className="bg-transparent py-10 text-center">
         <div className="container">
-          <h1 className="text-4xl md:text-5xl font-black uppercase">Get a Quote</h1>
+          <h1 className="text-4xl md:text-5xl font-black uppercase">Ready to Elevate Your Brand's Story?</h1>
            <p className="mt-4 text-lg max-w-2xl mx-auto text-white/80">
-            Tell us about your project, and we'll provide a tailored quote.
+            Let's start the partnership. Tell us about your project and business goals, and we'll get back to you with a tailored proposal.
           </p>
         </div>
       </section>

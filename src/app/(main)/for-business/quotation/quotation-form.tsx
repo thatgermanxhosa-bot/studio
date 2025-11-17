@@ -27,11 +27,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
 
 const services = [
-    { id: "videography", label: "Videography" },
-    { id: "photography", label: "Photography" },
-    { id: "post-production", label: "Post-Production" },
-    { id: "styling", label: "Styling" },
-    { id: "consultation", label: "Consultation" },
+    { id: "strategic-video-production", label: "Strategic Video Production" },
+    { id: "corporate-commercial-photography", label: "Corporate & Commercial Photography" },
+    { id: "full-service-post-production", label: "Full-Service Post-Production" },
+    { id: "motion-graphics-animation", label: "Motion Graphics & Animation" },
+    { id: "creative-strategy-consultation", label: "Creative Strategy & Consultation" },
 ]
 
 const budgetRanges = [
@@ -99,9 +99,9 @@ export function QuotationForm() {
                         render={() => (
                             <FormItem>
                                 <div className="mb-4">
-                                    <FormLabel className="text-base">Services Required</FormLabel>
+                                    <FormLabel className="text-base">What's the primary focus? (Check all that apply)</FormLabel>
                                 </div>
-                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {services.map((item) => (
                                     <FormField
                                     key={item.id}
@@ -146,10 +146,10 @@ export function QuotationForm() {
                         name="projectDetails"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Project Details</FormLabel>
+                                <FormLabel>Tell Us About Your Project & Goals</FormLabel>
                                 <FormControl>
                                     <Textarea
-                                    placeholder="Describe your project, goals, and any specific requirements..."
+                                    placeholder="Briefly describe your project, what you want to achieve, and who your audience is."
                                     rows={6}
                                     {...field}
                                     />
@@ -164,7 +164,7 @@ export function QuotationForm() {
                         name="budget"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
-                                <FormLabel>Budget Range</FormLabel>
+                                <FormLabel>Estimated Project Budget</FormLabel>
                                 <FormControl>
                                     <RadioGroup
                                     onValueChange={field.onChange}
@@ -220,7 +220,7 @@ export function QuotationForm() {
                         name="company"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Company (Optional)</FormLabel>
+                            <FormLabel>Company</FormLabel>
                             <FormControl>
                                 <Input placeholder="Your Company Inc." {...field} />
                             </FormControl>
@@ -232,7 +232,7 @@ export function QuotationForm() {
                     <div className="flex justify-end">
                         <Button type="submit" disabled={isPending} className="w-full sm:w-auto uppercase font-bold tracking-widest px-8">
                             {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                            {isPending ? "Submitting..." : "Submit Request"}
+                            {isPending ? "Submitting..." : "Start the Conversation"}
                         </Button>
                     </div>
                 </form>
