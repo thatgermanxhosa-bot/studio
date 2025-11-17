@@ -24,6 +24,9 @@ export default function OurWorkPage() {
   const videoRef2 = useRef<HTMLVideoElement>(null);
   const [showControls2, setShowControls2] = useState(false);
 
+  const videoRef6 = useRef<HTMLVideoElement>(null);
+  const [showControls6, setShowControls6] = useState(false);
+
   const handlePlayVideo1 = () => {
     if (videoRef1.current) {
       videoRef1.current.play();
@@ -35,6 +38,13 @@ export default function OurWorkPage() {
     if (videoRef2.current) {
       videoRef2.current.play();
       setShowControls2(true);
+    }
+  };
+
+  const handlePlayVideo6 = () => {
+    if (videoRef6.current) {
+      videoRef6.current.play();
+      setShowControls6(true);
     }
   };
 
@@ -107,6 +117,31 @@ export default function OurWorkPage() {
                     <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                       <h3 className="text-xl font-bold text-white">{image.description}</h3>
                       <p className="text-sm text-white/80">Reyashoma Roadmarkings & Signage</p>
+                    </div>
+                  </div>
+                )
+              }
+
+              if (project.id === 'project-6') {
+                return (
+                  <div key={project.id} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={!showControls6 ? handlePlayVideo6 : undefined}>
+                    <video
+                      ref={videoRef6}
+                      src="/Union Street Development HR.mp4"
+                      poster={image.imageUrl}
+                      className="w-full h-full object-cover"
+                      playsInline
+                      controls={showControls6}
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                     {!showControls6 && (
+                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <PlayCircle className="size-16 text-white" />
+                      </div>
+                     )}
+                    <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                      <h3 className="text-xl font-bold text-white">{image.description}</h3>
                     </div>
                   </div>
                 )
