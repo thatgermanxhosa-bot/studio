@@ -1,15 +1,14 @@
 
-
 import { QuotationForm } from "./quotation-form";
 
 export default function QuotationPage() {
   return (
     <div className="relative z-10">
-      <section className="bg-transparent py-16 md:py-24 text-center pt-40 md:pt-48">
+      <section className="bg-transparent py-16 md:py-24 text-center pt-32 md:pt-40">
         <div className="container">
-          <h1 className="text-4xl md:text-5xl font-black">Ready to elevate your brand's story?</h1>
+          <h1 className="text-4xl md:text-5xl font-black">Ready to Elevate Your Brand's Story?</h1>
            <p className="mt-4 text-lg max-w-2xl mx-auto text-white/80">
-            Let's start the partnership. Tell us about your project and business goals, and we'll get back to you with a tailored proposal.
+            This is where the partnership begins. Whether you have a full project brief or just an initial business goal, we're ready to discuss how we can translate your vision into high-impact creative.
           </p>
         </div>
       </section>
