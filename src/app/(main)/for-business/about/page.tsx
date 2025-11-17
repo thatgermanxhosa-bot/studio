@@ -99,17 +99,6 @@ export default function AboutUsPage() {
 
   return (
     <div className="relative min-h-screen">
-      <div className="fixed inset-0 z-0">
-          <Image
-              src="/ps_about_background.png"
-              alt="Pichulik Studios Banner"
-              fill
-              className="object-cover"
-              priority
-          />
-        <div className="absolute inset-0 bg-black/75"></div>
-      </div>
-      
       <main className="relative z-10 flex-grow text-white">
         <section className="pt-24 pb-16">
             <div className="container mx-auto px-6 text-center">

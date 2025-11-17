@@ -3,7 +3,7 @@ import { QuotationForm } from "./quotation-form";
 
 export default function QuotationPage() {
   return (
-    <div className="relative z-10 text-white">
+    <div className="relative z-10">
       <section className="bg-transparent pt-16 pb-12 text-center">
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-black uppercase">Ready to Elevate Your Brand's Story?</h1>
@@ -13,7 +13,7 @@ export default function QuotationPage() {
         </div>
       </section>
 
-      <section className="py-10">
+      <section className="pb-20 pt-10">
         <div className="container mx-auto px-6">
             <div className="max-w-5xl mx-auto">
                 <QuotationForm />
