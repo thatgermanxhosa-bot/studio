@@ -11,7 +11,7 @@ const contactDetails = [
 export default function ContactPage() {
   return (
     <div className="relative z-10 text-white">
-      <section className="pt-40 pb-16">
+      <section className="pt-40 md:pt-48 pb-16">
         <div className="container grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2">
             <h1 className="text-4xl md:text-5xl font-black mb-4">Not Sure Where to Start?</h1>
@@ -45,4 +45,5 @@ export default function ContactPage() {
     </div>
   );
 }
+
 
