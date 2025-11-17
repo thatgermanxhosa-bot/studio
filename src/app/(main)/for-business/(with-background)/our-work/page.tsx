@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { cn } from "@/lib/utils";
 
 const projects = [
   { id: "project-1", category: "Videography" },
@@ -33,6 +34,23 @@ export default function OurWorkPage() {
             {projects.map((project, index) => {
               const image = PlaceHolderImages.find((p) => p.id === project.id);
               if (!image) return null;
+
+              if (project.id === 'project-2') {
+                return (
+                  <div key={project.id} className="relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75">
+                    <iframe 
+                        className="w-full h-full"
+                        src="https://www.youtube.com/embed/lmKewvqZeAU" 
+                        title="Reyashoma X Pichulik Studios" 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="strict-origin-when-cross-origin" 
+                        allowFullScreen>
+                    </iframe>
+                  </div>
+                )
+              }
+
               return (
                 <Link href="#" key={project.id} className="group relative block aspect-square overflow-hidden rounded-lg shadow-lg">
                   <Image
