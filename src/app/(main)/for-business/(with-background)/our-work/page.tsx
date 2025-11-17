@@ -66,7 +66,7 @@ export default function OurWorkPage() {
                     <video
                       ref={videoRef1}
                       src="/IA_NED ReNew_2.mp4"
-                      poster={image.imageUrl}
+                      poster="/IA_NED ReNew HL OCT Update_LR.00_00_20_04.Still001.png"
                       className="w-full h-full object-cover"
                       playsInline
                       controls={showControls1}
