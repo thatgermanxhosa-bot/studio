@@ -87,7 +87,7 @@ export default function AboutUsPage() {
               className="object-cover"
               priority
           />
-        <div className="absolute inset-0 bg-black/80"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
       <main className="relative z-10 flex-grow text-white">
