@@ -173,13 +173,20 @@ export default function AboutUsPage() {
                           </p>
                       </CardHeader>
                       <CardContent>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 items-start">
-                            {partnershipProcess.map((item, index) => (
-                              <div key={item.step} className={cn("flex gap-6", {
-                                "lg:col-span-1": index < 3,
-                                "lg:col-start-2 lg:col-span-1": index === 3,
-                                "lg:col-span-1": index === 4,
-                              })}>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                            {partnershipProcess.slice(0, 3).map((item) => (
+                              <div key={item.step} className="flex gap-6">
+                                <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
+                                <div>
+                                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                                  <p className="text-white/80">{item.description}</p>
+                                </div>
+                              </div>
+                            ))}
+                        </div>
+                        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-start md:justify-center md:max-w-3xl mx-auto">
+                            {partnershipProcess.slice(3).map((item) => (
+                              <div key={item.step} className="flex gap-6">
                                 <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
                                 <div>
                                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
