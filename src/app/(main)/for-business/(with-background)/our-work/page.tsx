@@ -37,7 +37,7 @@ export default function OurWorkPage() {
 
               if (project.id === 'project-2') {
                 return (
-                  <div key={project.id} className="relative block aspect-square overflow-hidden rounded-lg shadow-lg bg-black/75">
+                  <div key={project.id} className="relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75">
                     <video
                       src="/Reyashoma.mp4"
                       controls
@@ -51,12 +51,11 @@ export default function OurWorkPage() {
               }
 
               return (
-                <Link href="#" key={project.id} className="group relative block aspect-square overflow-hidden rounded-lg shadow-lg">
+                <Link href="#" key={project.id} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg">
                   <Image
                     src={image.imageUrl}
                     alt={image.description}
-                    width={600}
-                    height={600}
+                    fill
                     className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                     data-ai-hint={image.imageHint}
                   />
