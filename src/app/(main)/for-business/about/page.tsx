@@ -111,7 +111,7 @@ export default function AboutUsPage() {
       </div>
 
       <main className="relative z-10 flex-grow text-white">
-        <section className="h-screen flex flex-col justify-center">
+        <section className="h-screen flex flex-col justify-end pb-32">
             <div className="container mx-auto px-6 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight animate-fade-in-up">We Translate Business Goals into Compelling Visual Stories.</h1>
                 <p className="text-lg md:text-xl text-white/90 max-w-5xl mx-auto mb-8 animate-fade-in-up animation-delay-200">
@@ -123,10 +123,10 @@ export default function AboutUsPage() {
             </div>
         </section>
 
-        <section className={cn("py-10 md:py-20 opacity-0", hasScrolled && "animate-fade-in-up")}>
+        <section className={cn("py-10 md:py-16 opacity-0", hasScrolled && "animate-fade-in-up")}>
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto">
-                    <div className="mb-16">
+                    <div className="mb-12">
                         <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-4">What We Do Best</h2>
                         <div className="grid md:grid-cols-2 gap-6">
                             {services.map((service) => (
@@ -145,7 +145,7 @@ export default function AboutUsPage() {
                         </div>
                     </div>
 
-                    <div className="mt-16">
+                    <div className="mt-12">
                         <Card className="bg-black/50 border-white/20">
                             <CardHeader>
                                 <CardTitle className="text-2xl">Why Partner With Us?</CardTitle>
@@ -164,7 +164,7 @@ export default function AboutUsPage() {
                     </div>
                 </div>
 
-                <div className="mt-20">
+                <div className="mt-16">
                   <div className="text-center mb-12">
                       <h2 className="text-3xl font-bold">Our Partnership Process</h2>
                       <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
@@ -195,7 +195,7 @@ export default function AboutUsPage() {
                   </div>
                 </div>
 
-                <div className="mt-20 text-center bg-black/50 p-8 md:p-12 rounded-lg">
+                <div className="mt-16 text-center bg-black/50 p-8 md:p-12 rounded-lg">
                     <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Elevate Your Brand's Story?</h2>
                     <p className="max-w-2xl mx-auto text-white/80 text-lg mb-8">
                         Let's discuss your next project.
