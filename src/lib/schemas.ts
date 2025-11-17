@@ -18,6 +18,8 @@ export const quotationSchema = z.object({
   email: z.string().email("Please enter a valid email address."),
   company: z.string().optional(),
   phone: z.string().optional(),
+  requiredDate: z.date().optional(),
+  turnaroundTime: z.string().optional(),
 });
 
 export const contactSchema = z.object({

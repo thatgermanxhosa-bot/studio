@@ -5,11 +5,14 @@ import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { z } from "zod";
+import { format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
 
 import { quotationSchema } from "@/lib/schemas";
 import { handleQuotation } from "@/lib/actions";
 
 import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import {
   Form,
   FormControl,
@@ -18,6 +21,11 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import {
   Select,
   SelectContent,
@@ -36,26 +44,26 @@ import { cn } from "@/lib/utils";
 const services = [
     { 
         id: "video-production", 
-        title: "Video Production",
-        description: "Professional video content for marketing, training, and corporate communications.",
+        title: "Strategic Video Production",
+        description: "Professional video content that tells your brand story, engages your audience, and drives results.",
         examples: ["Brand storytelling", "Product demonstrations", "Training videos", "Marketing content"]
     },
     { 
         id: "professional-photography", 
-        title: "Professional Photography",
+        title: "Corporate & Commercial Photography",
         description: "High-quality photography services for all your business needs.",
         examples: ["Corporate headshots", "Product photography", "Event coverage", "Architectural photography"]
     },
     { 
         id: "post-production", 
-        title: "Post-Production Services",
+        title: "Full-Service Post-Production",
         description: "Expert editing and post-production to polish your visual content.",
         examples: ["Video editing", "Color grading", "Motion graphics", "Audio mixing"]
     },
     { 
         id: "graphics-animation", 
-        title: "Graphics and Animation",
-        description: "Eye-catching graphics and animations for digital and print media.",
+        title: "Motion Graphics & Animation",
+        description: "Eye-catching 2D & 3D graphics and animations to explain complex ideas and capture attention.",
         examples: ["Motion graphics", "Logo animation", "Infographics", "Social media graphics"]
     },
     { 
@@ -231,11 +239,7 @@ export function QuotationForm() {
                                                         "flex items-center justify-center size-5 rounded-sm border border-primary shrink-0 mt-1",
                                                         isSelected ? "bg-primary" : "bg-transparent"
                                                     )}>
-                                                        <Checkbox.Indicator asChild>
-                                                          <svg className="size-4 fill-current text-primary-foreground" viewBox="0 0 16 16">
-                                                              <path d="M12.207 4.793a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L6.5 9.086l4.293-4.293a1 1 0 0 1 1.414 0z"/>
-                                                          </svg>
-                                                        </Checkbox.Indicator>
+                                                        {isSelected && <Check className="h-4 w-4 text-primary-foreground" />}
                                                     </div>
                                                 </div>
                                                 <p className="text-sm text-white/70 mb-4">{item.description}</p>
@@ -275,6 +279,63 @@ export function QuotationForm() {
                     />
                     
                     <div className="grid sm:grid-cols-2 gap-6">
+                       <FormField
+                            control={form.control}
+                            name="requiredDate"
+                            render={({ field }) => (
+                            <FormItem className="flex flex-col">
+                                <FormLabel>Required Date (Optional)</FormLabel>
+                                <Popover>
+                                <PopoverTrigger asChild>
+                                    <FormControl>
+                                    <Button
+                                        variant={"outline"}
+                                        className={cn(
+                                        "w-full pl-3 text-left font-normal",
+                                        !field.value && "text-muted-foreground"
+                                        )}
+                                    >
+                                        {field.value ? (
+                                        format(field.value, "PPP")
+                                        ) : (
+                                        <span>Pick a date</span>
+                                        )}
+                                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                                    </Button>
+                                    </FormControl>
+                                </PopoverTrigger>
+                                <PopoverContent className="w-auto p-0" align="start">
+                                    <Calendar
+                                    mode="single"
+                                    selected={field.value}
+                                    onSelect={field.onChange}
+                                    disabled={(date) =>
+                                        date < new Date(new Date().setDate(new Date().getDate() -1))
+                                    }
+                                    initialFocus
+                                    />
+                                </PopoverContent>
+                                </Popover>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="turnaroundTime"
+                            render={({ field }) => (
+                                <FormItem>
+                                <FormLabel>Turnaround Time (Optional)</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="e.g., 2 weeks, by end of month" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-6">
                         <FormField
                             control={form.control}
                             name="budget"
@@ -311,5 +372,3 @@ export function QuotationForm() {
     </Card>
   );
 }
-
-    
