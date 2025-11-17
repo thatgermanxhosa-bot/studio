@@ -81,7 +81,7 @@ export default function AboutUsPage() {
     <div className="relative min-h-screen">
       <div className="fixed inset-0 z-0">
           <Image
-              src="/Pichulik_Studios_Banner.jpg"
+              src="/Pichulik_Studios_Banner%29.jpg"
               alt="Pichulik Studios Banner"
               fill
               className="object-cover"
