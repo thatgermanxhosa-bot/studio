@@ -13,11 +13,12 @@ export default function MainLayout({
 }) {
   const pathname = usePathname();
   const isForBusiness = pathname.startsWith('/for-business');
+  const hasBusinessBackground = isForBusiness && (pathname.includes('/about') || pathname.includes('/quotation') || pathname.includes('/contact'));
   
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
-      <main className={cn("flex-1", !isForBusiness && 'pt-16')}>{children}</main>
+      <main className={cn("flex-1", !hasBusinessBackground && 'pt-16')}>{children}</main>
       <Footer />
     </div>
   );

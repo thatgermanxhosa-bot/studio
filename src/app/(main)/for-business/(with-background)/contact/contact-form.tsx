@@ -21,7 +21,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Loader2 } from "lucide-react";
 
 export function ContactForm() {
   const [isPending, startTransition] = useTransition();
@@ -55,17 +56,17 @@ export function ContactForm() {
 
   if (isSuccess) {
     return (
-      <Card className="w-full">
+      <Card className="w-full bg-black/75 border-white/20 text-center">
         <CardContent className="p-8 text-center">
           <h2 className="text-2xl font-bold mb-2">Message Sent!</h2>
-          <p className="text-muted-foreground">Thank you for reaching out. We'll get back to you shortly.</p>
+          <p className="text-white/80">Thank you for reaching out. We'll get back to you shortly.</p>
         </CardContent>
       </Card>
     );
   }
 
   return (
-    <Card>
+    <Card className="bg-black/75 border-white/20">
       <CardHeader>
         <CardTitle>Send us a message</CardTitle>
       </CardHeader>
@@ -130,6 +131,7 @@ export function ContactForm() {
             />
             <div className="flex justify-end">
               <Button type="submit" disabled={isPending} size="lg" className="uppercase font-bold tracking-widest px-8">
+                 {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 {isPending ? "Sending..." : "Send Message"}
               </Button>
             </div>

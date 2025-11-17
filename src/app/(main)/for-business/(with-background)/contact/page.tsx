@@ -10,16 +10,16 @@ const contactDetails = [
 
 export default function ContactPage() {
   return (
-    <>
-      <section className="py-20 pt-48">
-        <div className="container grid lg:grid-cols-5 gap-12">
+    <div className="relative z-10 text-white">
+      <section className="pt-32 pb-16">
+        <div className="container grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2">
             <h1 className="text-4xl md:text-5xl font-black mb-4">Not Sure Where to Start?</h1>
             <h2 className="text-3xl font-bold">That's what we're here for.</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-white/80">
               Whether you have a detailed brief or just a general goal, we'd love to chat.
             </p>
-             <p className="mt-4 text-lg text-muted-foreground">
+             <p className="mt-4 text-lg text-white/80">
               Let's talk through your ideas and help you map out the best creative path forward. Reach out via the form or our details below.
             </p>
             <div className="mt-8 space-y-6">
@@ -30,7 +30,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.value}</p>
+                    <p className="text-white/80">{item.value}</p>
                   </div>
                 </div>
               ))}
@@ -42,6 +42,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

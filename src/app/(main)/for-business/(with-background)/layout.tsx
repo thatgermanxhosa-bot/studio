@@ -11,10 +11,13 @@ export default function ForBusinessWithBackgroundLayout({
 }) {
   const pathname = usePathname();
   const isAboutPage = pathname.endsWith('/about');
+  const isContactPage = pathname.endsWith('/contact');
 
   let backgroundImage = "/ps_quotation_background.png";
   if (isAboutPage) {
     backgroundImage = "/ps_about_background.png";
+  } else if (isContactPage) {
+    backgroundImage = "/ps_contact_background.png";
   }
 
   return (
@@ -30,7 +33,7 @@ export default function ForBusinessWithBackgroundLayout({
             <div className="absolute inset-0 bg-black/75"></div>
         </div>
         <div className="relative z-20 flex flex-col min-h-screen text-white">
-             <main className="flex-1 pt-32">{children}</main>
+             <main className="flex-1">{children}</main>
         </div>
     </div>
   );
