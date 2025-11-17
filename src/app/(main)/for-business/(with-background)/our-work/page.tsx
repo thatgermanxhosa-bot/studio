@@ -37,16 +37,14 @@ export default function OurWorkPage() {
 
               if (project.id === 'project-2') {
                 return (
-                  <div key={project.id} className="relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75">
-                    <iframe 
-                        className="w-full h-full"
-                        src="https://www.youtube.com/embed/lmKewvqZeAU" 
-                        title="Reyashoma X Pichulik Studios" 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerPolicy="strict-origin-when-cross-origin" 
-                        allowFullScreen>
-                    </iframe>
+                  <div key={project.id} className="relative block aspect-square overflow-hidden rounded-lg shadow-lg bg-black/75">
+                    <video
+                      src="/Reyashoma.mp4"
+                      controls
+                      className="w-full h-full object-cover"
+                    >
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                 )
               }
