@@ -21,7 +21,7 @@ export default function ForBusinessLayout({
             <div className="absolute inset-0 bg-black/75"></div>
         </div>
         <div className="relative z-20 flex flex-col min-h-screen text-white">
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 pt-16">{children}</main>
         </div>
     </div>
   );
