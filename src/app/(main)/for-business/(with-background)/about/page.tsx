@@ -100,7 +100,7 @@ export default function AboutUsPage() {
 
   return (
     <div className="relative z-10 flex-grow text-white">
-        <section className="pb-16">
+        <section className="py-16 md:py-24">
             <div className="container mx-auto px-6 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight animate-fade-in-up">We Translate Business Goals into Compelling Visual Stories.</h1>
                 <p className="text-lg md:text-xl text-white/90 max-w-5xl mx-auto mb-8 animate-fade-in-up animation-delay-200">
