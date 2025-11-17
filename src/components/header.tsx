@@ -12,15 +12,15 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const defaultLinks = [
-  { href: "/", label: "Home" },
-  { href: "/for-business", label: "For Business" },
-  { href: "/for-personal", label: "For Personal" },
+    { href: "/", label: "Home" },
+    { href: "/for-business", label: "For business" },
+    { href: "/for-personal", label: "For personal" },
 ];
 
 const forBusinessLinks = [
   { href: "/", label: "Home" },
   { href: "/for-business/about", label: "About" },
-  { href: "/for-business/our-work", label: "Our Work" },
+  { href: "/for-business/our-work", label: "Our work" },
   { href: "/for-business/quotation", label: "Quotation" },
   { href: "/for-business/contact", label: "Contact" },
 ];
@@ -28,7 +28,7 @@ const forBusinessLinks = [
 const forPersonalLinks = [
   { href: "/", label: "Home" },
   { href: "/for-personal/about", label: "About" },
-  { href: "/for-personal/our-work", label: "Our Work" },
+  { href: "/for-personal/our-work", label: "Our work" },
   { href: "/for-personal/bookings", label: "Bookings" },
   { href: "/for-personal/contact", label: "Contact" },
 ];
@@ -37,6 +37,9 @@ const forPersonalLinks = [
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHeaderVisible, setHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
 
   const isLandingPage = pathname === '/';
   const isForBusiness = pathname.startsWith("/for-business");
@@ -47,10 +50,31 @@ export default function Header() {
   } else if (pathname.startsWith("/for-personal")) {
     displayedLinks = forPersonalLinks;
   }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down
+        setHeaderVisible(false);
+      } else {
+        // Scrolling up
+        setHeaderVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
   
   const headerClasses = cn(
-    "fixed top-0 left-0 w-full z-30 transition-colors duration-300 ease-in-out",
-    isForBusiness ? "pt-8 pb-4 bg-gradient-to-b from-black/70 to-transparent text-white" : "py-4 bg-background text-foreground shadow-md"
+    "fixed top-0 left-0 w-full z-30 transition-transform duration-300 ease-in-out",
+    isForBusiness ? "pt-8 pb-4 bg-gradient-to-b from-black/70 to-transparent text-white" : "py-4 bg-background text-foreground shadow-md",
+    isHeaderVisible ? "translate-y-0" : "-translate-y-full"
   );
 
   if (isLandingPage) {
