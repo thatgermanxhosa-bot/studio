@@ -82,7 +82,7 @@ export default function AboutUsPage() {
               src="/Pichulik_Studios_Banner).jpg"
               alt="Pichulik Studios Banner"
               fill
-              className="object-cover opacity-30"
+              className="object-cover"
               data-ai-hint="team working"
           />
           <div className="absolute inset-0 bg-black/70"></div>
@@ -101,14 +101,14 @@ export default function AboutUsPage() {
             </div>
         </section>
 
-        <section className="py-10 md:py-20 text-foreground bg-background/90">
+        <section className="py-10 md:py-20">
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto">
                     <div>
                         <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-4 border-b border-border">What We Do Best</h2>
                         <div className="grid md:grid-cols-2 gap-6">
                             {services.map((service) => (
-                                <Card key={service.title} className="bg-card border-border/60 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
+                                <Card key={service.title} className="bg-transparent border-white/20 hover:border-primary/80 transition-all duration-300 hover:-translate-y-1">
                                     <CardHeader>
                                         <CardTitle className="flex items-center gap-4">
                                             {service.icon}
@@ -116,7 +116,7 @@ export default function AboutUsPage() {
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent>
-                                        <p className="text-muted-foreground">{service.description}</p>
+                                        <p className="text-white/80">{service.description}</p>
                                     </CardContent>
                                 </Card>
                             ))}
@@ -124,7 +124,7 @@ export default function AboutUsPage() {
                     </div>
 
                     <div className="mt-16">
-                        <Card className="bg-card border-border/60">
+                        <Card className="bg-transparent border-white/20">
                             <CardHeader>
                                 <CardTitle className="text-2xl">Why Partner With Us?</CardTitle>
                             </CardHeader>
@@ -134,7 +134,7 @@ export default function AboutUsPage() {
                                         <h3 className="font-bold text-lg flex items-center gap-3">
                                             {item.icon} {item.title}
                                         </h3>
-                                        <p className="text-muted-foreground mt-1">{item.description}</p>
+                                        <p className="text-white/80 mt-1">{item.description}</p>
                                     </div>
                                 ))}
                             </CardContent>
@@ -145,7 +145,7 @@ export default function AboutUsPage() {
                 <div className="mt-20 border-t border-border pt-16">
                   <div className="text-center mb-12">
                       <h2 className="text-3xl font-bold">Our Partnership Process</h2>
-                      <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                      <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
                         We manage every detail, from initial strategy to final delivery, so you can focus on the results.
                       </p>
                   </div>
@@ -155,7 +155,7 @@ export default function AboutUsPage() {
                           <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
                           <div>
                             <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                            <p className="text-muted-foreground">{item.description}</p>
+                            <p className="text-white/80">{item.description}</p>
                           </div>
                         </div>
                       ))}
@@ -166,16 +166,16 @@ export default function AboutUsPage() {
                           <div className="text-4xl font-black text-primary/40 mt-1">{item.step}</div>
                           <div>
                             <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                            <p className="text-muted-foreground">{item.description}</p>
+                            <p className="text-white/80">{item.description}</p>
                           </div>
                         </div>
                       ))}
                   </div>
                 </div>
 
-                <div className="mt-20 text-center bg-card p-8 md:p-12 rounded-lg">
+                <div className="mt-20 text-center bg-black/50 p-8 md:p-12 rounded-lg border border-white/20">
                     <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Elevate Your Brand's Story?</h2>
-                    <p className="max-w-2xl mx-auto text-muted-foreground text-lg mb-8">
+                    <p className="max-w-2xl mx-auto text-white/80 text-lg mb-8">
                         Let's discuss your next project.
                     </p>
                     <Button asChild size="lg" className="uppercase font-bold tracking-widest px-8">
