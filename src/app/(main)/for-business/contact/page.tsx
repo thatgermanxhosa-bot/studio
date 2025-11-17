@@ -11,15 +11,10 @@ const contactDetails = [
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-card py-20 text-center">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-black">Not Sure Where to Start?</h1>
-        </div>
-      </section>
-
       <section className="py-20">
         <div className="container grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
+            <h1 className="text-4xl md:text-5xl font-black mb-4">Not Sure Where to Start?</h1>
             <h2 className="text-3xl font-bold">That's what we're here for.</h2>
             <p className="mt-4 text-lg text-muted-foreground">
               Whether you have a detailed brief or just a general goal, we'd love to chat.
