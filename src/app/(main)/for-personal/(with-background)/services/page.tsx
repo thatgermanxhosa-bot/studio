@@ -162,35 +162,50 @@ export default function ServicesPage() {
         <div className="container space-y-16">
             
             <div>
-                <h2 className="text-3xl font-bold text-center mb-8">Lifestyle & Branding</h2>
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold">Lifestyle & Branding</h2>
+                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">Whether you're a content creator, a professional updating your profile, or just looking to capture your unique vibe, these packages are designed to make you shine.</p>
+                </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {lifestylePackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
             </div>
 
             <div>
-                <h2 className="text-3xl font-bold text-center mb-8">Family & Maternity</h2>
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold">Family & Maternity</h2>
+                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">From the beautiful bump to the chaotic joy of a full house, these sessions are all about capturing the love and connection that makes your family unique. Let's freeze these precious moments in time.</p>
+                </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {familyPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
             </div>
             
             <div>
-                <h2 className="text-3xl font-bold text-center mb-8">Couples & Engagements</h2>
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold">Couples & Engagements</h2>
+                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">It all starts with the two of you. Let's celebrate your love story, whether it's a secret proposal, a fun date night, or announcing your engagement to the world. These sessions are about capturing your connection.</p>
+                </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {couplesPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
             </div>
 
             <div>
-                <h2 className="text-3xl font-bold text-center mb-8">Private Events</h2>
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold">Private Events</h2>
+                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">You've planned the perfect party, now it's time to enjoy it! From intimate dinners to milestone birthdays, we'll capture the atmosphere and the memories, so you can relax and be present with your guests.</p>
+                </div>
                 <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                     {eventPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
             </div>
 
             <div>
-                <h2 className="text-3xl font-bold text-center mb-8">Weddings</h2>
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold">Weddings</h2>
+                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">Your wedding day is one of life's biggest stories. From intimate elopements to grand celebrations, we're here to capture every laugh, tear, and dance move with a timeless, romantic touch.</p>
+                </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {weddingPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
@@ -235,7 +250,7 @@ export default function ServicesPage() {
                 </CardHeader>
                 <CardContent>
                     <p className="text-white/80">
-                        Travel within a 20km radius of Sandton is included free of charge. For locations beyond this, travel is charged per kilometer for the return trip. Please contact us for a precise quote for your location.
+                        Travel within a 20km radius of Sandton is included free of charge. For locations beyond this, a fee is charged for the return trip. Please contact us for a precise quote for your location.
                     </p>
                 </CardContent>
             </Card>
