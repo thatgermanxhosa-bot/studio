@@ -126,15 +126,15 @@ const weddingPackages = [
     },
     {
         title: "Luxury Experience",
-        price: "R 38 000",
+        price: "R 54 000",
         duration: "12 hrs",
-        details: ["The ultimate package", "700+ edited images", "2 photographers", "Free engagement shoot", "A4 Fine Art Album included"],
+        details: ["The ultimate package", "700+ edited images", "2 photographers", "Free engagement shoot", "A4 Fine Art Album included", "Includes a 5-7 minute Cinematic Highlight Film"],
     },
     {
       title: "Cinematic Story",
       price: "from R 18 000",
       duration: "Video Add-On",
-      details: ["A beautiful 5-7 minute highlight film", "Separate videographer", "Can be added to any wedding package"],
+      details: ["A beautiful 5-7 minute highlight film", "Separate videographer", "Can be added to any wedding package", "(Included in the Luxury Experience)"],
     }
 ];
 
@@ -296,3 +296,5 @@ export default function ServicesPage() {
     </div>
   );
 }
+
+    
