@@ -144,15 +144,18 @@ const addOns = [
     { name: "30-sec Highlight Reel", price: "R 1 500" },
     { name: "Styling Consultation (30 min call)", price: "R 800" },
     { name: "Advanced Retouching (per image)", price: "R 250" },
-    { name: "Fine Art Prints (Set of 5 A4)", price: "R 1 200" },
     { name: "20-Page Hardcover Photo Album", price: "R 3 500" },
 ];
 
 const weddingAddOns = [
     { name: "Second Photographer (flat rate)", price: "R 4 500" },
     { name: "Fine Art Wedding Album", price: "R 6 500" },
+    { name: "Parent Albums (Set of 2)", price: "R 4 500" },
+    { name: "Drone Footage (venue & weather permitting)", price: "from R 3 500" },
     { name: "Cinematic Story (5-7 min film)", price: "from R 18 000"},
-    { name: "Documentary Film Edit", price: "from R 18 000" }
+    { name: "Documentary Film Edit", price: "from R 18 000" },
+    { name: "Same-Day Teaser Film (1 min)", price: "R 8 000" },
+    { name: "Raw Video Footage (on hard drive)", price: "R 5 000" },
 ]
 
 const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: string; details: string[]; badge?: string } }) => (
@@ -298,5 +301,7 @@ export default function ServicesPage() {
     </div>
   );
 }
+
+    
 
     
