@@ -128,13 +128,13 @@ const weddingPackages = [
         title: "Luxury Experience",
         price: "R 54 000",
         duration: "12 hrs",
-        details: ["The ultimate package", "700+ edited images", "2 photographers", "Free engagement shoot", "A4 Fine Art Album included", "Includes a 5-7 minute Cinematic Highlight Film"],
+        details: ["The ultimate photo & film package", "700+ edited images", "2 photographers", "Free engagement shoot", "A4 Fine Art Album", "Includes a 5-7 minute Cinematic Highlight Film"],
     },
     {
-      title: "Cinematic Story",
-      price: "from R 18 000",
-      duration: "Video Add-On",
-      details: ["A beautiful 5-7 minute highlight film", "Separate videographer", "Can be added to any wedding package", "(Included in the Luxury Experience)"],
+      title: "The Ultimate Story",
+      price: "R 72 000",
+      duration: "Full Day",
+      details: ["The complete wedding story, told in photos & film", "Everything in the Luxury Experience", "Full-length documentary film (ceremony, speeches, 1st dance)"],
     }
 ];
 
@@ -151,6 +151,8 @@ const addOns = [
 const weddingAddOns = [
     { name: "Second Photographer (flat rate)", price: "R 4 500" },
     { name: "Fine Art Wedding Album", price: "R 6 500" },
+    { name: "Cinematic Story (5-7 min film)", price: "from R 18 000"},
+    { name: "Documentary Film Edit", price: "from R 18 000" }
 ]
 
 const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: string; details: string[]; badge?: string } }) => (
@@ -296,5 +298,7 @@ export default function ServicesPage() {
     </div>
   );
 }
+
+    
 
     
