@@ -8,28 +8,28 @@ import { Check } from "lucide-react";
 const lifestylePackages = [
   {
     title: "Mini Session",
-    price: "R 2 200-00",
+    price: "R 2 200",
     duration: "30 min",
     details: ["Perfect for quick headshots (LinkedIn/CVs)", "5 edited images", "Sandton studio or immediate area only"],
     badge: "Headshots"
   },
   {
     title: "Standard Influencer",
-    price: "R 4 200-00",
+    price: "R 4 200",
     duration: "1 hr",
     details: ["Ideal for social media content", "20 edited images + B&W copies", "1 location"],
     badge: "Content"
   },
     {
     title: "Content Creator",
-    price: "R 5 500-00",
+    price: "R 5 500",
     duration: "90 min",
     details: ["A batch of content for your feed", "30 edited images", "Up to 2 looks/themes", "Includes short-form video clips"],
     badge: "Creator"
   },
   {
     title: "Premium Brand",
-    price: "R 6 800-00",
+    price: "R 6 800",
     duration: "2 hrs",
     details: ["For websites & 3 months of content", "40+ edited images", "Up to 2 locations"],
     badge: "Branding"
@@ -39,25 +39,25 @@ const lifestylePackages = [
 const familyPackages = [
     {
         title: "Quick & Easy",
-        price: "R 2 500-00",
+        price: "R 2 500",
         duration: "30 min",
         details: ["Great for short attention spans", "10 edited photos", "Immediate family only"],
     },
     {
         title: "Golden Hour",
-        price: "R 5 200-00",
+        price: "R 5 200",
         duration: "60-90 min",
         details: ["Outdoor sunset or cozy in-home session", "35+ edited images", "Includes styling guide"],
     },
     {
         title: "The Newborn",
-        price: "R 6 000-00",
+        price: "R 6 000",
         duration: "2-3 hrs",
         details: ["Patient & calm in-home session", "25 lightly retouched images", "Focus on baby with family photos included"],
     },
     {
         title: "Day in the Life",
-        price: "R 9 500-00",
+        price: "R 9 500",
         duration: "3-4 hrs",
         details: ["Captures genuine, unposed moments at home", "75+ edited photos", "Includes a softcover photo book"],
     }
@@ -66,25 +66,25 @@ const familyPackages = [
 const couplesPackages = [
     {
         title: "Save the Date",
-        price: "R 3 200-00",
+        price: "R 3 200",
         duration: "45 min",
         details: ["Ideal for your invitations", "10 edited images"],
     },
     {
         title: "Date Night",
-        price: "R 5 500-00",
+        price: "R 5 500",
         duration: "90 min",
         details: ["Perfect for an engagement shoot", "40 edited images", "2 locations/looks"],
     },
     {
         title: "Anniversary",
-        price: "R 4 800-00",
+        price: "R 4 800",
         duration: "1 hr",
         details: ["Celebrate another year together", "25 edited images", "A fun, relaxed session"],
     },
     {
         title: "The Secret Proposal",
-        price: "R 8 500-00",
+        price: "R 8 500",
         duration: "Planning + 1 hr shoot",
         details: ["Captures the 'YES!' moment", "Includes planning consultation", "30 photos + highlight video clip"],
     }
@@ -93,19 +93,19 @@ const couplesPackages = [
 const eventPackages = [
     {
         title: "Essential",
-        price: "R 3 500-00",
+        price: "R 3 500",
         duration: "2 hrs",
         details: ["For kids' parties or intimate dinners", "60-80 edited images"],
     },
     {
         title: "Celebration",
-        price: "R 6 500-00",
+        price: "R 6 500",
         duration: "4 hrs",
         details: ["For bigger bashes like 21sts or launch parties", "150+ edited images", "10 teaser photos included"],
     },
     {
         title: "Gala & Corporate",
-        price: "R 12 000-00",
+        price: "R 12 000",
         duration: "Up to 6 hrs",
         details: ["Comprehensive event coverage", "300+ edited images", "Includes candid & formal shots", "48-hour delivery for key shots"],
     }
@@ -114,43 +114,43 @@ const eventPackages = [
 const weddingPackages = [
     {
         title: "Micro Elopement",
-        price: "R 15 000-00",
+        price: "R 15 000",
         duration: "6 hrs",
         details: ["For intimate weddings under 60 guests", "250+ edited images", "1 photographer"],
     },
     {
         title: "Classic Collection",
-        price: "R 26 000-00",
+        price: "R 26 000",
         duration: "9 hrs",
         details: ["Full day coverage", "500+ edited images", "2 photographers", "Free engagement shoot"],
     },
     {
         title: "Luxury Experience",
-        price: "R 38 000-00",
+        price: "R 38 000",
         duration: "12 hrs",
         details: ["The ultimate package", "700+ edited images", "2 photographers", "Free engagement shoot", "A4 Fine Art Album included"],
     },
     {
       title: "Cinematic Story",
-      price: "from R 18 000-00",
+      price: "from R 18 000",
       duration: "Video Add-On",
       details: ["A beautiful 5-7 minute highlight film", "Separate videographer", "Can be added to any wedding package"],
     }
 ];
 
 const addOns = [
-    { name: "Additional Hour", price: "R 1 800-00" },
-    { name: "Rush Delivery (48-hour turnaround)", price: "R 1 500-00" },
-    { name: "30-sec Highlight Reel", price: "R 1 500-00" },
-    { name: "Styling Consultation (30 min call)", price: "R 800-00" },
-    { name: "Advanced Retouching (per image)", price: "R 250-00" },
-    { name: "Fine Art Prints (Set of 5 A4)", price: "R 1 200-00" },
-    { name: "20-Page Hardcover Photo Album", price: "R 3 500-00" },
+    { name: "Additional Hour", price: "R 1 800" },
+    { name: "Rush Delivery (48-hour turnaround)", price: "R 1 500" },
+    { name: "30-sec Highlight Reel", price: "R 1 500" },
+    { name: "Styling Consultation (30 min call)", price: "R 800" },
+    { name: "Advanced Retouching (per image)", price: "R 250" },
+    { name: "Fine Art Prints (Set of 5 A4)", price: "R 1 200" },
+    { name: "20-Page Hardcover Photo Album", price: "R 3 500" },
 ];
 
 const weddingAddOns = [
-    { name: "Second Photographer (flat rate)", price: "R 4 500-00" },
-    { name: "Fine Art Wedding Album", price: "R 6 500-00" },
+    { name: "Second Photographer (flat rate)", price: "R 4 500" },
+    { name: "Fine Art Wedding Album", price: "R 6 500" },
 ]
 
 const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: string; details: string[]; badge?: string } }) => (
@@ -171,7 +171,7 @@ const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: s
                     </li>
                 ))}
             </ul>
-            <p className="text-3xl font-bold text-right">{pkg.price}</p>
+            <p className="text-2xl font-bold text-right">{pkg.price}</p>
         </CardContent>
     </Card>
 );
@@ -293,5 +293,3 @@ export default function ServicesPage() {
     </div>
   );
 }
-
-    
