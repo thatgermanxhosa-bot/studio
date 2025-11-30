@@ -20,6 +20,13 @@ const lifestylePackages = [
     details: ["Ideal for social media content", "20 edited images + B&W copies", "1 location"],
     badge: "Content"
   },
+    {
+    title: "Content Creator",
+    price: "R 5 500-00",
+    duration: "90 min",
+    details: ["A batch of content for your feed", "30 edited images", "Up to 2 looks/themes", "Includes short-form video clips"],
+    badge: "Creator"
+  },
   {
     title: "Premium Brand",
     price: "R 6 800-00",
@@ -43,6 +50,12 @@ const familyPackages = [
         details: ["Outdoor sunset or cozy in-home session", "35+ edited images", "Includes styling guide"],
     },
     {
+        title: "The Newborn",
+        price: "R 6 000-00",
+        duration: "2-3 hrs",
+        details: ["Patient & calm in-home session", "25 lightly retouched images", "Focus on baby with family photos included"],
+    },
+    {
         title: "Day in the Life",
         price: "R 9 500-00",
         duration: "3-4 hrs",
@@ -64,6 +77,12 @@ const couplesPackages = [
         details: ["Perfect for an engagement shoot", "40 edited images", "2 locations/looks"],
     },
     {
+        title: "Anniversary",
+        price: "R 4 800-00",
+        duration: "1 hr",
+        details: ["Celebrate another year together", "25 edited images", "A fun, relaxed session"],
+    },
+    {
         title: "The Secret Proposal",
         price: "R 8 500-00",
         duration: "Planning + 1 hr shoot",
@@ -83,6 +102,12 @@ const eventPackages = [
         price: "R 6 500-00",
         duration: "4 hrs",
         details: ["For bigger bashes like 21sts or launch parties", "150+ edited images", "10 teaser photos included"],
+    },
+    {
+        title: "Gala & Corporate",
+        price: "R 12 000-00",
+        duration: "Up to 6 hrs",
+        details: ["Comprehensive event coverage", "300+ edited images", "Includes candid & formal shots", "48-hour delivery for key shots"],
     }
 ];
 
@@ -104,6 +129,12 @@ const weddingPackages = [
         price: "R 38 000-00",
         duration: "12 hrs",
         details: ["The ultimate package", "700+ edited images", "2 photographers", "Free engagement shoot", "A4 Fine Art Album included"],
+    },
+    {
+      title: "Cinematic Story",
+      price: "from R 18 000-00",
+      duration: "Video Add-On",
+      details: ["A beautiful 5-7 minute highlight film", "Separate videographer", "Can be added to any wedding package"],
     }
 ];
 
@@ -111,8 +142,10 @@ const addOns = [
     { name: "Additional Hour", price: "R 1 800-00" },
     { name: "Rush Delivery (48-hour turnaround)", price: "R 1 500-00" },
     { name: "30-sec Highlight Reel", price: "R 1 500-00" },
+    { name: "Styling Consultation (30 min call)", price: "R 800-00" },
     { name: "Advanced Retouching (per image)", price: "R 250-00" },
     { name: "Fine Art Prints (Set of 5 A4)", price: "R 1 200-00" },
+    { name: "20-Page Hardcover Photo Album", price: "R 3 500-00" },
 ];
 
 const weddingAddOns = [
@@ -166,7 +199,7 @@ export default function ServicesPage() {
                   <h2 className="text-3xl font-bold">Lifestyle & Branding</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">Whether you're a content creator, a professional updating your profile, or just looking to capture your unique vibe, these packages are designed to make you shine.</p>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {lifestylePackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
             </div>
@@ -176,7 +209,7 @@ export default function ServicesPage() {
                   <h2 className="text-3xl font-bold">Family & Maternity</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">From the beautiful bump to the chaotic joy of a full house, these sessions are all about capturing the love and connection that makes your family unique. Let's freeze these precious moments in time.</p>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {familyPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
             </div>
@@ -186,7 +219,7 @@ export default function ServicesPage() {
                   <h2 className="text-3xl font-bold">Couples & Engagements</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">It all starts with the two of you. Let's celebrate your love story, whether it's a secret proposal, a fun date night, or announcing your engagement to the world. These sessions are about capturing your connection.</p>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {couplesPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
             </div>
@@ -196,7 +229,7 @@ export default function ServicesPage() {
                   <h2 className="text-3xl font-bold">Private Events</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">You've planned the perfect party, now it's time to enjoy it! From intimate dinners to milestone birthdays, we'll capture the atmosphere and the memories, so you can relax and be present with your guests.</p>
                 </div>
-                <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                     {eventPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
             </div>
@@ -206,7 +239,7 @@ export default function ServicesPage() {
                   <h2 className="text-3xl font-bold">Weddings</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">Your wedding day is one of life's biggest stories. From intimate elopements to grand celebrations, we're here to capture every laugh, tear, and dance move with a timeless, romantic touch.</p>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {weddingPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
             </div>
@@ -260,3 +293,5 @@ export default function ServicesPage() {
     </div>
   );
 }
+
+    
