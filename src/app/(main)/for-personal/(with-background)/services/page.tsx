@@ -8,21 +8,21 @@ import { Check } from "lucide-react";
 const lifestylePackages = [
   {
     title: "Mini Session",
-    price: "R2200",
+    price: "R 2 200-00",
     duration: "30 min",
     details: ["Perfect for quick headshots (LinkedIn/CVs)", "5 edited images", "Sandton studio or immediate area only"],
     badge: "Headshots"
   },
   {
     title: "Standard Influencer",
-    price: "R4200",
+    price: "R 4 200-00",
     duration: "1 hr",
     details: ["Ideal for social media content", "20 edited images + B&W copies", "1 location"],
     badge: "Content"
   },
   {
     title: "Premium Brand",
-    price: "R6800",
+    price: "R 6 800-00",
     duration: "2 hrs",
     details: ["For websites & 3 months of content", "40+ edited images", "Up to 2 locations"],
     badge: "Branding"
@@ -32,19 +32,19 @@ const lifestylePackages = [
 const familyPackages = [
     {
         title: "Quick & Easy",
-        price: "R2500",
+        price: "R 2 500-00",
         duration: "30 min",
         details: ["Great for short attention spans", "10 edited photos", "Immediate family only"],
     },
     {
         title: "Golden Hour",
-        price: "R5200",
+        price: "R 5 200-00",
         duration: "60-90 min",
         details: ["Outdoor sunset or cozy in-home session", "35+ edited images", "Includes styling guide"],
     },
     {
         title: "Day in the Life",
-        price: "R9500",
+        price: "R 9 500-00",
         duration: "3-4 hrs",
         details: ["Captures genuine, unposed moments at home", "75+ edited photos", "Includes a softcover photo book"],
     }
@@ -53,19 +53,19 @@ const familyPackages = [
 const couplesPackages = [
     {
         title: "Save the Date",
-        price: "R3200",
+        price: "R 3 200-00",
         duration: "45 min",
         details: ["Ideal for your invitations", "10 edited images"],
     },
     {
         title: "Date Night",
-        price: "R5500",
+        price: "R 5 500-00",
         duration: "90 min",
         details: ["Perfect for an engagement shoot", "40 edited images", "2 locations/looks"],
     },
     {
         title: "The Secret Proposal",
-        price: "R8500",
+        price: "R 8 500-00",
         duration: "Planning + 1 hr shoot",
         details: ["Captures the 'YES!' moment", "Includes planning consultation", "30 photos + highlight video clip"],
     }
@@ -74,13 +74,13 @@ const couplesPackages = [
 const eventPackages = [
     {
         title: "Essential",
-        price: "R3500",
+        price: "R 3 500-00",
         duration: "2 hrs",
         details: ["For kids' parties or intimate dinners", "60-80 edited images"],
     },
     {
         title: "Celebration",
-        price: "R6500",
+        price: "R 6 500-00",
         duration: "4 hrs",
         details: ["For bigger bashes like 21sts or launch parties", "150+ edited images", "10 teaser photos included"],
     }
@@ -89,35 +89,35 @@ const eventPackages = [
 const weddingPackages = [
     {
         title: "Micro Elopement",
-        price: "R15000",
+        price: "R 15 000-00",
         duration: "6 hrs",
         details: ["For intimate weddings under 60 guests", "250+ edited images", "1 photographer"],
     },
     {
         title: "Classic Collection",
-        price: "R26000",
+        price: "R 26 000-00",
         duration: "9 hrs",
         details: ["Full day coverage", "500+ edited images", "2 photographers", "Free engagement shoot"],
     },
     {
         title: "Luxury Experience",
-        price: "R38000",
+        price: "R 38 000-00",
         duration: "12 hrs",
         details: ["The ultimate package", "700+ edited images", "2 photographers", "Free engagement shoot", "A4 Fine Art Album included"],
     }
 ];
 
 const addOns = [
-    { name: "Additional Hour", price: "R1800" },
-    { name: "Rush Delivery (48-hour turnaround)", price: "R1500" },
-    { name: "30-sec Highlight Reel", price: "R1500" },
-    { name: "Advanced Retouching (per image)", price: "R250" },
-    { name: "Fine Art Prints (Set of 5 A4)", price: "R1200" },
+    { name: "Additional Hour", price: "R 1 800-00" },
+    { name: "Rush Delivery (48-hour turnaround)", price: "R 1 500-00" },
+    { name: "30-sec Highlight Reel", price: "R 1 500-00" },
+    { name: "Advanced Retouching (per image)", price: "R 250-00" },
+    { name: "Fine Art Prints (Set of 5 A4)", price: "R 1 200-00" },
 ];
 
 const weddingAddOns = [
-    { name: "Second Photographer (flat rate)", price: "R4500" },
-    { name: "Fine Art Wedding Album", price: "R6500" },
+    { name: "Second Photographer (flat rate)", price: "R 4 500-00" },
+    { name: "Fine Art Wedding Album", price: "R 6 500-00" },
 ]
 
 const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: string; details: string[]; badge?: string } }) => (
@@ -250,7 +250,7 @@ export default function ServicesPage() {
                 </CardHeader>
                 <CardContent>
                     <p className="text-white/80">
-                        Travel within a 20km radius of Sandton is included free of charge. For locations beyond this, a fee is charged for the return trip. Please contact us for a precise quote for your location.
+                        Travel within a 35km radius of Sandton is included free of charge. For locations beyond this, a fee is charged for the return trip. Please contact us for a precise quote for your location.
                     </p>
                 </CardContent>
             </Card>
