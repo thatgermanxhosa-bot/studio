@@ -188,6 +188,9 @@ export default function ServicesPage() {
           <p className="mt-4 text-lg max-w-3xl mx-auto text-white/80 animate-fade-in-up animation-delay-200">
             Find the perfect package to capture your story. We offer a range of photography and videography services tailored to your personal milestones. All packages include high-resolution digital images delivered via a private online gallery.
           </p>
+          <p className="mt-2 text-md max-w-3xl mx-auto text-white/70 animate-fade-in-up animation-delay-400">
+            Sessions can be held at our fully-equipped Sandton studio or at a location of your choice.
+          </p>
         </div>
       </section>
 
