@@ -14,6 +14,7 @@ export default function ForPersonalWithBackgroundLayout({
   const isContactPage = pathname.endsWith('/contact');
   const isOurWorkPage = pathname.endsWith('/our-work');
   const isBookingsPage = pathname.endsWith('/bookings');
+  const isServicesPage = pathname.endsWith('/services');
 
   // Define a default background and then specify overrides
   let backgroundImage = "/ps_personal_background.png"; // A default for the personal section
@@ -25,6 +26,8 @@ export default function ForPersonalWithBackgroundLayout({
     backgroundImage = "/ps_our_work_personal_background.png";
   } else if (isBookingsPage) {
     backgroundImage = "/ps_bookings_personal_background.png";
+  } else if (isServicesPage) {
+    backgroundImage = "/ps_personal_services_background.png"; // You may want to add a specific background for this
   }
 
 

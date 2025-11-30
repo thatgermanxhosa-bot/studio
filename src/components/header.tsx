@@ -28,6 +28,7 @@ const forBusinessLinks = [
 const forPersonalLinks = [
   { href: "/", label: "Home" },
   { href: "/for-personal/about", label: "About" },
+  { href: "/for-personal/services", label: "Services" },
   { href: "/for-personal/our-work", label: "Our work" },
   { href: "/for-personal/bookings", label: "Bookings" },
   { href: "/for-personal/contact", label: "Contact" },
@@ -73,7 +74,7 @@ export default function Header() {
   }, [lastScrollY]);
   
   const hasBusinessBackground = isForBusiness && (pathname.includes('/about') || pathname.includes('/quotation') || pathname.includes('/contact') || pathname.includes('/our-work'));
-  const hasPersonalBackground = isForPersonal && (pathname.includes('/about') || pathname.includes('/bookings') || pathname.includes('/contact') || pathname.includes('/our-work'));
+  const hasPersonalBackground = isForPersonal && (pathname.includes('/about') || pathname.includes('/bookings') || pathname.includes('/contact') || pathname.includes('/our-work') || pathname.includes('/services'));
   const useTransparentHeader = hasBusinessBackground || hasPersonalBackground;
 
   const headerClasses = cn(
