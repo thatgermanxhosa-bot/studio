@@ -104,7 +104,7 @@ const eventPackages = [
         details: ["For bigger bashes like 21sts or launch parties", "150+ edited images", "10 teaser photos included"],
     },
     {
-        title: "Gala & Corporate",
+        title: "Gala",
         price: "R 12 000",
         duration: "Up to 6 hrs",
         details: ["Comprehensive event coverage", "300+ edited images", "Includes candid & formal shots", "48-hour delivery for key shots"],
@@ -298,7 +298,5 @@ export default function ServicesPage() {
     </div>
   );
 }
-
-    
 
     
