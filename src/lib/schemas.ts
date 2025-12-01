@@ -22,6 +22,20 @@ export const personalBookingSchema = z.object({
   notes: z.string().optional(),
 });
 
+export const weddingEnquirySchema = z.object({
+  services: z.array(z.string()).refine((value) => value.some((item) => item), {
+    message: "You have to select at least one wedding package.",
+  }),
+  addOns: z.array(z.string()).optional(),
+  date: z.date({ required_error: "Please select a date." }).optional(),
+  name: z.string().min(2, "Name is required."),
+  partnerName: z.string().optional(),
+  email: z.string().email("Please enter a valid email address."),
+  venue: z.string().optional(),
+  guestCount: z.string().optional(),
+  notes: z.string().optional(),
+});
+
 
 export const quotationSchema = z.object({
   services: z.array(z.string()).min(1, { message: "Please select at least one service." }),

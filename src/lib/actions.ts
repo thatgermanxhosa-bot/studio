@@ -2,7 +2,7 @@
 "use server";
 
 import { z } from "zod";
-import { bookingSchema, contactSchema, quotationSchema, personalBookingSchema } from "./schemas";
+import { bookingSchema, contactSchema, quotationSchema, personalBookingSchema, weddingEnquirySchema } from "./schemas";
 import { analyzeQuoteRequest } from "@/ai/flows/intelligent-quote-request-processing";
 
 export async function handleBooking(data: z.infer<typeof bookingSchema>) {
@@ -22,10 +22,15 @@ export async function handlePersonalBooking(data: z.infer<typeof personalBooking
   const validatedFields = personalBookingSchema.safeParse(data);
 
   if (!validatedFields.success) {
-    return { error: "Invalid data" };
+    // Try parsing with the wedding schema
+    const weddingValidatedFields = weddingEnquirySchema.safeParse(data);
+    if (!weddingValidatedFields.success) {
+      return { error: "Invalid data" };
+    }
+    console.log("New Wedding Enquiry:", weddingValidatedFields.data);
+    return { success: "Wedding enquiry sent successfully!" };
   }
   
-  // Here you would typically save to a database or send an email.
   console.log("New Personal Booking Request:", validatedFields.data);
 
   return { success: "Booking request sent successfully!" };
