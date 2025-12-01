@@ -38,45 +38,45 @@ const serviceCategories = [
     {
         title: "Lifestyle & Branding",
         services: [
-            { id: "lifestyle-mini", label: "Mini Session (Headshots)", price: "R 2 200"},
-            { id: "lifestyle-influencer", label: "Standard Influencer", price: "R 4 200"},
-            { id: "lifestyle-content-creator", label: "Content Creator", price: "R 5 500"},
-            { id: "lifestyle-premium", label: "Premium Brand", price: "R 6 800"},
+            { id: "lifestyle-mini", label: "Mini Session (Headshots)", price: "R 2 200", description: "Perfect for quick headshots (LinkedIn/CVs), 5 edited images, Sandton studio or immediate area only" },
+            { id: "lifestyle-influencer", label: "Standard Influencer", price: "R 4 200", description: "Ideal for social media content, 20 edited images + B&W copies, 1 location" },
+            { id: "lifestyle-content-creator", label: "Content Creator", price: "R 5 500", description: "A batch of content for your feed, 30 edited images, Up to 2 looks/themes, Includes short-form video clips"},
+            { id: "lifestyle-premium", label: "Premium Brand", price: "R 6 800", description: "For websites & 3 months of content, 40+ edited images, Up to 2 locations" },
         ]
     },
     {
         title: "Family & Maternity",
         services: [
-            { id: "family-quick", label: "Quick & Easy", price: "R 2 500"},
-            { id: "family-golden-hour", label: "Golden Hour", price: "R 5 200"},
-            { id: "family-newborn", label: "The Newborn", price: "R 6 000"},
-            { id: "family-day-in-life", label: "Day in the Life", price: "R 9 500"},
+            { id: "family-quick", label: "Quick & Easy", price: "R 2 500", description: "Great for short attention spans, 10 edited photos, Immediate family only" },
+            { id: "family-golden-hour", label: "Golden Hour", price: "R 5 200", description: "Outdoor sunset or cozy in-home session, 35+ edited images, Includes styling guide" },
+            { id: "family-newborn", label: "The Newborn", price: "R 6 000", description: "Patient & calm in-home session, 25 lightly retouched images, Focus on baby with family photos included" },
+            { id: "family-day-in-life", label: "Day in the Life", price: "R 9 500", description: "Captures genuine, unposed moments at home, 75+ edited photos, Includes a softcover photo book" },
         ]
     },
     {
         title: "Couples & Engagements",
         services: [
-            { id: "couples-save-the-date", label: "Save the Date", price: "R 3 200"},
-            { id: "couples-date-night", label: "Date Night (Engagement)", price: "R 5 500"},
-            { id: "couples-anniversary", label: "Anniversary", price: "R 4 800"},
-            { id: "couples-proposal", label: "The Secret Proposal", price: "R 8 500"},
+            { id: "couples-save-the-date", label: "Save the Date", price: "R 3 200", description: "Ideal for your invitations, 10 edited images" },
+            { id: "couples-date-night", label: "Date Night (Engagement)", price: "R 5 500", description: "Perfect for an engagement shoot, 40 edited images, 2 locations/looks" },
+            { id: "couples-anniversary", label: "Anniversary", price: "R 4 800", description: "Celebrate another year together, 25 edited images, A fun, relaxed session" },
+            { id: "couples-proposal", label: "The Secret Proposal", price: "R 8 500", description: "Captures the 'YES!' moment, Includes planning consultation, 30 photos + highlight video clip" },
         ]
     },
     {
         title: "Private Events",
         services: [
-            { id: "event-essential", label: "Essential (2 hrs)", price: "R 3 500"},
-            { id: "event-celebration", label: "Celebration (4 hrs)", price: "R 6 500"},
-            { id: "event-gala", label: "Gala (6 hrs)", price: "R 12 000"},
+            { id: "event-essential", label: "Essential (2 hrs)", price: "R 3 500", description: "For kids' parties or intimate dinners, 60-80 edited images" },
+            { id: "event-celebration", label: "Celebration (4 hrs)", price: "R 6 500", description: "For bigger bashes like 21sts or launch parties, 150+ edited images, 10 teaser photos included" },
+            { id: "event-gala", label: "Gala (6 hrs)", price: "R 12 000", description: "Comprehensive event coverage, 300+ edited images, Includes candid & formal shots, 48-hour delivery for key shots" },
         ]
     },
     {
         title: "Weddings",
         services: [
-            { id: "wedding-micro", label: "Micro Elopement", price: "R 15 000"},
-            { id: "wedding-classic", label: "Classic Collection", price: "R 26 000"},
-            { id: "wedding-luxury", label: "Luxury Experience (Photo + Film)", price: "R 54 000"},
-            { id: "wedding-ultimate", label: "The Ultimate Story (Photo + Documentary)", price: "R 72 000"},
+            { id: "wedding-micro", label: "Micro Elopement", price: "R 15 000", description: "For intimate weddings under 60 guests, 250+ edited images, 1 photographer" },
+            { id: "wedding-classic", label: "Classic Collection", price: "R 26 000", description: "Full day coverage, 500+ edited images, 2 photographers, Free engagement shoot" },
+            { id: "wedding-luxury", label: "Luxury Experience (Photo + Film)", price: "R 54 000", description: "The ultimate photo & film package, 700+ edited images, 2 photographers, Free engagement shoot, A4 Fine Art Album, Includes a 5-7 minute Cinematic Highlight Film" },
+            { id: "wedding-ultimate", label: "The Ultimate Story (Photo + Documentary)", price: "R 72 000", description: "The complete wedding story, told in photos & film, Everything in the Luxury Experience, Full-length documentary film (ceremony, speeches, 1st dance)" },
         ]
     }
 ];
@@ -154,7 +154,7 @@ export function BookingForm() {
             <FormField
                 control={form.control}
                 name="services"
-                render={() => (
+                render={({ field }) => (
                     <FormItem>
                         <div className="mb-4">
                             <FormLabel className="text-base text-white">What services are you interested in?</FormLabel>
@@ -165,41 +165,49 @@ export function BookingForm() {
                         <div className="space-y-6">
                             {serviceCategories.map((category) => (
                                 <div key={category.title}>
-                                    <h3 className="font-bold text-white mb-3">{category.title}</h3>
+                                    <h3 className="font-bold text-lg text-white mb-3">{category.title}</h3>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    {category.services.map((item) => (
-                                        <FormField
-                                            key={item.id}
-                                            control={form.control}
-                                            name="services"
-                                            render={({ field }) => {
-                                                return (
-                                                <FormItem
-                                                    key={item.id}
-                                                    className="flex flex-row items-start space-x-3 space-y-0"
-                                                >
+                                        {category.services.map((item) => {
+                                            const isSelected = field.value?.includes(item.id);
+                                            return (
+                                                <FormItem key={item.id}>
                                                     <FormControl>
-                                                    <Checkbox
-                                                        checked={field.value?.includes(item.id)}
-                                                        onCheckedChange={(checked) => {
-                                                        return checked
-                                                            ? field.onChange([...field.value, item.id])
-                                                            : field.onChange(
-                                                                field.value?.filter(
-                                                                (value) => value !== item.id
-                                                                )
-                                                            )
-                                                        }}
-                                                    />
+                                                        <Checkbox
+                                                            checked={isSelected}
+                                                            onCheckedChange={(checked) => {
+                                                                return checked
+                                                                    ? field.onChange([...(field.value || []), item.id])
+                                                                    : field.onChange(
+                                                                        field.value?.filter(
+                                                                        (value) => value !== item.id
+                                                                        )
+                                                                    );
+                                                            }}
+                                                            className="sr-only"
+                                                            id={item.id}
+                                                        />
                                                     </FormControl>
-                                                    <FormLabel className="font-normal text-white/90 flex-1">
-                                                        {item.label} <span className="text-white/60">({item.price})</span>
+                                                    <FormLabel htmlFor={item.id} className={cn(
+                                                        "block w-full h-full p-4 rounded-lg border-2 cursor-pointer transition-all relative",
+                                                        isSelected 
+                                                        ? "border-primary bg-primary/10" 
+                                                        : "border-white/20 hover:border-white/50"
+                                                    )}>
+                                                        <div className="flex items-start justify-between mb-2">
+                                                            <h4 className="font-bold text-white/90 pr-8 flex-1">{item.label}</h4>
+                                                            <div className={cn(
+                                                                "flex items-center justify-center size-5 rounded-sm border border-primary shrink-0 mt-1",
+                                                                isSelected ? "bg-primary" : "bg-transparent"
+                                                            )}>
+                                                                {isSelected && <Check className="h-4 w-4 text-primary-foreground" />}
+                                                            </div>
+                                                        </div>
+                                                        <p className="text-sm text-white/70 mb-3">{item.description}</p>
+                                                        <p className="font-bold text-white/90 text-right">{item.price}</p>
                                                     </FormLabel>
                                                 </FormItem>
-                                                )
-                                            }}
-                                        />
-                                    ))}
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             ))}
@@ -376,3 +384,5 @@ export function BookingForm() {
     </Card>
   );
 }
+
+    
