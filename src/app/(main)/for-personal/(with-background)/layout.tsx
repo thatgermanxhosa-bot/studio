@@ -13,7 +13,6 @@ export default function ForPersonalWithBackgroundLayout({
   const isAboutPage = pathname.endsWith('/about');
   const isContactPage = pathname.endsWith('/contact');
   const isOurWorkPage = pathname.endsWith('/our-work');
-  const isBookingsPage = pathname.endsWith('/bookings');
   const isServicesPage = pathname.endsWith('/services');
   const isWeddingEnquiryPage = pathname.endsWith('/wedding-enquiry');
 
@@ -25,12 +24,10 @@ export default function ForPersonalWithBackgroundLayout({
     backgroundImage = "/ps_contact_personal_background.png";
   } else if (isOurWorkPage) {
     backgroundImage = "/ps_our_work_personal_background.png";
-  } else if (isBookingsPage) {
-    backgroundImage = "/ps_personal_services_background.png";
   } else if (isServicesPage) {
-    backgroundImage = "/ps_personal_services_background.png"; // You may want to add a specific background for this
+    backgroundImage = "/ps_personal_services_background.png";
   } else if (isWeddingEnquiryPage) {
-    backgroundImage = "/ps_personal_services_background.png"; // Reuse services background
+    backgroundImage = "/ps_personal_services_background.png";
   }
 
 
