@@ -38,7 +38,7 @@ export default function Home() {
         <main className="flex flex-col items-center justify-center flex-grow text-center text-white px-6 mt-16">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-black uppercase tracking-wide animate-fade-in-up">
-              MAKE STORIES THAT MOVE
+              MAKE STORIES THAT <em className="italic">MOVE</em>
             </h1>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-1000">
               <Link href="/for-business/about" passHref>

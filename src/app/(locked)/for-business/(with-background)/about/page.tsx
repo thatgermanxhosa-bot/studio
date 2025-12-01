@@ -4,10 +4,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Video, Camera, Scissors, Award, Users, FastForward } from "lucide-react";
-import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Video, Camera, Scissors, Award, Users, FastForward, ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -118,6 +116,14 @@ export default function AboutUsPage() {
                               ))}
                           </div>
                         </CardContent>
+                        <CardFooter className="pt-6 justify-end">
+                            <Button asChild variant="ghost" className="text-white hover:text-white hover:bg-white/10">
+                                <Link href="/for-business/our-work">
+                                    See Our Work
+                                    <ArrowRight className="ml-2 size-4" />
+                                </Link>
+                            </Button>
+                      </CardFooter>
                     </Card>
 
                     <Card className="bg-black/75 border-white/20 p-6 md:p-8 animate-fade-in-up animation-delay-800">
@@ -184,3 +190,5 @@ export default function AboutUsPage() {
     </div>
   );
 }
+
+    

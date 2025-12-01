@@ -20,6 +20,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  FormDescription,
 } from "@/components/ui/form";
 import {
   Popover,
@@ -138,68 +139,70 @@ export function QuotationForm() {
         <CardContent className="p-8">
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                    <div className="grid sm:grid-cols-2 gap-6">
-                        <FormField
-                            control={form.control}
-                            name="name"
-                            render={({ field }) => (
-                                <FormItem>
-                                <FormLabel>Your Name</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="John Doe" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                                <FormItem>
-                                <FormLabel>Your Email</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="john.doe@example.com" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                         <FormField
-                            control={form.control}
-                            name="company"
-                            render={({ field }) => (
-                                <FormItem>
-                                <FormLabel>Company</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="Your Company Inc." {...field} />
-                                </FormControl>
-                                <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="phone"
-                            render={({ field }) => (
-                                <FormItem>
-                                <FormLabel>Phone Number</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="+27 12 345 6789" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                    
+                    <div className="space-y-2">
+                        <FormLabel className="text-white">Your Contact Information</FormLabel>
+                        <div className="grid sm:grid-cols-2 gap-6">
+                            <FormField
+                                control={form.control}
+                                name="name"
+                                render={({ field }) => (
+                                    <FormItem>
+                                    <FormControl>
+                                        <Input placeholder="Your Name" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem>
+                                    <FormControl>
+                                        <Input placeholder="Your Email" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="company"
+                                render={({ field }) => (
+                                    <FormItem>
+                                    <FormControl>
+                                        <Input placeholder="Company Name" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="phone"
+                                render={({ field }) => (
+                                    <FormItem>
+                                    <FormControl>
+                                        <Input placeholder="Phone Number (Optional)" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
                     </div>
+
 
                     <FormField
                         control={form.control}
                         name="services"
-                        render={() => (
+                        render={({ field }) => (
                             <FormItem>
                                 <div className="mb-4">
-                                    <FormLabel className="text-base">What's the primary focus? (Check all that apply)</FormLabel>
+                                    <FormLabel className="text-base text-white">What's the primary focus?</FormLabel>
+                                    <FormDescription className="text-white/70">Check all that apply.</FormDescription>
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {services.map((item) => (
@@ -234,7 +237,7 @@ export function QuotationForm() {
                                                 : "border-white/20 hover:border-white/50"
                                             )}>
                                                 <div className="flex items-start justify-between mb-3">
-                                                    <h4 className="font-bold text-lg pr-8">{item.title}</h4>
+                                                    <h4 className="font-bold text-lg text-white pr-8">{item.title}</h4>
                                                     <div className={cn(
                                                         "flex items-center justify-center size-5 rounded-sm border border-primary shrink-0 mt-1",
                                                         isSelected ? "bg-primary" : "bg-transparent"
@@ -265,7 +268,7 @@ export function QuotationForm() {
                         name="projectDetails"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Tell Us About Your Project & Goals</FormLabel>
+                                <FormLabel className="text-white">Tell Us About Your Project & Goals</FormLabel>
                                 <FormControl>
                                     <Textarea
                                     placeholder="Briefly describe your project, what you want to achieve, and who your audience is."
@@ -278,90 +281,76 @@ export function QuotationForm() {
                         )}
                     />
                     
-                    <div className="grid sm:grid-cols-2 gap-6">
-                       <FormField
-                            control={form.control}
-                            name="requiredDate"
-                            render={({ field }) => (
-                            <FormItem className="flex flex-col">
-                                <FormLabel>Required Date (Optional)</FormLabel>
-                                <Popover>
-                                <PopoverTrigger asChild>
-                                    <FormControl>
-                                    <Button
-                                        variant={"outline"}
-                                        className={cn(
-                                        "w-full pl-3 text-left font-normal",
-                                        !field.value && "text-muted-foreground"
-                                        )}
-                                    >
-                                        {field.value ? (
-                                        format(field.value, "PPP")
-                                        ) : (
-                                        <span>Pick a date</span>
-                                        )}
-                                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                                    </Button>
-                                    </FormControl>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-auto p-0" align="start">
-                                    <Calendar
-                                    mode="single"
-                                    selected={field.value}
-                                    onSelect={field.onChange}
-                                    disabled={(date) =>
-                                        date < new Date(new Date().setDate(new Date().getDate() -1))
-                                    }
-                                    initialFocus
-                                    />
-                                </PopoverContent>
-                                </Popover>
-                                <FormMessage />
-                            </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="turnaroundTime"
-                            render={({ field }) => (
-                                <FormItem>
-                                <FormLabel>Turnaround Time (Optional)</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="e.g., 2 weeks, by end of month" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 gap-6">
-                        <FormField
-                            control={form.control}
-                            name="budget"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Estimated Project Budget</FormLabel>
-                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                    <FormControl>
-                                        <SelectTrigger>
-                                        <SelectValue placeholder="Select a budget range..." />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent>
-                                        {budgetRanges.map((range) => (
-                                            <SelectItem key={range.id} value={range.id}>{range.label}</SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                    </Select>
+                    <div className="space-y-2">
+                        <FormLabel className="text-white">Timelines & Budget</FormLabel>
+                        <div className="grid sm:grid-cols-2 gap-6">
+                           <FormField
+                                control={form.control}
+                                name="requiredDate"
+                                render={({ field }) => (
+                                <FormItem className="flex flex-col justify-end">
+                                    <Popover>
+                                    <PopoverTrigger asChild>
+                                        <FormControl>
+                                        <Button
+                                            variant={"outline"}
+                                            className={cn(
+                                            "w-full pl-3 text-left font-normal",
+                                            !field.value && "text-muted-foreground"
+                                            )}
+                                        >
+                                            {field.value ? (
+                                            format(field.value, "PPP")
+                                            ) : (
+                                            <span>Required Date (Optional)</span>
+                                            )}
+                                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                                        </Button>
+                                        </FormControl>
+                                    </PopoverTrigger>
+                                    <PopoverContent className="w-auto p-0" align="start">
+                                        <Calendar
+                                        mode="single"
+                                        selected={field.value}
+                                        onSelect={field.onChange}
+                                        disabled={(date) =>
+                                            date < new Date(new Date().setDate(new Date().getDate() -1))
+                                        }
+                                        initialFocus
+                                        />
+                                    </PopoverContent>
+                                    </Popover>
                                     <FormMessage />
                                 </FormItem>
-                            )}
-                        />
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="budget"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <FormControl>
+                                            <SelectTrigger>
+                                            <SelectValue placeholder="Estimated Project Budget" />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            {budgetRanges.map((range) => (
+                                                <SelectItem key={range.id} value={range.id}>{range.label}</SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                        </Select>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
                     </div>
 
-                    <div className="flex justify-end">
-                        <Button type="submit" disabled={isPending} className="w-full sm:w-auto uppercase font-bold tracking-widest px-8">
+
+                    <div className="flex justify-end pt-4">
+                        <Button type="submit" disabled={isPending} size="lg" className="w-full sm:w-auto uppercase font-bold tracking-widest px-8">
                             {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                             {isPending ? "Submitting..." : "Start the Conversation"}
                         </Button>
@@ -372,3 +361,5 @@ export function QuotationForm() {
     </Card>
   );
 }
+
+    

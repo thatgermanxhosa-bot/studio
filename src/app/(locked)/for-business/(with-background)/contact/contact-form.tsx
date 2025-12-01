@@ -81,7 +81,7 @@ export function ContactForm() {
                 name="firstName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>First Name</FormLabel>
+                    <FormLabel className="text-white">First Name</FormLabel>
                     <FormControl>
                       <Input placeholder="John" {...field} />
                     </FormControl>
@@ -94,7 +94,7 @@ export function ContactForm() {
                 name="lastName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Last Name</FormLabel>
+                    <FormLabel className="text-white">Last Name</FormLabel>
                     <FormControl>
                       <Input placeholder="Doe" {...field} />
                     </FormControl>
@@ -109,7 +109,7 @@ export function ContactForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Your Email</FormLabel>
+                    <FormLabel className="text-white">Your Email</FormLabel>
                     <FormControl>
                       <Input placeholder="john.doe@example.com" {...field} />
                     </FormControl>
@@ -122,7 +122,7 @@ export function ContactForm() {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone Number (Optional)</FormLabel>
+                    <FormLabel className="text-white">Phone Number (Optional)</FormLabel>
                     <FormControl>
                       <Input placeholder="+27 12 345 6789" {...field} />
                     </FormControl>
@@ -136,7 +136,7 @@ export function ContactForm() {
               name="subject"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Subject</FormLabel>
+                  <FormLabel className="text-white">Subject</FormLabel>
                   <FormControl>
                     <Input placeholder="Project Inquiry" {...field} />
                   </FormControl>
@@ -149,7 +149,7 @@ export function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Your Message</FormLabel>
+                  <FormLabel className="text-white">Your Message</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Tell us about your project or inquiry..."
@@ -173,3 +173,5 @@ export function ContactForm() {
     </Card>
   );
 }
+
+    

@@ -12,12 +12,15 @@ export default function ForPersonalWithBackgroundLayout({
   const isContactPage = pathname.endsWith('/contact');
   const isAboutPage = pathname.endsWith('/about');
   const isWeddingEnquiryPage = pathname.endsWith('/wedding-enquiry');
+  const isServicesPage = pathname.endsWith('/services');
 
   let backgroundImage = "";
   if (isContactPage) {
-    backgroundImage = "/ps_contact_personal_background.jpg";
+    backgroundImage = "/contact_img.png";
   } else if (isAboutPage) {
     backgroundImage = "/personal_contact_bg.jpg";
+  } else if (isServicesPage) {
+    backgroundImage = "/Bookings_IMG.jpg";
   }
 
 
@@ -27,7 +30,7 @@ export default function ForPersonalWithBackgroundLayout({
          <>
           <div className="fixed inset-0 z-0">
              <video
-              src="/wedding_enquiry_background.mp4"
+              src="/wedding_vid.mp4"
               autoPlay
               loop
               muted
