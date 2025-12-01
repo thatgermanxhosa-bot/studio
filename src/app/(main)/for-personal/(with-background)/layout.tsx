@@ -23,7 +23,7 @@ export default function ForPersonalWithBackgroundLayout({
   } else if (isContactPage) {
     backgroundImage = "/ps_contact_personal_background.png";
   } else if (isOurWorkPage) {
-    backgroundImage = "/ps_our_work_personal_background.png";
+    backgroundImage = "/ps_our_work_personal_background.jpg";
   } else if (isServicesPage) {
     backgroundImage = "/ps_personal_services_background.png";
   } else if (isWeddingEnquiryPage) {
