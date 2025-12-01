@@ -188,7 +188,7 @@ const PackageCard = ({ pkg, isWedding = false }: { pkg: { title: string; price: 
         <CardFooter className="flex-col items-stretch gap-4 pt-4">
             <p className="text-2xl font-bold text-right">{pkg.price}</p>
             <Button asChild size="lg" variant={isWedding ? "outline" : "default"} className="w-full uppercase font-bold tracking-widest">
-                <Link href={isWedding ? "/for-personal/wedding-enquiry" : "/for-personal/bookings"}>
+                <Link href={isWedding ? "/for-personal/wedding-enquiry" : "/for-personal/contact"}>
                     {isWedding ? "Request to Book" : "Book Now"}
                 </Link>
             </Button>

@@ -2,7 +2,7 @@
 "use server";
 
 import { z } from "zod";
-import { bookingSchema, contactSchema, quotationSchema, personalBookingSchema, weddingEnquirySchema } from "./schemas";
+import { bookingSchema, contactSchema, quotationSchema, weddingEnquirySchema } from "./schemas";
 import { analyzeQuoteRequest } from "@/ai/flows/intelligent-quote-request-processing";
 
 export async function handleBooking(data: z.infer<typeof bookingSchema>) {
@@ -18,22 +18,13 @@ export async function handleBooking(data: z.infer<typeof bookingSchema>) {
   return { success: "Booking request sent successfully!" };
 }
 
-export async function handlePersonalBooking(data: z.infer<typeof personalBookingSchema>) {
-  const validatedFields = personalBookingSchema.safeParse(data);
-
-  if (!validatedFields.success) {
-    // Try parsing with the wedding schema
+export async function handlePersonalBooking(data: z.infer<typeof weddingEnquirySchema>) {
     const weddingValidatedFields = weddingEnquirySchema.safeParse(data);
     if (!weddingValidatedFields.success) {
       return { error: "Invalid data" };
     }
     console.log("New Wedding Enquiry:", weddingValidatedFields.data);
     return { success: "Wedding enquiry sent successfully!" };
-  }
-  
-  console.log("New Personal Booking Request:", validatedFields.data);
-
-  return { success: "Booking request sent successfully!" };
 }
 
 

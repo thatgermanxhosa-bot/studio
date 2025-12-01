@@ -29,7 +29,6 @@ const forPersonalLinks = [
   { href: "/", label: "Home" },
   { href: "/for-personal/about", label: "About" },
   { href: "/for-personal/services", label: "Services" },
-  { href: "/for-personal/bookings", label: "Bookings" },
   { href: "/for-personal/wedding-enquiry", label: "Wedding Enquiry"},
   { href: "/for-personal/contact", label: "Contact" },
 ];

@@ -117,7 +117,7 @@ export default function AboutUsPage() {
                       Let's tell your story.
                   </p>
                   <Button asChild size="lg" className="uppercase font-bold tracking-widest px-8">
-                      <Link href="/for-personal/bookings">Book Your Session</Link>
+                      <Link href="/for-personal/services">View Our Services</Link>
                   </Button>
               </div>
           </div>
