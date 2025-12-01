@@ -12,7 +12,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'StudioFlow - Pichulik Studios',
+  metadataBase: new URL('https://pichulikstudios.co.za'),
+  title: 'Pichulik Studios',
   description: 'MAKE STORIES THAT MOVE',
 };
 
