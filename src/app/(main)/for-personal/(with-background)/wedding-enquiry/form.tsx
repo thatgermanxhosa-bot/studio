@@ -62,7 +62,7 @@ const weddingPackages = [
 ];
 
 const weddingAddOns = [
-    { id: "addon-second-photographer", label: "Second Photographer", price: "R 4 500" },
+    { id: "addon-additional-shooter", label: "Additional Photographer/Videographer", price: "R 4 500" },
     { id: "addon-fine-art-album", label: "Fine Art Wedding Album", price: "R 6 500" },
     { id: "addon-parent-albums", label: "Parent Albums", price: "R 4 500" },
     { id: "addon-drone", label: "Drone Footage", price: "from R 3 500" },
