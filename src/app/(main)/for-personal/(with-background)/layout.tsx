@@ -14,8 +14,7 @@ export default function ForPersonalWithBackgroundLayout({
 
   let backgroundImage = "";
   if (isContactPage) {
-    // No background for personal contact page
-    backgroundImage = "";
+    backgroundImage = "/ps_contact_personal_background.jpg";
   }
 
 
