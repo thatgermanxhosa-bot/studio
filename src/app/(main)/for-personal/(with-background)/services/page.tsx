@@ -142,20 +142,20 @@ const addOns = [
     { name: "Additional Hour", price: "R 1 800" },
     { name: "Rush Delivery (48-hour turnaround)", price: "R 1 500" },
     { name: "30-sec Highlight Reel", price: "R 1 500" },
-    { name: "Styling Consultation (30 min call)", price: "R 800" },
+    { name: "Styling Consultation", price: "R 800" },
     { name: "Advanced Retouching (per image)", price: "R 250" },
-    { name: "20-Page Hardcover Photo Album", price: "R 3 500" },
+    { name: "Hardcover Photo Album", price: "R 3 500" },
 ];
 
 const weddingAddOns = [
-    { name: "Second Photographer (flat rate)", price: "R 4 500" },
+    { name: "Second Photographer", price: "R 4 500" },
     { name: "Fine Art Wedding Album", price: "R 6 500" },
-    { name: "Parent Albums (Set of 2)", price: "R 4 500" },
-    { name: "Drone Footage (venue & weather permitting)", price: "from R 3 500" },
-    { name: "Cinematic Story (5-7 min film)", price: "from R 18 000"},
+    { name: "Parent Albums", price: "R 4 500" },
+    { name: "Drone Footage", price: "from R 3 500" },
+    { name: "Cinematic Story Film (5-7 min)", price: "from R 18 000"},
     { name: "Documentary Film Edit", price: "from R 18 000" },
     { name: "Same-Day Teaser Film (1 min)", price: "R 8 000" },
-    { name: "Raw Video Footage (on hard drive)", price: "R 5 000" },
+    { name: "Raw Video Footage", price: "R 5 000" },
 ]
 
 const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: string; details: string[]; badge?: string } }) => (
@@ -242,66 +242,65 @@ export default function ServicesPage() {
                 </div>
             </div>
 
-            <div>
-                <div className="text-center mb-8">
+            <div className="space-y-8">
+                <div className="text-center">
                   <h2 className="text-3xl font-bold">Weddings</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">Your wedding day is one of life's biggest stories. From intimate elopements to grand celebrations, we're here to capture every laugh, tear, and dance move with a timeless, romantic touch.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {weddingPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
+                 <Card className="bg-black/75 border-white/20 max-w-4xl mx-auto">
+                    <CardHeader>
+                        <CardTitle>Wedding Extras & Film Add-Ons</CardTitle>
+                         <CardDescription className="text-white/80 !mt-2">
+                            Customise your wedding collection with our à la carte video and album options.
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <ul className="space-y-3 columns-1 md:columns-2">
+                            {weddingAddOns.map(item => (
+                                <li key={item.name} className="flex justify-between items-center text-white/90 break-inside-avoid-column">
+                                    <span>{item.name}</span>
+                                    <span className="font-semibold text-right pl-4">{item.price}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </CardContent>
+                </Card>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto pt-10">
+            <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto pt-10">
                  <Card className="bg-black/75 border-white/20">
                     <CardHeader>
-                        <CardTitle>Package Add-Ons</CardTitle>
+                        <CardTitle>General Package Add-Ons</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <ul className="space-y-3">
+                        <ul className="space-y-3 columns-1 md:columns-2">
                             {addOns.map(item => (
-                                <li key={item.name} className="flex justify-between items-center text-white/90">
+                                <li key={item.name} className="flex justify-between items-center text-white/90 break-inside-avoid-column">
                                     <span>{item.name}</span>
-                                    <span className="font-semibold">{item.price}</span>
+                                    <span className="font-semibold text-right pl-4">{item.price}</span>
                                 </li>
                             ))}
                         </ul>
                     </CardContent>
                 </Card>
-                 <Card className="bg-black/75 border-white/20">
+
+                <Card className="bg-black/75 border-white/20">
                     <CardHeader>
-                        <CardTitle>Wedding Extras</CardTitle>
+                        <CardTitle>Travel Costs</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <ul className="space-y-3">
-                            {weddingAddOns.map(item => (
-                                <li key={item.name} className="flex justify-between items-center text-white/90">
-                                    <span>{item.name}</span>
-                                    <span className="font-semibold">{item.price}</span>
-                                </li>
-                            ))}
-                        </ul>
+                        <p className="text-white/80">
+                            Travel within a 35km radius of Sandton is included free of charge. For locations beyond this, a fee is charged for the return trip. Please contact us for a precise quote for your location.
+                        </p>
                     </CardContent>
                 </Card>
             </div>
-
-            <Card className="bg-black/75 border-white/20 max-w-6xl mx-auto">
-                <CardHeader>
-                    <CardTitle>Travel Costs</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-white/80">
-                        Travel within a 35km radius of Sandton is included free of charge. For locations beyond this, a fee is charged for the return trip. Please contact us for a precise quote for your location.
-                    </p>
-                </CardContent>
-            </Card>
 
         </div>
       </section>
     </div>
   );
 }
-
-    
-
-    
