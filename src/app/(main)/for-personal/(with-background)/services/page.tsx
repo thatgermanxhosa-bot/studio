@@ -163,7 +163,7 @@ export default function ServicesPage() {
       <section className="bg-transparent text-center pt-48 pb-16 animate-fade-in-up">
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-black">
-            Services & Pricing
+            Services & Bookings
           </h1>
           <p className="mt-4 text-lg max-w-3xl mx-auto text-white/80 animate-fade-in-up animation-delay-200">
             Find the perfect package to capture your story. We offer a range of photography and videography services tailored to your personal milestones. All packages include high-resolution digital images delivered via a private online gallery.
