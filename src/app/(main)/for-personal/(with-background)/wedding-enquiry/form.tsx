@@ -86,6 +86,7 @@ export function WeddingEnquiryForm() {
       name: "",
       email: "",
       partnerName: "",
+      phone: "",
       venue: "",
       guestCount: "",
       notes: "",
@@ -279,6 +280,9 @@ export function WeddingEnquiryForm() {
                     )}/>
                     <FormField control={form.control} name="guestCount" render={({ field }) => (
                         <FormItem><FormControl><Input placeholder="Estimated Guest Count" {...field} /></FormControl><FormMessage /></FormItem>
+                    )}/>
+                     <FormField control={form.control} name="phone" render={({ field }) => (
+                        <FormItem><FormControl><Input placeholder="Phone Number" {...field} /></FormControl><FormMessage /></FormItem>
                     )}/>
                 </div>
             </div>

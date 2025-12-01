@@ -19,6 +19,7 @@ export const weddingEnquirySchema = z.object({
   name: z.string().min(2, "Name is required."),
   partnerName: z.string().optional(),
   email: z.string().email("Please enter a valid email address."),
+  phone: z.string().optional(),
   venue: z.string().optional(),
   guestCount: z.string().optional(),
   notes: z.string().optional(),

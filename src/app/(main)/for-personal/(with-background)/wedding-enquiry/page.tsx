@@ -7,10 +7,10 @@ export default function WeddingEnquiryPage() {
       <section className="bg-transparent text-center pt-48">
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-black animate-fade-in-up">
-            Your Wedding Story Starts Here
+            Your Forever Story Deserves to Be Told Beautifully
           </h1>
-           <p className="mt-4 text-lg max-w-2xl mx-auto text-white/80 animate-fade-in-up animation-delay-200">
-            Tell us about your vision for the big day. Fill out the form below to begin the conversation, and we'll get back to you promptly to confirm our availability and discuss how we can best capture your story.
+           <p className="mt-4 text-lg max-w-3xl mx-auto text-white/80 animate-fade-in-up animation-delay-200">
+            This is more than just a day; it's the beginning of your forever. It’s the quiet moments, the joyful tears, the epic celebrations, and all the love that fills the air. We believe in capturing the real, unfiltered story of your wedding day so you can relive the magic for a lifetime. Tell us everything—your dreams, your plans, the little details that make your story unique. We can't wait to hear from you.
           </p>
         </div>
       </section>
