@@ -26,7 +26,7 @@ export default function ForPersonalWithBackgroundLayout({
   } else if (isOurWorkPage) {
     backgroundImage = "/ps_our_work_personal_background.png";
   } else if (isBookingsPage) {
-    backgroundImage = "/ps_bookings_personal_background.png";
+    backgroundImage = "/ps_personal_services_background.png";
   } else if (isServicesPage) {
     backgroundImage = "/ps_personal_services_background.png"; // You may want to add a specific background for this
   } else if (isWeddingEnquiryPage) {
