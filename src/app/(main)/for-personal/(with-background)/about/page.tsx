@@ -1,8 +1,8 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Video, Camera, Scissors, Award, Heart, Smile, Sparkles } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Video, Camera, Scissors, Award, Heart, Smile, Sparkles, ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -84,6 +84,14 @@ export default function AboutUsPage() {
                             ))}
                         </div>
                       </CardContent>
+                      <CardFooter className="pt-6 justify-end">
+                        <Button asChild variant="ghost" className="text-white hover:text-white hover:bg-white/10">
+                            <Link href="/for-personal/services">
+                                View All Services & Packages
+                                <ArrowRight className="ml-2 size-4" />
+                            </Link>
+                        </Button>
+                      </CardFooter>
                   </Card>
 
                   <Card className="bg-black/75 border-white/20 p-6 md:p-8 animate-fade-in-up animation-delay-800">
