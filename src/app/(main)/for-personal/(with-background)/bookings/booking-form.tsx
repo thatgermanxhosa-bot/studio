@@ -5,18 +5,19 @@ import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { z } from "zod";
-import { CalendarIcon, Loader2 } from "lucide-react";
+import { CalendarIcon, Loader2, Check } from "lucide-react";
 import { format } from "date-fns";
 
 import { cn } from "@/lib/utils";
-import { bookingSchema } from "@/lib/schemas";
-import { handleBooking } from "@/lib/actions";
+import { personalBookingSchema } from "@/lib/schemas";
+import { handlePersonalBooking } from "@/lib/actions";
 
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -28,36 +29,95 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+
+const serviceCategories = [
+    {
+        title: "Lifestyle & Branding",
+        services: [
+            { id: "lifestyle-mini", label: "Mini Session (Headshots)"},
+            { id: "lifestyle-influencer", label: "Standard Influencer"},
+            { id: "lifestyle-content-creator", label: "Content Creator"},
+            { id: "lifestyle-premium", label: "Premium Brand"},
+        ]
+    },
+    {
+        title: "Family & Maternity",
+        services: [
+            { id: "family-quick", label: "Quick & Easy"},
+            { id: "family-golden-hour", label: "Golden Hour"},
+            { id: "family-newborn", label: "The Newborn"},
+            { id: "family-day-in-life", label: "Day in the Life"},
+        ]
+    },
+    {
+        title: "Couples & Engagements",
+        services: [
+            { id: "couples-save-the-date", label: "Save the Date"},
+            { id: "couples-date-night", label: "Date Night (Engagement)"},
+            { id: "couples-anniversary", label: "Anniversary"},
+            { id: "couples-proposal", label: "The Secret Proposal"},
+        ]
+    },
+    {
+        title: "Private Events",
+        services: [
+            { id: "event-essential", label: "Essential (2 hrs)"},
+            { id: "event-celebration", label: "Celebration (4 hrs)"},
+            { id: "event-gala", label: "Gala (6 hrs)"},
+        ]
+    },
+    {
+        title: "Weddings",
+        services: [
+            { id: "wedding-micro", label: "Micro Elopement"},
+            { id: "wedding-classic", label: "Classic Collection"},
+            { id: "wedding-luxury", label: "Luxury Experience (Photo + Film)"},
+            { id: "wedding-ultimate", label: "The Ultimate Story (Photo + Documentary)"},
+        ]
+    }
+];
+
+const addOns = [
+    { id: "addon-extra-hour", label: "Additional Hour/s of Coverage" },
+    { id: "addon-rush-delivery", label: "Rush Delivery (48-hour turnaround)" },
+    { id: "addon-highlight-reel", label: "30-sec Highlight Reel" },
+    { id: "addon-styling-consult", label: "Styling Consultation" },
+    { id: "addon-advanced-retouching", label: "Advanced Retouching" },
+    { id: "addon-photo-album", label: "Hardcover Photo Album" },
+    { id: "addon-second-photographer", label: "Second Photographer" },
+    { id: "addon-fine-art-album", label: "Fine Art Wedding Album" },
+    { id: "addon-parent-albums", label: "Parent Albums" },
+    { id: "addon-drone", label: "Drone Footage" },
+    { id: "addon-cinematic-film", label: "Cinematic Story Film (5-7 min)" },
+    { id: "addon-documentary-film", label: "Documentary Film Edit" },
+    { id: "addon-same-day-teaser", label: "Same-Day Teaser Film (1 min)" },
+    { id: "addon-raw-footage", label: "Raw Video Footage" },
+];
+
 
 export function BookingForm() {
   const [isPending, startTransition] = useTransition();
   const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
 
-  const form = useForm<z.infer<typeof bookingSchema>>({
-    resolver: zodResolver(bookingSchema),
+  const form = useForm<z.infer<typeof personalBookingSchema>>({
+    resolver: zodResolver(personalBookingSchema),
     defaultValues: {
-      service: "",
+      services: [],
+      addOns: [],
       name: "",
       email: "",
       notes: "",
-      time: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof bookingSchema>) {
+  function onSubmit(values: z.infer<typeof personalBookingSchema>) {
     startTransition(async () => {
-      const result = await handleBooking(values);
+      const result = await handlePersonalBooking(values);
       if (result.success) {
         setIsSuccess(true);
       } else {
@@ -89,122 +149,214 @@ export function BookingForm() {
     <Card className="bg-black/75 border-white/20">
       <CardContent className="p-8">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            
             <FormField
-              control={form.control}
-              name="service"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Service Required</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a service..." />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="videography">Milestone Videography</SelectItem>
-                      <SelectItem value="photography">Portrait & Event Photography</SelectItem>
-                      <SelectItem value="editing">Editing & Enhancement</SelectItem>
-                      <SelectItem value="graphics">Custom Graphics</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
+                control={form.control}
+                name="services"
+                render={() => (
+                    <FormItem>
+                        <div className="mb-4">
+                            <FormLabel className="text-base text-white">What services are you interested in?</FormLabel>
+                            <FormDescription className="text-white/70">
+                                Select one or more packages you'd like to book or get more information on.
+                            </FormDescription>
+                        </div>
+                        <div className="space-y-6">
+                            {serviceCategories.map((category) => (
+                                <div key={category.title}>
+                                    <h3 className="font-bold text-white mb-3">{category.title}</h3>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {category.services.map((item) => (
+                                        <FormField
+                                            key={item.id}
+                                            control={form.control}
+                                            name="services"
+                                            render={({ field }) => {
+                                                return (
+                                                <FormItem
+                                                    key={item.id}
+                                                    className="flex flex-row items-start space-x-3 space-y-0"
+                                                >
+                                                    <FormControl>
+                                                    <Checkbox
+                                                        checked={field.value?.includes(item.id)}
+                                                        onCheckedChange={(checked) => {
+                                                        return checked
+                                                            ? field.onChange([...field.value, item.id])
+                                                            : field.onChange(
+                                                                field.value?.filter(
+                                                                (value) => value !== item.id
+                                                                )
+                                                            )
+                                                        }}
+                                                    />
+                                                    </FormControl>
+                                                    <FormLabel className="font-normal text-white/90">
+                                                        {item.label}
+                                                    </FormLabel>
+                                                </FormItem>
+                                                )
+                                            }}
+                                        />
+                                    ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <FormMessage />
+                    </FormItem>
+                )}
+            />
+
+            <FormField
+                control={form.control}
+                name="addOns"
+                render={() => (
+                    <FormItem>
+                        <div className="mb-4">
+                            <FormLabel className="text-base text-white">Any extras?</FormLabel>
+                            <FormDescription className="text-white/70">
+                                Let us know if you're interested in any of these add-ons.
+                            </FormDescription>
+                        </div>
+                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {addOns.map((item) => (
+                                <FormField
+                                key={item.id}
+                                control={form.control}
+                                name="addOns"
+                                render={({ field }) => {
+                                    return (
+                                    <FormItem
+                                        key={item.id}
+                                        className="flex flex-row items-start space-x-3 space-y-0"
+                                    >
+                                        <FormControl>
+                                        <Checkbox
+                                            checked={field.value?.includes(item.id)}
+                                            onCheckedChange={(checked) => {
+                                            return checked
+                                                ? field.onChange([...field.value, item.id])
+                                                : field.onChange(
+                                                    field.value?.filter(
+                                                    (value) => value !== item.id
+                                                    )
+                                                )
+                                            }}
+                                        />
+                                        </FormControl>
+                                        <FormLabel className="font-normal text-white/90">
+                                            {item.label}
+                                        </FormLabel>
+                                    </FormItem>
+                                    )
+                                }}
+                                />
+                            ))}
+                        </div>
+                        <FormMessage />
+                    </FormItem>
+                )}
             />
             
-            <div className="grid sm:grid-cols-2 gap-6">
-              <FormField
-                control={form.control}
-                name="date"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col">
-                    <FormLabel>Preferred Date</FormLabel>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <FormControl>
-                          <Button
-                            variant={"outline"}
-                            className={cn(
-                              "w-full pl-3 text-left font-normal",
-                              !field.value && "text-muted-foreground"
-                            )}
-                          >
-                            {field.value ? (
-                              format(field.value, "PPP")
-                            ) : (
-                              <span>Pick a date</span>
-                            )}
-                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                          </Button>
-                        </FormControl>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={field.value}
-                          onSelect={field.onChange}
-                          disabled={(date) => date < new Date() || date < new Date("1900-01-01")}
-                          initialFocus
-                        />
-                      </PopoverContent>
-                    </Popover>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            <div className="space-y-2">
+                <FormLabel className="text-white">When are you thinking?</FormLabel>
+                <div className="grid sm:grid-cols-2 gap-6">
+                <FormField
+                    control={form.control}
+                    name="date"
+                    render={({ field }) => (
+                    <FormItem className="flex flex-col">
+                        <Popover>
+                        <PopoverTrigger asChild>
+                            <FormControl>
+                            <Button
+                                variant={"outline"}
+                                className={cn(
+                                "w-full pl-3 text-left font-normal",
+                                !field.value && "text-muted-foreground"
+                                )}
+                            >
+                                {field.value ? (
+                                format(field.value, "PPP")
+                                ) : (
+                                <span>Pick a date</span>
+                                )}
+                                <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                            </Button>
+                            </FormControl>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-auto p-0" align="start">
+                            <Calendar
+                            mode="single"
+                            selected={field.value}
+                            onSelect={field.onChange}
+                            disabled={(date) => date < new Date() || date < new Date("1900-01-01")}
+                            initialFocus
+                            />
+                        </PopoverContent>
+                        </Popover>
+                        <FormMessage />
+                    </FormItem>
+                    )}
+                />
 
-              <FormField
-                control={form.control}
-                name="time"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Preferred Time</FormLabel>
-                    <FormControl>
-                      <Input type="time" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                <FormField
+                    control={form.control}
+                    name="time"
+                    render={({ field }) => (
+                    <FormItem>
+                        <FormControl>
+                        <Input type="time" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                    </FormItem>
+                    )}
+                />
+                </div>
             </div>
 
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Your Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="John Doe" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Your Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="john.doe@example.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <div className="space-y-2">
+                <FormLabel className="text-white">Your Details</FormLabel>
+                 <div className="grid sm:grid-cols-2 gap-6">
+                    <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormControl>
+                            <Input placeholder="Your Name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormControl>
+                            <Input placeholder="Your Email" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                </div>
+            </div>
+
             <FormField
               control={form.control}
               name="notes"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Tell us about the occasion (Optional)</FormLabel>
+                  <FormLabel className="text-white">Tell us about the occasion (Optional)</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="e.g., 50th birthday party, family portrait session..."
+                      placeholder="e.g., 50th birthday party, surprise proposal at the botanical gardens..."
+                      rows={4}
                       {...field}
                     />
                   </FormControl>
