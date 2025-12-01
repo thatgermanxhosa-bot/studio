@@ -10,16 +10,39 @@ export default function ForPersonalWithBackgroundLayout({
 }) {
   const pathname = usePathname();
   const isContactPage = pathname.endsWith('/contact');
+  const isAboutPage = pathname.endsWith('/about');
+  const isWeddingEnquiryPage = pathname.endsWith('/wedding-enquiry');
 
   let backgroundImage = "";
   if (isContactPage) {
     backgroundImage = "/ps_contact_personal_background.jpg";
+  } else if (isAboutPage) {
+    backgroundImage = "/personal_contact_bg.jpg";
   }
 
 
   return (
     <div className="relative min-h-screen">
-      {backgroundImage ? (
+      {isWeddingEnquiryPage ? (
+         <>
+          <div className="fixed inset-0 z-0">
+             <video
+              src="/wedding_enquiry_background.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover z-0"
+            >
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute inset-0 bg-black/60"></div>
+          </div>
+          <div className="relative z-20 flex flex-col min-h-screen text-white">
+            <main className="flex-1">{children}</main>
+          </div>
+        </>
+      ) : backgroundImage ? (
         <>
           <div className="fixed inset-0 z-0">
             <Image
