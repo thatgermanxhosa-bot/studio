@@ -27,7 +27,7 @@ const forBusinessLinks = [
 
 const forPersonalLinks = [
   { href: "/", label: "Home" },
-  { href: "/for-personal/about", label: "About" },
+  { href: "/for-personal/about", label: "About Us" },
   { href: "/for-personal/services", label: "Services and Bookings" },
   { href: "/for-personal/wedding-enquiry", label: "Wedding Enquiry"},
   { href: "/for-personal/contact", label: "Contact" },
