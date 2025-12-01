@@ -200,10 +200,10 @@ export default function ServicesPage() {
       </section>
 
       <section className="py-10 animate-fade-in-up animation-delay-400">
-        <div className="container space-y-16">
+        <div className="container space-y-24">
             
             <div>
-                <div className="text-center mb-8">
+                <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold">Lifestyle & Branding</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">Whether you're a content creator, a professional updating your profile, or just looking to capture your unique vibe, these packages are designed to make you shine.</p>
                 </div>
@@ -213,7 +213,7 @@ export default function ServicesPage() {
             </div>
 
             <div>
-                <div className="text-center mb-8">
+                <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold">Family & Maternity</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">From the beautiful bump to the chaotic joy of a full house, these sessions are all about capturing the love and connection that makes your family unique. Let's freeze these precious moments in time.</p>
                 </div>
@@ -223,7 +223,7 @@ export default function ServicesPage() {
             </div>
             
             <div>
-                <div className="text-center mb-8">
+                <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold">Couples & Engagements</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">It all starts with the two of you. Let's celebrate your love story, whether it's a secret proposal, a fun date night, or announcing your engagement to the world. These sessions are about capturing your connection.</p>
                 </div>
@@ -233,7 +233,7 @@ export default function ServicesPage() {
             </div>
 
             <div>
-                <div className="text-center mb-8">
+                <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold">Private Events</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">You've planned the perfect party, now it's time to enjoy it! From intimate dinners to milestone birthdays, we'll capture the atmosphere and the memories, so you can relax and be present with your guests.</p>
                 </div>
@@ -243,7 +243,7 @@ export default function ServicesPage() {
             </div>
 
             <div>
-                <div className="text-center mb-8">
+                <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold">Weddings</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">Your wedding day is one of life's biggest stories. From intimate elopements to grand celebrations, we're here to capture every laugh, tear, and dance move with a timeless, romantic touch.</p>
                 </div>
@@ -252,7 +252,7 @@ export default function ServicesPage() {
                 </div>
             </div>
             
-            <div className="space-y-8 pt-10">
+            <div className="space-y-12 pt-16">
                 <div className="text-center">
                   <h2 className="text-3xl font-bold">Extras & Add-Ons</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">Customise your collection with our à la carte options to make it perfectly yours.</p>
