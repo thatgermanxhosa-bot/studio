@@ -38,64 +38,64 @@ const serviceCategories = [
     {
         title: "Lifestyle & Branding",
         services: [
-            { id: "lifestyle-mini", label: "Mini Session (Headshots)"},
-            { id: "lifestyle-influencer", label: "Standard Influencer"},
-            { id: "lifestyle-content-creator", label: "Content Creator"},
-            { id: "lifestyle-premium", label: "Premium Brand"},
+            { id: "lifestyle-mini", label: "Mini Session (Headshots)", price: "R 2 200"},
+            { id: "lifestyle-influencer", label: "Standard Influencer", price: "R 4 200"},
+            { id: "lifestyle-content-creator", label: "Content Creator", price: "R 5 500"},
+            { id: "lifestyle-premium", label: "Premium Brand", price: "R 6 800"},
         ]
     },
     {
         title: "Family & Maternity",
         services: [
-            { id: "family-quick", label: "Quick & Easy"},
-            { id: "family-golden-hour", label: "Golden Hour"},
-            { id: "family-newborn", label: "The Newborn"},
-            { id: "family-day-in-life", label: "Day in the Life"},
+            { id: "family-quick", label: "Quick & Easy", price: "R 2 500"},
+            { id: "family-golden-hour", label: "Golden Hour", price: "R 5 200"},
+            { id: "family-newborn", label: "The Newborn", price: "R 6 000"},
+            { id: "family-day-in-life", label: "Day in the Life", price: "R 9 500"},
         ]
     },
     {
         title: "Couples & Engagements",
         services: [
-            { id: "couples-save-the-date", label: "Save the Date"},
-            { id: "couples-date-night", label: "Date Night (Engagement)"},
-            { id: "couples-anniversary", label: "Anniversary"},
-            { id: "couples-proposal", label: "The Secret Proposal"},
+            { id: "couples-save-the-date", label: "Save the Date", price: "R 3 200"},
+            { id: "couples-date-night", label: "Date Night (Engagement)", price: "R 5 500"},
+            { id: "couples-anniversary", label: "Anniversary", price: "R 4 800"},
+            { id: "couples-proposal", label: "The Secret Proposal", price: "R 8 500"},
         ]
     },
     {
         title: "Private Events",
         services: [
-            { id: "event-essential", label: "Essential (2 hrs)"},
-            { id: "event-celebration", label: "Celebration (4 hrs)"},
-            { id: "event-gala", label: "Gala (6 hrs)"},
+            { id: "event-essential", label: "Essential (2 hrs)", price: "R 3 500"},
+            { id: "event-celebration", label: "Celebration (4 hrs)", price: "R 6 500"},
+            { id: "event-gala", label: "Gala (6 hrs)", price: "R 12 000"},
         ]
     },
     {
         title: "Weddings",
         services: [
-            { id: "wedding-micro", label: "Micro Elopement"},
-            { id: "wedding-classic", label: "Classic Collection"},
-            { id: "wedding-luxury", label: "Luxury Experience (Photo + Film)"},
-            { id: "wedding-ultimate", label: "The Ultimate Story (Photo + Documentary)"},
+            { id: "wedding-micro", label: "Micro Elopement", price: "R 15 000"},
+            { id: "wedding-classic", label: "Classic Collection", price: "R 26 000"},
+            { id: "wedding-luxury", label: "Luxury Experience (Photo + Film)", price: "R 54 000"},
+            { id: "wedding-ultimate", label: "The Ultimate Story (Photo + Documentary)", price: "R 72 000"},
         ]
     }
 ];
 
 const addOns = [
-    { id: "addon-extra-hour", label: "Additional Hour/s of Coverage" },
-    { id: "addon-rush-delivery", label: "Rush Delivery (48-hour turnaround)" },
-    { id: "addon-highlight-reel", label: "30-sec Highlight Reel" },
-    { id: "addon-styling-consult", label: "Styling Consultation" },
-    { id: "addon-advanced-retouching", label: "Advanced Retouching" },
-    { id: "addon-photo-album", label: "Hardcover Photo Album" },
-    { id: "addon-second-photographer", label: "Second Photographer" },
-    { id: "addon-fine-art-album", label: "Fine Art Wedding Album" },
-    { id: "addon-parent-albums", label: "Parent Albums" },
-    { id: "addon-drone", label: "Drone Footage" },
-    { id: "addon-cinematic-film", label: "Cinematic Story Film (5-7 min)" },
-    { id: "addon-documentary-film", label: "Documentary Film Edit" },
-    { id: "addon-same-day-teaser", label: "Same-Day Teaser Film (1 min)" },
-    { id: "addon-raw-footage", label: "Raw Video Footage" },
+    { id: "addon-extra-hour", label: "Additional Hour/s of Coverage", price: "R 1 800" },
+    { id: "addon-rush-delivery", label: "Rush Delivery (48-hour turnaround)", price: "R 1 500" },
+    { id: "addon-highlight-reel", label: "30-sec Highlight Reel", price: "R 1 500" },
+    { id: "addon-styling-consult", label: "Styling Consultation", price: "R 800" },
+    { id: "addon-advanced-retouching", label: "Advanced Retouching (per image)", price: "R 250" },
+    { id: "addon-photo-album", label: "Hardcover Photo Album", price: "R 3 500" },
+    { id: "addon-second-photographer", label: "Second Photographer", price: "R 4 500" },
+    { id: "addon-fine-art-album", label: "Fine Art Wedding Album", price: "R 6 500" },
+    { id: "addon-parent-albums", label: "Parent Albums", price: "R 4 500" },
+    { id: "addon-drone", label: "Drone Footage", price: "from R 3 500" },
+    { id: "addon-cinematic-film", label: "Cinematic Story Film (5-7 min)", price: "from R 18 000" },
+    { id: "addon-documentary-film", label: "Documentary Film Edit", price: "from R 18 000" },
+    { id: "addon-same-day-teaser", label: "Same-Day Teaser Film (1 min)", price: "R 8 000" },
+    { id: "addon-raw-footage", label: "Raw Video Footage", price: "R 5 000" },
 ];
 
 
@@ -192,8 +192,8 @@ export function BookingForm() {
                                                         }}
                                                     />
                                                     </FormControl>
-                                                    <FormLabel className="font-normal text-white/90">
-                                                        {item.label}
+                                                    <FormLabel className="font-normal text-white/90 flex-1">
+                                                        {item.label} <span className="text-white/60">({item.price})</span>
                                                     </FormLabel>
                                                 </FormItem>
                                                 )
@@ -246,8 +246,8 @@ export function BookingForm() {
                                             }}
                                         />
                                         </FormControl>
-                                        <FormLabel className="font-normal text-white/90">
-                                            {item.label}
+                                        <FormLabel className="font-normal text-white/90 flex-1">
+                                            {item.label} <span className="text-white/60">({item.price})</span>
                                         </FormLabel>
                                     </FormItem>
                                     )
