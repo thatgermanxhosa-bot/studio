@@ -1,5 +1,9 @@
 
 import { BookingForm } from "./booking-form";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
 
 export default function BookingsPage() {
   return (
@@ -20,6 +24,29 @@ export default function BookingsPage() {
           <BookingForm />
         </div>
       </section>
+      
+      <section className="pb-20">
+        <div className="container max-w-3xl">
+          <Card className="bg-black/75 border-primary/50 text-center">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold">Planning a Wedding?</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-white/80 mb-6">
+                We have a dedicated enquiry form for wedding photography and videography. Let's start planning your big day.
+              </p>
+              <Button asChild size="lg">
+                <Link href="/for-personal/wedding-enquiry">
+                  Go to Wedding Enquiry
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
     </div>
   );
 }
+
+    

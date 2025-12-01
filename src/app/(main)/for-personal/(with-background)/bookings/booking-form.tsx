@@ -69,15 +69,6 @@ const serviceCategories = [
             { id: "event-celebration", label: "Celebration (4 hrs)", price: "R 6 500", description: "For bigger bashes like 21sts or launch parties, 150+ edited images, 10 teaser photos included" },
             { id: "event-gala", label: "Gala (6 hrs)", price: "R 12 000", description: "Comprehensive event coverage, 300+ edited images, Includes candid & formal shots, 48-hour delivery for key shots" },
         ]
-    },
-    {
-        title: "Weddings",
-        services: [
-            { id: "wedding-micro", label: "Micro Elopement", price: "R 15 000", description: "For intimate weddings under 60 guests, 250+ edited images, 1 photographer" },
-            { id: "wedding-classic", label: "Classic Collection", price: "R 26 000", description: "Full day coverage, 500+ edited images, 2 photographers, Free engagement shoot" },
-            { id: "wedding-luxury", label: "Luxury Experience (Photo + Film)", price: "R 54 000", description: "The ultimate photo & film package, 700+ edited images, 2 photographers, Free engagement shoot, A4 Fine Art Album, Includes a 5-7 minute Cinematic Highlight Film" },
-            { id: "wedding-ultimate", label: "The Ultimate Story (Photo + Documentary)", price: "R 72 000", description: "The complete wedding story, told in photos & film, Everything in the Luxury Experience, Full-length documentary film (ceremony, speeches, 1st dance)" },
-        ]
     }
 ];
 
