@@ -46,7 +46,7 @@ export default function Home() {
                   For Business
                 </Button>
               </Link>
-              <Link href="/for-personal" passHref>
+              <Link href="/for-personal/about" passHref>
                 <Button variant="outline" size="lg" className="bg-transparent text-white border-white hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 uppercase px-10 py-6 font-bold tracking-widest animation-delay-200">
                   For Personal
                 </Button>
