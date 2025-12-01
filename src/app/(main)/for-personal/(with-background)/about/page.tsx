@@ -1,5 +1,4 @@
 
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -51,12 +50,12 @@ export default function AboutUsPage() {
     <div className="relative z-10 text-white">
       <section className="py-16 md:py-24 pt-40 md:pt-48">
         <div className="container mx-auto px-6 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight animate-fade-in-up">Your Life's Moments, Beautifully Captured.</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight animate-fade-in-up">For Life's Irreplaceable Moments.</h1>
             <p className="text-lg md:text-xl text-white/90 max-w-5xl mx-auto mb-8 animate-fade-in-up animation-delay-200">
-                We are a creative studio dedicated to capturing your most precious milestones. We specialize in crafting beautiful, high-impact visual stories for individuals and families, turning your personal moments into cinematic memories that last a lifetime.
+                Life isn't lived in posed smiles; it's found in the candid laughter, the quiet glances, and the joyful chaos of a celebration. We are a creative studio dedicated to capturing the heart and soul of your most precious milestones, transforming real moments into cinematic memories that last forever.
             </p>
             <p className="text-muted-foreground text-lg max-w-5xl mx-auto text-center text-white/80 animate-fade-in-up animation-delay-400">
-                Our service is built around you. We listen to your story and guide your project from a simple idea to a polished final film.
+                This is more than just a service—it's a partnership. We take the time to listen to your story, guiding your project from a simple idea to a polished, emotional film or a gallery of stunning photographs.
             </p>
         </div>
       </section>
