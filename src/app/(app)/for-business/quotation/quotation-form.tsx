@@ -201,7 +201,7 @@ export function QuotationForm() {
                         render={({ field }) => (
                             <FormItem>
                                 <div className="mb-4">
-                                    <FormLabel className="text-base text-white">What's the primary focus?</FormLabel>
+                                    <FormLabel className="text-base text-white">What's the Primary Focus?</FormLabel>
                                     <FormDescription className="text-white/70">Check all that apply.</FormDescription>
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -361,5 +361,3 @@ export function QuotationForm() {
     </Card>
   );
 }
-
-    

@@ -4,7 +4,7 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-export default function LockedLayout({
+export default function AppLayout({
   children,
 }: {
   children: React.ReactNode;

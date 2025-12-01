@@ -70,7 +70,7 @@ export function ContactForm() {
   return (
     <Card className="bg-black/75 border-white/20">
       <CardHeader>
-        <CardTitle>Send us a message</CardTitle>
+        <CardTitle>Send Us A Message</CardTitle>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -173,5 +173,3 @@ export function ContactForm() {
     </Card>
   );
 }
-
-    

@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from "next/image";
@@ -16,7 +17,7 @@ export default function ForPersonalWithBackgroundLayout({
 
   let backgroundImage = "";
   if (isContactPage) {
-    backgroundImage = "/contact_img.png";
+    backgroundImage = "/ps_our_work_background.png";
   } else if (isAboutPage) {
     backgroundImage = "/personal_contact_bg.jpg";
   } else if (isServicesPage) {
@@ -30,12 +31,13 @@ export default function ForPersonalWithBackgroundLayout({
          <>
           <div className="fixed inset-0 z-0">
              <video
-              src="/wedding_vid.mp4"
+              src="/wedding_enquiry_background.mp4"
               autoPlay
               loop
               muted
               playsInline
               className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover z-0"
+              role="video"
             >
               Your browser does not support the video tag.
             </video>
