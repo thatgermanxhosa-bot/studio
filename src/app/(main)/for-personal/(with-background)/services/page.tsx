@@ -1,9 +1,11 @@
 
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import Link from "next/link";
 
 const lifestylePackages = [
   {
@@ -158,7 +160,7 @@ const weddingAddOns = [
     { name: "Raw Video Footage", price: "R 5 000" },
 ]
 
-const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: string; details: string[]; badge?: string } }) => (
+const PackageCard = ({ pkg, isWedding = false }: { pkg: { title: string; price: string; duration: string; details: string[]; badge?: string }, isWedding?: boolean }) => (
     <Card className="bg-black/75 border-white/20 flex flex-col h-full">
         <CardHeader>
             <div className="flex justify-between items-start">
@@ -167,7 +169,7 @@ const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: s
             </div>
             <CardDescription className="text-white/80 !mt-2">{pkg.duration}</CardDescription>
         </CardHeader>
-        <CardContent className="flex-grow flex flex-col justify-between">
+        <CardContent className="flex-grow">
             <ul className="space-y-2 text-white/80 mb-6">
                 {pkg.details.map((detail, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -176,8 +178,15 @@ const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: s
                     </li>
                 ))}
             </ul>
-            <p className="text-2xl font-bold text-right">{pkg.price}</p>
         </CardContent>
+        <CardFooter className="flex-col items-stretch gap-4 pt-4">
+            <p className="text-2xl font-bold text-right">{pkg.price}</p>
+            <Button asChild size="lg" variant={isWedding ? "outline" : "default"} className="w-full uppercase font-bold tracking-widest">
+                <Link href="/for-personal/bookings">
+                    {isWedding ? "Request to Book" : "Book Now"}
+                </Link>
+            </Button>
+        </CardFooter>
     </Card>
 );
 
@@ -248,7 +257,7 @@ export default function ServicesPage() {
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">Your wedding day is one of life's biggest stories. From intimate elopements to grand celebrations, we're here to capture every laugh, tear, and dance move with a timeless, romantic touch.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {weddingPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
+                    {weddingPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} isWedding={true} />)}
                 </div>
             </div>
             
@@ -306,3 +315,4 @@ export default function ServicesPage() {
     </div>
   );
 }
+
