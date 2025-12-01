@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from "next/image";
@@ -14,7 +13,7 @@ export default function ForPersonalWithBackgroundLayout({
 
   let backgroundImage = "";
   if (isContactPage) {
-    backgroundImage = "/ps_our_work_background.png";
+    backgroundImage = "/ps_contact_personal_background.jpg";
   }
 
 
