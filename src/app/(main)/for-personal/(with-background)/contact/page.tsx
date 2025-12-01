@@ -14,13 +14,13 @@ export default function ContactPage() {
       <section className="pt-48 pb-16">
         <div className="container grid lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-2">
-            <h1 className="text-4xl md:text-5xl font-black mb-4 animate-fade-in-up">Have Questions?</h1>
-            <h2 className="text-3xl font-bold animate-fade-in-up animation-delay-200">Let's talk.</h2>
+            <h1 className="text-4xl md:text-5xl font-black mb-4 animate-fade-in-up">Let's Tell Your Story</h1>
+            <h2 className="text-3xl font-bold animate-fade-in-up animation-delay-200">Your moments matter.</h2>
             <p className="mt-4 text-lg text-white/80 animate-fade-in-up animation-delay-400">
-              Planning a special event or have a unique idea in mind? We'd love to hear about it.
+              Have an idea for a shoot, a milestone to celebrate, or a question about our process? We'd love to hear from you. This is where the collaboration begins.
             </p>
              <p className="mt-4 text-lg text-white/80 animate-fade-in-up animation-delay-600">
-              Reach out to discuss how we can bring your vision to life.
+              Tell us a little about what you have in mind. We're here to help turn your vision into memories you can hold onto forever.
             </p>
             <div className="mt-8 space-y-6 animate-fade-in-up animation-delay-800">
               {contactDetails.map((item) => (
