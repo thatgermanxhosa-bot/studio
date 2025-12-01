@@ -14,8 +14,10 @@ export default function ForPersonalWithBackgroundLayout({
 
   let backgroundImage = "";
   if (isContactPage) {
-    backgroundImage = "/ps_contact_background.png";
+    // No background for personal contact page
+    backgroundImage = "";
   }
+
 
   return (
     <div className="relative min-h-screen">
