@@ -4,7 +4,7 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Check, ChevronDown } from "lucide-react";
+import { Check, ChevronDown, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import {
   Accordion,
@@ -119,33 +119,6 @@ const eventPackages = [
     }
 ];
 
-const weddingPackages = [
-    {
-        title: "Micro Elopement",
-        price: "R 15 000",
-        duration: "6 hrs",
-        details: ["For intimate weddings under 60 guests", "250+ edited images", "1 photographer"],
-    },
-    {
-        title: "Classic Collection",
-        price: "R 26 000",
-        duration: "9 hrs",
-        details: ["Full day coverage", "500+ edited images", "2 photographers", "Free engagement shoot"],
-    },
-    {
-        title: "Luxury Experience",
-        price: "R 54 000",
-        duration: "12 hrs",
-        details: ["The ultimate photo & film package", "700+ edited images", "2 photographers", "Free engagement shoot", "A4 Fine Art Album", "Includes a 5-7 minute Cinematic Highlight Film"],
-    },
-    {
-      title: "The Ultimate Story",
-      price: "R 72 000",
-      duration: "Full Day",
-      details: ["The complete wedding story, told in photos & film", "Everything in the Luxury Experience", "Full-length documentary film (ceremony, speeches, 1st dance)"],
-    }
-];
-
 const addOns = [
     { name: "Additional Hour/s of Coverage", price: "R 1 800" },
     { name: "Rush Delivery (48-hour turnaround)", price: "R 1 500" },
@@ -155,18 +128,7 @@ const addOns = [
     { name: "Hardcover Photo Album", price: "R 3 500" },
 ];
 
-const weddingAddOns = [
-    { name: "Second Photographer", price: "R 4 500" },
-    { name: "Fine Art Wedding Album", price: "R 6 500" },
-    { name: "Parent Albums", price: "R 4 500" },
-    { name: "Drone Footage", price: "from R 3 500" },
-    { name: "Cinematic Story Film (5-7 min)", price: "from R 18 000"},
-    { name: "Documentary Film Edit", price: "from R 18 000" },
-    { name: "Same-Day Teaser Film (1 min)", price: "R 8 000" },
-    { name: "Raw Video Footage", price: "R 5 000" },
-]
-
-const PackageCard = ({ pkg, isWedding = false }: { pkg: { title: string; price: string; duration: string; details: string[]; badge?: string }, isWedding?: boolean }) => (
+const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: string; details: string[]; badge?: string } }) => (
     <Card className="bg-black/75 border-white/20 flex flex-col h-full">
         <CardHeader>
             <div className="flex justify-between items-start">
@@ -187,10 +149,8 @@ const PackageCard = ({ pkg, isWedding = false }: { pkg: { title: string; price: 
         </CardContent>
         <CardFooter className="flex-col items-stretch gap-4 pt-4">
             <p className="text-2xl font-bold text-right">{pkg.price}</p>
-            <Button asChild size="lg" variant={isWedding ? "outline" : "default"} className="w-full uppercase font-bold tracking-widest">
-                <Link href={isWedding ? "/for-personal/wedding-enquiry" : "/for-personal/contact"}>
-                    {isWedding ? "Request to Book" : "Book Now"}
-                </Link>
+            <Button asChild size="lg" className="w-full uppercase font-bold tracking-widest">
+                <Link href="/for-personal/contact">Book Now</Link>
             </Button>
         </CardFooter>
     </Card>
@@ -257,16 +217,6 @@ export default function ServicesPage() {
                 </div>
             </div>
 
-            <div className="space-y-12">
-                <div className="text-center">
-                  <h2 className="text-3xl font-bold">Weddings</h2>
-                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">Your wedding day is one of life's biggest stories. From intimate elopements to grand celebrations, we're here to capture every laugh, tear, and dance move with a timeless, romantic touch.</p>
-                </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {weddingPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} isWedding={true} />)}
-                </div>
-            </div>
-            
             <div className="space-y-12 pt-16">
                 <div className="text-center">
                   <h2 className="text-3xl font-bold">Extras & Add-Ons</h2>
@@ -276,28 +226,13 @@ export default function ServicesPage() {
                 <Card className="bg-black/75 border-white/20 max-w-4xl mx-auto">
                   <CardContent className="p-0">
                     <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="item-1">
+                      <AccordionItem value="item-1" className="border-b-0">
                         <AccordionTrigger className="p-6 text-lg font-semibold hover:no-underline">
                           General Package Add-Ons
                         </AccordionTrigger>
                         <AccordionContent className="p-6 pt-0">
                           <ul className="space-y-3">
                               {addOns.map(item => (
-                                  <li key={item.name} className="flex justify-between items-center text-white/90">
-                                      <span>{item.name}</span>
-                                      <span className="font-semibold text-right pl-4">{item.price}</span>
-                                  </li>
-                              ))}
-                          </ul>
-                        </AccordionContent>
-                      </AccordionItem>
-                      <AccordionItem value="item-2" className="border-b-0">
-                        <AccordionTrigger className="p-6 text-lg font-semibold hover:no-underline">
-                          Wedding Extras & Film Add-Ons
-                        </AccordionTrigger>
-                        <AccordionContent className="p-6 pt-0">
-                          <ul className="space-y-3">
-                              {weddingAddOns.map(item => (
                                   <li key={item.name} className="flex justify-between items-center text-white/90">
                                       <span>{item.name}</span>
                                       <span className="font-semibold text-right pl-4">{item.price}</span>
@@ -321,7 +256,27 @@ export default function ServicesPage() {
                     </CardContent>
                 </Card>
             </div>
+        </div>
+      </section>
 
+      <section className="py-20">
+        <div className="container max-w-3xl">
+          <Card className="bg-black/75 border-primary/50 text-center">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold">Planning a Wedding?</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-white/80 mb-6">
+                We have dedicated packages and a specialised enquiry form for weddings. Let's start planning your big day.
+              </p>
+              <Button asChild size="lg">
+                <Link href="/for-personal/wedding-enquiry">
+                  Wedding Enquiry
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </div>
