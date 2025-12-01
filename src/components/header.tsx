@@ -30,7 +30,7 @@ const forPersonalLinks = [
   { href: "/for-personal/about", label: "About Us" },
   { href: "/for-personal/services", label: "Services and Bookings" },
   { href: "/for-personal/wedding-enquiry", label: "Wedding Enquiry"},
-  { href: "/for-personal/contact", label: "Contact" },
+  { href: "/for-personal/contact", label: "Contact Us" },
 ];
 
 
