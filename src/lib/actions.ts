@@ -12,7 +12,7 @@ export async function handleBooking(data: z.infer<typeof bookingSchema>) {
     return { error: "Invalid data" };
   }
   
-  // Here you would typically save to a database or send an email.
+  // TODO: Implement email sending to noreply@pichulikstudios.co.za
   console.log("New Booking Request:", validatedFields.data);
 
   return { success: "Booking request sent successfully!" };
@@ -23,6 +23,7 @@ export async function handlePersonalBooking(data: z.infer<typeof weddingEnquiryS
     if (!weddingValidatedFields.success) {
       return { error: "Invalid data" };
     }
+    // TODO: Implement email sending to noreply@pichulikstudios.co.za
     console.log("New Wedding Enquiry:", weddingValidatedFields.data);
     return { success: "Wedding enquiry sent successfully!" };
 }
@@ -37,7 +38,7 @@ export async function handleQuotation(data: z.infer<typeof quotationSchema>) {
 
   const { projectDetails, services, budget, ...contactInfo } = validatedFields.data;
 
-  // Here you would typically save to a database or send an email.
+  // TODO: Implement email sending to noreply@pichulikstudios.co.za
   console.log("New Quotation Request:", validatedFields.data);
 
   try {
@@ -48,6 +49,7 @@ export async function handleQuotation(data: z.infer<typeof quotationSchema>) {
     });
     
     // The AI analysis is for internal use.
+    // TODO: Include this AI analysis in the email sent to the studio.
     console.log("AI Analysis for Studio Staff:", aiAnalysis);
     // You could email this to the studio, save to a CRM, etc.
 
@@ -66,7 +68,7 @@ export async function handleContact(data: z.infer<typeof contactSchema>) {
     return { error: "Invalid data" };
   }
 
-  // Here you would typically save to a database or send an email.
+  // TODO: Implement email sending to noreply@pichulikstudios.co.za
   console.log("New Contact Message:", validatedFields.data);
 
   return { success: "Message sent successfully!" };
