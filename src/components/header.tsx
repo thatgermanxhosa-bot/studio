@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const forBusinessLinks = [
+  { href: "/", label: "Home" },
   { href: "/for-business/about", label: "About" },
   { href: "/for-business/our-work", label: "Our Work" },
   { href: "/for-business/quotation", label: "Quotation" },
@@ -19,6 +20,7 @@ const forBusinessLinks = [
 ];
 
 const forPersonalLinks = [
+  { href: "/", label: "Home" },
   { href: "/for-personal/about", label: "About Us" },
   { href: "/for-personal/services", label: "Services & Bookings" },
   { href: "/for-personal/wedding-enquiry", label: "Wedding Enquiry"},
@@ -41,6 +43,7 @@ export default function Header() {
 
   if (!isForBusiness && !isForPersonal) {
     displayedLinks = [
+      { href: "/", label: "Home" },
       { href: "/for-business/about", label: "For Business" },
       { href: "/for-personal/about", label: "For Personal" }
     ]
