@@ -139,7 +139,7 @@ const weddingPackages = [
 ];
 
 const addOns = [
-    { name: "Additional Hour", price: "R 1 800" },
+    { name: "Additional Hour/s of Coverage", price: "R 1 800" },
     { name: "Rush Delivery (48-hour turnaround)", price: "R 1 500" },
     { name: "30-sec Highlight Reel", price: "R 1 500" },
     { name: "Styling Consultation", price: "R 800" },
@@ -242,52 +242,54 @@ export default function ServicesPage() {
                 </div>
             </div>
 
-            <div className="space-y-8">
-                <div className="text-center">
+            <div>
+                <div className="text-center mb-8">
                   <h2 className="text-3xl font-bold">Weddings</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">Your wedding day is one of life's biggest stories. From intimate elopements to grand celebrations, we're here to capture every laugh, tear, and dance move with a timeless, romantic touch.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {weddingPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
-                 <Card className="bg-black/75 border-white/20 max-w-4xl mx-auto">
-                    <CardHeader>
-                        <CardTitle>Wedding Extras & Film Add-Ons</CardTitle>
-                         <CardDescription className="text-white/80 !mt-2">
-                            Customise your wedding collection with our à la carte video and album options.
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <ul className="space-y-3 columns-1 md:columns-2">
-                            {weddingAddOns.map(item => (
-                                <li key={item.name} className="flex justify-between items-center text-white/90 break-inside-avoid-column">
-                                    <span>{item.name}</span>
-                                    <span className="font-semibold text-right pl-4">{item.price}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </CardContent>
-                </Card>
             </div>
             
-            <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto pt-10">
-                 <Card className="bg-black/75 border-white/20">
-                    <CardHeader>
-                        <CardTitle>General Package Add-Ons</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <ul className="space-y-3 columns-1 md:columns-2">
-                            {addOns.map(item => (
-                                <li key={item.name} className="flex justify-between items-center text-white/90 break-inside-avoid-column">
-                                    <span>{item.name}</span>
-                                    <span className="font-semibold text-right pl-4">{item.price}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </CardContent>
-                </Card>
-
-                <Card className="bg-black/75 border-white/20">
+            <div className="space-y-8 pt-10">
+                <div className="text-center">
+                  <h2 className="text-3xl font-bold">Extras & Add-Ons</h2>
+                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">Customise your collection with our à la carte options to make it perfectly yours.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    <Card className="bg-black/75 border-white/20">
+                        <CardHeader>
+                            <CardTitle>General Package Add-Ons</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <ul className="space-y-3">
+                                {addOns.map(item => (
+                                    <li key={item.name} className="flex justify-between items-center text-white/90">
+                                        <span>{item.name}</span>
+                                        <span className="font-semibold text-right pl-4">{item.price}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </CardContent>
+                    </Card>
+                    <Card className="bg-black/75 border-white/20">
+                        <CardHeader>
+                            <CardTitle>Wedding Extras & Film Add-Ons</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <ul className="space-y-3">
+                                {weddingAddOns.map(item => (
+                                    <li key={item.name} className="flex justify-between items-center text-white/90">
+                                        <span>{item.name}</span>
+                                        <span className="font-semibold text-right pl-4">{item.price}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </CardContent>
+                    </Card>
+                </div>
+                 <Card className="bg-black/75 border-white/20 max-w-6xl mx-auto">
                     <CardHeader>
                         <CardTitle>Travel Costs</CardTitle>
                     </CardHeader>
