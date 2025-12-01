@@ -82,7 +82,7 @@ export default function AboutUsPage() {
     <div className="relative z-10 flex-grow text-white">
         <section className="py-16 md:py-24 pt-40 md:pt-48">
             <div className="container mx-auto px-6 text-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight animate-fade-in-up">We translate business goals into compelling visual stories</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight animate-fade-in-up">We Translate Business Goals Into Compelling Visual Stories</h1>
                 <p className="text-lg md:text-xl text-white/90 max-w-5xl mx-auto mb-8 animate-fade-in-up animation-delay-200">
                     We are a boutique video studio built for one purpose: to help your business connect, engage, and grow. In today's market, "good enough" content gets ignored. We founded our studio on the belief that B2B creative shouldn't be boring. It should be strategic, beautiful, and built to achieve a goal.
                 </p>

@@ -14,8 +14,8 @@ export default function ContactPage() {
       <section className="pt-48 pb-16">
         <div className="container grid lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-2">
-            <h1 className="text-4xl md:text-5xl font-black mb-4 animate-fade-in-up">Not Sure Where to Start?</h1>
-            <h2 className="text-3xl font-bold animate-fade-in-up animation-delay-200">That's what we're here for.</h2>
+            <h1 className="text-4xl md:text-5xl font-black mb-4 animate-fade-in-up">Not Sure Where To Start?</h1>
+            <h2 className="text-3xl font-bold animate-fade-in-up animation-delay-200">That's What We're Here For.</h2>
             <p className="mt-4 text-lg text-white/80 animate-fade-in-up animation-delay-400">
               Whether you have a detailed brief or just a general goal, we'd love to chat.
             </p>
