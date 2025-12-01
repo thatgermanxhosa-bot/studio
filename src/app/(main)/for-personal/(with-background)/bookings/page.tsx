@@ -25,44 +25,6 @@ export default function BookingsPage() {
         </div>
       </section>
       
-      <section className="pb-20 space-y-8">
-        <div className="container max-w-3xl">
-          <Card className="bg-black/75 border-primary/50 text-center">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold">Planning a Wedding?</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-white/80 mb-6">
-                We have a dedicated enquiry form for wedding photography and videography. Let's start planning your big day.
-              </p>
-              <Button asChild size="lg">
-                <Link href="/for-personal/wedding-enquiry">
-                  Go to Wedding Enquiry
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-        <div className="container max-w-3xl text-center">
-            <h3 className="text-lg font-semibold">Or reach out directly</h3>
-            <p className="text-white/70 mt-2">If you have a more specific query or would prefer to chat, you can also reach us here:</p>
-            <div className="mt-4 flex justify-center gap-6">
-                <Button variant="ghost" asChild className="text-white hover:text-white hover:bg-white/10">
-                    <a href="mailto:info@pichulikstudios.co.za">
-                        <Mail className="mr-2"/>
-                        info@pichulikstudios.co.za
-                    </a>
-                </Button>
-                 <Button variant="ghost" asChild className="text-white hover:text-white hover:bg-white/10">
-                    <a href="tel:+27715252337">
-                        <Phone className="mr-2"/>
-                        +27 71 525 2337
-                    </a>
-                </Button>
-            </div>
-        </div>
-      </section>
     </div>
   );
 }

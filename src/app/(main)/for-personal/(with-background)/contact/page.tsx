@@ -1,6 +1,10 @@
 
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { ContactForm } from "./contact-form";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
 
 const contactDetails = [
   { icon: <Mail className="size-6 text-primary" />, title: "Email", value: "info@pichulikstudios.co.za" },
@@ -40,6 +44,27 @@ export default function ContactPage() {
           <div className="lg:col-span-3 animate-fade-in-up animation-delay-1000">
             <ContactForm />
           </div>
+        </div>
+      </section>
+
+      <section className="pb-20 space-y-8">
+        <div className="container max-w-3xl">
+          <Card className="bg-black/75 border-primary/50 text-center">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold">Planning a Wedding?</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-white/80 mb-6">
+                We have a dedicated enquiry form for wedding photography and videography. Let's start planning your big day.
+              </p>
+              <Button asChild size="lg">
+                <Link href="/for-personal/wedding-enquiry">
+                  Wedding Enquiry
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </div>
