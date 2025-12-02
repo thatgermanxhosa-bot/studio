@@ -1,0 +1,14 @@
+
+{
+  "entities": {},
+  "auth": {
+    "providers": [
+      "anonymous"
+    ],
+    "authorizedDomains": [
+      "localhost",
+      "pichulikstudios.co.za"
+    ]
+  },
+  "firestore": {}
+}

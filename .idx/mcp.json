@@ -9,6 +9,10 @@
         "--only",
         "auth,firestore"
       ]
+    },
+    "pichulikstudios.co.za": {
+      "command": "AUTH",
+      "args": []
     }
   }
 }
