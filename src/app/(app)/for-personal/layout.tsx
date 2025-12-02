@@ -18,7 +18,7 @@ export default function ForPersonalWithBackgroundLayout({
 
   let backgroundImage = "";
   if (isContactPage) {
-    backgroundImage = "/ps_our_work_background.png";
+    backgroundImage = "/contact_img.png";
   } else if (isAboutPage) {
     backgroundImage = "/personal_contact_bg.jpg";
   } else if (isServicesPage) {
@@ -31,7 +31,7 @@ export default function ForPersonalWithBackgroundLayout({
       {isWeddingEnquiryPage ? (
         <div className="fixed inset-0 z-0">
             <video
-                src="/wedding_enquiry_background.mp4"
+                src="/wedding_vid.mp4"
                 autoPlay
                 loop
                 muted
