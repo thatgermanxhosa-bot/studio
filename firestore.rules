@@ -1,0 +1,16 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow public read access to all documents
+    match /{document=**} {
+      allow get, list: if true;
+    }
+
+    // Restrict write access to authenticated users
+    match /users/{userId}/{document=**} {
+      allow create, update, delete: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
