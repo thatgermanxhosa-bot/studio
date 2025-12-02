@@ -1,6 +1,12 @@
 
+import type { Metadata } from 'next';
 import { Mail, Phone, MapPin } from "lucide-react";
 import { ContactForm } from "./contact-form";
+
+export const metadata: Metadata = {
+  title: 'Contact Us | For Personal | Pichulik Studios',
+  description: 'Let\'s tell your story. Have an idea for a shoot, a milestone to celebrate, or a question about our process? We\'d love to hear from you.',
+};
 
 const contactDetails = [
   { icon: <Mail className="size-6 text-primary" />, title: "Email", value: "bookings@pichulikstudios.co.za" },

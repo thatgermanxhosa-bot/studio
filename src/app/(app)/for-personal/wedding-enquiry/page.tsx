@@ -1,5 +1,11 @@
 
+import type { Metadata } from 'next';
 import { WeddingEnquiryForm } from "./form";
+
+export const metadata: Metadata = {
+  title: 'Wedding Enquiry | Pichulik Studios',
+  description: 'Your forever story deserves to be told beautifully. Tell us everything—your dreams, your plans, the little details that make your story unique.',
+};
 
 export default function WeddingEnquiryPage() {
   return (

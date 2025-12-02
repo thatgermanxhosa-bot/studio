@@ -1,5 +1,11 @@
 
+import type { Metadata } from 'next';
 import { QuotationForm } from "./quotation-form";
+
+export const metadata: Metadata = {
+  title: 'Get a Quote | For Business | Pichulik Studios',
+  description: 'Ready to elevate your brand\'s story? This is where the partnership begins. Get a customised quote for your project.',
+};
 
 export default function QuotationPage() {
   return (

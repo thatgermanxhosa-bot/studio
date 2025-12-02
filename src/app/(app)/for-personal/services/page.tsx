@@ -1,6 +1,7 @@
 
 'use client';
 
+import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+export const metadata: Metadata = {
+  title: 'Services & Bookings | For Personal | Pichulik Studios',
+  description: 'Find the perfect package to capture your story. We offer a range of photography and videography services tailored to your personal milestones.',
+};
 
 const lifestylePackages = [
   {

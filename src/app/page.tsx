@@ -1,10 +1,14 @@
 
-"use client";
-
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Linkedin } from 'lucide-react';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'Pichulik Studios | Make Stories That Move',
+  description: 'A creative video and photography studio for business and personal milestones. We make stories that move.',
+};
 
 export default function Home() {
   return (

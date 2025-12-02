@@ -1,12 +1,18 @@
 
 'use client';
 
+import type { Metadata } from 'next';
 import Image from "next/image";
 import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { PlayCircle } from "lucide-react";
 import { useRef, useState } from "react";
+
+export const metadata: Metadata = {
+  title: 'Our Work | For Business | Pichulik Studios',
+  description: 'Stories we\'ve built, goals we\'ve met. A curated showcase of our favorite recent projects and partnerships we\'re proud of.',
+};
 
 const projects = [
   { id: "project-1", category: "Videography" },

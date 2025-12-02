@@ -1,8 +1,14 @@
 
+import type { Metadata } from 'next';
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Video, Camera, Scissors, Award, Heart, Smile, Sparkles, ArrowRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: 'About Us | For Personal | Pichulik Studios',
+  description: 'For life\'s irreplaceable moments. We capture the heart and soul of your most precious milestones, transforming real moments into cinematic memories.',
+};
 
 const services = [
   {

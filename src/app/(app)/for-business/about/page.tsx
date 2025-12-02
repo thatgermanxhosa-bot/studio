@@ -1,11 +1,17 @@
 
 'use client';
 
+import type { Metadata } from 'next';
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Video, Camera, Scissors, Award, Users, FastForward, ArrowRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: 'About Us | For Business | Pichulik Studios',
+  description: 'We translate business goals into compelling visual stories. A boutique video studio helping your business connect, engage, and grow with strategic, beautiful content.',
+};
 
 const services = [
   {
