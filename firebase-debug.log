@@ -174,3 +174,103 @@
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
 [debug] [2025-12-02T21:10:49.235Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
 [debug] [2025-12-02T21:10:49.237Z] > authorizing via signed-in user (thatgermanxhosa@gmail.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T15:13:09.615Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T15:13:09.624Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T15:13:09.658Z] Running auto auth
+[debug] [2025-12-03T15:13:09.659Z] Running auto auth
+[debug] [2025-12-03T15:13:09.777Z] No OAuth tokens found
+[debug] [2025-12-03T15:13:09.780Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [none]
+[debug] [2025-12-03T15:13:09.781Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com x-goog-quota-user=projects/ps-website-99571379-b95c6
+[debug] [2025-12-03T15:13:09.864Z] No OAuth tokens found
+[debug] [2025-12-03T15:13:09.867Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [none]
+[debug] [2025-12-03T15:13:09.868Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com x-goog-quota-user=projects/ps-website-99571379-b95c6
+[debug] [2025-12-03T15:13:10.680Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com 403
+[debug] [2025-12-03T15:13:10.681Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T15:13:10.685Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T15:13:10.685Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T15:13:10.687Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T15:13:10.687Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[debug] [2025-12-03T15:13:10.699Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com 403
+[debug] [2025-12-03T15:13:10.700Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T17:03:32.831Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:03:32.850Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:03:32.912Z] Running auto auth
+[debug] [2025-12-03T17:03:32.913Z] Running auto auth
+[debug] [2025-12-03T17:03:33.115Z] No OAuth tokens found
+[debug] [2025-12-03T17:03:33.123Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [none]
+[debug] [2025-12-03T17:03:33.124Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com x-goog-quota-user=projects/ps-website-99571379-b95c6
+[debug] [2025-12-03T17:03:33.256Z] No OAuth tokens found
+[debug] [2025-12-03T17:03:33.256Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [none]
+[debug] [2025-12-03T17:03:33.256Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com x-goog-quota-user=projects/ps-website-99571379-b95c6
+[debug] [2025-12-03T17:03:34.340Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com 403
+[debug] [2025-12-03T17:03:34.341Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [omitted]
+[debug] [2025-12-03T17:03:34.374Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com 403
+[debug] [2025-12-03T17:03:34.380Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T17:03:34.396Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:03:34.398Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T17:03:34.415Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:03:34.417Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T17:11:34.657Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:11:34.660Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[debug] [2025-12-03T17:11:34.745Z] No OAuth tokens found
+[debug] [2025-12-03T17:11:34.748Z] No OAuth tokens found
+[debug] [2025-12-03T17:11:34.749Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:11:34.750Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[debug] [2025-12-03T17:11:34.752Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:11:34.753Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[debug] [2025-12-03T17:11:34.770Z] No OAuth tokens found
+[debug] [2025-12-03T17:11:34.771Z] No OAuth tokens found
+[debug] [2025-12-03T17:11:34.773Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:11:34.775Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[debug] [2025-12-03T17:11:34.782Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [none]
+[debug] [2025-12-03T17:11:34.784Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com x-goog-quota-user=projects/ps-website-99571379-b95c6
+[debug] [2025-12-03T17:11:35.010Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [none]
+[debug] [2025-12-03T17:11:35.016Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com x-goog-quota-user=projects/ps-website-99571379-b95c6
+[debug] [2025-12-03T17:11:36.335Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com 403
+[debug] [2025-12-03T17:11:36.340Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [omitted]
+[debug] [2025-12-03T17:11:36.375Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com 403
+[debug] [2025-12-03T17:11:36.375Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T17:11:36.403Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:11:36.404Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T17:11:36.429Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:11:36.429Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T17:11:36.588Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:11:36.589Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T17:11:36.598Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:11:36.599Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T17:11:36.636Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:11:36.639Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-03T17:11:36.649Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-03T17:11:36.651Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
