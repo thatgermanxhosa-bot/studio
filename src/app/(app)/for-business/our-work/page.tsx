@@ -1,18 +1,10 @@
 
 'use client';
 
-import type { Metadata } from 'next';
 import Image from "next/image";
-import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { cn } from "@/lib/utils";
 import { PlayCircle } from "lucide-react";
 import { useRef, useState } from "react";
-
-export const metadata: Metadata = {
-  title: 'Our Work | For Business | Pichulik Studios',
-  description: 'Stories we\'ve built, goals we\'ve met. A curated showcase of our favorite recent projects and partnerships we\'re proud of.',
-};
 
 const projects = [
   { id: "project-1", category: "Videography" },
@@ -23,7 +15,16 @@ const projects = [
   { id: "project-6", category: "Photography" },
 ];
 
-export default function OurWorkPage() {
+const videoSources = [
+    { src: "/IA_NED ReNew_2.mp4", poster: "/IA_NED ReNew HL OCT Update_LR.00_00_20_04.Still001.png", company: "Impact Amplifier & Nedbank" },
+    { src: "/Reyashoma.mp4", poster: "/Reyashoma X Pichulik Studios.00_00_18_57.Still001.png", company: "Reyashoma Roadmarkings & Signage" },
+    { src: "/Italian Rugby Day Highlights Video.mp4", poster: "/Italian Rugby Day Highlights Video.00_00_27_19.Still001.png", company: "Imatium Studios" },
+    { src: "/Sanlam Vietnam Cutdown Clean D2 (1).mp4", poster: "/Sanlam Vietnam Cutdown Clean D2 (1).00_00_08_04.Still001.png", company: "Sanlam" },
+    { src: "/Perede K9H Pre Race Video.mp4", poster: "/Perede K9H Pre Race Video.00_00_38_41.Still001.png", company: "Perede" },
+    { src: "/Union Street Development HR.mp4", poster: "/Unionstreet.png", company: "Slab Property Development" },
+];
+
+function OurWorkClient() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [showControls, setShowControls] = useState<boolean[]>(Array(projects.length).fill(false));
 
@@ -38,30 +39,8 @@ export default function OurWorkPage() {
       });
     }
   };
-  
-  const videoSources = [
-    { src: "/IA_NED ReNew_2.mp4", poster: "/IA_NED ReNew HL OCT Update_LR.00_00_20_04.Still001.png", company: "Impact Amplifier & Nedbank" },
-    { src: "/Reyashoma.mp4", poster: "/Reyashoma X Pichulik Studios.00_00_18_57.Still001.png", company: "Reyashoma Roadmarkings & Signage" },
-    { src: "/Italian Rugby Day Highlights Video.mp4", poster: "/Italian Rugby Day Highlights Video.00_00_27_19.Still001.png", company: "Imatium Studios" },
-    { src: "/Sanlam Vietnam Cutdown Clean D2 (1).mp4", poster: "/Sanlam Vietnam Cutdown Clean D2 (1).00_00_08_04.Still001.png", company: "Sanlam" },
-    { src: "/Perede K9H Pre Race Video.mp4", poster: "/Perede K9H Pre Race Video.00_00_38_41.Still001.png", company: "Perede" },
-    { src: "/Union Street Development HR.mp4", poster: "/Unionstreet.png", company: "Slab Property Development" },
-  ];
 
   return (
-    <div className="relative z-10">
-      <section className="bg-transparent text-center pt-48 pb-20 animate-fade-in-up">
-        <div className="container max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-black normal-case">Stories We've Built. Goals We've Met.</h1>
-          <p className="mt-4 text-lg text-white/80 animate-fade-in-up animation-delay-200">
-            We believe that great creative is only successful if it achieves a goal. This isn't a vast archive—it's a curated showcase of our favorite recent projects.
-          </p>
-          <p className="mt-4 text-white/80 animate-fade-in-up animation-delay-400">
-            These are prime examples of brand stories told, business goals met, and partnerships we're proud of. See for yourself how we craft compelling visual stories.
-          </p>
-        </div>
-      </section>
-
       <section className="py-20 animate-fade-in-up animation-delay-600">
         <div className="container">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -100,6 +79,25 @@ export default function OurWorkPage() {
           </div>
         </div>
       </section>
+  )
+}
+
+
+export default function OurWorkPage() {
+  return (
+    <div className="relative z-10">
+      <section className="bg-transparent text-center pt-48 pb-20 animate-fade-in-up">
+        <div className="container max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-black normal-case">Stories We've Built. Goals We've Met.</h1>
+          <p className="mt-4 text-lg text-white/80 animate-fade-in-up animation-delay-200">
+            We believe that great creative is only successful if it achieves a goal. This isn't a vast archive—it's a curated showcase of our favorite recent projects.
+          </p>
+          <p className="mt-4 text-white/80 animate-fade-in-up animation-delay-400">
+            These are prime examples of brand stories told, business goals met, and partnerships we're proud of. See for yourself how we craft compelling visual stories.
+          </p>
+        </div>
+      </section>
+      <OurWorkClient />
     </div>
   );
 }
