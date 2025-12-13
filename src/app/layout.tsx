@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: 'Pichulik Studios',
   description: 'MAKE STORIES THAT MOVE',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/PS%20Logo.png',
   },
 };
 
