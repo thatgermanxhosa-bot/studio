@@ -82,8 +82,8 @@ function OurWorkClient() {
                     </div>
                    )}
                   <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                    <h3 className="text-xl font-bold text-white">{videoInfo.company}</h3>
-                    <p className="text-sm text-white/80">{videoInfo.title}</p>
+                    <h3 className="text-xl font-bold text-white">{videoInfo.title}</h3>
+                    <p className="text-sm text-white/80">{videoInfo.company}</p>
                   </div>
                 </div>
               );
