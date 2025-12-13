@@ -13,15 +13,6 @@ import {
 } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card";
 
-const projects = [
-  { id: "project-1", category: "Videography" },
-  { id: "project-2", category: "Photography" },
-  { id: "project-3", category: "Post-Production" },
-  { id: "project-4", category: "Videography" },
-  { id: "project-5", category: "Styling" },
-  { id: "project-6", category: "Photography" },
-];
-
 const videoSources = [
     { src: "/IA_NED ReNew_2.mp4", poster: "/IA_NED ReNew HL OCT Update_LR.00_00_20_04.Still001.png", company: "Impact Amplifier & Nedbank", title: "ReNew Programme Launch" },
     { src: "/Reyashoma.mp4", poster: "/Reyashoma X Pichulik Studios.00_00_18_57.Still001.png", company: "Reyashoma Roadmarkings & Signage", title: "M1 Highway Roadmarkings" },
@@ -39,7 +30,7 @@ const clientLogos = Array.from({ length: 15 }, (_, i) => ({
 
 function OurWorkClient() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-  const [showControls, setShowControls] = useState<boolean[]>(Array(projects.length).fill(false));
+  const [showControls, setShowControls] = useState<boolean[]>(Array(videoSources.length).fill(false));
 
   const handlePlayVideo = (index: number) => {
     const videoElement = videoRefs.current[index];
@@ -136,7 +127,7 @@ function OurWorkClient() {
 export default function OurWorkPage() {
   return (
     <div className="relative z-10 text-white">
-      <section className="bg-transparent text-center pt-48 pb-20 animate-fade-in-up">
+      <section className="bg-transparent text-center pt-48 pb-8 animate-fade-in-up">
         <div className="container max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-black normal-case">Stories We've Built. Goals We've Met.</h1>
           <p className="mt-4 text-lg text-white/80 animate-fade-in-up animation-delay-200">
