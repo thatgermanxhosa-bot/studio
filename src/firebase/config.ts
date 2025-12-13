@@ -5,7 +5,7 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 export const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
-  authDomain: "pichulik-studios.firebaseapp.com",
+  m authDomain: "pichulik-studios.firebaseapp.com",
   projectId: "pichulik-studios",
   storageBucket: "pichulik-studios.appspot.com",
   messagingSenderId: "656553941649",
