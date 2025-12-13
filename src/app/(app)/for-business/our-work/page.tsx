@@ -32,16 +32,10 @@ const videoSources = [
     { src: "/Union Street Development HR.mp4", poster: "/Unionstreet.png", company: "Slab Property Development" },
 ];
 
-const clientLogos = [
-    { name: "Nedbank", logo: "/Trusted_By/Nedbank.png" },
-    { name: "Sanlam", logo: "/Trusted_By/Sanlam.png" },
-    { name: "Colour Lab", logo: "/Trusted_By/Colour Lab.png" },
-    { name: "Italian Embassy", logo: "/Trusted_By/Italian Embassy.png" },
-    { name: "Perede", logo: "/Trusted_By/Perede.png" },
-    { name: "Reyashoma", logo: "/Trusted_By/Reyashoma.png" },
-    { name: "Slab", logo: "/Trusted_By/Slab.png" },
-    { name: "Ogilvy", logo: "/Trusted_By/Ogilvy.png" },
-];
+const clientLogos = Array.from({ length: 15 }, (_, i) => ({
+  name: `Client ${i + 2}`,
+  logo: `/Trusted_By/${i + 2}.png`
+}));
 
 
 function OurWorkClient() {
