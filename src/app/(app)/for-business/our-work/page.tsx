@@ -3,7 +3,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { PlayCircle } from "lucide-react";
 import { useRef, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
@@ -62,14 +61,9 @@ function OurWorkClient() {
       <section className="py-20 animate-fade-in-up animation-delay-600">
         <div className="container">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => {
-              const image = PlaceHolderImages.find((p) => p.id === project.id);
-              if (!image) return null;
-              
-              const videoInfo = videoSources[index];
-
+            {videoSources.map((videoInfo, index) => {
               return (
-                <div key={project.id} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={!showControls[index] ? () => handlePlayVideo(index) : undefined}>
+                <div key={videoInfo.src} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={!showControls[index] ? () => handlePlayVideo(index) : undefined}>
                   <video
                     ref={el => videoRefs.current[index] = el}
                     src={videoInfo.src}
@@ -88,8 +82,7 @@ function OurWorkClient() {
                     </div>
                    )}
                   <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                    <h3 className="text-xl font-bold text-white">{image.description}</h3>
-                    <p className="text-sm text-white/80">{videoInfo.company}</p>
+                    <h3 className="text-xl font-bold text-white">{videoInfo.company}</h3>
                   </div>
                 </div>
               );
@@ -111,7 +104,7 @@ function OurWorkClient() {
                     {clientLogos.map((client, index) => (
                     <CarouselItem key={index} className="basis-1/2 md:basis-1/3 lg:basis-1/4">
                         <div className="p-1">
-                            <Card className="bg-transparent border-none shadow-none">
+                            <Card className="bg-white shadow-md">
                                 <CardContent className="flex aspect-video items-center justify-center p-4">
                                     <Image 
                                         src={client.logo} 
