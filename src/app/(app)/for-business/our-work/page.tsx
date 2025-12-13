@@ -33,14 +33,14 @@ const videoSources = [
 ];
 
 const clientLogos = [
-    { name: "Nedbank", logo: "/PS_Client_Logos/Nedbank.png" },
-    { name: "Sanlam", logo: "/PS_Client_Logos/Sanlam.png" },
-    { name: "Colour Lab", logo: "/PS_Client_Logos/Colour Lab.png" },
-    { name: "Italian Embassy", logo: "/PS_Client_Logos/Italian Embassy.png" },
-    { name: "Perede", logo: "/PS_Client_Logos/Perede.png" },
-    { name: "Reyashoma", logo: "/PS_Client_Logos/Reyashoma.png" },
-    { name: "Slab", logo: "/PS_Client_Logos/Slab.png" },
-    { name: "Ogilvy", logo: "/PS_Client_Logos/Ogilvy.png" },
+    { name: "Nedbank", logo: "/Trusted_By/Nedbank.png" },
+    { name: "Sanlam", logo: "/Trusted_By/Sanlam.png" },
+    { name: "Colour Lab", logo: "/Trusted_By/Colour Lab.png" },
+    { name: "Italian Embassy", logo: "/Trusted_By/Italian Embassy.png" },
+    { name: "Perede", logo: "/Trusted_By/Perede.png" },
+    { name: "Reyashoma", logo: "/Trusted_By/Reyashoma.png" },
+    { name: "Slab", logo: "/Trusted_By/Slab.png" },
+    { name: "Ogilvy", logo: "/Trusted_By/Ogilvy.png" },
 ];
 
 
