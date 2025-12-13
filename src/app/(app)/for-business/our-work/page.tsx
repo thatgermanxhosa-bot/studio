@@ -4,7 +4,7 @@
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { PlayCircle } from "lucide-react";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
@@ -32,14 +32,14 @@ const videoSources = [
 ];
 
 const clientLogos = [
-    { name: "Nedbank", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Nedbank" },
-    { name: "Sanlam", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Sanlam" },
-    { name: "Reyashoma", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Reyashoma" },
-    { name: "Perede", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Perede" },
-    { name: "Slab", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Slab" },
-    { name: "Imatium", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Imatium" },
-    { name: "Client 7", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Client+7" },
-    { name: "Client 8", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Client+8" },
+    { name: "Nedbank", logo: "/PS_Client_Logos/Nedbank.png" },
+    { name: "Sanlam", logo: "/PS_Client_Logos/Sanlam.png" },
+    { name: "Colour Lab", logo: "/PS_Client_Logos/Colour Lab.png" },
+    { name: "Italian Embassy", logo: "/PS_Client_Logos/Italian Embassy.png" },
+    { name: "Perede", logo: "/PS_Client_Logos/Perede.png" },
+    { name: "Reyashoma", logo: "/PS_Client_Logos/Reyashoma.png" },
+    { name: "Slab", logo: "/PS_Client_Logos/Slab.png" },
+    { name: "Ogilvy", logo: "/PS_Client_Logos/Ogilvy.png" },
 ];
 
 
@@ -123,7 +123,7 @@ function OurWorkClient() {
                                         alt={client.name}
                                         width={160}
                                         height={80}
-                                        className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                                        className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain"
                                     />
                                 </CardContent>
                             </Card>
