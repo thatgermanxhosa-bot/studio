@@ -20,7 +20,7 @@ export default function ForBusinessWithBackgroundLayoutClient({
   } else if (isContactPage) {
     backgroundImage = "/ps_contact_background.png";
   } else if (isOurWorkPage) {
-    backgroundImage = "/ps_our_work_background.png";
+    backgroundImage = "/ps_our%20work_background.png";
   }
 
   return (
