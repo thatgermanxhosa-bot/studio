@@ -23,12 +23,12 @@ const projects = [
 ];
 
 const videoSources = [
-    { src: "/IA_NED ReNew_2.mp4", poster: "/IA_NED ReNew HL OCT Update_LR.00_00_20_04.Still001.png", company: "Impact Amplifier & Nedbank" },
-    { src: "/Reyashoma.mp4", poster: "/Reyashoma X Pichulik Studios.00_00_18_57.Still001.png", company: "Reyashoma Roadmarkings & Signage" },
-    { src: "/Italian Rugby Day Highlights Video.mp4", poster: "/Italian Rugby Day Highlights Video.00_00_27_19.Still001.png", company: "Imatium Studios" },
-    { src: "/Sanlam Vietnam Cutdown Clean D2 (1).mp4", poster: "/Sanlam Vietnam Cutdown Clean D2 (1).00_00_08_04.Still001.png", company: "Sanlam" },
-    { src: "/Perede K9H Pre Race Video.mp4", poster: "/Perede K9H Pre Race Video.00_00_38_41.Still001.png", company: "Perede" },
-    { src: "/Union Street Development HR.mp4", poster: "/Unionstreet.png", company: "Slab Property Development" },
+    { src: "/IA_NED ReNew_2.mp4", poster: "/IA_NED ReNew HL OCT Update_LR.00_00_20_04.Still001.png", company: "Impact Amplifier & Nedbank", title: "ReNew Programme Launch" },
+    { src: "/Reyashoma.mp4", poster: "/Reyashoma X Pichulik Studios.00_00_18_57.Still001.png", company: "Reyashoma Roadmarkings & Signage", title: "M1 Highway Roadmarkings" },
+    { src: "/Italian Rugby Day Highlights Video.mp4", poster: "/Italian Rugby Day Highlights Video.00_00_27_19.Still001.png", company: "Imatium Studios", title: "Italian Rugby Day" },
+    { src: "/Sanlam Vietnam Cutdown Clean D2 (1).mp4", poster: "/Sanlam Vietnam Cutdown Clean D2 (1).00_00_08_04.Still001.png", company: "Sanlam", title: "Sanlam Annual Gala Awards" },
+    { src: "/Perede K9H Pre Race Video.mp4", poster: "/Perede K9H Pre Race Video.00_00_38_41.Still001.png", company: "Perede", title: "K9H Pre Race" },
+    { src: "/Union Street Development HR.mp4", poster: "/Unionstreet.png", company: "Slab Property Development", title: "Union Street Cpt" },
 ];
 
 const clientLogos = Array.from({ length: 15 }, (_, i) => ({
@@ -83,6 +83,7 @@ function OurWorkClient() {
                    )}
                   <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                     <h3 className="text-xl font-bold text-white">{videoInfo.company}</h3>
+                    <p className="text-sm text-white/80">{videoInfo.title}</p>
                   </div>
                 </div>
               );
