@@ -60,6 +60,10 @@ function OurWorkClient() {
   return (
       <section className="py-20 animate-fade-in-up animation-delay-600">
         <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold">Featured Projects</h2>
+            <p className="mt-2 text-white/80 max-w-3xl mx-auto">A selection of our recent work, showcasing how we help businesses achieve their goals through compelling visual storytelling.</p>
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {videoSources.map((videoInfo, index) => {
               return (
