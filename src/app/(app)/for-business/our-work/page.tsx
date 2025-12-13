@@ -111,7 +111,7 @@ function OurWorkClient() {
                                         alt={client.name}
                                         width={200}
                                         height={100}
-                                        className="transition-all duration-300 object-contain hover:scale-105"
+                                        className="transition-all duration-300 object-scale-down hover:scale-105"
                                     />
                                 </CardContent>
                             </Card>
