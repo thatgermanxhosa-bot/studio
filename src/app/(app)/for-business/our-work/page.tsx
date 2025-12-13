@@ -1,10 +1,11 @@
 
 'use client';
 
+import React from "react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { PlayCircle } from "lucide-react";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
