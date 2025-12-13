@@ -109,16 +109,16 @@ function OurWorkClient() {
                 >
                 <CarouselContent>
                     {clientLogos.map((client, index) => (
-                    <CarouselItem key={index} className="basis-1/2 md:basis-1/4 lg:basis-1/6">
+                    <CarouselItem key={index} className="basis-1/2 md:basis-1/3 lg:basis-1/4">
                         <div className="p-1">
                             <Card className="bg-transparent border-none shadow-none">
-                                <CardContent className="flex aspect-video items-center justify-center p-6">
+                                <CardContent className="flex aspect-video items-center justify-center p-4">
                                     <Image 
                                         src={client.logo} 
                                         alt={client.name}
-                                        width={160}
-                                        height={80}
-                                        className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300 object-contain"
+                                        width={200}
+                                        height={100}
+                                        className="transition-all duration-300 object-contain hover:scale-105"
                                     />
                                 </CardContent>
                             </Card>
