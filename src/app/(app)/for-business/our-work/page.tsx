@@ -105,7 +105,7 @@ function OurWorkClient() {
                     <CarouselItem key={index} className="basis-1/2 md:basis-1/3 lg:basis-1/4">
                         <div className="p-1">
                             <Card className="bg-white shadow-md">
-                                <CardContent className="flex aspect-video items-center justify-center p-4">
+                                <CardContent className="flex aspect-video items-center justify-center p-2">
                                     <Image 
                                         src={client.logo} 
                                         alt={client.name}
