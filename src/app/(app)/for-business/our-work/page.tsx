@@ -5,6 +5,13 @@ import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { PlayCircle } from "lucide-react";
 import { useRef, useState } from "react";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel"
+import { Card, CardContent } from "@/components/ui/card";
 
 const projects = [
   { id: "project-1", category: "Videography" },
@@ -24,6 +31,18 @@ const videoSources = [
     { src: "/Union Street Development HR.mp4", poster: "/Unionstreet.png", company: "Slab Property Development" },
 ];
 
+const clientLogos = [
+    { name: "Nedbank", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Nedbank" },
+    { name: "Sanlam", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Sanlam" },
+    { name: "Reyashoma", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Reyashoma" },
+    { name: "Perede", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Perede" },
+    { name: "Slab", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Slab" },
+    { name: "Imatium", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Imatium" },
+    { name: "Client 7", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Client+7" },
+    { name: "Client 8", logo: "https://placehold.co/160x80/000000/FFFFFF/png?text=Client+8" },
+];
+
+
 function OurWorkClient() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [showControls, setShowControls] = useState<boolean[]>(Array(projects.length).fill(false));
@@ -39,6 +58,10 @@ function OurWorkClient() {
       });
     }
   };
+
+  const autoplayPlugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  );
 
   return (
       <section className="py-20 animate-fade-in-up animation-delay-600">
@@ -77,6 +100,40 @@ function OurWorkClient() {
               );
             })}
           </div>
+
+          <div className="mt-24">
+             <h2 className="text-3xl font-bold text-center mb-12">Trusted By</h2>
+             <Carousel
+                opts={{
+                    align: "start",
+                    loop: true,
+                    dragFree: true,
+                }}
+                plugins={[autoplayPlugin.current]}
+                className="w-full"
+                >
+                <CarouselContent>
+                    {clientLogos.map((client, index) => (
+                    <CarouselItem key={index} className="basis-1/2 md:basis-1/4 lg:basis-1/6">
+                        <div className="p-1">
+                            <Card className="bg-transparent border-none shadow-none">
+                                <CardContent className="flex aspect-video items-center justify-center p-6">
+                                    <Image 
+                                        src={client.logo} 
+                                        alt={client.name}
+                                        width={160}
+                                        height={80}
+                                        className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                                    />
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </CarouselItem>
+                    ))}
+                </CarouselContent>
+            </Carousel>
+          </div>
+
         </div>
       </section>
   )
