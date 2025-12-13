@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://pichulikstudios.co.za'),
   title: 'Pichulik Studios',
   description: 'MAKE STORIES THAT MOVE',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
