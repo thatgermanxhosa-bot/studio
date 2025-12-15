@@ -3,17 +3,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { PlayCircle } from "lucide-react";
 import { useRef, useState } from "react";
 
 const projects = [
-  { id: "project-1", category: "Videography" },
-  { id: "project-2", category: "Photography" },
-  { id: "project-3", category: "Post-Production" },
-  { id: "project-4", category: "Videography" },
-  { id: "project-5", category: "Styling" },
-  { id: "project-6", category: "Photography" },
+  { id: "project-1", category: "Videography", description: "ReNew Programme Launch" },
+  { id: "project-2", category: "Photography", description: "M1 Highway Roadmarkings" },
+  { id: "project-3", category: "Post-Production", description: "Italian Rugby Day" },
+  { id: "project-4", category: "Videography", description: "Sanlam Annual Gala Awards" },
+  { id: "project-5", category: "Styling", description: "K9H Pre Race" },
+  { id: "project-6", category: "Photography", description: "Union Street Cpt" },
 ];
 
 const videoSources = [
@@ -46,9 +45,6 @@ function OurWorkClient() {
       <div className="container">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => {
-            const image = PlaceHolderImages.find((p) => p.id === project.id);
-            if (!image) return null;
-
             const videoInfo = videoSources[index];
 
             return (
@@ -71,7 +67,7 @@ function OurWorkClient() {
                   </div>
                  )}
                 <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                  <h3 className="text-xl font-bold text-white">{image.description}</h3>
+                  <h3 className="text-xl font-bold text-white">{project.description}</h3>
                   <p className="text-sm text-white/80">{videoInfo.company}</p>
                 </div>
               </div>
