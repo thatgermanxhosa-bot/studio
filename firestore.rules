@@ -3,18 +3,18 @@
  * The primary security model assumes that any authenticated user is a trusted employee with
  * full access to manage core business data (clients, projects, bookings). Anonymous access
  * is explicitly denied for all core data. A special exception is made for the 'quoteRequests'
- * collection to allow public submissions.
+ * and 'submissions' collections to allow public submissions.
  *
  * Data Structure: The data is organized around a top-level '/clients' collection. Each
  * client document can have subcollections for its associated 'projects', 'bookings', and
- * 'testimonials'. A separate top-level collection, '/quoteRequests', is used to handle
+ * 'testimonials'. Separate top-level collections, '/quoteRequests' and '/submissions', are used to handle
  * submissions from the public, keeping them structurally isolated from sensitive client data.
  *
  * Key Security Decisions:
- * - Internal-Only Access: All collections, except for quote requests, require user
+ * - Internal-Only Access: All collections, except for quote requests and submissions, require user
  *   authentication. This provides a strong baseline of security suitable for an internal tool.
- * - Public Submissions: The '/quoteRequests' collection is configured to allow anyone to create
- *   a document, enabling a public-facing "Request a Quote" feature. However, reading,
+ * - Public Submissions: The '/quoteRequests' and '/submissions' collections are configured to allow anyone to create
+ *   a document, enabling public-facing forms. However, reading,
  *   updating, or deleting these requests is restricted to authenticated employees.
  * - No Granular Roles: In this prototyping phase, a simple "signed-in vs. not-signed-in"
  *   model is used. There are no distinctions between different types of employees (e.g., admin, editor).
@@ -122,6 +122,21 @@ service cloud.firestore {
      * @principle Segregates public data submission from private data management.
      */
     match /quoteRequests/{quoteRequestId} {
+      allow get, list: if isSignedIn();
+      allow create: if true;
+      allow update, delete: if isSignedIn() && resource != null;
+    }
+
+    /**
+     * @description
+     * Allows anyone to submit a form (contact, quote, etc.) but restricts 
+     * management (read, update, delete) to authenticated users.
+     * @path /submissions/{submissionId}
+     * @allow (create) An anonymous user can create a new submission. `auth.uid: null`
+     * @deny (get) An anonymous user cannot read a submission after it has been submitted. `auth.uid: null`
+     * @principle Segregates public data submission from private data management.
+     */
+    match /submissions/{submissionId} {
       allow get, list: if isSignedIn();
       allow create: if true;
       allow update, delete: if isSignedIn() && resource != null;

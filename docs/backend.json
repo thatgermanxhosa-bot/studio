@@ -190,6 +190,33 @@
         "content",
         "author"
       ]
+    },
+    "Submission": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Submission",
+      "type": "object",
+      "description": "Represents a generic form submission from the website.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the submission."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of submission (e.g., 'contact', 'quotation', 'wedding', 'payment').",
+          "enum": ["contact", "quotation", "wedding", "payment"]
+        },
+        "data": {
+          "type": "object",
+          "description": "The submitted form data."
+        },
+        "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The timestamp when the submission was created."
+        }
+      },
+      "required": ["id", "type", "data", "createdAt"]
     }
   },
   "auth": {
@@ -288,6 +315,22 @@
             {
               "name": "testimonialId",
               "description": "Unique identifier for the testimonial."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/submissions/{submissionId}",
+        "definition": {
+          "entityName": "Submission",
+          "schema": {
+            "$ref": "#/backend/entities/Submission"
+          },
+          "description": "Stores all form submissions from the website. Each document represents a single submission.",
+          "params": [
+            {
+              "name": "submissionId",
+              "description": "Unique identifier for the submission."
             }
           ]
         }
