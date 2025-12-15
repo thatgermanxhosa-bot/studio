@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Linkedin } from 'lucide-react';
 import Image from 'next/image';
+import { CookieBanner } from '@/components/cookie-banner';
 
 export const metadata: Metadata = {
   title: 'Pichulik Studios | Make Stories That Move',
@@ -77,6 +78,7 @@ export default function Home() {
           <p className="text-sm">&copy; {new Date().getFullYear()} Pichulik Studios. All rights reserved.</p>
         </footer>
       </div>
+      <CookieBanner />
     </div>
   );
 }
