@@ -2,7 +2,7 @@
 "use server";
 
 import { z } from "zod";
-import { bookingSchema, contactSchema, quotationSchema, weddingEnquirySchema } from "./schemas";
+import { bookingSchema, contactSchema, personalBookingSchema, quotationSchema, weddingEnquirySchema } from "./schemas";
 import { analyzeQuoteRequest } from "@/ai/flows/intelligent-quote-request-processing";
 import { db } from "./firebaseAdmin";
 import { FieldValue } from "firebase-admin/firestore";
@@ -15,12 +15,13 @@ async function saveSubmission(type: 'contact' | 'quotation' | 'wedding' | 'payme
     return;
   }
   try {
-    await db.collection("submissions").add({
+    const docRef = await db.collection("submissions").add({
       type,
       data,
       createdAt: FieldValue.serverTimestamp(),
     });
-    console.log(`Submission of type '${type}' saved to Firestore.`);
+    console.log(`Submission of type '${type}' saved to Firestore with ID: ${docRef.id}.`);
+    return docRef.id;
   } catch (error) {
     console.error("Error saving submission to Firestore:", error);
     // Decide if you want to throw the error or just log it
@@ -108,6 +109,9 @@ const yocoCheckoutSchema = z.object({
   currency: z.string(),
   itemName: z.string(),
   bookingDate: z.date().optional(),
+  name: z.string(),
+  email: z.string(),
+  phone: z.string().optional(),
 });
 
 export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema>) {
@@ -123,16 +127,34 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
     return { error: "Payment provider is not configured correctly." };
   }
 
-  const { amount, currency, itemName, bookingDate } = validatedFields.data;
+  const { amount, currency, itemName, bookingDate, name, email, phone } = validatedFields.data;
 
-  const metadata: { [key: string]: string } = {
+  const metadata: { [key: string]: string | undefined } = {
     itemName: itemName,
+    customerName: name,
+    customerEmail: email,
+    customerPhone: phone,
   };
   if (bookingDate) {
     metadata.bookingDate = bookingDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
   }
 
   try {
+    // Before creating checkout, save the initial booking info
+    const submissionId = await saveSubmission('payment', {
+        status: 'pending',
+        amount: amount,
+        currency: currency,
+        itemName: itemName,
+        ...metadata,
+    });
+    
+    // Add submissionId to metadata to link payment back to our internal record
+    if (submissionId) {
+        metadata.submissionId = submissionId;
+    }
+
+
     const response = await fetch('https://payments.yoco.com/api/checkouts', {
       method: 'POST',
       headers: {
@@ -152,9 +174,6 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
           }
         ],
         metadata,
-        // After payment, Yoco redirects the user. The success page should then trigger the booking notification.
-        // TODO: On the success page, verify the payment and save the submission to firestore.
-        // Then, send a notification to NOTIFICATION_EMAIL.
         successUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/payment-success`,
         cancelUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/for-personal/services`,
         failureUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/for-personal/services`,
@@ -164,10 +183,20 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
     if (!response.ok) {
       const errorData = await response.json();
       console.error("Yoco API Error:", errorData);
+      // Attempt to update submission with failure status
+      if (submissionId) {
+        await db?.collection('submissions').doc(submissionId).update({ 'data.status': 'failed', 'data.yocoError': errorData });
+      }
       return { error: `Failed to create payment session: ${errorData.message || 'Unknown error'}` };
     }
 
     const checkoutData = await response.json();
+    
+    // Update submission with checkout ID
+    if (submissionId) {
+        await db?.collection('submissions').doc(submissionId).update({ 'data.status': 'initiated', 'data.checkoutId': checkoutData.id });
+    }
+
     return { redirectUrl: checkoutData.redirectUrl };
 
   } catch (error) {
@@ -204,11 +233,23 @@ export async function handlePaymentSuccess(checkoutId: string) {
     }
 
     const checkoutData = await response.json();
+    const submissionId = checkoutData.metadata?.submissionId;
+
 
     // 2. Check if payment was successful
     if (checkoutData.status === 'completed') {
-      // 3. Save submission to Firestore
-      await saveSubmission('payment', checkoutData);
+      if (submissionId) {
+          // 3. Update submission in Firestore
+         await db.collection("submissions").doc(submissionId).update({
+             'data.status': 'completed',
+             'data.paymentId': checkoutData.paymentId,
+             'data.yocoData': checkoutData // Store the full response for records
+         });
+      } else {
+        // Fallback if no submissionId was in metadata
+        await saveSubmission('payment', checkoutData);
+      }
+
 
       // 4. Send email notification
       // TODO: Send email to NOTIFICATION_EMAIL with the successful payment and booking details.
@@ -217,8 +258,13 @@ export async function handlePaymentSuccess(checkoutId: string) {
       return { success: true, data: checkoutData };
     } else {
       // Handle other statuses if necessary (e.g., 'processing', 'failed')
+       if (submissionId) {
+         await db.collection("submissions").doc(submissionId).update({
+             'data.status': checkoutData.status,
+         });
+       }
       console.warn(`Payment status for checkout ${checkoutId} is '${checkoutData.status}'.`);
-      return { error: "Payment was not completed successfully." };
+      return { error: `Payment was not completed successfully. Status: ${checkoutData.status}` };
     }
   } catch (error) {
     console.error("Error handling payment success:", error);

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, CalendarIcon } from "lucide-react";
+import { Check, ArrowRight, CalendarIcon, Loader2 } from "lucide-react";
 import Link from "next/link";
 import {
   Accordion,
@@ -13,6 +13,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog";
 import {
   Popover,
   PopoverContent,
@@ -22,6 +32,12 @@ import { Calendar } from "@/components/ui/calendar";
 import { YocoCheckoutButton } from "./yoco-checkout-button";
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { personalBookingSchema } from "@/lib/schemas";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 
 // Since we're in a client component, we can't export metadata directly.
@@ -146,9 +162,122 @@ const addOns = [
     { name: "Hardcover Photo Album", price: "R 3 500" },
 ];
 
-const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: string; details: string[]; badge?: string } }) => {
-    const [date, setDate] = useState<Date | undefined>(undefined);
+type Package = { title: string; price: string; duration: string; details: string[]; badge?: string };
 
+const BookingDialog = ({ pkg, children }: { pkg: Package, children: React.ReactNode }) => {
+    const [date, setDate] = useState<Date | undefined>(undefined);
+    const [open, setOpen] = useState(false);
+
+    const form = useForm<z.infer<typeof personalBookingSchema>>({
+        resolver: zodResolver(personalBookingSchema),
+        defaultValues: {
+          name: "",
+          email: "",
+          phone: "",
+        },
+    });
+
+    const { formState: { isValid } } = form;
+
+    return (
+        <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+                {children}
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px] bg-card border-border text-card-foreground">
+                <DialogHeader>
+                    <DialogTitle>Book: {pkg.title}</DialogTitle>
+                    <DialogDescription>
+                        Please provide your details and select a date for your session.
+                    </DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                     <Form {...form}>
+                        <form className="space-y-4">
+                             <FormField
+                                control={form.control}
+                                name="name"
+                                render={({ field }) => (
+                                    <FormItem>
+                                    <FormLabel>Full Name</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="John Doe" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                             <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem>
+                                    <FormLabel>Email Address</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="john.doe@example.com" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                             <FormField
+                                control={form.control}
+                                name="phone"
+                                render={({ field }) => (
+                                    <FormItem>
+                                    <FormLabel>Phone Number (Optional)</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="+27 12 345 6789" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                             <FormItem>
+                                <FormLabel>Booking Date</FormLabel>
+                                <Popover>
+                                    <PopoverTrigger asChild>
+                                        <Button
+                                            variant={"outline"}
+                                            className={cn(
+                                            "w-full justify-start text-left font-normal",
+                                            !date && "text-muted-foreground"
+                                            )}
+                                        >
+                                            <CalendarIcon className="mr-2 h-4 w-4" />
+                                            {date ? format(date, "PPP") : <span>Pick a date</span>}
+                                        </Button>
+                                    </PopoverTrigger>
+                                    <PopoverContent className="w-auto p-0">
+                                        <Calendar
+                                            mode="single"
+                                            selected={date}
+                                            onSelect={setDate}
+                                            disabled={(d) => d < new Date(new Date().setDate(new Date().getDate() -1))}
+                                            initialFocus
+                                        />
+                                    </PopoverContent>
+                                </Popover>
+                             </FormItem>
+                        </form>
+                     </Form>
+                </div>
+                <DialogFooter>
+                    <YocoCheckoutButton
+                        amount={parseInt(pkg.price) * 100} // Yoco expects amount in cents
+                        currency="ZAR"
+                        itemName={pkg.title}
+                        bookingDate={date}
+                        disabled={!date || !isValid}
+                        customer={form.getValues()}
+                    />
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
+    )
+}
+
+const PackageCard = ({ pkg }: { pkg: Package }) => {
     return (
     <Card className="bg-black/75 border-white/20 flex flex-col h-full">
         <CardHeader>
@@ -159,6 +288,7 @@ const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: s
             <CardDescription className="text-white/80 !mt-2">{pkg.duration}</CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
+            <p className="text-2xl font-bold text-right mb-4">R {parseInt(pkg.price).toLocaleString('en-ZA')}</p>
             <ul className="space-y-2 text-white/80 mb-6">
                 {pkg.details.map((detail, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -169,37 +299,14 @@ const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: s
             </ul>
         </CardContent>
         <CardFooter className="flex-col items-stretch gap-4 pt-4">
-             <Popover>
-                <PopoverTrigger asChild>
-                    <Button
-                        variant={"outline"}
-                        className={cn(
-                        "w-full justify-start text-left font-normal",
-                        !date && "text-muted-foreground"
-                        )}
-                    >
-                        <CalendarIcon className="mr-2 h-4 w-4" />
-                        {date ? format(date, "PPP") : <span>Pick a date</span>}
-                    </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0">
-                    <Calendar
-                        mode="single"
-                        selected={date}
-                        onSelect={setDate}
-                        disabled={(d) => d < new Date(new Date().setDate(new Date().getDate() -1))}
-                        initialFocus
-                    />
-                </PopoverContent>
-            </Popover>
-            <p className="text-2xl font-bold text-right">R {parseInt(pkg.price).toLocaleString('en-ZA')}</p>
-            <YocoCheckoutButton 
-                amount={parseInt(pkg.price) * 100} // Yoco expects amount in cents
-                currency="ZAR"
-                itemName={pkg.title}
-                bookingDate={date}
-                disabled={!date}
-            />
+            <BookingDialog pkg={pkg}>
+                 <Button
+                    size="lg"
+                    className="w-full uppercase font-bold tracking-widest"
+                >
+                    Book Now
+                </Button>
+            </BookingDialog>
         </CardFooter>
     </Card>
 )};

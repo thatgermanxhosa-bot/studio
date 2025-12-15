@@ -47,4 +47,10 @@ export const contactSchema = z.object({
   message: z.string().min(10, "Message is required."),
 });
 
+export const personalBookingSchema = z.object({
+    name: z.string().min(2, "Name is required."),
+    email: z.string().email("Please enter a valid email address."),
+    phone: z.string().optional(),
+});
     
+

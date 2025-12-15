@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useTransition } from 'react';
+import { useTransition } from 'react';
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from 'lucide-react';
@@ -13,9 +13,14 @@ interface YocoCheckoutButtonProps {
   itemName: string;
   bookingDate?: Date;
   disabled?: boolean;
+  customer: {
+      name: string;
+      email: string;
+      phone?: string;
+  }
 }
 
-export function YocoCheckoutButton({ amount, currency, itemName, bookingDate, disabled }: YocoCheckoutButtonProps) {
+export function YocoCheckoutButton({ amount, currency, itemName, bookingDate, disabled, customer }: YocoCheckoutButtonProps) {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
 
@@ -25,7 +30,10 @@ export function YocoCheckoutButton({ amount, currency, itemName, bookingDate, di
           amount,
           currency,
           itemName,
-          bookingDate
+          bookingDate,
+          name: customer.name,
+          email: customer.email,
+          phone: customer.phone
       });
 
       if (result.error) {

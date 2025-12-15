@@ -56,18 +56,17 @@ export default function PaymentSuccessPage() {
     }
 
     if (successData) {
-        const bookingDate = successData.metadata?.bookingDate;
-        const itemName = successData.metadata?.itemName;
+        const { bookingDate, itemName, customerName, customerEmail } = successData.metadata || {};
 
         return (
             <div className="flex flex-col items-center justify-center text-center">
                 <CheckCircle className="h-12 w-12 text-green-500 mb-4" />
                 <h2 className="text-2xl font-bold">Payment Successful!</h2>
                 <p className="text-white/80 max-w-lg mx-auto">
-                    Thank you for your booking. Your payment has been confirmed.
+                    Thank you for your booking, {customerName || 'friend'}. Your payment has been confirmed.
                 </p>
                 {itemName && (
-                     <p className="text-white/80 mt-1">
+                     <p className="text-white/80 mt-2">
                         Service: <strong>{itemName}</strong>
                     </p>
                 )}
@@ -77,7 +76,7 @@ export default function PaymentSuccessPage() {
                     </p>
                 )}
                 <p className="text-white/70 mt-4 text-sm">
-                    You will receive a confirmation email shortly. If you have any questions, please don't hesitate to contact us.
+                    A confirmation email has been sent to {customerEmail || 'your email address'}. If you have any questions, please don't hesitate to contact us.
                 </p>
                 <Button asChild className="mt-6">
                     <Link href="/">Return to Home</Link>
@@ -91,7 +90,10 @@ export default function PaymentSuccessPage() {
 
   return (
     <div className="relative z-10 text-white min-h-screen flex items-center justify-center">
-      <div className="container max-w-2xl">
+       <div className="fixed inset-0 z-0">
+            <div className="absolute inset-0 bg-black/80"></div>
+        </div>
+      <div className="container max-w-2xl relative z-10">
         <Card className="bg-black/75 border-white/20">
           <CardContent className="p-8 md:p-12">
             {renderContent()}
