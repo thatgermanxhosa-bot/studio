@@ -5,28 +5,26 @@ import * as admin from 'firebase-admin';
 // In a real application, this should be loaded securely, e.g., from an environment variable.
 const serviceAccountString = process.env.FIREBASE_ADMIN_SDK_CONFIG;
 
-let serviceAccount: admin.ServiceAccount | null = null;
-if (serviceAccountString) {
-  try {
-    serviceAccount = JSON.parse(serviceAccountString);
-  } catch (error) {
-    console.error("Failed to parse FIREBASE_ADMIN_SDK_CONFIG:", error);
-  }
-}
+let db: admin.firestore.Firestore | null = null;
+let auth: admin.auth.Auth | null = null;
 
-if (serviceAccount && !admin.apps.length) {
+if (serviceAccountString && !admin.apps.length) {
   try {
+    const serviceAccount = JSON.parse(serviceAccountString);
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount)
     });
+    db = admin.firestore();
+    auth = admin.auth();
   } catch (error) {
     console.error("Firebase admin initialization error:", error);
   }
-} else if (!admin.apps.length) {
-    console.warn("Firebase Admin SDK not initialized. Service account key is missing or invalid. Firestore submissions will be skipped.");
+} else if (admin.apps.length > 0 && admin.app()) {
+    db = admin.firestore();
+    auth = admin.auth();
+} else {
+    console.warn("Firebase Admin SDK not initialized. Service account key is missing, invalid, or initialization failed.");
 }
 
-const db = admin.apps.length ? admin.firestore() : null;
-const auth = admin.apps.length ? admin.auth() : null;
 
 export { db, auth, admin };
