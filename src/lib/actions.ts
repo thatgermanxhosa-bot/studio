@@ -5,6 +5,10 @@ import { z } from "zod";
 import { bookingSchema, contactSchema, quotationSchema, weddingEnquirySchema } from "./schemas";
 import { analyzeQuoteRequest } from "@/ai/flows/intelligent-quote-request-processing";
 
+// TODO: Set up an email sending service (e.g., Resend, Nodemailer)
+// and replace the console.logs with actual email sending logic.
+const NOTIFICATION_EMAIL = "bookings@pichulikstudios.co.za";
+
 export async function handleBooking(data: z.infer<typeof bookingSchema>) {
   const validatedFields = bookingSchema.safeParse(data);
 
@@ -12,7 +16,7 @@ export async function handleBooking(data: z.infer<typeof bookingSchema>) {
     return { error: "Invalid data" };
   }
   
-  // TODO: Implement email sending to noreply@pichulikstudios.co.za
+  // TODO: Send email to NOTIFICATION_EMAIL with the booking details.
   console.log("New Booking Request:", validatedFields.data);
 
   return { success: "Booking request sent successfully!" };
@@ -23,7 +27,7 @@ export async function handlePersonalBooking(data: z.infer<typeof weddingEnquiryS
     if (!weddingValidatedFields.success) {
       return { error: "Invalid data" };
     }
-    // TODO: Implement email sending to noreply@pichulikstudios.co.za
+    // TODO: Send email to NOTIFICATION_EMAIL with the wedding enquiry details.
     console.log("New Wedding Enquiry:", weddingValidatedFields.data);
     return { success: "Wedding enquiry sent successfully!" };
 }
@@ -38,7 +42,7 @@ export async function handleQuotation(data: z.infer<typeof quotationSchema>) {
 
   const { projectDetails, services, budget, ...contactInfo } = validatedFields.data;
 
-  // TODO: Implement email sending to noreply@pichulikstudios.co.za
+  // TODO: Send email to NOTIFICATION_EMAIL with the quotation request details.
   console.log("New Quotation Request:", validatedFields.data);
 
   try {
@@ -68,7 +72,7 @@ export async function handleContact(data: z.infer<typeof contactSchema>) {
     return { error: "Invalid data" };
   }
 
-  // TODO: Implement email sending to noreply@pichulikstudios.co.za
+  // TODO: Send email to NOTIFICATION_EMAIL with the contact message details.
   console.log("New Contact Message:", validatedFields.data);
 
   return { success: "Message sent successfully!" };
@@ -89,14 +93,16 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
   }
   
   const yocoSecretKey = process.env.YOCO_SECRET_KEY;
-  if (!yocoSecretKey || !yocoSecretKey.startsWith('sk_')) {
+  if (!yocoSecretKey || !(yocoSecretKey.startsWith('sk_test_') || yocoSecretKey.startsWith('sk_live_'))) {
     console.error("Yoco secret key is not configured or invalid.");
     return { error: "Payment provider is not configured correctly." };
   }
 
   const { amount, currency, itemName, bookingDate } = validatedFields.data;
 
-  const metadata: { [key: string]: string } = {};
+  const metadata: { [key: string]: string } = {
+    itemName: itemName,
+  };
   if (bookingDate) {
     metadata.bookingDate = bookingDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
   }
@@ -121,6 +127,8 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
           }
         ],
         metadata,
+        // After payment, Yoco redirects the user. The success page should then trigger the booking notification.
+        // TODO: On the success page, verify the payment and send a notification to NOTIFICATION_EMAIL.
         successUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/payment-success`,
         cancelUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/for-personal/services`,
         failureUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/for-personal/services`,
