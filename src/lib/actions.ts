@@ -73,3 +73,60 @@ export async function handleContact(data: z.infer<typeof contactSchema>) {
 
   return { success: "Message sent successfully!" };
 }
+
+const yocoCheckoutSchema = z.object({
+  amount: z.number(),
+  currency: z.string(),
+  itemName: z.string(),
+});
+
+export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema>) {
+  const validatedFields = yocoCheckoutSchema.safeParse(data);
+
+  if (!validatedFields.success) {
+    return { error: "Invalid payment data." };
+  }
+  
+  const yocoSecretKey = process.env.YOCO_SECRET_KEY;
+  if (!yocoSecretKey || !yocoSecretKey.startsWith('sk_')) {
+    console.error("Yoco secret key is not configured or invalid.");
+    return { error: "Payment provider is not configured correctly." };
+  }
+
+  try {
+    const response = await fetch('https://online.yoco.com/v1/checkout/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${yocoSecretKey}`,
+      },
+      body: JSON.stringify({
+        amount: validatedFields.data.amount,
+        currency: validatedFields.data.currency,
+        'line_items': [
+          {
+            'name': validatedFields.data.itemName,
+            'amount': validatedFields.data.amount,
+            'quantity': 1,
+            'currency': validatedFields.data.currency,
+          }
+        ],
+        success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment-success`,
+        cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/for-personal/services`,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("Yoco API Error:", errorData);
+      return { error: `Failed to create payment session: ${errorData.message || 'Unknown error'}` };
+    }
+
+    const checkoutData = await response.json();
+    return { redirectUrl: checkoutData.redirect_url };
+
+  } catch (error) {
+    console.error("Error creating Yoco checkout:", error);
+    return { error: "Could not connect to payment provider. Please try again later." };
+  }
+}
