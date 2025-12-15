@@ -1,4 +1,6 @@
 
+'use client';
+
 import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -11,37 +13,40 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { YocoCheckoutButton } from "./yoco-checkout-button";
 
-export const metadata: Metadata = {
-  title: 'Services & Bookings | For Personal | Pichulik Studios',
-  description: 'Find the perfect package to capture your story. We offer a range of photography and videography services tailored to your personal milestones.',
-};
+// Since we're in a client component, we can't export metadata directly.
+// This should be handled in a parent layout or via the generateMetadata function if this were a server component.
+// export const metadata: Metadata = {
+//   title: 'Services & Bookings | For Personal | Pichulik Studios',
+//   description: 'Find the perfect package to capture your story. We offer a range of photography and videography services tailored to your personal milestones.',
+// };
 
 const lifestylePackages = [
   {
     title: "Mini Session",
-    price: "R 2 200",
+    price: "2200",
     duration: "30 min",
     details: ["Perfect for quick headshots (LinkedIn/CVs)", "5 edited images", "Sandton studio or immediate area only"],
     badge: "Headshots"
   },
   {
     title: "Standard Influencer",
-    price: "R 4 200",
+    price: "4200",
     duration: "1 hr",
     details: ["Ideal for social media content", "20 edited images + B&W copies", "1 location"],
     badge: "Content"
   },
     {
     title: "Content Creator",
-    price: "R 5 500",
+    price: "5500",
     duration: "90 min",
     details: ["A batch of content for your feed", "30 edited images", "Up to 2 looks/themes", "Includes short-form video clips"],
     badge: "Creator"
   },
   {
     title: "Premium Brand",
-    price: "R 6 800",
+    price: "6800",
     duration: "2 hrs",
     details: ["For websites & 3 months of content", "40+ edited images", "Up to 2 locations"],
     badge: "Branding"
@@ -51,25 +56,25 @@ const lifestylePackages = [
 const familyPackages = [
     {
         title: "Quick & Easy",
-        price: "R 2 500",
+        price: "2500",
         duration: "30 min",
         details: ["Great for short attention spans", "10 edited photos", "Immediate family only"],
     },
     {
         title: "Golden Hour",
-        price: "R 5 200",
+        price: "5200",
         duration: "60-90 min",
         details: ["Outdoor sunset or cozy in-home session", "35+ edited images", "Includes styling guide"],
     },
     {
         title: "The Newborn",
-        price: "R 6 000",
+        price: "6000",
         duration: "2-3 hrs",
         details: ["Patient & calm in-home session", "25 lightly retouched images", "Focus on baby with family photos included"],
     },
     {
         title: "Day in the Life",
-        price: "R 9 500",
+        price: "9500",
         duration: "3-4 hrs",
         details: ["Captures genuine, unposed moments at home", "75+ edited photos", "Includes a softcover photo book"],
     }
@@ -78,25 +83,25 @@ const familyPackages = [
 const couplesPackages = [
     {
         title: "Save the Date",
-        price: "R 3 200",
+        price: "3200",
         duration: "45 min",
         details: ["Ideal for your invitations", "10 edited images"],
     },
     {
         title: "Date Night",
-        price: "R 5 500",
+        price: "5500",
         duration: "90 min",
         details: ["Perfect for an engagement shoot", "40 edited images", "2 locations/looks"],
     },
     {
         title: "Anniversary",
-        price: "R 4 800",
+        price: "4800",
         duration: "1 hr",
         details: ["Celebrate another year together", "25 edited images", "A fun, relaxed session"],
     },
     {
         title: "The Secret Proposal",
-        price: "R 8 500",
+        price: "8500",
         duration: "Planning + 1 hr shoot",
         details: ["Captures the 'YES!' moment", "Includes planning consultation", "30 photos + highlight video clip"],
     }
@@ -105,19 +110,19 @@ const couplesPackages = [
 const eventPackages = [
     {
         title: "Essential",
-        price: "R 3 500",
+        price: "3500",
         duration: "2 hrs",
         details: ["For kids' parties or intimate dinners", "60-80 edited images"],
     },
     {
         title: "Celebration",
-        price: "R 6 500",
+        price: "6500",
         duration: "4 hrs",
         details: ["For bigger bashes like 21sts or launch parties", "150+ edited images", "10 teaser photos included"],
     },
     {
         title: "Gala",
-        price: "R 12 000",
+        price: "12000",
         duration: "Up to 6 hrs",
         details: ["Comprehensive event coverage", "300+ edited images", "Includes candid & formal shots", "48-hour delivery for key shots"],
     }
@@ -152,10 +157,12 @@ const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: s
             </ul>
         </CardContent>
         <CardFooter className="flex-col items-stretch gap-4 pt-4">
-            <p className="text-2xl font-bold text-right">{pkg.price}</p>
-            <Button asChild size="lg" className="w-full uppercase font-bold tracking-widest">
-                <Link href="/for-personal/contact">Book Now</Link>
-            </Button>
+            <p className="text-2xl font-bold text-right">R {parseInt(pkg.price).toLocaleString('en-ZA')}</p>
+            <YocoCheckoutButton 
+                amount={parseInt(pkg.price) * 100} // Yoco expects amount in cents
+                currency="ZAR"
+                itemName={pkg.title}
+            />
         </CardFooter>
     </Card>
 );
