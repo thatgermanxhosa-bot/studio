@@ -93,26 +93,30 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
     return { error: "Payment provider is not configured correctly." };
   }
 
+  const { amount, currency, itemName } = validatedFields.data;
+
   try {
-    const response = await fetch('https://online.yoco.com/v1/checkout/', {
+    const response = await fetch('https://payments.yoco.com/api/checkouts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${yocoSecretKey}`,
       },
       body: JSON.stringify({
-        amount: validatedFields.data.amount,
-        currency: validatedFields.data.currency,
-        'line_items': [
+        amount: amount,
+        currency: currency,
+        lineItems: [
           {
-            'name': validatedFields.data.itemName,
-            'amount': validatedFields.data.amount,
-            'quantity': 1,
-            'currency': validatedFields.data.currency,
+            displayName: itemName,
+            quantity: 1,
+            pricingDetails: {
+              price: amount,
+            }
           }
         ],
-        success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment-success`,
-        cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/for-personal/services`,
+        successUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/payment-success`,
+        cancelUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/for-personal/services`,
+        failureUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/for-personal/services`,
       }),
     });
 
@@ -123,7 +127,7 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
     }
 
     const checkoutData = await response.json();
-    return { redirectUrl: checkoutData.redirect_url };
+    return { redirectUrl: checkoutData.redirectUrl };
 
   } catch (error) {
     console.error("Error creating Yoco checkout:", error);
