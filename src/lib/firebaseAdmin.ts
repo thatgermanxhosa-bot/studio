@@ -3,9 +3,16 @@ import * as admin from 'firebase-admin';
 
 // This is a placeholder for the service account key.
 // In a real application, this should be loaded securely, e.g., from an environment variable.
-const serviceAccount = process.env.FIREBASE_ADMIN_SDK_CONFIG 
-  ? JSON.parse(process.env.FIREBASE_ADMIN_SDK_CONFIG)
-  : null;
+const serviceAccountString = process.env.FIREBASE_ADMIN_SDK_CONFIG;
+
+let serviceAccount: admin.ServiceAccount | null = null;
+if (serviceAccountString) {
+  try {
+    serviceAccount = JSON.parse(serviceAccountString);
+  } catch (error) {
+    console.error("Failed to parse FIREBASE_ADMIN_SDK_CONFIG:", error);
+  }
+}
 
 if (serviceAccount && !admin.apps.length) {
   try {
