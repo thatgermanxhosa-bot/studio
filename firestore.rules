@@ -1,16 +1,130 @@
-
+/**
+ * Core Philosophy: This ruleset secures a business management application for an internal team.
+ * The primary security model assumes that any authenticated user is a trusted employee with
+ * full access to manage core business data (clients, projects, bookings). Anonymous access
+ * is explicitly denied for all core data. A special exception is made for the 'quoteRequests'
+ * collection to allow public submissions.
+ *
+ * Data Structure: The data is organized around a top-level '/clients' collection. Each
+ * client document can have subcollections for its associated 'projects', 'bookings', and
+ * 'testimonials'. A separate top-level collection, '/quoteRequests', is used to handle
+ * submissions from the public, keeping them structurally isolated from sensitive client data.
+ *
+ * Key Security Decisions:
+ * - Internal-Only Access: All collections, except for quote requests, require user
+ *   authentication. This provides a strong baseline of security suitable for an internal tool.
+ * - Public Submissions: The '/quoteRequests' collection is configured to allow anyone to create
+ *   a document, enabling a public-facing "Request a Quote" feature. However, reading,
+ *   updating, or deleting these requests is restricted to authenticated employees.
+ * - No Granular Roles: In this prototyping phase, a simple "signed-in vs. not-signed-in"
+ *   model is used. There are no distinctions between different types of employees (e.g., admin, editor).
+ * - Relational Integrity: Rules for subcollections enforce that the `clientId` field within
+ *   a document must match the `clientId` from the document's path, preventing data from
+ *   being associated with the wrong client.
+ */
 rules_version = '2';
-
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Allow public read access to all documents
-    match /{document=**} {
-      allow get, list: if true;
+
+    // Helper Functions
+
+    /**
+     * Checks if the user is authenticated.
+     */
+    function isSignedIn() {
+      return request.auth != null;
     }
 
-    // Restrict write access to authenticated users
-    match /users/{userId}/{document=**} {
-      allow create, update, delete: if request.auth != null && request.auth.uid == userId;
+    /**
+     * Ensures an incoming subcollection document correctly links to its parent.
+     * On create, it checks the new data. This is immutable on update.
+     */
+    function hasValidClientLink(clientId) {
+      return request.resource.data.clientId == clientId;
+    }
+
+    /**
+     * Ensures the client link field is not changed on update.
+     */
+    function isClientLinkImmutable() {
+      return request.resource.data.clientId == resource.data.clientId;
+    }
+
+    /**
+     * @description
+     * Manages client information. Only authenticated users (employees) can create,
+     * read, update, or delete client records.
+     * @path /clients/{clientId}
+     * @allow (get) An authenticated user can read a client's document. `auth.uid: 'user_abc'`
+     * @deny (list) An anonymous user cannot list any clients. `auth.uid: null`
+     * @principle Restricts access to core business data to authenticated internal users.
+     */
+    match /clients/{clientId} {
+      allow get, list, create: if isSignedIn();
+      allow update, delete: if isSignedIn() && resource != null;
+    }
+
+    /**
+     * @description
+     * Manages projects for a specific client. Only authenticated users can access
+     * these records.
+     * @path /clients/{clientId}/projects/{projectId}
+     * @allow (create) An authenticated user can create a project document for a client. `auth.uid: 'user_abc'`
+     * @deny (create) A request will be denied if the `clientId` in the document body does not match the `clientId` in the path.
+     * @principle Enforces relational integrity and restricts access to authenticated users.
+     */
+    match /clients/{clientId}/projects/{projectId} {
+      allow get, list: if isSignedIn();
+      allow create: if isSignedIn() && hasValidClientLink(clientId);
+      allow update: if isSignedIn() && resource != null && isClientLinkImmutable();
+      allow delete: if isSignedIn() && resource != null;
+    }
+
+    /**
+     * @description
+     * Manages bookings for a specific client. Only authenticated users can access
+     * these records.
+     * @path /clients/{clientId}/bookings/{bookingId}
+     * @allow (create) An authenticated user can create a booking for a client. `auth.uid: 'user_abc'`
+     * @deny (update) An anonymous user cannot update a booking. `auth.uid: null`
+     * @principle Enforces relational integrity and restricts access to authenticated users.
+     */
+    match /clients/{clientId}/bookings/{bookingId} {
+      allow get, list: if isSignedIn();
+      allow create: if isSignedIn() && hasValidClientLink(clientId);
+      allow update: if isSignedIn() && resource != null && isClientLinkImmutable();
+      allow delete: if isSignedIn() && resource != null;
+    }
+
+    /**
+     * @description
+     * Manages testimonials provided by a specific client. Only authenticated users
+     * can manage these records.
+     * @path /clients/{clientId}/testimonials/{testimonialId}
+     * @allow (list) An authenticated user can list all testimonials for a given client. `auth.uid: 'user_abc'`
+     * @deny (get) An anonymous user cannot read a testimonial. `auth.uid: null`
+     * @principle Enforces relational integrity and restricts access to authenticated users.
+     */
+    match /clients/{clientId}/testimonials/{testimonialId} {
+      allow get, list: if isSignedIn();
+      allow create: if isSignedIn() && hasValidClientLink(clientId);
+      allow update: if isSignedIn() && resource != null && isClientLinkImmutable();
+      allow delete: if isSignedIn() && resource != null;
+    }
+
+    /**
+     * @description
+     * Allows anyone to submit a quote request but restricts management (read, update,
+     * delete) to authenticated users.
+     * @path /quoteRequests/{quoteRequestId}
+     * @allow (create) An anonymous user can create a new quote request. `auth.uid: null`
+     * @deny (get) An anonymous user cannot read a quote request after it has been submitted. `auth.uid: null`
+     * @principle Segregates public data submission from private data management.
+     */
+    match /quoteRequests/{quoteRequestId} {
+      allow get, list: if isSignedIn();
+      allow create: if true;
+      allow update, delete: if isSignedIn() && resource != null;
     }
   }
 }
