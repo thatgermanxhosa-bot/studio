@@ -1,11 +1,11 @@
 
 'use client';
 
-import type { Metadata } from 'next';
+import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, CalendarIcon } from "lucide-react";
 import Link from "next/link";
 import {
   Accordion,
@@ -13,7 +13,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
 import { YocoCheckoutButton } from "./yoco-checkout-button";
+import { cn } from '@/lib/utils';
+import { format } from 'date-fns';
+
 
 // Since we're in a client component, we can't export metadata directly.
 // This should be handled in a parent layout or via the generateMetadata function if this were a server component.
@@ -137,7 +146,10 @@ const addOns = [
     { name: "Hardcover Photo Album", price: "R 3 500" },
 ];
 
-const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: string; details: string[]; badge?: string } }) => (
+const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: string; details: string[]; badge?: string } }) => {
+    const [date, setDate] = useState<Date | undefined>(undefined);
+
+    return (
     <Card className="bg-black/75 border-white/20 flex flex-col h-full">
         <CardHeader>
             <div className="flex justify-between items-start">
@@ -157,15 +169,40 @@ const PackageCard = ({ pkg }: { pkg: { title: string; price: string; duration: s
             </ul>
         </CardContent>
         <CardFooter className="flex-col items-stretch gap-4 pt-4">
+             <Popover>
+                <PopoverTrigger asChild>
+                    <Button
+                        variant={"outline"}
+                        className={cn(
+                        "w-full justify-start text-left font-normal",
+                        !date && "text-muted-foreground"
+                        )}
+                    >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {date ? format(date, "PPP") : <span>Pick a date</span>}
+                    </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0">
+                    <Calendar
+                        mode="single"
+                        selected={date}
+                        onSelect={setDate}
+                        disabled={(d) => d < new Date(new Date().setDate(new Date().getDate() -1))}
+                        initialFocus
+                    />
+                </PopoverContent>
+            </Popover>
             <p className="text-2xl font-bold text-right">R {parseInt(pkg.price).toLocaleString('en-ZA')}</p>
             <YocoCheckoutButton 
                 amount={parseInt(pkg.price) * 100} // Yoco expects amount in cents
                 currency="ZAR"
                 itemName={pkg.title}
+                bookingDate={date}
+                disabled={!date}
             />
         </CardFooter>
     </Card>
-);
+)};
 
 
 export default function ServicesPage() {

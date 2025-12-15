@@ -11,9 +11,11 @@ interface YocoCheckoutButtonProps {
   amount: number;
   currency: string;
   itemName: string;
+  bookingDate?: Date;
+  disabled?: boolean;
 }
 
-export function YocoCheckoutButton({ amount, currency, itemName }: YocoCheckoutButtonProps) {
+export function YocoCheckoutButton({ amount, currency, itemName, bookingDate, disabled }: YocoCheckoutButtonProps) {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
 
@@ -23,6 +25,7 @@ export function YocoCheckoutButton({ amount, currency, itemName }: YocoCheckoutB
           amount,
           currency,
           itemName,
+          bookingDate
       });
 
       if (result.error) {
@@ -41,7 +44,7 @@ export function YocoCheckoutButton({ amount, currency, itemName }: YocoCheckoutB
   return (
     <Button
       onClick={handleCheckout}
-      disabled={isPending}
+      disabled={isPending || disabled}
       size="lg"
       className="w-full uppercase font-bold tracking-widest"
     >

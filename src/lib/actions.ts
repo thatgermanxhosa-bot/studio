@@ -78,6 +78,7 @@ const yocoCheckoutSchema = z.object({
   amount: z.number(),
   currency: z.string(),
   itemName: z.string(),
+  bookingDate: z.date().optional(),
 });
 
 export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema>) {
@@ -93,7 +94,12 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
     return { error: "Payment provider is not configured correctly." };
   }
 
-  const { amount, currency, itemName } = validatedFields.data;
+  const { amount, currency, itemName, bookingDate } = validatedFields.data;
+
+  const metadata: { [key: string]: string } = {};
+  if (bookingDate) {
+    metadata.bookingDate = bookingDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+  }
 
   try {
     const response = await fetch('https://payments.yoco.com/api/checkouts', {
@@ -114,6 +120,7 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
             }
           }
         ],
+        metadata,
         successUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/payment-success`,
         cancelUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/for-personal/services`,
         failureUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/for-personal/services`,
