@@ -4,7 +4,7 @@ name: Build and Deploy to Cloud Run
 on:
   push:
     branches:
-      - main
+      - thatgermanxhosa-bot-patch-3
 
 env:
   PROJECT_ID: 'ps-website-99571379-b95c6' # Replace with your Google Cloud project ID
@@ -46,15 +46,14 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name'Deploy to Cloud Run'
+      - name: 'Deploy to Cloud Run'
         uses: 'google-github-actions/deploy-cloudrun@v2'
         with:
           service: '${{ env.SERVICE_NAME }}'
           region: '${{ env.GAR_LOCATION }}'
-          image: '${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE_name }}/${{ env.SERVICE_NAME }}:${{ github.sha }}'
+          image: '${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}'
           flags: '--allow-unauthenticated'
           env_vars: |
             YOCO_SECRET_KEY=${{ secrets.YOCO_SECRET_KEY }}
             YOCO_PUBLIC_KEY=${{ secrets.YOCO_PUBLIC_KEY }}
             NEXT_PUBLIC_SITE_URL=${{ secrets.NEXT_PUBLIC_SITE_URL }}
-

@@ -84,12 +84,18 @@ You're about to initialize a Firebase project in this directory:
 [debug] [2025-12-15T22:53:41.926Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
 [debug] [2025-12-15T22:53:41.926Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+<<<<<<< HEAD
 [debug] [2025-12-15T22:53:41.928Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
 [debug] [2025-12-15T22:53:41.928Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
+=======
+[debug] [2025-12-02T21:10:49.235Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T21:10:49.237Z] > authorizing via signed-in user (thatgermanxhosa@gmail.com)
+>>>>>>> origin/thatgermanxhosa-bot-patch-2
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+<<<<<<< HEAD
 [debug] [2025-12-16T07:09:12.727Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
 [debug] [2025-12-16T07:09:12.742Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
 [debug] [2025-12-16T07:09:12.809Z] Running auto auth
@@ -112,3 +118,89 @@ You're about to initialize a Firebase project in this directory:
 [debug] [2025-12-16T07:09:14.149Z] > authorizing via signed-in user (id-monospace-workstations-sa@monospace-5.iam.gserviceaccount.com)
 [debug] [2025-12-16T07:09:14.212Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com 403
 [debug] [2025-12-16T07:09:14.215Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [omitted]
+=======
+[debug] [2025-12-02T23:27:27.655Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:27:27.683Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-02T23:28:27.557Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:28:27.560Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:29:30.074Z] No OAuth tokens found
+[debug] [2025-12-02T23:29:30.074Z] No OAuth tokens found
+[debug] [2025-12-02T23:29:30.075Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:29:30.089Z] No OAuth tokens found
+[debug] [2025-12-02T23:29:30.089Z] No OAuth tokens found
+[debug] [2025-12-02T23:29:30.089Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:29:30.102Z] No OAuth tokens found
+[debug] [2025-12-02T23:29:30.102Z] No OAuth tokens found
+[debug] [2025-12-02T23:29:30.102Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:29:30.108Z] No OAuth tokens found
+[debug] [2025-12-02T23:29:30.108Z] No OAuth tokens found
+[debug] [2025-12-02T23:29:30.109Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-02T23:29:33.090Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-02T23:29:33.127Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-02T23:29:33.148Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:30:42.088Z] Running auto auth
+[debug] [2025-12-02T23:30:42.089Z] Running auto auth
+[debug] [2025-12-02T23:30:42.089Z] Running auto auth
+[debug] [2025-12-02T23:30:42.089Z] Running auto auth
+[debug] [2025-12-02T23:30:42.089Z] Running auto auth
+[debug] [2025-12-02T23:30:42.089Z] Running auto auth
+[debug] [2025-12-02T23:30:42.089Z] Running auto auth
+[debug] [2025-12-02T23:30:42.193Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [none]
+[debug] [2025-12-02T23:30:42.193Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com x-goog-quota-user=projects/ps-website-99571379-b95c6
+[debug] [2025-12-02T23:30:42.245Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [none]
+[debug] [2025-12-02T23:30:42.245Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com x-goog-quota-user=projects/ps-website-99571379-b95c6
+[debug] [2025-12-02T23:30:42.286Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [none]
+[debug] [2025-12-02T23:30:42.286Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com x-goog-quota-user=projects/ps-website-99571379-b95c6
+[debug] [2025-12-02T23:30:42.310Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [none]
+[debug] [2025-12-02T23:30:42.310Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com x-goog-quota-user=projects/ps-website-99571379-b95c6
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-02T23:30:42.330Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:30:42.330Z] > authorizing via signed-in user (thatgermanxhosa@gmail.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-02T23:30:42.346Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:30:42.346Z] > authorizing via signed-in user (thatgermanxhosa@gmail.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-12-02T23:30:42.360Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:30:42.360Z] > authorizing via signed-in user (thatgermanxhosa@gmail.com)
+[debug] [2025-12-02T23:30:43.199Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com 401
+[debug] [2025-12-02T23:30:43.200Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [omitted]
+[debug] [2025-12-02T23:30:43.202Z] Got a 401 Unauthenticated error for a call that required authentication. Refreshing tokens.
+[debug] [2025-12-02T23:30:43.202Z] No OAuth tokens found
+[debug] [2025-12-02T23:30:43.202Z] No OAuth tokens found
+[debug] [2025-12-02T23:30:43.202Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:30:43.206Z] > authorizing via signed-in user (thatgermanxhosa@gmail.com)
+[debug] [2025-12-02T23:30:43.236Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com 401
+[debug] [2025-12-02T23:30:43.236Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [omitted]
+[debug] [2025-12-02T23:30:43.236Z] Got a 401 Unauthenticated error for a call that required authentication. Refreshing tokens.
+[debug] [2025-12-02T23:30:43.237Z] No OAuth tokens found
+[debug] [2025-12-02T23:30:43.239Z] No OAuth tokens found
+[debug] [2025-12-02T23:30:43.239Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:30:43.239Z] > authorizing via signed-in user (thatgermanxhosa@gmail.com)
+[debug] [2025-12-02T23:30:43.303Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com 401
+[debug] [2025-12-02T23:30:43.303Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [omitted]
+[debug] [2025-12-02T23:30:43.303Z] Got a 401 Unauthenticated error for a call that required authentication. Refreshing tokens.
+[debug] [2025-12-02T23:30:43.305Z] No OAuth tokens found
+[debug] [2025-12-02T23:30:43.305Z] No OAuth tokens found
+[debug] [2025-12-02T23:30:43.305Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:30:43.305Z] > authorizing via signed-in user (thatgermanxhosa@gmail.com)
+[debug] [2025-12-02T23:30:43.325Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com 401
+[debug] [2025-12-02T23:30:43.327Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ps-website-99571379-b95c6/services/firebaseio.com [omitted]
+[debug] [2025-12-02T23:30:43.327Z] Got a 401 Unauthenticated error for a call that required authentication. Refreshing tokens.
+[debug] [2025-12-02T23:30:43.327Z] No OAuth tokens found
+[debug] [2025-12-02T23:30:43.327Z] No OAuth tokens found
+[debug] [2025-12-02T23:30:43.330Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-02T23:30:43.330Z] > authorizing via signed-in user (thatgermanxhosa@gmail.com)
+>>>>>>> origin/thatgermanxhosa-bot-patch-2
