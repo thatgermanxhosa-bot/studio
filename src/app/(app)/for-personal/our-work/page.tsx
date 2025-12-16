@@ -1,28 +1,18 @@
 
 'use client';
 
-import Image from "next/image";
-import Link from "next/link";
 import { PlayCircle } from "lucide-react";
 import { useRef, useState } from "react";
 
 const projects = [
-  { id: "project-1", category: "Videography", description: "ReNew Programme Launch" },
-  { id: "project-2", category: "Photography", description: "M1 Highway Roadmarkings" },
-  { id: "project-3", category: "Post-Production", description: "Italian Rugby Day" },
-  { id: "project-4", category: "Videography", description: "Sanlam Annual Gala Awards" },
-  { id: "project-5", category: "Styling", description: "K9H Pre Race" },
-  { id: "project-6", category: "Photography", description: "Union Street Cpt" },
+    { src: "/IA_NED ReNew_2.mp4", poster: "/IA_NED ReNew HL OCT Update_LR.00_00_20_04.Still001.png", title: "ReNew Programme Launch", company: "Impact Amplifier & Nedbank" },
+    { src: "/Reyashoma.mp4", poster: "/Reyashoma X Pichulik Studios.00_00_18_57.Still001.png", title: "M1 Highway Roadmarkings", company: "Reyashoma Roadmarkings & Signage" },
+    { src: "/Italian Rugby Day Highlights Video.mp4", poster: "/Italian Rugby Day Highlights Video.00_00_27_19.Still001.png", title: "Italian Rugby Day", company: "Imatium Studios" },
+    { src: "/Sanlam Vietnam Cutdown Clean D2 (1).mp4", poster: "/Sanlam Vietnam Cutdown Clean D2 (1).00_00_08_04.Still001.png", title: "Sanlam Annual Gala Awards", company: "Sanlam" },
+    { src: "/Perede K9H Pre Race Video.mp4", poster: "/Perede K9H Pre Race Video.00_00_38_41.Still001.png", title: "K9H Pre Race", company: "Perede" },
+    { src: "/Union Street Development HR.mp4", poster: "/Unionstreet.png", title: "Union Street Cpt", company: "Slab Property Development" },
 ];
 
-const videoSources = [
-    { src: "/IA_NED ReNew_2.mp4", poster: "/IA_NED ReNew HL OCT Update_LR.00_00_20_04.Still001.png", company: "Impact Amplifier & Nedbank" },
-    { src: "/Reyashoma.mp4", poster: "/Reyashoma X Pichulik Studios.00_00_18_57.Still001.png", company: "Reyashoma Roadmarkings & Signage" },
-    { src: "/Italian Rugby Day Highlights Video.mp4", poster: "/Italian Rugby Day Highlights Video.00_00_27_19.Still001.png", company: "Imatium Studios" },
-    { src: "/Sanlam Vietnam Cutdown Clean D2 (1).mp4", poster: "/Sanlam Vietnam Cutdown Clean D2 (1).00_00_08_04.Still001.png", company: "Sanlam" },
-    { src: "/Perede K9H Pre Race Video.mp4", poster: "/Perede K9H Pre Race Video.00_00_38_41.Still001.png", company: "Perede" },
-    { src: "/Union Street Development HR.mp4", poster: "/Unionstreet.png", company: "Slab Property Development" },
-];
 
 function OurWorkClient() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
@@ -45,14 +35,12 @@ function OurWorkClient() {
       <div className="container">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => {
-            const videoInfo = videoSources[index];
-
             return (
-              <div key={project.id} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={!showControls[index] ? () => handlePlayVideo(index) : undefined}>
+              <div key={project.src} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={!showControls[index] ? () => handlePlayVideo(index) : undefined}>
                 <video
                   ref={el => videoRefs.current[index] = el}
-                  src={videoInfo.src}
-                  poster={videoInfo.poster}
+                  src={project.src}
+                  poster={project.poster}
                   className="w-full h-full object-cover"
                   playsInline
                   controls={showControls[index]}
@@ -67,8 +55,8 @@ function OurWorkClient() {
                   </div>
                  )}
                 <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                  <h3 className="text-xl font-bold text-white">{project.description}</h3>
-                  <p className="text-sm text-white/80">{videoInfo.company}</p>
+                  <h3 className="text-xl font-bold text-white">{project.title}</h3>
+                  <p className="text-sm text-white/80">{project.company}</p>
                 </div>
               </div>
             );
