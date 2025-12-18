@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useTransition } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,8 +20,6 @@ import {
   DialogTitle,
   DialogDescription,
   DialogTrigger,
-  DialogFooter,
-  DialogClose,
 } from "@/components/ui/dialog";
 import {
   Popover,
@@ -29,7 +27,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
-import { YocoCheckoutButton } from "./yoco-checkout-button";
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import { useForm } from "react-hook-form";
@@ -38,14 +35,9 @@ import { z } from "zod";
 import { personalBookingSchema } from "@/lib/schemas";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useToast } from '@/hooks/use-toast';
+import { createYocoCheckout } from '@/lib/actions';
 
-
-// Since we're in a client component, we can't export metadata directly.
-// This should be handled in a parent layout or via the generateMetadata function if this were a server component.
-// export const metadata: Metadata = {
-//   title: 'Services & Bookings | For Personal | Pichulik Studios',
-//   description: 'Find the perfect package to capture your story. We offer a range of photography and videography services tailored to your personal milestones.',
-// };
 
 const lifestylePackages = [
   {
@@ -165,8 +157,9 @@ const addOns = [
 type Package = { title: string; price: string; duration: string; details: string[]; badge?: string };
 
 const BookingDialog = ({ pkg, children }: { pkg: Package, children: React.ReactNode }) => {
-    const [date, setDate] = useState<Date | undefined>(undefined);
     const [open, setOpen] = useState(false);
+    const [isPending, startTransition] = useTransition();
+    const { toast } = useToast();
 
     const form = useForm<z.infer<typeof personalBookingSchema>>({
         resolver: zodResolver(personalBookingSchema),
@@ -174,10 +167,30 @@ const BookingDialog = ({ pkg, children }: { pkg: Package, children: React.ReactN
           name: "",
           email: "",
           phone: "",
+          bookingDate: undefined,
         },
     });
 
-    const { formState: { isValid } } = form;
+    const onSubmit = (values: z.infer<typeof personalBookingSchema>) => {
+        startTransition(async () => {
+            const result = await createYocoCheckout({
+                amount: parseInt(pkg.price) * 100, // Yoco expects amount in cents
+                currency: "ZAR",
+                itemName: pkg.title,
+                ...values,
+            });
+
+            if (result.error) {
+                toast({
+                    title: "Payment Error",
+                    description: result.error,
+                    variant: "destructive",
+                });
+            } else if (result.redirectUrl) {
+                window.location.href = result.redirectUrl;
+            }
+        });
+    };
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
@@ -185,93 +198,105 @@ const BookingDialog = ({ pkg, children }: { pkg: Package, children: React.ReactN
                 {children}
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px] bg-card border-border text-card-foreground">
-                <DialogHeader>
+                 <DialogHeader>
                     <DialogTitle>Book: {pkg.title}</DialogTitle>
                     <DialogDescription>
                         Please provide your details and select a date for your session.
                     </DialogDescription>
                 </DialogHeader>
-                <div className="grid gap-4 py-4">
-                     <Form {...form}>
-                        <form className="space-y-4">
-                             <FormField
-                                control={form.control}
-                                name="name"
-                                render={({ field }) => (
-                                    <FormItem>
-                                    <FormLabel>Full Name</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="John Doe" {...field} />
-                                    </FormControl>
+                 <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                         <FormField
+                            control={form.control}
+                            name="name"
+                            render={({ field }) => (
+                                <FormItem>
+                                <FormLabel>Full Name</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="John Doe" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                         <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem>
+                                <FormLabel>Email Address</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="john.doe@example.com" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                         <FormField
+                            control={form.control}
+                            name="phone"
+                            render={({ field }) => (
+                                <FormItem>
+                                <FormLabel>Phone Number (Optional)</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="+27 12 345 6789" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="bookingDate"
+                            render={({ field }) => (
+                                 <FormItem>
+                                    <FormLabel>Booking Date</FormLabel>
+                                    <Popover>
+                                        <PopoverTrigger asChild>
+                                             <FormControl>
+                                                <Button
+                                                    variant={"outline"}
+                                                    className={cn(
+                                                    "w-full justify-start text-left font-normal",
+                                                    !field.value && "text-muted-foreground"
+                                                    )}
+                                                >
+                                                    <CalendarIcon className="mr-2 h-4 w-4" />
+                                                    {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
+                                                </Button>
+                                             </FormControl>
+                                        </PopoverTrigger>
+                                        <PopoverContent className="w-auto p-0">
+                                            <Calendar
+                                                mode="single"
+                                                selected={field.value}
+                                                onSelect={field.onChange}
+                                                disabled={(d) => d < new Date(new Date().setDate(new Date().getDate() -1))}
+                                                initialFocus
+                                            />
+                                        </PopoverContent>
+                                    </Popover>
                                     <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                             <FormField
-                                control={form.control}
-                                name="email"
-                                render={({ field }) => (
-                                    <FormItem>
-                                    <FormLabel>Email Address</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="john.doe@example.com" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                             <FormField
-                                control={form.control}
-                                name="phone"
-                                render={({ field }) => (
-                                    <FormItem>
-                                    <FormLabel>Phone Number (Optional)</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="+27 12 345 6789" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                             <FormItem>
-                                <FormLabel>Booking Date</FormLabel>
-                                <Popover>
-                                    <PopoverTrigger asChild>
-                                        <Button
-                                            variant={"outline"}
-                                            className={cn(
-                                            "w-full justify-start text-left font-normal",
-                                            !date && "text-muted-foreground"
-                                            )}
-                                        >
-                                            <CalendarIcon className="mr-2 h-4 w-4" />
-                                            {date ? format(date, "PPP") : <span>Pick a date</span>}
-                                        </Button>
-                                    </PopoverTrigger>
-                                    <PopoverContent className="w-auto p-0">
-                                        <Calendar
-                                            mode="single"
-                                            selected={date}
-                                            onSelect={setDate}
-                                            disabled={(d) => d < new Date(new Date().setDate(new Date().getDate() -1))}
-                                            initialFocus
-                                        />
-                                    </PopoverContent>
-                                </Popover>
-                             </FormItem>
-                        </form>
-                     </Form>
-                </div>
-                <DialogFooter>
-                    <YocoCheckoutButton
-                        amount={parseInt(pkg.price) * 100} // Yoco expects amount in cents
-                        currency="ZAR"
-                        itemName={pkg.title}
-                        bookingDate={date}
-                        disabled={!date || !isValid}
-                        customer={form.getValues()}
-                    />
-                </DialogFooter>
+                                 </FormItem>
+                            )}
+                        />
+                        <Button
+                            type="submit"
+                            disabled={isPending || !form.formState.isValid}
+                            size="lg"
+                            className="w-full uppercase font-bold tracking-widest mt-4"
+                        >
+                            {isPending ? (
+                                <>
+                                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                    Redirecting...
+                                </>
+                            ) : (
+                                "Book & Pay Now"
+                            )}
+                        </Button>
+                    </form>
+                 </Form>
             </DialogContent>
         </Dialog>
     )
@@ -444,5 +469,3 @@ export default function ServicesPage() {
     </div>
   );
 }
-
-    

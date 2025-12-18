@@ -105,15 +105,12 @@ export async function handleContact(data: z.infer<typeof contactSchema>) {
   return { success: "Message sent successfully!" };
 }
 
-const yocoCheckoutSchema = z.object({
+const yocoCheckoutSchema = personalBookingSchema.extend({
   amount: z.number(),
   currency: z.string(),
   itemName: z.string(),
-  bookingDate: z.date().optional(),
-  name: z.string(),
-  email: z.string(),
-  phone: z.string().optional(),
 });
+
 
 export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema>) {
   const validatedFields = yocoCheckoutSchema.safeParse(data);
