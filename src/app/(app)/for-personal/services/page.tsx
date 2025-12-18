@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -278,6 +278,13 @@ const BookingDialog = ({ pkg, children }: { pkg: Package, children: React.ReactN
 }
 
 const PackageCard = ({ pkg }: { pkg: Package }) => {
+    const [formattedPrice, setFormattedPrice] = useState(pkg.price);
+
+    useEffect(() => {
+        // Format the price on the client side to avoid hydration mismatch
+        setFormattedPrice(parseInt(pkg.price).toLocaleString('en-ZA'));
+    }, [pkg.price]);
+
     return (
     <Card className="bg-black/75 border-white/20 flex flex-col h-full">
         <CardHeader>
@@ -288,7 +295,7 @@ const PackageCard = ({ pkg }: { pkg: Package }) => {
             <CardDescription className="text-white/80 !mt-2">{pkg.duration}</CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
-            <p className="text-2xl font-bold text-right mb-4">R {parseInt(pkg.price).toLocaleString('en-ZA')}</p>
+            <p className="text-2xl font-bold text-right mb-4">R {formattedPrice}</p>
             <ul className="space-y-2 text-white/80 mb-6">
                 {pkg.details.map((detail, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -437,3 +444,5 @@ export default function ServicesPage() {
     </div>
   );
 }
+
+    
