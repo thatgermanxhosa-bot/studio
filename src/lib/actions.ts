@@ -6,6 +6,7 @@ import { bookingSchema, contactSchema, personalBookingSchema, quotationSchema, w
 import { analyzeQuoteRequest } from "@/ai/flows/intelligent-quote-request-processing";
 import { db } from "./firebaseAdmin";
 import { FieldValue } from "firebase-admin/firestore";
+import { randomUUID } from "crypto";
 
 const NOTIFICATION_EMAIL = "bookings@pichulikstudios.co.za";
 
@@ -154,12 +155,14 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
         metadata.submissionId = submissionId;
     }
 
+    const idempotencyKey = randomUUID();
 
     const response = await fetch('https://payments.yoco.com/api/checkouts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${yocoSecretKey}`,
+        'Idempotency-Key': idempotencyKey,
       },
       body: JSON.stringify({
         amount: amount,
