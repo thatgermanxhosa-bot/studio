@@ -5,7 +5,6 @@ import React from "react";
 import Image from "next/image";
 import { PlayCircle } from "lucide-react";
 import { useRef, useState } from "react";
-import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -45,7 +44,7 @@ function OurWorkClient() {
   };
 
   const autoplayPlugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    require('embla-carousel-autoplay')({ delay: 2000, stopOnInteraction: true })
   );
 
   return (
