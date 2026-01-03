@@ -50,14 +50,14 @@ const lifestylePackages = [
     title: "The Grad-and-Go (Essential)",
     price: "950",
     duration: "45 Min",
-    details: ["The Vibe: Quick, iconic campus photos to celebrate your degree.", "Included: 15 edited digital images. 48-hour delivery."],
+    details: ["The Vibe: Quick, iconic campus photos to celebrate your degree.", "Included: 15 edited digital images. 48-hour delivery.", "Location: On-campus or desired location."],
     badge: "Graduation"
   },
   {
     title: "The Career Launch (All-In-One)",
     price: "2850",
     duration: "2 Hours",
-    details: ["The Vibe: The full graduation celebration + your first 'grown-up' professional headshots for your CV.", "Included: 40+ photos, family shots, and 5 dedicated LinkedIn headshots. 24-hour priority delivery."],
+    details: ["The Vibe: The full graduation celebration + your first 'grown-up' professional headshots for your CV.", "Included: 40+ photos, family shots, and 5 dedicated LinkedIn headshots. 24-hour priority delivery.", "Location: On-campus & Studio."],
     badge: "Graduation"
   },
   {
@@ -78,14 +78,14 @@ const lifestylePackages = [
     title: "The Creative Batch",
     price: "5500",
     duration: "90 Min",
-    details: ["The Vibe: A fun, high-energy session to get a whole variety of looks.", "Best For: People who want a lot of variety in one go.", "Included: 30 edited images + 2 outfit changes + raw video clips for your TikTok or Reels."],
+    details: ["The Vibe: A fun, high-energy session to get a whole variety of looks.", "Best For: People who want a lot of variety in one go.", "Included: 30 edited images + 2 outfit changes + raw video clips for your TikTok or Reels.", "Location: Studio or multiple local spots."],
     badge: "Creator"
   },
   {
     title: "The Full Visual Bank",
     price: "6800",
     duration: "2 Hours",
-    details: ["The Vibe: The ultimate personal or business glow-up. We spend the time to get every angle right.", "Best For: Small business owners or anyone needing a massive library of high-quality content.", "Included: 40+ premium images across 2 different locations."],
+    details: ["The Vibe: The ultimate personal glow-up. We spend the time to get every angle right.", "Best For: Anyone needing a massive library of high-quality content.", "Included: 40+ premium images across 2 different locations.", "Location: 2 locations of your choice."],
     badge: "Branding"
   }
 ];
@@ -95,25 +95,25 @@ const familyPackages = [
         title: "Quick & Easy",
         price: "2500",
         duration: "30 min",
-        details: ["Great for short attention spans", "10 edited photos", "Immediate family only"],
+        details: ["Great for short attention spans", "10 edited photos", "Immediate family only", "Location: Studio or local park"],
     },
     {
         title: "Golden Hour",
         price: "5200",
         duration: "60-90 min",
-        details: ["Outdoor sunset or cozy in-home session", "35+ edited images", "Includes styling guide"],
+        details: ["Outdoor sunset or cozy in-home session", "35+ edited images", "Includes styling guide", "Location: Your home or chosen outdoor spot"],
     },
     {
         title: "The Newborn",
         price: "6000",
         duration: "2-3 hrs",
-        details: ["Patient & calm in-home session", "25 lightly retouched images", "Focus on baby with family photos included"],
+        details: ["Patient & calm in-home session", "25 lightly retouched images", "Focus on baby with family photos included", "Location: Your home"],
     },
     {
         title: "Day in the Life",
         price: "9500",
         duration: "3-4 hrs",
-        details: ["Captures genuine, unposed moments at home", "75+ edited photos", "Includes a softcover photo book"],
+        details: ["Captures genuine, unposed moments at home", "75+ edited photos", "Includes a softcover photo book", "Location: Your home & a local outing"],
     }
 ];
 
@@ -122,25 +122,25 @@ const couplesPackages = [
         title: "Save the Date",
         price: "3200",
         duration: "45 min",
-        details: ["Ideal for your invitations", "10 edited images"],
+        details: ["Ideal for your invitations", "10 edited images", "Location: 1 chosen spot"],
     },
     {
         title: "Date Night",
         price: "5500",
         duration: "90 min",
-        details: ["Perfect for an engagement shoot", "40 edited images", "2 locations/looks"],
+        details: ["Perfect for an engagement shoot", "40 edited images", "2 locations/looks", "Location: 2 chosen spots"],
     },
     {
         title: "Anniversary",
         price: "4800",
         duration: "1 hr",
-        details: ["Celebrate another year together", "25 edited images", "A fun, relaxed session"],
+        details: ["Celebrate another year together", "25 edited images", "A fun, relaxed session", "Location: A meaningful spot for you"],
     },
     {
         title: "The Secret Proposal",
         price: "8500",
         duration: "Planning + 1 hr shoot",
-        details: ["Captures the 'YES!' moment", "Includes planning consultation", "30 photos + highlight video clip"],
+        details: ["Captures the 'YES!' moment", "Includes planning consultation", "30 photos + highlight video clip", "Location: Your secret proposal spot"],
     }
 ];
 
@@ -149,19 +149,19 @@ const eventPackages = [
         title: "Essential",
         price: "3500",
         duration: "2 hrs",
-        details: ["For kids' parties or intimate dinners", "60-80 edited images"],
+        details: ["For kids' parties or intimate dinners", "60-80 edited images", "Location: 1 event venue"],
     },
     {
         title: "Celebration",
         price: "6500",
         duration: "4 hrs",
-        details: ["For bigger bashes like 21sts or launch parties", "150+ edited images", "10 teaser photos included"],
+        details: ["For bigger bashes like 21sts or launch parties", "150+ edited images", "10 teaser photos included", "Location: 1 event venue"],
     },
     {
         title: "Gala",
         price: "12000",
         duration: "Up to 6 hrs",
-        details: ["Comprehensive event coverage", "300+ edited images", "Includes candid & formal shots", "48-hour delivery for key shots"],
+        details: ["Comprehensive event coverage", "300+ edited images", "Includes candid & formal shots", "48-hour delivery for key shots", "Location: 1 event venue"],
     }
 ];
 
