@@ -50,42 +50,42 @@ const lifestylePackages = [
     title: "The Grad-and-Go (Essential)",
     price: "950",
     duration: "45 Min",
-    details: ["The Vibe: Quick, iconic campus photos to celebrate your degree.", "Included: 15 edited digital images. 48-hour delivery.", "Location: On-campus or desired location."],
+    details: ["Quick, iconic campus photos to celebrate your degree.", "15 edited digital images", "48-hour delivery.", "Location: On-campus or desired location."],
     badge: "Graduation"
   },
   {
     title: "The Career Launch (All-In-One)",
     price: "2850",
     duration: "2 Hours",
-    details: ["The Vibe: The full graduation celebration + your first 'grown-up' professional headshots for your CV.", "Included: 40+ photos, family shots, and 5 dedicated LinkedIn headshots. 24-hour priority delivery.", "Location: On-campus & Studio."],
+    details: ["The full graduation celebration + your first 'grown-up' professional headshots for your CV.", "40+ photos, family shots, and 5 dedicated LinkedIn headshots.", "24-hour priority delivery.", "Location: On-campus & Studio."],
     badge: "Graduation"
   },
   {
     title: "The Studio Quickie (Mini Session)",
     price: "2200",
     duration: "30 Min",
-    details: ["The Vibe: A fast, high-quality studio refresh. No fuss, just great lighting.", "Best For: A new profile pic, a fresh CV photo, or a quick portrait update.", "Included: 5 edited images.", "Location: Sandton Studio only."],
+    details: ["A fast, high-quality studio refresh. No fuss, just great lighting.", "Best For: A new profile pic, a fresh CV photo, or a quick portrait update.", "Included: 5 edited images.", "Location: Sandton Studio only."],
     badge: "Studio"
   },
   {
     title: "The Lifestyle Standard",
     price: "4200",
     duration: "1 Hour",
-    details: ["The Vibe: More time to play. This is perfect for a mix of casual and 'dressed up' shots.", "Best For: Personal branding, updated social photos, or a solo creative session.", "Included: 20 edited images + Black & White copies.", "Location: Studio or 1 local Sandton spot."],
+    details: ["More time to play. This is perfect for a mix of casual and 'dressed up' shots.", "Best For: Personal branding, updated social photos, or a solo creative session.", "Included: 20 edited images + Black & White copies.", "Location: Studio or 1 local Sandton spot."],
     badge: "On-Location"
   },
   {
     title: "The Creative Batch",
     price: "5500",
     duration: "90 Min",
-    details: ["The Vibe: A fun, high-energy session to get a whole variety of looks.", "Best For: People who want a lot of variety in one go.", "Included: 30 edited images + 2 outfit changes + raw video clips for your TikTok or Reels.", "Location: Studio or multiple local spots."],
+    details: ["A fun, high-energy session to get a whole variety of looks.", "Best For: People who want a lot of variety in one go.", "Included: 30 edited images + 2 outfit changes + raw video clips for your TikTok or Reels.", "Location: Studio or multiple local spots."],
     badge: "Creator"
   },
   {
     title: "The Full Visual Bank",
     price: "6800",
     duration: "2 Hours",
-    details: ["The Vibe: The ultimate personal glow-up. We spend the time to get every angle right.", "Best For: Anyone needing a massive library of high-quality content.", "Included: 40+ premium images across 2 different locations.", "Location: 2 locations of your choice."],
+    details: ["The ultimate personal glow-up. We spend the time to get every angle right.", "Best For: Anyone needing a massive library of high-quality content.", "Included: 40+ premium images across 2 different locations.", "Location: 2 locations of your choice."],
     badge: "Location"
   }
 ];
