@@ -27,6 +27,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
@@ -155,6 +162,12 @@ const addOns = [
     { name: "Hardcover Photo Album", price: "R 3 500" },
 ];
 
+const timeSlots = [
+    "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
+    "12:00", "12:30", "13:00", "13:30", "14:00", "14:30",
+    "15:00", "15:30", "16:00", "16:30", "17:00"
+];
+
 type Package = { title: string; price: string; duration: string; details: string[]; badge?: string };
 
 const BookingDialog = ({ pkg, children }: { pkg: Package, children: React.ReactNode }) => {
@@ -169,6 +182,7 @@ const BookingDialog = ({ pkg, children }: { pkg: Package, children: React.ReactN
           email: "",
           phone: "",
           bookingDate: undefined,
+          bookingTime: "",
         },
     });
 
@@ -246,41 +260,67 @@ const BookingDialog = ({ pkg, children }: { pkg: Package, children: React.ReactN
                                 </FormItem>
                             )}
                         />
-                        <FormField
-                            control={form.control}
-                            name="bookingDate"
-                            render={({ field }) => (
-                                 <FormItem>
-                                    <FormLabel>Booking Date</FormLabel>
-                                    <Popover>
-                                        <PopoverTrigger asChild>
-                                             <FormControl>
-                                                <Button
-                                                    variant={"outline"}
-                                                    className={cn(
-                                                    "w-full justify-start text-left font-normal",
-                                                    !field.value && "text-muted-foreground"
-                                                    )}
-                                                >
-                                                    <CalendarIcon className="mr-2 h-4 w-4" />
-                                                    {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
-                                                </Button>
-                                             </FormControl>
-                                        </PopoverTrigger>
-                                        <PopoverContent className="w-auto p-0">
-                                            <Calendar
-                                                mode="single"
-                                                selected={field.value}
-                                                onSelect={field.onChange}
-                                                disabled={(d) => d < new Date(new Date().setDate(new Date().getDate() -1))}
-                                                initialFocus
-                                            />
-                                        </PopoverContent>
-                                    </Popover>
+                        <div className="grid grid-cols-2 gap-4">
+                            <FormField
+                                control={form.control}
+                                name="bookingDate"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Booking Date</FormLabel>
+                                        <Popover>
+                                            <PopoverTrigger asChild>
+                                                <FormControl>
+                                                    <Button
+                                                        variant={"outline"}
+                                                        className={cn(
+                                                        "w-full justify-start text-left font-normal",
+                                                        !field.value && "text-muted-foreground"
+                                                        )}
+                                                    >
+                                                        <CalendarIcon className="mr-2 h-4 w-4" />
+                                                        {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
+                                                    </Button>
+                                                </FormControl>
+                                            </PopoverTrigger>
+                                            <PopoverContent className="w-auto p-0">
+                                                <Calendar
+                                                    mode="single"
+                                                    selected={field.value}
+                                                    onSelect={field.onChange}
+                                                    disabled={(d) => d < new Date(new Date().setDate(new Date().getDate() -1))}
+                                                    initialFocus
+                                                />
+                                            </PopoverContent>
+                                        </Popover>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="bookingTime"
+                                render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Booking Time</FormLabel>
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormControl>
+                                        <SelectTrigger>
+                                        <SelectValue placeholder="Select a time" />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                        {timeSlots.map((time) => (
+                                        <SelectItem key={time} value={time}>
+                                            {time}
+                                        </SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                    </Select>
                                     <FormMessage />
-                                 </FormItem>
-                            )}
-                        />
+                                </FormItem>
+                                )}
+                            />
+                        </div>
                         <Button
                             type="submit"
                             disabled={isPending || !form.formState.isValid}
@@ -397,76 +437,4 @@ export default function ServicesPage() {
 
             <div className="space-y-12">
                 <div className="text-center">
-                  <h2 className="text-3xl font-bold">Private Events</h2>
-                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">You've planned the perfect party, now it's time to enjoy it! From intimate dinners to milestone birthdays, we'll capture the atmosphere and the memories, so you can relax and be present with your guests.</p>
-                </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    {eventPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
-                </div>
-            </div>
-
-            <div className="space-y-12 pt-16">
-                <div className="text-center">
-                  <h2 className="text-3xl font-bold">Extras & Add-Ons</h2>
-                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">Customise your collection with our à la carte options to make it perfectly yours.</p>
-                </div>
-
-                <Card className="bg-black/75 border-white/20 max-w-4xl mx-auto">
-                  <CardContent className="p-0">
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="item-1" className="border-b-0">
-                        <AccordionTrigger className="p-6 text-lg font-semibold hover:no-underline">
-                          General Package Add-Ons
-                        </AccordionTrigger>
-                        <AccordionContent className="p-6 pt-0">
-                          <ul className="space-y-3">
-                              {addOns.map(item => (
-                                  <li key={item.name} className="flex justify-between items-center text-white/90">
-                                      <span>{item.name}</span>
-                                      <span className="font-semibold text-right pl-4">{item.price}</span>
-                                  </li>
-                              ))}
-                          </ul>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-black/75 border-white/20 max-w-4xl mx-auto">
-                    <CardHeader>
-                        <CardTitle>Travel Costs</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-white/80">
-                            Travel within a 35km radius of Sandton is included free of charge. For locations beyond this, a fee is charged for the return trip. Please contact us for a precise quote for your location.
-                        </p>
-                    </CardContent>
-                </Card>
-            </div>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="container max-w-3xl">
-          <Card className="bg-black/75 border-primary/50 text-center">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold">Planning a Wedding?</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-white/80 mb-6">
-                We have dedicated packages and a specialised enquiry form for weddings. Let's start planning your big day.
-              </p>
-              <Button asChild size="lg">
-                <Link href="/for-personal/wedding-enquiry">
-                  Wedding Enquiry
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-    </div>
-  );
-}
+                  <h2 className="text-3xl font-.

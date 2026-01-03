@@ -52,4 +52,5 @@ export const personalBookingSchema = z.object({
     email: z.string().email("Please enter a valid email address."),
     phone: z.string().optional(),
     bookingDate: z.date({ required_error: "Please select a date." }),
+    bookingTime: z.string({ required_error: "Please select a time." }).min(1, "Please select a time."),
 });

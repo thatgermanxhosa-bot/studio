@@ -1,4 +1,3 @@
-
 "use server";
 
 import { z } from "zod";
@@ -125,13 +124,14 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
     return { error: "Payment provider is not configured correctly." };
   }
 
-  const { amount, currency, itemName, bookingDate, name, email, phone } = validatedFields.data;
+  const { amount, currency, itemName, bookingDate, bookingTime, name, email, phone } = validatedFields.data;
 
   const metadata: { [key: string]: string | undefined } = {
     itemName: itemName,
     customerName: name,
     customerEmail: email,
     customerPhone: phone,
+    bookingTime: bookingTime,
   };
   if (bookingDate) {
     metadata.bookingDate = bookingDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
@@ -154,7 +154,7 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
 
     const idempotencyKey = randomUUID();
     
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://localhost:9002';
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pichulikstudios.co.za';
 
     const response = await fetch('https://payments.yoco.com/api/checkouts', {
       method: 'POST',
