@@ -79,7 +79,7 @@ const lifestylePackages = [
     price: "5500",
     duration: "90 Min",
     details: ["A fun, high-energy session to get a whole variety of looks.", "Best For: People who want a lot of variety in one go.", "Included: 30 edited images + 2 outfit changes + raw video clips for your TikTok or Reels."],
-    badge: "Studio or On-Location"
+    badge: "On-Location"
   },
   {
     title: "The Full Visual Bank",
@@ -103,14 +103,14 @@ const familyPackages = [
         price: "5200",
         duration: "60-90 min",
         details: ["Outdoor sunset or cozy in-home session", "35+ edited images", "Includes styling guide"],
-        badge: "In-Home or On-Location"
+        badge: "On-Location"
     },
     {
         title: "The Newborn",
         price: "6000",
         duration: "2-3 hrs",
-        details: ["Patient & calm in-home session", "25 lightly retouched images", "Focus on baby with family photos included"],
-        badge: "In-Home"
+        details: ["Patient & calm session", "25 lightly retouched images", "Focus on baby with family photos included"],
+        badge: "In-Home or Studio"
     },
     {
         title: "Day in the Life",
@@ -175,6 +175,7 @@ const eventPackages = [
         badge: "Venue"
     }
 ];
+
 
 const addOns = [
     { name: "Additional Hour/s of Coverage", price: "R 1 800" },
@@ -501,5 +502,3 @@ export default function ServicesClient() {
     </div>
   );
 }
-
-    
