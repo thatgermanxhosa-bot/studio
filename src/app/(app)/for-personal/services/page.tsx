@@ -437,4 +437,44 @@ export default function ServicesPage() {
 
             <div className="space-y-12">
                 <div className="text-center">
-                  <h2 className="text-3xl font-.
+                  <h2 className="text-3xl font-bold">Events</h2>
+                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">Big or small, every celebration deserves to be remembered. We'll cover your event with an eye for detail and a knack for capturing the atmosphere, leaving you free to enjoy the moment.</p>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {eventPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
+                </div>
+            </div>
+
+            <div className="space-y-8 max-w-4xl mx-auto text-center">
+                <h2 className="text-3xl font-bold">Customize Your Package</h2>
+                <p className="text-white/80">Need something a little different? We can tailor any package to fit your needs. Check out our add-ons or get in touch for a custom quote.</p>
+                
+                <Accordion type="single" collapsible className="w-full bg-black/75 border border-white/20 rounded-lg px-6">
+                    <AccordionItem value="item-1">
+                        <AccordionTrigger className="text-xl font-bold hover:no-underline">Popular Add-Ons</AccordionTrigger>
+                        <AccordionContent>
+                        <ul className="space-y-3 text-left pt-4">
+                            {addOns.map(addon => (
+                            <li key={addon.name} className="flex justify-between items-center border-b border-white/10 pb-3">
+                                <span>{addon.name}</span>
+                                <span className="font-semibold">{addon.price}</span>
+                            </li>
+                            ))}
+                        </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
+            </div>
+            
+             <div className="text-center">
+                <p className="text-lg text-white/80 mb-6">Have a different kind of project in mind? Let's chat.</p>
+                <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-black">
+                    <Link href="/for-personal/contact">Contact Us For a Custom Quote <ArrowRight className="ml-2" /></Link>
+                </Button>
+            </div>
+
+        </div>
+      </section>
+    </div>
+  );
+}
