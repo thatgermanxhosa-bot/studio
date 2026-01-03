@@ -60,7 +60,7 @@ export default function OurWorkClient() {
               return (
                 <div key={videoInfo.src} className="group relative block aspect-video overflow-hidden rounded-lg shadow-lg bg-black/75 cursor-pointer" onClick={!showControls[index] ? () => handlePlayVideo(index) : undefined}>
                   <video
-                    ref={el => videoRefs.current[index] = el}
+                    ref={(el) => { videoRefs.current[index] = el; }}
                     src={videoInfo.src}
                     poster={videoInfo.poster}
                     className="w-full h-full object-cover"
