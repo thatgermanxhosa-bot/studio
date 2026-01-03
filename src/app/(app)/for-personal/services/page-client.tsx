@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, useTransition } from 'react';
@@ -45,47 +44,48 @@ import { Input } from "@/components/ui/input";
 import { useToast } from '@/hooks/use-toast';
 import { createYocoCheckout } from '@/lib/actions';
 
+
 const lifestylePackages = [
   {
     title: "The Grad-and-Go (Essential)",
     price: "950",
     duration: "45 Min",
-    details: ["Quick, iconic campus photos to celebrate your degree.", "15 edited digital images", "48-hour delivery."],
+    details: ["Celebrate your achievement with a quick, iconic photoshoot on campus. We'll capture your big moment so you can get back to the party.", "Includes 15 professionally edited images.", "Fast 48-hour delivery of your photos."],
     badge: "On-Campus"
   },
   {
     title: "The Career Launch (All-In-One)",
     price: "2850",
     duration: "2 Hours",
-    details: ["The full graduation celebration + your first 'grown-up' professional headshots for your CV.", "40+ photos, family shots, and 5 dedicated LinkedIn headshots.", "24-hour priority delivery."],
+    details: ["Capture the full graduation experience and kickstart your career in one session. Get celebratory shots with family and sleek, professional headshots for your CV.", "Includes 40+ images, family photos, and 5 dedicated LinkedIn headshots.", "24-hour priority delivery to get you started."],
     badge: "On-Campus & Studio"
   },
   {
     title: "The Studio Quickie (Mini Session)",
     price: "2200",
     duration: "30 Min",
-    details: ["A fast, high-quality studio refresh. No fuss, just great lighting.", "Best For: A new profile pic, a fresh CV photo, or a quick portrait update.", "Included: 5 edited images."],
+    details: ["Need a fast, high-impact update? This session delivers stunning portraits with professional lighting, no fuss.", "Perfect for a new profile picture, a CV refresh, or a quick confidence boost.", "Includes 5 polished, edited images."],
     badge: "Studio"
   },
   {
     title: "The Lifestyle Standard",
     price: "4200",
     duration: "1 Hour",
-    details: ["More time to play. This is perfect for a mix of casual and 'dressed up' shots.", "Best For: Personal branding, updated social photos, or a solo creative session.", "Included: 20 edited images + Black & White copies."],
+    details: ["Let's create something that's truly you. This session gives us time to play with different looks, from casual and candid to stylish and posed.", "Ideal for personal branding, social media content, or simply celebrating yourself.", "Includes 20 edited images plus black & white versions."],
     badge: "Studio or On-Location"
   },
   {
     title: "The Creative Batch",
     price: "5500",
     duration: "90 Min",
-    details: ["A fun, high-energy session to get a whole variety of looks.", "Best For: People who want a lot of variety in one go.", "Included: 30 edited images + 2 outfit changes + raw video clips for your TikTok or Reels."],
+    details: ["A high-energy session designed for maximum variety. We'll explore different outfits and styles to build a rich library of content.", "Perfect for influencers and creators who need a diverse range of looks.", "Includes 30 edited images, 2 outfit changes, and raw video clips for your socials."],
     badge: "On-Location"
   },
   {
     title: "The Full Visual Bank",
     price: "6800",
     duration: "2 Hours",
-    details: ["The ultimate personal glow-up. We spend the time to get every angle right.", "Best For: Anyone needing a massive library of high-quality content for personal use.", "Included: 40+ premium images across 2 different locations."],
+    details: ["The ultimate session for a complete visual overhaul. We'll spend time crafting the perfect shots to tell your story.", "Ideal for anyone wanting a massive library of high-quality, versatile content.", "Includes 40+ premium images captured across 2 stunning locations."],
     badge: "Multi-Location"
   }
 ];
@@ -95,28 +95,28 @@ const familyPackages = [
         title: "Quick & Easy",
         price: "2500",
         duration: "30 min",
-        details: ["Great for short attention spans", "10 edited photos", "Immediate family only"],
+        details: ["Perfect for capturing beautiful family moments, even with the shortest attention spans.", "Includes 10 beautifully edited photos.", "For immediate family members."],
         badge: "Studio or Park"
     },
     {
         title: "Golden Hour",
         price: "5200",
         duration: "60-90 min",
-        details: ["Outdoor sunset or cozy in-home session", "35+ edited images", "Includes styling guide"],
+        details: ["Let's chase the sunset or get cozy at home. This session is all about warm, authentic moments.", "Includes 35+ dreamy, edited images.", "Comes with a complimentary styling guide."],
         badge: "On-Location"
     },
     {
         title: "The Newborn",
         price: "6000",
         duration: "2-3 hrs",
-        details: ["Patient & calm session", "25 lightly retouched images", "Focus on baby with family photos included"],
+        details: ["A calm, patient session capturing the tender, fleeting moments with your new arrival.", "Includes 25 delicately retouched images.", "Focuses on your baby, with beautiful family photos included."],
         badge: "In-Home or Studio"
     },
     {
         title: "Day in the Life",
         price: "9500",
         duration: "3-4 hrs",
-        details: ["Captures genuine, unposed moments at home", "75+ edited photos", "Includes a softcover photo book"],
+        details: ["Forget posing. This documentary-style session captures the genuine, unscripted story of your family.", "Includes 75+ candid, edited photos.", "A beautiful softcover photo book to tell your story."],
         badge: "In-Home & Outing"
     }
 ];
@@ -126,28 +126,28 @@ const couplesPackages = [
         title: "Save the Date",
         price: "3200",
         duration: "45 min",
-        details: ["Ideal for your invitations", "10 edited images"],
+        details: ["Announce your big news in style with a short and sweet session.", "Perfect for creating beautiful images for your invitations.", "Includes 10 perfectly edited images."],
         badge: "On-Location"
     },
     {
         title: "Date Night",
         price: "5500",
         duration: "90 min",
-        details: ["Perfect for an engagement shoot", "40 edited images", "2 locations/looks"],
+        details: ["Let's go on an adventure! This is the quintessential engagement shoot experience.", "Explore two locations and two different looks for a diverse gallery.", "Includes 40 romantic, edited images."],
         badge: "Multi-Location"
     },
     {
         title: "Anniversary",
         price: "4800",
         duration: "1 hr",
-        details: ["Celebrate another year together", "25 edited images", "A fun, relaxed session"],
+        details: ["Celebrate another year of your love story with a fun, relaxed, and intimate photoshoot.", "A beautiful way to reconnect and create new memories.", "Includes 25 cherished, edited images."],
         badge: "On-Location"
     },
     {
         title: "The Secret Proposal",
         price: "8500",
         duration: "Planning + 1 hr shoot",
-        details: ["Captures the 'YES!' moment", "Includes planning consultation", "30 photos + highlight video clip"],
+        details: ["Let's plan the perfect surprise! We'll hide in plain sight to capture the 'YES!' moment forever.", "Includes a detailed planning consultation.", "Receive 30+ photos and a highlight video clip of the magic."],
         badge: "Your Secret Spot"
     }
 ];
@@ -157,21 +157,21 @@ const eventPackages = [
         title: "Essential",
         price: "3500",
         duration: "2 hrs",
-        details: ["For kids' parties or intimate dinners", "60-80 edited images"],
+        details: ["Perfect for capturing the key moments of your intimate gathering, like a kids' party or small dinner.", "Focuses on the smiles, laughs, and special details.", "Includes 60-80 vibrant, edited images."],
         badge: "Venue"
     },
     {
         title: "Celebration",
         price: "6500",
         duration: "4 hrs",
-        details: ["For bigger bashes like 21sts or launch parties", "150+ edited images", "10 teaser photos included"],
+        details: ["For bigger bashes like 21st birthdays or launch parties where you don't want to miss a thing.", "Comprehensive coverage of the guests, decor, and atmosphere.", "Includes 150+ edited images plus 10 teaser photos."],
         badge: "Venue"
     },
     {
         title: "Gala",
         price: "12000",
         duration: "Up to 6 hrs",
-        details: ["Comprehensive event coverage", "300+ edited images", "Includes candid & formal shots", "48-hour delivery for key shots"],
+        details: ["The complete event package for when every moment is important. We'll capture it all.", "A mix of candid moments and formal shots to tell the full story.", "Includes 300+ edited images with priority 48-hour delivery for key shots."],
         badge: "Venue"
     }
 ];
@@ -432,7 +432,7 @@ export default function ServicesClient() {
             <div className="space-y-12">
                 <div className="text-center">
                   <h2 className="text-3xl font-bold">Lifestyle & Branding</h2>
-                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">Whether you're a content creator, a professional updating your profile, or just looking to capture your unique vibe, these packages are designed to make you shine.</p>
+                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">For the creators, the graduates, and the professionals. These sessions are designed to capture your unique personality and ambition, delivering images that make you stand out.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {lifestylePackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
@@ -442,7 +442,7 @@ export default function ServicesClient() {
             <div className="space-y-12">
                 <div className="text-center">
                   <h2 className="text-3xl font-bold">Family & Maternity</h2>
-                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">From the beautiful bump to the chaotic joy of a full house, these sessions are all about capturing the love and connection that makes your family unique. Let's freeze these precious moments in time.</p>
+                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">From the beautiful glow of maternity to the chaotic joy of a full house. Let's capture the love and connection that makes your family's story so special and turn these fleeting moments into timeless treasures.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {familyPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
@@ -452,7 +452,7 @@ export default function ServicesClient() {
             <div className="space-y-12">
                 <div className="text-center">
                   <h2 className="text-3xl font-bold">Couples & Engagements</h2>
-                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">It all starts with the two of you. Let's celebrate your love story, whether it's a secret proposal, a fun date night, or announcing your engagement to the world. These sessions are about capturing your connection.</p>
+                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">Your love story is one-of-a-kind. Whether it's a secret proposal, an adventurous date night, or announcing your engagement to the world, we'll capture your unique connection and chemistry.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {couplesPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
@@ -462,7 +462,7 @@ export default function ServicesClient() {
             <div className="space-y-12">
                 <div className="text-center">
                   <h2 className="text-3xl font-bold">Events</h2>
-                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">Big or small, every celebration deserves to be remembered. We'll cover your event with an eye for detail and a knack for capturing the atmosphere, leaving you free to enjoy the moment.</p>
+                  <p className="mt-2 text-white/80 max-w-2xl mx-auto">Big or small, every celebration is worth remembering. We capture the energy, the details, and the candid moments, so you can relax and relive the joy of your special day, stress-free.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {eventPackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
@@ -502,3 +502,5 @@ export default function ServicesClient() {
     </div>
   );
 }
+
+    
