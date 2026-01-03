@@ -187,7 +187,8 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
       if (submissionId) {
         await db?.collection('submissions').doc(submissionId).update({ 'data.status': 'failed', 'data.yocoError': errorData });
       }
-      return { error: `Failed to create payment session: ${errorData.message || 'Unknown error'}` };
+      const errorMessage = errorData.message || JSON.stringify(errorData);
+      return { error: `Failed to create payment session: ${errorMessage}` };
     }
 
     const checkoutData = await response.json();
