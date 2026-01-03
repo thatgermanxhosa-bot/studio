@@ -86,7 +86,7 @@ const lifestylePackages = [
     price: "6800",
     duration: "2 Hours",
     details: ["The Vibe: The ultimate personal glow-up. We spend the time to get every angle right.", "Best For: Anyone needing a massive library of high-quality content.", "Included: 40+ premium images across 2 different locations.", "Location: 2 locations of your choice."],
-    badge: "Branding"
+    badge: "Location"
   }
 ];
 
