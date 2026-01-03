@@ -20,6 +20,7 @@ import {
   DialogTitle,
   DialogDescription,
   DialogTrigger,
+  DialogFooter
 } from "@/components/ui/dialog";
 import {
   Popover,
