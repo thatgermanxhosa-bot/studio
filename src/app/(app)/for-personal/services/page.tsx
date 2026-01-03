@@ -20,7 +20,6 @@ import {
   DialogTitle,
   DialogDescription,
   DialogTrigger,
-  DialogFooter
 } from "@/components/ui/dialog";
 import {
   Popover,
@@ -45,35 +44,54 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { useToast } from '@/hooks/use-toast';
 import { createYocoCheckout } from '@/lib/actions';
+import type { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: 'Services & Bookings | For Personal | Pichulik Studios',
+  description: 'Find the perfect package to capture your story. We offer a range of photography and videography services tailored to your personal milestones.',
+};
 
 const lifestylePackages = [
   {
-    title: "Mini Session",
-    price: "2200",
-    duration: "30 min",
-    details: ["Perfect for quick headshots (LinkedIn/CVs)", "5 edited images", "Sandton studio or immediate area only"],
-    badge: "Headshots"
+    title: "The Grad-and-Go (Essential)",
+    price: "950",
+    duration: "45 Min",
+    details: ["The Vibe: Quick, iconic campus photos to celebrate your degree.", "Included: 15 edited digital images. 48-hour delivery."],
+    badge: "Graduation"
   },
   {
-    title: "Standard Influencer",
-    price: "4200",
-    duration: "1 hr",
-    details: ["Ideal for social media content", "20 edited images + B&W copies", "1 location"],
-    badge: "Content"
+    title: "The Career Launch (All-In-One)",
+    price: "2850",
+    duration: "2 Hours",
+    details: ["The Vibe: The full graduation celebration + your first 'grown-up' professional headshots for your CV.", "Included: 40+ photos, family shots, and 5 dedicated LinkedIn headshots. 24-hour priority delivery."],
+    badge: "Graduation"
   },
-    {
-    title: "Content Creator",
+  {
+    title: "The Studio Quickie (Mini Session)",
+    price: "2200",
+    duration: "30 Min",
+    details: ["The Vibe: A fast, high-quality studio refresh. No fuss, just great lighting.", "Best For: A new profile pic, a fresh CV photo, or a quick portrait update.", "Included: 5 edited images.", "Location: Sandton Studio only."],
+    badge: "Studio"
+  },
+  {
+    title: "The Lifestyle Standard",
+    price: "4200",
+    duration: "1 Hour",
+    details: ["The Vibe: More time to play. This is perfect for a mix of casual and 'dressed up' shots.", "Best For: Personal branding, updated social photos, or a solo creative session.", "Included: 20 edited images + Black & White copies.", "Location: Studio or 1 local Sandton spot."],
+    badge: "On-Location"
+  },
+  {
+    title: "The Creative Batch",
     price: "5500",
-    duration: "90 min",
-    details: ["A batch of content for your feed", "30 edited images", "Up to 2 looks/themes", "Includes short-form video clips"],
+    duration: "90 Min",
+    details: ["The Vibe: A fun, high-energy session to get a whole variety of looks.", "Best For: People who want a lot of variety in one go.", "Included: 30 edited images + 2 outfit changes + raw video clips for your TikTok or Reels."],
     badge: "Creator"
   },
   {
-    title: "Premium Brand",
+    title: "The Full Visual Bank",
     price: "6800",
-    duration: "2 hrs",
-    details: ["For websites & 3 months of content", "40+ edited images", "Up to 2 locations"],
+    duration: "2 Hours",
+    details: ["The Vibe: The ultimate personal or business glow-up. We spend the time to get every angle right.", "Best For: Small business owners or anyone needing a massive library of high-quality content.", "Included: 40+ premium images across 2 different locations."],
     badge: "Branding"
   }
 ];
@@ -410,7 +428,7 @@ export default function ServicesPage() {
                   <h2 className="text-3xl font-bold">Lifestyle & Branding</h2>
                   <p className="mt-2 text-white/80 max-w-2xl mx-auto">Whether you're a content creator, a professional updating your profile, or just looking to capture your unique vibe, these packages are designed to make you shine.</p>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {lifestylePackages.map(pkg => <PackageCard key={pkg.title} pkg={pkg} />)}
                 </div>
             </div>
