@@ -50,43 +50,43 @@ const lifestylePackages = [
     title: "The Grad-and-Go (Essential)",
     price: "950",
     duration: "45 Min",
-    details: ["Quick, iconic campus photos to celebrate your degree.", "15 edited digital images", "48-hour delivery.", "Location: On-campus or desired location."],
-    badge: "Graduation"
+    details: ["Quick, iconic campus photos to celebrate your degree.", "15 edited digital images", "48-hour delivery."],
+    badge: "On-Campus"
   },
   {
     title: "The Career Launch (All-In-One)",
     price: "2850",
     duration: "2 Hours",
-    details: ["The full graduation celebration + your first 'grown-up' professional headshots for your CV.", "40+ photos, family shots, and 5 dedicated LinkedIn headshots.", "24-hour priority delivery.", "Location: On-campus & Studio."],
-    badge: "Graduation"
+    details: ["The full graduation celebration + your first 'grown-up' professional headshots for your CV.", "40+ photos, family shots, and 5 dedicated LinkedIn headshots.", "24-hour priority delivery."],
+    badge: "On-Campus & Studio"
   },
   {
     title: "The Studio Quickie (Mini Session)",
     price: "2200",
     duration: "30 Min",
-    details: ["A fast, high-quality studio refresh. No fuss, just great lighting.", "Best For: A new profile pic, a fresh CV photo, or a quick portrait update.", "Included: 5 edited images.", "Location: Sandton Studio only."],
+    details: ["A fast, high-quality studio refresh. No fuss, just great lighting.", "Best For: A new profile pic, a fresh CV photo, or a quick portrait update.", "Included: 5 edited images."],
     badge: "Studio"
   },
   {
     title: "The Lifestyle Standard",
     price: "4200",
     duration: "1 Hour",
-    details: ["More time to play. This is perfect for a mix of casual and 'dressed up' shots.", "Best For: Personal branding, updated social photos, or a solo creative session.", "Included: 20 edited images + Black & White copies.", "Location: Studio or 1 local Sandton spot."],
-    badge: "On-Location"
+    details: ["More time to play. This is perfect for a mix of casual and 'dressed up' shots.", "Best For: Personal branding, updated social photos, or a solo creative session.", "Included: 20 edited images + Black & White copies."],
+    badge: "Studio or On-Location"
   },
   {
     title: "The Creative Batch",
     price: "5500",
     duration: "90 Min",
-    details: ["A fun, high-energy session to get a whole variety of looks.", "Best For: People who want a lot of variety in one go.", "Included: 30 edited images + 2 outfit changes + raw video clips for your TikTok or Reels.", "Location: Studio or multiple local spots."],
-    badge: "On-Location"
+    details: ["A fun, high-energy session to get a whole variety of looks.", "Best For: People who want a lot of variety in one go.", "Included: 30 edited images + 2 outfit changes + raw video clips for your TikTok or Reels."],
+    badge: "Studio or On-Location"
   },
   {
     title: "The Full Visual Bank",
     price: "6800",
     duration: "2 Hours",
-    details: ["The ultimate personal glow-up. We spend the time to get every angle right.", "Best For: Anyone needing a massive library of high-quality content for personal use.", "Included: 40+ premium images across 2 different locations.", "Location: 2 locations of your choice."],
-    badge: "Location"
+    details: ["The ultimate personal glow-up. We spend the time to get every angle right.", "Best For: Anyone needing a massive library of high-quality content for personal use.", "Included: 40+ premium images across 2 different locations."],
+    badge: "Multi-Location"
   }
 ];
 
@@ -95,25 +95,29 @@ const familyPackages = [
         title: "Quick & Easy",
         price: "2500",
         duration: "30 min",
-        details: ["Great for short attention spans", "10 edited photos", "Immediate family only", "Location: Studio or local park"],
+        details: ["Great for short attention spans", "10 edited photos", "Immediate family only"],
+        badge: "Studio or Park"
     },
     {
         title: "Golden Hour",
         price: "5200",
         duration: "60-90 min",
-        details: ["Outdoor sunset or cozy in-home session", "35+ edited images", "Includes styling guide", "Location: Your home or chosen outdoor spot"],
+        details: ["Outdoor sunset or cozy in-home session", "35+ edited images", "Includes styling guide"],
+        badge: "In-Home or On-Location"
     },
     {
         title: "The Newborn",
         price: "6000",
         duration: "2-3 hrs",
-        details: ["Patient & calm in-home session", "25 lightly retouched images", "Focus on baby with family photos included", "Location: Your home"],
+        details: ["Patient & calm in-home session", "25 lightly retouched images", "Focus on baby with family photos included"],
+        badge: "In-Home"
     },
     {
         title: "Day in the Life",
         price: "9500",
         duration: "3-4 hrs",
-        details: ["Captures genuine, unposed moments at home", "75+ edited photos", "Includes a softcover photo book", "Location: Your home & a local outing"],
+        details: ["Captures genuine, unposed moments at home", "75+ edited photos", "Includes a softcover photo book"],
+        badge: "In-Home & Outing"
     }
 ];
 
@@ -122,25 +126,29 @@ const couplesPackages = [
         title: "Save the Date",
         price: "3200",
         duration: "45 min",
-        details: ["Ideal for your invitations", "10 edited images", "Location: 1 chosen spot"],
+        details: ["Ideal for your invitations", "10 edited images"],
+        badge: "On-Location"
     },
     {
         title: "Date Night",
         price: "5500",
         duration: "90 min",
-        details: ["Perfect for an engagement shoot", "40 edited images", "2 locations/looks", "Location: 2 chosen spots"],
+        details: ["Perfect for an engagement shoot", "40 edited images", "2 locations/looks"],
+        badge: "Multi-Location"
     },
     {
         title: "Anniversary",
         price: "4800",
         duration: "1 hr",
-        details: ["Celebrate another year together", "25 edited images", "A fun, relaxed session", "Location: A meaningful spot for you"],
+        details: ["Celebrate another year together", "25 edited images", "A fun, relaxed session"],
+        badge: "On-Location"
     },
     {
         title: "The Secret Proposal",
         price: "8500",
         duration: "Planning + 1 hr shoot",
-        details: ["Captures the 'YES!' moment", "Includes planning consultation", "30 photos + highlight video clip", "Location: Your secret proposal spot"],
+        details: ["Captures the 'YES!' moment", "Includes planning consultation", "30 photos + highlight video clip"],
+        badge: "Your Secret Spot"
     }
 ];
 
@@ -149,19 +157,22 @@ const eventPackages = [
         title: "Essential",
         price: "3500",
         duration: "2 hrs",
-        details: ["For kids' parties or intimate dinners", "60-80 edited images", "Location: 1 event venue"],
+        details: ["For kids' parties or intimate dinners", "60-80 edited images"],
+        badge: "Venue"
     },
     {
         title: "Celebration",
         price: "6500",
         duration: "4 hrs",
-        details: ["For bigger bashes like 21sts or launch parties", "150+ edited images", "10 teaser photos included", "Location: 1 event venue"],
+        details: ["For bigger bashes like 21sts or launch parties", "150+ edited images", "10 teaser photos included"],
+        badge: "Venue"
     },
     {
         title: "Gala",
         price: "12000",
         duration: "Up to 6 hrs",
-        details: ["Comprehensive event coverage", "300+ edited images", "Includes candid & formal shots", "48-hour delivery for key shots", "Location: 1 event venue"],
+        details: ["Comprehensive event coverage", "300+ edited images", "Includes candid & formal shots", "48-hour delivery for key shots"],
+        badge: "Venue"
     }
 ];
 
