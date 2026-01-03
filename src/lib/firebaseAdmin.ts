@@ -1,4 +1,3 @@
-
 import * as admin from 'firebase-admin';
 
 let db: admin.firestore.Firestore;
@@ -17,4 +16,4 @@ if (!admin.apps.length) {
 db = admin.firestore();
 auth = admin.auth();
 
-export { db, auth, admin };
+export { db, auth };

@@ -10,9 +10,10 @@ export async function GET() {
       displayName: user.displayName,
     }));
 
-    return NextResponse.json({ users });
-  } catch (error) {
+    return NextResponse.json({ users }, { status: 200 });
+  } catch (error: any) {
     console.error("Error listing users:", error);
-    return NextResponse.json({ error: "Failed to fetch users" }, { status: 500 });
+    const errorMessage = error.message || "Failed to fetch users";
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }
