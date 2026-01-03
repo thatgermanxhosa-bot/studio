@@ -153,6 +153,8 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
     }
 
     const idempotencyKey = randomUUID();
+    
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://localhost:9002';
 
     const response = await fetch('https://payments.yoco.com/api/checkouts', {
       method: 'POST',
@@ -174,9 +176,9 @@ export async function createYocoCheckout(data: z.infer<typeof yocoCheckoutSchema
           }
         ],
         metadata,
-        successUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/payment-success`,
-        cancelUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/for-personal/services`,
-        failureUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/for-personal/services`,
+        successUrl: `${siteUrl}/payment-success`,
+        cancelUrl: `${siteUrl}/for-personal/services`,
+        failureUrl: `${siteUrl}/for-personal/services`,
       }),
     });
 
