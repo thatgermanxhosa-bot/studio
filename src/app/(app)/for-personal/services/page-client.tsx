@@ -79,13 +79,13 @@ const lifestylePackages = [
     price: "5500",
     duration: "90 Min",
     details: ["A fun, high-energy session to get a whole variety of looks.", "Best For: People who want a lot of variety in one go.", "Included: 30 edited images + 2 outfit changes + raw video clips for your TikTok or Reels.", "Location: Studio or multiple local spots."],
-    badge: "Creator"
+    badge: "On-Location"
   },
   {
     title: "The Full Visual Bank",
     price: "6800",
     duration: "2 Hours",
-    details: ["The ultimate personal glow-up. We spend the time to get every angle right.", "Best For: Anyone needing a massive library of high-quality content.", "Included: 40+ premium images across 2 different locations.", "Location: 2 locations of your choice."],
+    details: ["The ultimate personal glow-up. We spend the time to get every angle right.", "Best For: Anyone needing a massive library of high-quality content for personal use.", "Included: 40+ premium images across 2 different locations.", "Location: 2 locations of your choice."],
     badge: "Location"
   }
 ];
