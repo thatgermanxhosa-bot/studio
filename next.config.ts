@@ -1,3 +1,4 @@
+
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
@@ -23,6 +24,15 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  devIndicators: {
+    buildActivity: false,
+    buildActivityPosition: 'bottom-right',
+  },
+  experimental: {
+    allowedDevOrigins: [
+        "https://6000-firebase-ps-website-1763251728585.cluster-ve345ymguzcd6qqzuko2qbxtfe.cloudworkstations.dev",
+    ]
   },
 };
 
