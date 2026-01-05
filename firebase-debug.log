@@ -73,3 +73,16 @@ You're about to initialize a Firebase project in this directory:
 [debug] [2026-01-03T19:22:31.027Z] No OAuth tokens found
 [debug] [2026-01-03T19:22:31.030Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/ps-website-99571379-b95c6/billingInfo [none]
 [debug] [2026-01-03T19:22:31.957Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/ps-website-99571379-b95c6/billingInfo 403
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-05T04:27:58.295Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-05T04:27:58.301Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-05T04:27:58.404Z] Running auto auth
+[debug] [2026-01-05T04:27:58.407Z] Running auto auth
+[debug] [2026-01-05T04:27:58.483Z] No OAuth tokens found
+[debug] [2026-01-05T04:27:58.485Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/ps-website-99571379-b95c6/billingInfo [none]
+[debug] [2026-01-05T04:27:58.554Z] No OAuth tokens found
+[debug] [2026-01-05T04:27:58.555Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/ps-website-99571379-b95c6/billingInfo [none]
+[debug] [2026-01-05T04:27:59.578Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/ps-website-99571379-b95c6/billingInfo 403
