@@ -1,13 +1,23 @@
 
+'use client';
+
+import { useState, useEffect } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Cookie Policy | Pichulik Studios',
-  description: 'Learn about how Pichulik Studios uses cookies on our website.',
-};
+// Metadata is now dynamically handled via a generateMetadata function if needed,
+// but for a client component, we'd set the title in a useEffect or a parent Server Component.
 
 export default function CookiePolicyPage() {
+  const [lastUpdated, setLastUpdated] = useState('');
+
+  useEffect(() => {
+    // Set document title on the client
+    document.title = 'Cookie Policy | Pichulik Studios';
+    // Set the date on the client to avoid hydration mismatch
+    setLastUpdated(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }));
+  }, []);
+
   return (
     <div className="bg-background text-foreground">
       <div className="container mx-auto px-6 py-24 pt-32 sm:py-32">
@@ -15,9 +25,11 @@ export default function CookiePolicyPage() {
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Cookie Policy
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-          </p>
+          {lastUpdated && (
+            <p className="mt-4 text-lg text-muted-foreground">
+              Last updated: {lastUpdated}
+            </p>
+          )}
 
           <div className="mt-10 space-y-8 text-base leading-7 text-muted-foreground">
             <p>

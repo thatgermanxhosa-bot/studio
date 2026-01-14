@@ -1,0 +1,59 @@
+
+name: Build and Deploy to Cloud Run
+
+on:
+  push:
+    branches:
+      - thatgermanxhosa-bot-patch-3
+
+env:
+  PROJECT_ID: 'ps-website-99571379-b95c6' # Replace with your Google Cloud project ID
+  SERVICE_NAME: 'pichulik-studios-website' # Replace with your Cloud Run service name
+  GAR_LOCATION: 'us-central1' # Replace with your Artifact Registry location
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: 'Set up Docker Buildx'
+        uses: docker/setup-buildx-action@v3
+
+      - name: 'Configure Docker for GAR'
+        run: gcloud auth configure-docker ${{ env.GAR_LOCATION }}-docker.pkg.dev
+
+      - name: 'Build and push Docker image'
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: 'Deploy to Cloud Run'
+        uses: 'google-github-actions/deploy-cloudrun@v2'
+        with:
+          service: '${{ env.SERVICE_NAME }}'
+          region: '${{ env.GAR_LOCATION }}'
+          image: '${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}'
+          flags: '--allow-unauthenticated'
+          env_vars: |
+            YOCO_SECRET_KEY=${{ secrets.YOCO_SECRET_KEY }}
+            YOCO_PUBLIC_KEY=${{ secrets.YOCO_PUBLIC_KEY }}
+            NEXT_PUBLIC_SITE_URL=${{ secrets.NEXT_PUBLIC_SITE_URL }}

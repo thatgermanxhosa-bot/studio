@@ -81,6 +81,8 @@ export default function Header() {
   if (isLandingPage) {
     return null; // Don't render header on the landing page
   }
+  
+  const showSwitchButton = isForBusiness || isForPersonal;
 
   return (
     <header className={headerClasses}>
@@ -111,11 +113,13 @@ export default function Header() {
                 {label}
               </Link>
             ))}
-             <Link href={isForBusiness ? "/for-personal/about" : "/for-business/about"}>
-                <Button size="sm" variant={hasBackground ? "outline" : "default"} className={cn(hasBackground && "text-white border-white hover:bg-white hover:text-black")}>
-                    {isForBusiness ? "For Personal" : "For Business"}
-                </Button>
-            </Link>
+            {showSwitchButton && (
+                <Link href={isForBusiness ? "/for-personal/about" : "/for-business/about"}>
+                    <Button size="sm" variant={hasBackground ? "outline" : "default"} className={cn(hasBackground && "text-white border-white hover:bg-white hover:text-black")}>
+                        {isForBusiness ? "For Personal" : "For Business"}
+                    </Button>
+                </Link>
+            )}
           </nav>
         </div>
 
@@ -152,11 +156,13 @@ export default function Header() {
                     {label}
                   </Link>
                 ))}
-                 <Link href={isForBusiness ? "/for-personal/about" : "/for-business/about"}>
-                    <Button size="lg" className="w-full mt-4">
-                        {isForBusiness ? "For Personal" : "For Business"}
-                    </Button>
-                </Link>
+                {showSwitchButton && (
+                    <Link href={isForBusiness ? "/for-personal/about" : "/for-business/about"}>
+                        <Button size="lg" className="w-full mt-4">
+                            {isForBusiness ? "For Personal" : "For Business"}
+                        </Button>
+                    </Link>
+                )}
               </div>
             </SheetContent>
           </Sheet>
