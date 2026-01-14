@@ -1,14 +1,406 @@
-
 {
-  "entities": {},
+  "entities": {
+    "Client": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Client",
+      "type": "object",
+      "description": "Represents a client of Pichulik Studios.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the client."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the client."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the client.",
+          "format": "email"
+        },
+        "company": {
+          "type": "string",
+          "description": "Company name of the client."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the client was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the client was last updated."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Project": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Project",
+      "type": "object",
+      "description": "Represents a project undertaken by Pichulik Studios.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the project."
+        },
+        "clientId": {
+          "type": "string",
+          "description": "Reference to the Client who commissioned the project. (Relationship: Client 1:N Project)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the project."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the project."
+        },
+        "startDate": {
+          "type": "string",
+          "description": "Date when the project started.",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "description": "Date when the project was completed.",
+          "format": "date-time"
+        },
+        "budget": {
+          "type": "number",
+          "description": "The budget allocated to the project."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the project was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the project was last updated."
+        }
+      },
+      "required": [
+        "id",
+        "clientId",
+        "name",
+        "description",
+        "startDate",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Booking": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Booking",
+      "type": "object",
+      "description": "Represents a booking made by a client for Pichulik Studios' services.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the booking."
+        },
+        "clientId": {
+          "type": "string",
+          "description": "Reference to the Client who made the booking. (Relationship: Client 1:N Booking)"
+        },
+        "serviceType": {
+          "type": "string",
+          "description": "Type of service booked (e.g., Videography, Photography)."
+        },
+        "bookingDate": {
+          "type": "string",
+          "description": "Date for the booking.",
+          "format": "date-time"
+        },
+        "projectDetails": {
+          "type": "string",
+          "description": "Additional details about the project for the booking."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the booking was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the booking was last updated."
+        }
+      },
+      "required": [
+        "id",
+        "clientId",
+        "serviceType",
+        "bookingDate",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "QuoteRequest": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "QuoteRequest",
+      "type": "object",
+      "description": "Represents a quote request submitted by a potential client.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the quote request."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the person requesting the quote."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the person requesting the quote.",
+          "format": "email"
+        },
+        "company": {
+          "type": "string",
+          "description": "Company name of the person requesting the quote."
+        },
+        "services": {
+          "type": "array",
+          "description": "List of services requested in the quote.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "projectDetails": {
+          "type": "string",
+          "description": "Details about the project for which the quote is requested."
+        },
+        "budget": {
+          "type": "number",
+          "description": "The budget that the client specified."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the quote request was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the quote request was last updated."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "services",
+        "projectDetails",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Testimonial": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Testimonial",
+      "type": "object",
+      "description": "Represents a client testimonial.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the testimonial."
+        },
+        "clientId": {
+          "type": "string",
+          "description": "Reference to the Client who provided the testimonial. (Relationship: Client 1:N Testimonial)"
+        },
+        "content": {
+          "type": "string",
+          "description": "The text content of the testimonial."
+        },
+        "author": {
+          "type": "string",
+          "description": "The author/source of the testimonial."
+        },
+        "authorTitle": {
+          "type": "string",
+          "description": "Title of the author (e.g., Marketing Director)."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the testimonial was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the testimonial was last updated."
+        }
+      },
+      "required": [
+        "id",
+        "clientId",
+        "content",
+        "author",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Submission": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Submission",
+      "type": "object",
+      "description": "Represents a generic form submission from the website.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the submission."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of submission (e.g., 'contact', 'quotation', 'wedding', 'payment').",
+          "enum": ["contact", "quotation", "wedding", "payment"]
+        },
+        "data": {
+          "type": "object",
+          "description": "The submitted form data."
+        },
+        "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The timestamp when the submission was created."
+        },
+        "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The timestamp when the submission was last updated."
+        }
+      },
+      "required": ["id", "type", "data", "createdAt", "updatedAt"]
+    }
+  },
   "auth": {
     "providers": [
+      "password",
       "anonymous"
-    ],
-    "authorizedDomains": [
-      "localhost",
-      "pichulikstudios.co.za"
     ]
   },
-  "firestore": {}
+  "firestore": {
+    "structure": [
+      {
+        "path": "/clients/{clientId}",
+        "definition": {
+          "entityName": "Client",
+          "schema": {
+            "$ref": "#/backend/entities/Client"
+          },
+          "description": "Stores client information. Each document represents a unique client.",
+          "params": [
+            {
+              "name": "clientId",
+              "description": "Unique identifier for the client."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/clients/{clientId}/projects/{projectId}",
+        "definition": {
+          "entityName": "Project",
+          "schema": {
+            "$ref": "#/backend/entities/Project"
+          },
+          "description": "Stores project information for a specific client. Each document represents a project commissioned by the client.",
+          "params": [
+            {
+              "name": "clientId",
+              "description": "Unique identifier for the client who commissioned the project."
+            },
+            {
+              "name": "projectId",
+              "description": "Unique identifier for the project."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/clients/{clientId}/bookings/{bookingId}",
+        "definition": {
+          "entityName": "Booking",
+          "schema": {
+            "$ref": "#/backend/entities/Booking"
+          },
+          "description": "Stores booking information for a specific client. Each document represents a booking made by the client.",
+          "params": [
+            {
+              "name": "clientId",
+              "description": "Unique identifier for the client who made the booking."
+            },
+            {
+              "name": "bookingId",
+              "description": "Unique identifier for the booking."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/quoteRequests/{quoteRequestId}",
+        "definition": {
+          "entityName": "QuoteRequest",
+          "schema": {
+            "$ref": "#/backend/entities/QuoteRequest"
+          },
+          "description": "Stores quote requests submitted by potential clients. Each document represents a quote request.",
+          "params": [
+            {
+              "name": "quoteRequestId",
+              "description": "Unique identifier for the quote request."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/clients/{clientId}/testimonials/{testimonialId}",
+        "definition": {
+          "entityName": "Testimonial",
+          "schema": {
+            "$ref": "#/backend/entities/Testimonial"
+          },
+          "description": "Stores testimonials provided by clients. Each document represents a testimonial from a specific client.",
+          "params": [
+            {
+              "name": "clientId",
+              "description": "Unique identifier for the client who provided the testimonial."
+            },
+            {
+              "name": "testimonialId",
+              "description": "Unique identifier for the testimonial."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/submissions/{submissionId}",
+        "definition": {
+          "entityName": "Submission",
+          "schema": {
+            "$ref": "#/backend/entities/Submission"
+          },
+          "description": "Stores all form submissions from the website. Each document represents a single submission.",
+          "params": [
+            {
+              "name": "submissionId",
+              "description": "Unique identifier for the submission."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed to track clients, projects, bookings, quote requests, and testimonials for Pichulik Studios. The structure prioritizes authorization independence and supports secure list operations by leveraging structural segregation and path-based ownership. Each entity is stored in its own top-level collection, with subcollections used to represent one-to-many relationships (e.g., a Client can have multiple Projects). This approach facilitates simple, robust security rules.\n\nAuthorization Independence: The structure avoids hierarchical authorization dependencies by not relying on `get()` calls in security rules. For example, accessing projects does not require fetching the client document first. Instead, the `clientId` is directly available within each `Project` document.\n\nQAPs (Rules are not Filters): The data structure enables secure list operations (QAPs) through structural segregation and explicit ownership. Path-based ownership (e.g., `/clients/{clientId}/projects/{projectId}`) ensures that listing projects can be secured by verifying that the requesting user (or authenticated system) has access to the specified client's data.\n\nEach top-level collection can have specific security rules applied, ensuring data is appropriately protected based on entity type. The structure is designed to be scalable, debuggable, and to facilitate the implementation of comprehensive security rules."
+  }
 }

@@ -1,16 +1,27 @@
 
+'use client';
+
+import { useState, useEffect } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Linkedin } from 'lucide-react';
 import Image from 'next/image';
+import { CookieBanner } from '@/components/cookie-banner';
 
-export const metadata: Metadata = {
-  title: 'Pichulik Studios | Make Stories That Move',
-  description: 'A creative video and photography studio for business and personal milestones. We make stories that move.',
-};
+// export const metadata: Metadata = {
+//   title: 'Pichulik Studios | Make Stories That Move',
+//   description: 'A creative video and photography studio for business and personal milestones. We make stories that move.',
+// };
 
 export default function Home() {
+  const [currentYear, setCurrentYear] = useState('');
+
+  useEffect(() => {
+    document.title = 'Pichulik Studios | Make Stories That Move';
+    setCurrentYear(new Date().getFullYear().toString());
+  }, []);
+
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <video
@@ -74,9 +85,10 @@ export default function Home() {
               <Image src="/LI%20Logo.png" alt="LinkedIn" width={24} height={24} />
             </Link>
           </div>
-          <p className="text-sm">&copy; {new Date().getFullYear()} Pichulik Studios. All rights reserved.</p>
+          {currentYear && <p className="text-sm">&copy; {currentYear} Pichulik Studios. All rights reserved.</p>}
         </footer>
       </div>
+      <CookieBanner />
     </div>
   );
 }
